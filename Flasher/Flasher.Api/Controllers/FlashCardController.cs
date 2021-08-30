@@ -24,7 +24,7 @@ namespace Flasher.Server.Controllers
         }
 
         [HttpGet]
-        public ActionResult<FlashCard> Get(int id)
+        public ActionResult<FlashCard> Get(int id = 1)
         {
             var flashCardItem = _flashCardRepository.Get(id);
             return Ok(flashCardItem);
