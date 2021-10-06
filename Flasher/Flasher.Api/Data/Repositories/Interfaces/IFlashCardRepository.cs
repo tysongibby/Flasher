@@ -9,5 +9,6 @@ namespace Flasher.Server.Data.Repositories.Interfaces
 {
     public interface IFlashCardRepository : IBaseRepository<FlashCard>
     {
+        Task<FlashCard> Update(FlashCard flashCard);
     }
 }
