@@ -1,5 +1,5 @@
 # Flasher
 Simple Flash Card Application - WIP
 
-Blazor PWA flash card application for studing any topic.
-Uses an SQLite database.
+Blazor web assembly flash card application for studing any topic.
+Uses a SQLite database.
