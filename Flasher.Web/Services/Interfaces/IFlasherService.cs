@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flasher.Web.Services.Interfaces
 {
-    interface IFlasherService
+    public interface IFlasherService
     {
         Task<FlashCard> Get(int id);
         Task<List<FlashCard>> GetAll();

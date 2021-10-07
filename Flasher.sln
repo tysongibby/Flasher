@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Api", "Flasher\Flas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Shared", "Flasher\Flasher.Shared\Flasher.Shared.csproj", "{9374836F-F54E-4AC7-9D15-7FF666604875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flasher.Web", "Flasher.Web\Flasher.Web.csproj", "{F8B2F3AC-53A2-4D2F-9BFC-3B58EEB8232D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Web", "Flasher.Web\Flasher.Web.csproj", "{F8B2F3AC-53A2-4D2F-9BFC-3B58EEB8232D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -26,6 +26,7 @@ namespace Flasher.Api
         }
 
         public IConfiguration Configuration { get; }
+        readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -44,6 +45,17 @@ namespace Flasher.Api
 
             // Dependency Injection
             services.AddScoped<IFlashCardRepository, FlashCardRepository>();
+
+            // Cross Origin Requests (CORS)
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:65059",
+                                                          "https://localhost:44398");
+                                  });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +71,9 @@ namespace Flasher.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // CORS
+            app.UseCors(AllowSpecificOrigins);
 
             app.UseAuthorization();
 
