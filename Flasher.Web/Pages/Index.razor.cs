@@ -8,51 +8,64 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flasher.Web.Pages
 {
-//    public partial class Index
-//    {
-//        [Inject]
-//        private IFlasherService FlasherService { get; set; }
-//        private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
-//        private int CardIndex { get; set; } = 0;
-//        private bool Front { get; set; } = true;
-//        private string FlashCardSide { get; set; } = "Front";
+    public partial class Index
+    {
+        [Inject]
+        private IFlasherService FlasherService { get; set; }
+        private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
+        private int CardIndex { get; set; } = 0;
+        private bool Front { get; set; } = true;
+        private string FlashCardSide { get; set; } = "Front";
 
-//        private string FlashCardBody { get; set; }
-//        private string ShowButton { get; set; } = "Back";
+        private string FlashCardBody { get; set; }
+        private string ShowButton { get; set; } = "Back";
 
-//        //public Index(IFlasherService flasherService)
-//        //{
-//        //    FlasherService = flasherService;
-//        //}
+        //public Index(IFlasherService flasherService)
+        //{
+        //    FlasherService = flasherService;
+        //}
 
-//        protected override async Task OnInitializedAsync()
-//        {
-//            //Console.WriteLine("OnIitializedAsync was called");
-//            FlashCards = await FlasherService.GetAll();
-//            //Console.WriteLine(FlashCards[0].Front);
-//        }
+        protected override async Task OnInitializedAsync()
+        {
+            //Console.WriteLine("OnIitializedAsync was called");
+            FlashCards = await FlasherService.GetAll();
+            Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
+            FlashCardBody = FlashCards[0].Front;
 
-//        public void NextFlashCard()
-//        {
-//            CardIndex++;
-//        }
+        }
 
-//        public void FlipFlashCard()
-//        {
-//            Front = !Front;
-//            if (Front == true)
-//            {
-//                FlashCardSide = "Front";
-//                ShowButton = "Back";
-//                FlashCardBody = @FlashCards[CardIndex].Front;
-//            }
-//            else
-//            {
-//                FlashCardSide = "Back";
-//                ShowButton = "Front";
-//                FlashCardBody = @FlashCards[CardIndex].Back;
-//            }
-//        }
+        public void NextFlashCard()
+        {
+            if (CardIndex < FlashCards.Count - 1)
+            {
+                CardIndex++;
+                if (Front)
+                {
+                    FlashCardBody = FlashCards[CardIndex].Front;
+                }
+                else
+                {
+                    FlashCardBody = FlashCards[CardIndex].Back;
+                }
+            }
+        }
 
-//    }
+        public void FlipFlashCard()
+        {
+            Front = !Front;
+            if (Front == true)
+            {
+                FlashCardSide = "Front";
+                ShowButton = "Back";
+                FlashCardBody = @FlashCards[CardIndex].Front;
+            }
+            else
+            {
+                FlashCardSide = "Back";
+                ShowButton = "Front";
+                FlashCardBody = @FlashCards[CardIndex].Back;
+            }
+        }
+
+    }
 }
