@@ -11,18 +11,23 @@ namespace Flasher.Server.Data.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context;
+        protected readonly DbContext _context;
 
         public BaseRepository(DbContext context)
         {
-            Context = context;
+            _context = context;
         }
 
-        public TEntity Get(int id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a single instance of the entity type</returns>
+        public async Task<TEntity> Get(int id)
         {
             try
-            {
-                return Context.Set<TEntity>().Find(id);
+            {                
+                return await _context.Set<TEntity>().FindAsync(id);
             }
             catch (Exception e)
             {
@@ -30,11 +35,15 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
-        public IEnumerable<TEntity> GetAll()
+        /// <summary>
+        /// Returns all entities in the dbcontext
+        /// </summary>
+        /// <returns>A List of the entity type</returns>
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
             try
-            {
-                return Context.Set<TEntity>().ToList();
+            {                
+                return await _context.Set<TEntity>().ToListAsync();
             }
             catch (Exception e)
             {
@@ -42,6 +51,7 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
+        //TODO: discover how to make this method async
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             try
@@ -50,7 +60,7 @@ namespace Flasher.Server.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} predicate must not be null");
                 }
-                return Context.Set<TEntity>().Where(predicate);
+                return _context.Set<TEntity>().Where(predicate);
             }
             catch (Exception e)
             {
@@ -58,7 +68,34 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
-        public void Add(TEntity entity)
+        /// <summary>
+        /// Returns a single entity based on a predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns>Of entity type</returns>
+        public async Task<TEntity> FindSingleOrDefault(Expression<Func<TEntity, bool>> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
+            }
+            try
+            {
+                return await _context.Set<TEntity>().SingleOrDefaultAsync(predicate);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"could not be find entity: {e.Message}");
+            }
+        }
+
+
+        /// <summary>
+        /// Adds new entity to dbcontext, returns an integer greater than zero if successful
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>An integer type</returns>
+        public async Task<int> Add(TEntity entity)
         {
             try
             {
@@ -66,8 +103,10 @@ namespace Flasher.Server.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                Context.Set<TEntity>().Add(entity);
-                Context.SaveChanges();
+                _context.Set<TEntity>().Add(entity);
+                ;
+                int entitiesAdded = await _context.SaveChangesAsync();
+                return entitiesAdded;
             }
             catch (Exception e)
             {
@@ -75,7 +114,12 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
-        public void AddRange(IEnumerable<TEntity> entities)
+        /// <summary>
+        /// Adds new entities to dbcontext, returns an integer greater than zero if successful
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>An integer type</returns>
+        public async Task<int> AddRange(IEnumerable<TEntity> entities)
         {
             try
             {
@@ -83,7 +127,8 @@ namespace Flasher.Server.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                Context.Set<TEntity>().AddRange(entities);
+                _context.Set<TEntity>().AddRange(entities);
+                return await _context.SaveChangesAsync();
             }
             catch (Exception e)
             {
@@ -91,6 +136,7 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
+        //TODO: disocver how to remove/delete entities with async
         public void Remove(TEntity entity)
         {
             try
@@ -99,7 +145,8 @@ namespace Flasher.Server.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                Context.Set<TEntity>().Remove(entity);
+                _context.Set<TEntity>().Remove(entity);
+                _context.SaveChanges();
             }
             catch (Exception e)
             {
@@ -107,6 +154,7 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
+        //TODO: discover how to remove/delete entities with async
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
             try
@@ -115,7 +163,8 @@ namespace Flasher.Server.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                Context.Set<TEntity>().RemoveRange(entities);
+                _context.Set<TEntity>().RemoveRange(entities);
+                _context.SaveChanges();
             }
             catch (Exception e)
             {
@@ -123,23 +172,13 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
-        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
-        {
-            if (predicate == null)
-            {
-                throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
-            }
-            try
-            {
-                return Context.Set<TEntity>().SingleOrDefault(predicate);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"could not be find entity: {e.Message}");
-            }
-        }
 
-        public void SaveChanges(TEntity entity)
+        /// <summary>
+        /// Saves changes to dbcontext for an entity, returns an integer greater than zero if successful
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>An integer type</returns>
+        public async Task<int> SaveChanges(TEntity entity)
         {
             if (entity == null)
             {
@@ -148,14 +187,15 @@ namespace Flasher.Server.Data.Repositories
 
             try
             {
-                Context.Update(entity);
-                //Context.SaveChanges();
-                Context.SaveChangesAsync(); 
+                _context.Update(entity);                
+                int entitiesChanged = await _context.SaveChangesAsync();
+                return entitiesChanged;
             }
             catch (Exception e)
             {
                 throw new Exception($"{nameof(entity)} could not be updated: {e.Message}");
             }
         }
+
     }
 }
