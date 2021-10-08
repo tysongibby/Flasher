@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    @*<div class="sidebar">
+        <NavMenu />
+    </div>*@
+
+    <div class="main">
+        <div class="row">
+            <ul class="nav flex-row list-group-horizontal">
+                <li class="nav-item pl-3">
+                    <NavLink href="/" target="_self" class="ml-md-auto">View</NavLink>
+                </li>
+                <li class="nav-item pl-3">
+                    <NavLink href="/Edit" target="_self" class="ml-md-auto">Edit</NavLink>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>

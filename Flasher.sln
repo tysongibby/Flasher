@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Api", "Flasher\Flasher.Api\Flasher.Api.csproj", "{58D20FC8-6315-48B3-88C8-802EDF849485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherApi", "Flasher\FlasherApi\FlasherApi.csproj", "{58D20FC8-6315-48B3-88C8-802EDF849485}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Shared", "Flasher\Flasher.Shared\Flasher.Shared.csproj", "{9374836F-F54E-4AC7-9D15-7FF666604875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherShared", "Flasher\FlasherShared\FlasherShared.csproj", "{9374836F-F54E-4AC7-9D15-7FF666604875}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flasher.Web", "Flasher.Web\Flasher.Web.csproj", "{F8B2F3AC-53A2-4D2F-9BFC-3B58EEB8232D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherWeb", "Flasher\FlasherWeb\FlasherWeb.csproj", "{F8B2F3AC-53A2-4D2F-9BFC-3B58EEB8232D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

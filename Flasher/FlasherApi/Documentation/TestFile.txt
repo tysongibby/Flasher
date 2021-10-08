@@ -1,0 +1,79 @@
+1. Ahmed is a sales manager with a major insurance company. He has received an email that is
+encouraging him to click on a link and fill out a survey. He is suspicious of the email, but it
+does mention a major insurance association, and that makes him think it might be legitimate.
+Which of the following best describes this attack?
+A. Phishing
+B. Social engineering
+C. Spear phishing
+D. Trojan horse
+■
+2. You are a security administrator for a medium-sized bank. You have discovered a piece of
+software on your bank’s database server that is not supposed to be there. It appears that the
+software will begin deleting database files if a specific employee is terminated. What best
+describes this?
+A. Worm
+B. Logic bomb
+C. Trojan horse
+D. Rootkit
+■
+3. You are responsible for incident response at Acme Bank. The Acme Bank website has been
+attacked. The attacker used the login screen, but rather than enter login credentials, they
+entered some odd text: ' or '1' = '1. What is the best description for this attack?
+A. Cross-site scripting
+B. Cross-site request forgery
+C. SQL injection
+D. ARP poisoning
+■
+4. Users are complaining that they cannot connect to the wireless network. You discover that
+the WAPs are being subjected to a wireless attack designed to block their Wi-Fi signals.
+Which of the following is the best label for this attack?
+A. IV attack
+B. Jamming
+C. WPS attack
+D. Botnet
+■
+5. Frank is deeply concerned about attacks to his company’s e-commerce server. He is particularly
+worried about cross-site scripting and SQL injection. Which of the following would best
+defend against these two specific attacks?
+A. Encrypted web traffic
+B. Input validation
+C. A firewall
+D. An IDS
+■
+6. You are responsible for network security at Acme Company. Users have been reporting that
+personal data is being stolen when using the wireless network. They all insist they only connect
+to the corporate wireless access point (AP). However, logs for the AP show that these
+users have not connected to it. Which of the following could best explain this situation?
+A. Session hijacking
+B. Clickjacking
+C. Rogue access point
+D. Bluejacking
+■
+7. What type of attack depends on the attacker entering JavaScript into a text area that is
+intended for users to enter text that will be viewed by other users?
+A. SQL injection
+B. Clickjacking
+C. Cross-site scripting
+D. Bluejacking
+■
+8. Rick wants to make offline brute-force attacks against his password file very difficult
+for attackers. Which of the following is not a common technique to make passwords
+harder to crack?
+A. Use of a salt
+B. Use of a pepper
+C. Use of a purpose-built password hashing algorithm
+D. Encrypting password plain text using symmetric encryption
+9. What term is used to describe spam over Internet messaging services?
+A. SPIM
+B. SMSPAM
+C. IMSPAM
+D. TwoFaceTiming
+■
+10. Susan is analyzing the source code for an application and discovers a pointer de-reference
+and returns NULL. This causes the program to attempt to read from the NULL pointer and
+results in a segmentation fault. What impact could this have for the application?
+A. A data breach
+B. A denial-of-service condition
+C. Permissions creep
+D. Privilege escalation
+■
