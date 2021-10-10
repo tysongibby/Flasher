@@ -1,0 +1,1571 @@
+1. C. The correct answer is spear phishing. Spear phishing is
+targeted to a specific group, in this case insurance professionals.
+Although this is a form of phishing, the more specific answer is
+the one you will need to choose on questions like this. Phishing
+uses social engineering techniques to succeed but is once again a
+broader answer than spear phishing and thus is not the correct
+choice. Finally, a Trojan horse pretends to be a legitimate or
+desirable program or file, which this scenario doesn’t describe.
+■
+2. B. A logic bomb is malware that performs its malicious activity
+when some condition is met. A worm is malware that selfpropagates.
+A Trojan horse is malware attached to a legitimate
+program, and a rootkit is malware that gets root or
+administrative privileges.
+■
+3. C. This is a very basic form of SQL injection. Cross-site
+scripting would have JavaScript in the text field and would be
+designed to impact other sites from a user’s session. Cross-site
+request forgery would not involve any text being entered in the
+web page, and ARP poisoning is altering the ARP table in a
+switch; it is not related to website hacking.
+■
+4. B. This describes a jamming attack, where legitimate traffic is
+interfered with by another signal. Jamming can be intentional or
+unintentional and may be intermittent. IV attacks are obscure
+cryptographic attacks on stream ciphers. Wi-Fi protected setup
+(WPS) uses a PIN to connect to the wireless access point (WAP).
+The WPS attack attempts to intercept that PIN in transmission,
+connect to the WAP, and then steal the WPA2 password. A
+botnet is a group of machines that are being used, without their
+consent, as part of an attack.
+■
+5. B. The best option listed to defend against the attacks
+mentioned is input validation. Encrypting the web traffic will
+not have any effect on these two attacks. A web application
+firewall (WAF) might mitigate these attacks, but it would be
+secondary to input validation, and an intrusion detection system
+(IDS) will simply detect the attack—it won’t stop it.
+■
+6. C. If users have been connecting but the AP does not show
+them connecting, then they have been connecting to a rogue
+access point. This could be the cause of an architecture and
+design weakness such as a network without segmentation and
+control of devices connecting to the network. Session hijacking
+involves taking over an already authenticated session. Most
+session hijacking attacks involve impersonation. The attacker
+attempts to gain access to another user’s session by posing as
+that user. Clickjacking involves causing visitors to a website to
+click on the wrong item. Finally, bluejacking is a Bluetooth
+attack.
+■
+7. C. Cross-site scripting involves entering a script into text areas
+that other users will view. SQL injection is not about entering
+scripts, but rather SQL commands. Clickjacking is about tricking
+users into clicking on the wrong thing. Bluejacking is a
+Bluetooth attack.
+■
+8. D. Retaining the actual password is not a best practice, and
+thus encrypting password plain text is not a common technique
+to make passwords harder to crack. Since the application would
+need the cryptographic key to read the passwords, anybody who
+had access to that key could decrypt the passwords. Using a salt,
+a pepper, and a cryptographic hashing algorithm designed for
+passwords are all common best practices to prevent offline
+brute-force attacks.
+■
+9. A. Although this is one of the more dated items on the
+Security+ exam outline, you need to know that the term for
+Internet messaging spam messages is SPIM. The rest of the
+answers were made up, and though this shows up in the exam
+outline, the rest of the world has moved on from using this term.
+■
+10. B. A segmentation fault will typically stop the program from
+running. This type of issue is why a NULL pointer or other
+pointer de-referencing error is considered a potential security
+issue, as a denial-of-service condition impacts the availability of
+the service. This type of error is unlikely to cause a data breach
+or allow privilege escalation, and permissions creep occurs as
+individuals accrue more permissions over time in a single
+organization as their permissions are not cleaned up when they
+switch positions or roles.
+■
+11. C. The machines in her network are being used as bots, and the
+users are not aware that they are part of a distributed denial-ofservice
+(DDoS) attack. Social engineering is when someone tries
+to manipulate you into giving information. Techniques involved
+in social engineering attacks include consensus, scarcity, and
+familiarity. There is a slight chance that all computers could
+have a backdoor, but that is very unlikely, and attackers
+normally don’t manually log into each machine to do a DDoS—it
+would be automated, as through a bot.
+12. C. There are many indicators of compromise (IoCs), including
+unusual outbound network traffic, geographical irregularities
+like logins from a country where the person normally does not
+work, or increases in database read volumes beyond normal
+traffic patterns. Predictive analysis is analysis work done using
+datasets to attempt to determine trends and likely attack vectors
+so that analysts can focus their efforts where they will be most
+needed and effective. OSINT is open source intelligence, and
+threat maps are often real-time or near real-time visualizations
+of where threats are coming from and where they are headed to.
+Use the following scenario for questions 13–15.
+Chris has recently deployed a security information and event
+management (SIEM) device and wants to use it effectively in his
+organization. He knows that SIEM systems have a broad range
+of capabilities and wants to use the features to solve problems
+that he knows his organization faces. In each of the following
+questions, identify the most appropriate SIEM capability or
+technique to accomplish what Chris needs to do for his
+organization.
+13. B. When troubleshooting TCP handshakes, the most valuable
+tool in many cases is packet capture. If Chris sees a series of SYN
+packets without the handshake being completed, he can be
+reasonably sure the firewall is blocking traffic. Reviewing
+reports or logs may be useful for this as well but won’t show the
+TCP handshake issue mentioned in the problem, and sentiment
+analysis is focused on how individuals and groups are
+responding, not on a technical problem.
+14. D. User behavior analysis is a key capability when attempting
+to detect potential insider threats. Chris can use his SIEM’s
+behavioral analysis capabilities to detect improper or illicit use
+of rights and privileges as well as abnormal behavior on the part
+of his users. Sentiment analysis helps analyze feelings, and log
+aggregation and security monitoring provide ways to gain
+insight into the overall security posture and status of the
+organization.
+15. A. Using log aggregation to pull together logs from multiple
+sources, and performing collection and initial analysis on log
+collectors can help centralize and handle large log volumes.
+Capturing packets is useful for network traffic analysis to
+identify issues or security concerns. Security monitoring is an
+overall function for security information and event management
+(SIEM) and doesn’t specifically help with this need. Both
+sentiment analysis and user behavior analysis are aimed at users
+and groups rather than at how data is collected and managed.
+16. B. White teams act as judges and observers during
+cybersecurity exercises. Blue teams act as defenders, red teams
+act as attackers, and purple teams are composed of both blue
+and red team members to combine attack and defense
+knowledge to improve organizational security.
+17. A. The simplest way to ensure that APIs are only used by
+legitimate users is to require the use of authentication. API keys
+are one of the most frequently used methods for this. If an API
+key is lost or stolen, the key can be invalidated and reissued, and
+since API keys can be matched to usage, Cynthia’s company can
+also bill customers based on their usage patterns if they want to.
+A firewall or IP restrictions may be able to help, but they can be
+fragile; customer IP addresses may change. An intrusion
+prevention system (IPS) can detect and prevent attacks, but
+legitimate usage would be hard to tell from those who are not
+customers using an IPS.
+18. B. Buffer overflow attacks cram more data into a field or buffer
+than they can accept, overflowing into other memory locations
+and either crashing the system or application, or potentially
+allowing code to be inserted into executable locations.
+Bluesnarfing and bluejacking are both Bluetooth attacks. Crosssite
+scripting attacks allow attackers to inject scripts into pages
+viewed by other users.
+19. A. Attackers are attempting to influence Gurvinder with a
+combination of scarcity and urgency. Thus, for this question you
+should answer scarcity since urgency is not listed. In many
+social engineering principle questions, more than one of the
+principles may be in play, and you will need to answer with the
+principle that is correct or more correct for the question. In this
+case, there is no intimidation or claim to authority, and
+consensus would require some form of validation from others.
+20. A. Vulnerability scans use automated tools to look for known
+vulnerabilities in systems and applications and then provide
+reports to assist in remediation activities. Penetration tests seek
+to actually exploit the vulnerabilities and break into systems.
+Security audits usually focus on checking policies, incident
+reports, and other documents. Security test is a generic term for
+any sort of test.
+21. C. Username complexity has no impact in credential
+harvesting. Multifactor authentication can help prevent
+successful credential harvesting by ensuring that even capture of
+username and password is not enough to compromise the
+account. Awareness training helps to reduce the likelihood of
+credential exposure, and limiting or preventing use of thirdparty
+web scripts makes websites less likely to have credentials
+stolen through the use of those scripts, plug-ins, or modules.
+22. C. Greg can clone a legitimate Media Access Control (MAC)
+address if he can identify one on the network. This can be as
+easy as checking for a MAC label on some devices or by
+capturing traffic on the network if he can physically access it.
+23. A. From the description it appears that they are not connecting
+to the real web server but rather a fake server. That indicates
+typo squatting: have a URL that is named very similarly to a real
+site so that when users mistype the real site’s URL they will go to
+the fake site.
+Options B, C, and D are all incorrect. These are all methods of
+attacking a website, but in this case, the actual website was not
+attacked. Instead, some users are visiting a fake site.
+24. C. Domain hijacking, or domain theft, occurs when the
+registration or other information for the domain is changed
+without the original registrant’s permission. This may occur
+because of a compromised account or due to a breach of the
+domain registrar’s security. A common issue is a lapsed domain
+being purchased by a third party, and this can look like a
+hijacked domain, but it is a legitimate occurrence if the domain
+is not renewed! DNS hijacking inserts false information into a
+DNS server, on-path (man-in-the-middle) attacks capture or
+modify traffic by causing the traffic to pass through a
+compromised midpoint, and zero-day attacks are attacks that
+use an unknown until used vulnerability.
+25. D. The term for low-skilled hackers is script kiddie. Script
+kiddies typically use prebuilt tools and do not have the expertise
+to make or modify their own tools. Nothing indicates this is
+being done for ideological reasons, and thus that a hacktivist is
+involved. Although “Amateur” may be an appropriate
+description, the correct term is script kiddie. Finally, nothing in
+this scenario indicates an insider threat.
+26. B. Phishing is intended to acquire data, most often credentials
+or other information that will be useful to the attacker. Spam is a
+broader term for unwanted email, although the term is often
+generally used to describe unwanted communications. Spear
+phishing targets specific individuals, whereas whaling targets
+important people in an organization. Smishing is sent via SMS
+(text message). Malware can be sent in any of these instances,
+but there is not a specific related term that means “spam with
+malware in it.”
+27. B. A collection of computers that are compromised, then
+centrally controlled to perform actions like denial-of-service
+attacks, data collection, and other malicious activities is called a
+botnet. Zombienets, Nullnets, and Attacknets are not commonly
+used terms to describe botnets.
+28. B. Systems and software that no longer have vendor support
+can be a significant security risk, and ensuring that a vendor will
+continue to exist and provide support is an important part of
+many procurement processes. Selah’s questions are intended to
+assess the longevity and viability of the company and whether
+buying from them will result in her organization having a usable
+product for the long term.
+29. B. Passive reconnaissance is any reconnaissance that is done
+without actually connecting to the target. In this case, John is
+conducting a form of OSINT, or open source intelligence, by
+using commonly available third-party information sources to
+gather information about his target. Active reconnaissance
+involves communicating with the target network, such as doing
+a port scan. The initial exploitation is not information gathering;
+it is actually breaking into the target network. A pivot is when
+you have breached one system and use that to move to another
+system.
+30. A. Server-side request forgery (SSRF) attempts typically
+attempt to get HTTP data passed through and will not include
+SQL injection. Blocking sensitive hostnames, IP addresses, and
+URLs are all valid ways to prevent SSRF, as is the use of
+whitelist-based input filters.
+31. A. Domain Name System (DNS) poisoning attacks attempt to
+insert incorrect or malicious entries into a trusted DNS server.
+Address Resolution Protocol (ARP) poisoning involves altering
+the MAC-IP tables in a switch. Although cross-site scripting
+(XSS) and cross-site request forgery (CSRF or XSRF) are both
+types of attacks, neither is a poisoning attack.
+32. C. An unknown environment test is also called black-box or a
+zero-knowledge test because it does not provide information
+beyond the basic information needed to identify the target. A
+known environment, or white-box test, involves very complete
+information being given to the tester. This scenario is probably
+done from outside the network, but external test is not the
+correct terminology. Threat test is not a term used in
+penetration testing.
+33. D. A pivot occurs when you exploit one machine and use that as
+a basis to attack other systems. Pivoting can be done from
+internal or external tests. White- and black-box testing describes
+the amount of information the tester is given in advance, not
+how the tester performs the test.
+34. A. Shimming is when the attacker places some malware
+between an application and some other file and intercepts the
+communication to that file (usually to a library or system API).
+In many cases, this is done with a driver for a hardware
+component. A Trojan horse might be used to get the shim onto
+the system, but that is not described in this scenario. A backdoor
+is a means to circumvent system authorization and get direct
+access to the system. Refactoring is the process of changing
+names of variables, functions, and so forth in a program.
+35. C. SOAR is a relatively new category as defined by Gartner.
+Security orchestration, automation, and response includes
+threat and vulnerability management, security incident
+response, and security operations automation, but not
+automated malware analysis.
+36. C. Domain reputation services like Reputation Authority,
+Cisco’s Talos, McAfee’s trustedsource.org, and Barracuda’s
+barracudacentral.org sites all provide domain reputation data
+that allow you to look up a domain or IP address to determine if
+it is currently blacklisted or has a poor reputation.
+37. B. His machines are part of a distributed denial-of-service
+(DDoS) attack. This scenario describes a generic DDoS, not a
+specific one like SYN flood, which would involve many SYN
+packets being sent without a full three-way TCP handshake.
+These machines could be part of a botnet or they may just have a
+trigger that causes them to launch the attack at a specific time.
+The real key in this scenario is the DDoS attack. Finally, a
+backdoor gives an attacker access to the target system.
+38. B. Since open Wi-Fi hotspots do not have a way to prove they
+are legitimate, they can be easily spoofed. Attackers can stand
+up a fake version of the hotspot and then conduct an SSL
+stripping attack by inserting themselves into sessions that
+victims attempt to open to secure servers.
+39. B. A Trojan horse attaches a malicious program to a legitimate
+program. When the user downloads and installs the legitimate
+program, they get the malware. A logic bomb is malware that
+does its misdeeds when some condition is met. A rootkit is
+malware that gets administrative, or root, access. A macro virus
+is a virus that is embedded in a document as a macro.
+40. D. Whaling is targeting a specific individual who is important
+in the organization like the president or chief financial officer
+(CFO). Spear phishing targets specific individuals or groups, but
+whaling is more specific in terms of the importance of the
+individuals involved. Targeted phishing is not a term used in the
+industry. Phishing is the generic term for a wide range of related
+attacks, and you should choose the most accurate answer for
+questions like this.
+41. D. Criminal syndicates may produce, sell, and support malware
+tools, or may deploy them themselves. Crypto malware and
+other packages are examples of tools often created and used by
+criminal syndicates. State actors are more likely to be associated
+with advanced persistent threats (APTs) aimed at accomplishing
+goals of the nation-state that supports them. Hacktivists
+typically have political motivations, whereas script kiddies may
+simply be in it for recognition or fun.
+42. A. A rainbow table is a table of precomputed hashes, used to
+retrieve passwords. A backdoor is used to gain access to a
+system, not to recover passwords. Social engineering and
+dictionary attacks can both be used to gain access to passwords,
+but they are not tables of precomputed hashes.
+43. B. The most common concern that will arise when a vendor no
+longer supports a device is a lack of updates or patches. This is
+particularly concerning when the devices are operational
+technology such as utility, lighting, or other infrastructure
+control devices that have a very long life cycle and control
+important processes or systems. Although improper data
+storage, lack of documentation, and configuration issues can all
+be issues, lack of updates and patching remains the biggest and
+most frequent issue.
+44. A. Bluejacking involves sending unsolicited messages to
+Bluetooth devices when they are in range. Bluesnarfing involves
+getting data from the Bluetooth device. An evil twin attack uses a
+rogue access point whose name is similar or identical to that of a
+legitimate access point.
+45. A. Since Dennis is able to view the web traffic before it is sent
+to the actual server, he should be able to conduct a plain-text
+password attack by intercepting the password. Pass-the-hash
+attacks are typically used inside Windows environments, SQL
+injection would attack the server, and cross-site scripting is
+possible but not as likely as the plain-text password attack in
+this scenario.
+46. A. Dumpster diving is the term for rummaging through the
+waste/trash to recover useful documents or materials.
+Penetration testers and attackers may dumpster-dive as part of
+their efforts. In fact, emptying trash cans in a location can
+provide useful information even without jumping into a
+dumpster! Trash diving and trash engineering are not the terms
+used in the industry. Nothing in this scenario describes social
+engineering.
+47. A. This is a remote-access Trojan (RAT), malware that opens
+access for someone to remotely access the system. A worm
+would have spread itself via a vulnerability, whereas a logic
+bomb runs when some logical condition is met. Finally, a rootkit
+provides root or administrative access to the system.
+48. B. Zero-day exploits are new, and they are not in the virus
+definitions for the antivirus (AV) programs. This makes them
+difficult to detect, except by their behavior. RATs, worms, and
+rootkits are more likely to be detected by AV programs.
+49. D. Radio frequency identifier (RFID) attacks typically focus on
+data capture, spoofing RFID data, or conducting a denial-ofservice
+attack. Birthday attacks are used against cryptosystems,
+which may be part of an RFID tag environment, but they aren’t a
+common attack against RFID systems.
+50. C. Initialization vectors are used with stream ciphers. An IV
+attack attempts to exploit a flaw to use the IV to expose
+encrypted data. Nothing in this scenario requires or describes a
+rogue access point/evil twin. Wi-Fi Protected Setup (WPS) uses
+a PIN to connect to the wireless access point (WAP). The WPS
+attack attempts to intercept that PIN in transmission, connect to
+the WAP, and then steal the WPA2 password.
+51. C. This description does not include any risk to availability
+since there is no information about systems or services being
+down or offline. This scenario would likely result in reputational,
+financial, and data loss impacts for Scott’s company.
+52. B. Cross-site request forgery (XSRF or CSRF) sends fake
+requests to a website that purport to be from a trusted,
+authenticated user. Cross-site scripting (XSS) exploits the trust
+the user has for the website and embeds scripts into that
+website. Bluejacking is a Bluetooth attack. Nothing in this
+scenario requires or describes an evil twin, which is an attack
+that uses a malicious access point that duplicates a legitimate
+AP.
+53. A. Cyberintelligence fusion is the process of gathering,
+analyzing, and then distributing information between disparate
+agencies and organizations. Fusion centers like those operated
+by the U.S. Department of Homeland Security (DHS) focus on
+strengthening shared intelligence activities. They are not
+specifically tasked with building tools by combining other tools,
+although they may in some cases. They are not power plants,
+and they are focused on gathering and sharing information, not
+building a classification structure.
+54. B. The Common Vulnerabilities and Exposures (CVE) list has
+entries that describe and provide references to publicly known
+cybersecurity vulnerabilities. A CVE feed will provide updated
+information about new vulnerabilities and a useful index
+number to cross reference with other services.
+55. B. A birthday attack exploits the birthday problem in
+probability theory and relies on finding collisions between
+random attack attempts and the number of potential
+permutations of a solution. Birthday attacks are one method of
+attacking cryptographic hash functions. They are not a social
+engineering attack, a network denial-of-service attack, or a
+TCP/IP protocol attack.
+56. B. This an example of a disassociation attack. The
+deauthentication packet causes Juanita’s system to disassociate,
+and the attacker can then execute a second attack targeting her
+authentication credentials or other wireless data using an evil
+twin attack. Misconfiguration won’t cause authenticated users to
+deauthenticate. Session hijacking involves taking over an
+authenticated session. Backdoors are built-in methods to
+circumvent authentication.
+57. A. Dictionary attacks use a list of words that are believed to be
+likely passwords. A rainbow table is a precomputed table of
+hashes. Brute force tries every possible random combination. If
+an attacker has the original plain text and ciphertext for a
+message, they can determine the key space used through bruteforce
+attempts targeting the key space. Session hijacking is when
+the attacker takes over an authenticated session.
+58. B. Downgrade attacks seek to make a Transport Layer Security
+(TLS) connection use a weaker cipher version, thus allowing the
+attacker to more easily break the encryption and read the
+protected data. In a disassociation attack, the attacker attempts
+to force the victim into disassociating from a resource. Session
+hijacking is when the attacker takes over an authenticated
+session. Brute-force attempts every possible random
+combination to get the password or encryption key.
+59. D. A collision is when two different inputs produce the same
+hash. A rainbow table is a table of precomputed hashes. Brute
+force attempts every possible random combination to get the
+password or encryption key. Session hijacking is when the
+attacker takes over an authenticated session.
+60. C. An advanced persistent threat (APT) involves sophisticated
+(i.e., advanced) attacks over a period of time (i.e., persistent). A
+distributed denial-of-service (DDoS) could be a part of an APT,
+but in and of itself is unlikely to be an APT. Brute force attempts
+every possible random combination to get the password or
+encryption key. In a disassociation attack, the attacker attempts
+to force the victim into disassociating from a resource.
+61. B. Phishing is not commonly used to acquire email addresses.
+Phishing emails target personal information and sensitive
+information like passwords and credit card numbers in most
+cases.
+62. A. When an IDS or antivirus mistakes legitimate traffic for an
+attack, this is called a false positive. A false negative is when the
+IDS mistakes an attack for legitimate traffic. It is the opposite of
+a false positive. Options C and D are both incorrect. Although
+these may be grammatically correct, these are not the terms
+used in the industry. In military operations, false flag operations
+attempt to transfer blame to another company, thus a “false
+flag.”
+63. B. A keylogger is a software or hardware tool used to capture
+keystrokes. Keyloggers are often used by attackers to capture
+credentials and other sensitive information. A rootkit is used to
+obtain and maintain administrative rights on a system, and a
+worm is a self-spreading form of malware that frequently targets
+vulnerable services on a network to spread.
+64. A. The term for attempting to gain any privileges beyond what
+you have is privilege escalation. Session hijacking is taking over
+an authenticated session. Root grabbing and climbing are not
+terms used in the industry.
+65. B. MAC flooding attacks attempt to overflow a switch’s CAM
+table, causing the switch to send all traffic to all ports rather
+than to the port that a given MAC address is associated with.
+Although this was possible with many older switches, most
+modern switches are less susceptible to this type of attack, and
+some have security capabilities built in to prevent this type of
+attack.
+66. B. Spyware and adware are both common examples PUPs, or
+potentially unwanted programs. Though not directly malicious,
+they can pose risks to user privacy as well as create annoyances
+like popups or other unwanted behaviors. Trojans appear to be
+legitimate programs or are paired with them, RATs provide
+remote access and are a subcategory of Trojans, and
+ransomware demands payment or other actions to avoid
+damage to files or reputation.
+67. C. A race condition can occur when multiple threads in an
+application are using the same variable and the situation is not
+properly handled. Option A is incorrect. A buffer overflow is
+attempting to put more data in a buffer than it is designed to
+hold. Option B is incorrect. A logic bomb is malware that
+performs its misdeed when some logical condition is met.
+Option D is incorrect. As the name suggests, improper error
+handling is the lack of adequate or appropriate error handling
+mechanisms within software.
+68. B. The malware in this example is a Trojan horse—it pretends
+to be something desirable, or at least innocuous, and installs
+malicious software in addition to or instead of the desired
+software. A rootkit gives root or administrative access, spyware
+is malware that records user activities, and a boot sector virus is
+a virus that infects the boot sector of the hard drive.
+69. B. The Postgres server is set up using a weak password for the
+user postgres, the administrative login for the database. This is a
+form of unsecured administrative or root account. Interestingly,
+this is not a default setting, since Postgres uses no password by
+default for the Postgres account—an even worse setting than
+using postgres as the password, but not by much!
+70. A. Annie has moved laterally. Lateral movement moves to
+systems at the same trust level. This can provide access to new
+data or different views of the network depending on how the
+systems and security are configured. Privilege escalation
+involves gaining additional privileges, often those of an
+administrative user. Vertical movement is sometimes referenced
+when gaining access to systems or accounts with a higher
+security or trust level. Privilege retention was made up for this
+question.
+71. A. This is an example of a false positive. A false positive can
+cause a vulnerability to show that was not actually there. This
+sometimes happens when a patch or fix is installed but the
+application does not change in a way that shows the change, and
+it has been an issue with updates where the version number is
+the primary check for a vulnerability. When a vulnerability
+scanner sees a vulnerable version number but a patch has been
+installed that does not update it, a false positive report can
+occur. A false negative would report a patch or fix where there
+was actually a vulnerability. Automatic updates were not
+mentioned, nor was a specific Apache version.
+72. C. A buffer overflow is possible when boundaries are not
+checked and the attacker tries to put in more data than the
+variable can hold. Cross-site scripting (XSS) is a web page
+attack. Cross-site request forgery (CSRF) is a web page attack. A
+logic bomb is malware that performs its misdeed when some
+condition is met.
+73. C. Consensus, sometimes called social proof, is a social
+engineering principle that leverages the fact that people are
+often willing to trust groups of other people. Here, the attackers
+have planted false information that the software is trustworthy,
+thus allowing targets to “prove” to themselves that they can
+safely install the software. Scarcity uses a perception that
+something may not be available or is uncommon and thus
+desirable. Familiarity takes advantage of the trust that
+individuals put into people and organizations they are already
+familiar with. Trust-based attacks exploit a perception of
+trustworthiness.
+74. B. A logic bomb performs malicious actions when a specific
+condition or conditions are met. A boot sector virus infects the
+boot sector of the hard drive. A buffer overflow occurs when the
+attacker attempts to put more data in a variable than it can hold.
+A sparse infector virus performs its malicious activity
+intermittently to make it harder to detect.
+75. B. Elicitation, or the process of eliciting information through
+conversation to gather useful information, is a key tool in a
+penetration tester’s social engineering arsenal. Pretexting
+involves the use of believable reasons for the target to go along
+with whatever the social engineering is attempting to do.
+Impersonation involves acting like someone you are not,
+whereas intimidation attempts to scare or threaten the target
+into doing what the social engineer wants them to.
+76. B. All of these protocols are unsecure. FTP has been replaced
+by secure versions in some uses (SFTP/FTPS), whereas Telnet
+has been superseded by SSH in modern applications. RSH is
+outmoded and should be seen only on truly ancient systems. If
+you find a system or device exposing these protocols, you will
+need to dig in further to determine why they are exposed and
+how they can be protected if they must remain open for a
+legitimate reason.
+77. B. The best way for Scott to determine where an organization’s
+wireless networks can be accessed from is to use war driving,
+war flying, and/or war walking techniques to map out the
+wireless signal footprint of the organization. OSINT and active
+scans would be useful gathering information about the
+organization and its systems, but not about its wireless networks
+range and accessibility, and social engineering is more likely to
+be useful for gathering information or gaining access to facilities
+or systems.
+78. A. A macro virus is a malicious script (macro) embedded into a
+file, typically a Microsoft Office file. They are typically written in
+Visual Basic for Applications (VBA) script. A boot sector virus
+infects the boot sector of the hard drive. A Trojan horse is
+malware that is tied to a legitimate program. In this scenario,
+the malware is actually embedded in an Office document. The
+two are similar, but not the same. A remote access Trojan (RAT)
+is a Trojan horse that gives the attacker remote access to the
+machine.
+79. C. By giving the tester logins, you are allowing them to conduct
+a credentialed scan (i.e., a scan with an account or accounts that
+allow them access to check settings and configurations). Known
+environment and partially known environment tests describe
+the level of knowledge the tester is given of the network. A
+privilege scan cannot be an unknown environment test, but it
+could be either known or partially known. An intrusive scan is a
+term used for scans that attempt to exercise or use the
+vulnerability they find instead of attempting to avoid harm.
+80. B. The Security+ exam expects practitioners to be able to
+analyze scripts and code to determine roughly what function
+they perform and to be able to identify multiple programming
+languages. Python relies on formatting like indenting to indicate
+blocks of code and does not use line end indicators as you would
+find in some languages. This code is a basic Python port scanner
+that will scan every port from 1 to 9999, checking to see if it
+allows a connection.
+81. C. Botnets are often used to launch DDoS attacks, with the
+attack coming from all the computers in the botnet
+simultaneously. Phishing attacks attempt to get the user to give
+up information, click on a link, or open an attachment. Adware
+consists of unwanted pop-up ads. A Trojan horse attaches
+malware to a legitimate program.
+82. B. Amanda has discovered an insider threat. Insider threats can
+be difficult to discover, as a malicious administrator or other
+privileged user will often have the ability to conceal their actions
+or may actually be the person tasked with hunting for threats
+like this! This is not a zero-day—no vulnerability was mentioned,
+there was no misconfiguration since this was an intentional
+action, and encryption is not mentioned or discussed.
+83. B. Social media influence campaigns seek to achieve the goals
+of the attacker or owner of the campaign. They leverage social
+media using bots and groups of posters to support the ideas,
+concepts, or beliefs that align with the goals of the campaign.
+Impersonation is a type of social engineering attack where the
+attacker pretends to be someone else. A watering hole attack
+places malware or malicious code on a site or sites that are
+frequently visited by a targeted group. Asymmetric warfare is
+warfare between groups with significantly different power or
+capabilities.
+84. C. Using default settings is a form of weak configuration. Many
+vulnerability scanners and attack tools have default settings
+built-in to test with, and default settings are easily obtained for
+most devices with a quick search of the Internet. Configuring the
+accounts is not the issue; changing default passwords and
+settings is. Although training users is important, that’s not the
+issue in this scenario. Patching systems is important, but that
+won’t change default settings.
+85. D. In a DLL injection, the malware attempts to inject code into
+the process of some library. This is a rather advanced attack.
+Option A is incorrect. A logic bomb executes its misdeed when
+some condition is met. Option B is incorrect. Session hijacking is
+taking over an authenticated session. Option C is incorrect.
+Buffer overflows are done by sending more data to a variable
+than it can hold.
+86. B. State actors (or nation-state actors) often have greater
+resources and skills, making them a more significant threat and
+far more likely to be associated with an advanced persistent
+threat actor. Script kiddies, hacktivists, and insider threats tend
+to be less capable and are all far less likely to be associated with
+an APT.
+87. C. An intrusive scan attempts to actively exploit vulnerabilities,
+and thus could possibly cause some disruption of operations.
+For this reason, it should be conducted outside normal business
+hours or in a test environment, if it is used at all. A nonintrusive
+scan attempts to identify vulnerabilities without exploiting
+them. A penetration test actually attempts to breach the network
+by exploiting vulnerabilities. An audit is primarily a document
+check. Both intrusive and nonintrusive vulnerability scans can
+be effective at finding vulnerabilities.
+88. C. A backdoor is a method for bypassing normal security and
+directly accessing the system. A logic bomb is malware that
+performs its misdeeds when some condition is met. A Trojan
+horse wraps a malicious program to a legitimate program. When
+the user downloads and installs the legitimate program, they get
+the malware. A rootkit is malware that gets root or
+administrative privileges.
+89. D. The fact that the website is defaced in a manner related to
+the company’s public indicates that the attackers were most
+likely engaging in hacktivism to make a political or belief-based
+point. Scripts, nation-state actors, and organized crime don’t
+account for the statements adverse to the company’s policies,
+which is why hacktivism is the real cause.
+90. A. Pharming attempts to redirect traffic intended for a
+legitimate site to another malicious site. Attackers most often do
+this by changing the local hosts file or by exploiting a trusted
+DNS server.
+91. B. Password spraying is a specific type of brute force attack
+which uses a smaller list of common passwords for many
+accounts to attempt to log in. Although brute forcing is
+technically correct, the best match here is password spraying.
+When you encounter questions like this on the test, make sure
+you provide the most accurate answer, rather than one that fits
+but may not be the best answer. Limited login attacks is a madeup
+answer, and spinning an account refers to changing the
+password for an account, often because of a compromise or to
+prevent a user from logging back into it while preserving the
+account.
+92. C. Although you might suppose that a nation-state attacker (the
+usual attacker behind an advanced persistent threat) would
+attack from a foreign IP address, they often use a compromised
+address in the target country as a base for attacks. Options A, B,
+and D are all incorrect. These are actually signs of an advanced
+persistent threat.
+93. B. A privilege escalation attack can occur horizontally, where
+attackers obtain similar levels of privilege but for other users, or
+vertically where they obtain more advanced rights. In this case,
+Charles has discovered a vertical privilege escalation attack that
+has allowed the attacker to obtain administrative rights. Crosssite
+scripting and SQL injection are both common types of web
+application attacks, and a race condition occurs when data can
+be changed between when it is checked and when it is used.
+94. A. Evil twin attacks use a malicious access point configured to
+appear to be identical to a legitimate AP. Attackers wait for their
+targets to connect via the evil twin, and can then capture or
+modify traffic however they wish. IP spoofing uses the IP
+address of a system already on the network, Trojan horses are
+malware that appear to be legitimate software or files, and
+privilege escalation is the process of using exploits to gain higher
+privileges.
+95. A. A zero-day exploit or attack occurs before the vendor has
+knowledge of it. The remainder of the answers don’t accurately
+describe a zero-day attack—just because it has not yet been
+breached does not make it a zero-day, nor is a zero-day
+necessarily quickly exploitable. Finally, a zero-day attack does
+not specify how long the attacker may have access.
+96. D. Prepending is one of the stranger terms that appear on the
+CompTIA Security+ exam and is not a commonly used phrase in
+the industry. Thus, you need to know that when it is used for
+this exam it can mean one of three things: adding an expression
+or phrase to an email, subject line, or headers to either protect
+or fool users. They also note that it can be used when adding
+data as part of an attack, and that social engineers may
+“prepend” information by inserting it into conversation to get
+targets to think about things the attacker wants them to.
+Pretexing is a social engineering technique where attackers use a
+reason that is intended to be believable to the target for what
+they are doing. SQL injection is attempts to add SQL code to a
+web query to gain additional access or data. Prepending is used
+to cover a wide variety of techniques in the Security+ exam
+outline that focus on adding information or data to existing
+content.
+97. D. Although auditing some libraries or libraries that are
+custom-developed for the code is common, auditing all libraries
+used in the code is unlikely except in exceptional situations. The
+remainder of these practices are all commonly used when
+working with outsourced code development teams.
+98. C. DNS poisoning occurs when false DNS information is
+inserted into legitimate DNS servers, resulting in traffic being
+redirected to unwanted or malicious sites. A backdoor provides
+access to the system by circumventing normal authentication.
+An APT is an advanced persistent threat. A Trojan horse ties a
+malicious program to a legitimate program.
+99. C. Spyware and adware are both common examples of a PUP,
+or potentially unwanted program. A CAT was made up for this
+question and is not a common categorization for malware,
+whereas worms are self-spreading malware that often exploit
+vulnerabilities to spread via a network. Trojans pretend to be
+legitimate software or paired with legitimate software to gain
+entry to a system or device.
+100. B. A Trojan horse pretends to be legitimate software, and may
+even include it, but also includes malicious software as well.
+Backdoors, RATs, and polymorphic viruses are all attacks, but
+they do not match what is described in the question scenario.
+101. A. A remote access Trojan (RAT) is malware that gives the
+attacker remote access to the victim machine. Macro viruses
+operate inside of Microsoft Office files. Although a backdoor will
+give access, it is usually something in the system put there by
+programmers, not introduced by malware. A RAT is a type of
+Trojan horse, but a Trojan horse is more general than what is
+described in the scenario. When you encounter questions like
+this on the exam, you will need to select the best answer, not just
+one that may answer the question!
+102. B. Card cloning often occurs after a skimming attack is used to
+capture card data, whether from credit cards or entry access
+cards. Brute-force and rainbow table-based attacks are both
+used against passwords, whereas a birthday attack is a
+cryptographic attack often aimed at finding two messages that
+hash to the same value.
+103. B. Cross-site request forgery (XSRF or CSRF) sends forged
+requests to a website, supposedly from a trusted user. Cross-site
+scripting (XSS) is the injection of scripts into a website to exploit
+the users. A buffer overflow tries to put more data in a variable
+than the variable can hold. A remote-access Trojan (RAT) is
+malware that gives the attacker access to the system.
+104. A. A denial-of-service (DoS) attack may target a memory leak.
+If an attacker can induce the web application to generate the
+memory leak, then eventually the web application will consume
+all memory on the web server and the web server will crash.
+Backdoors are not caused by memory leaks. SQL injection places
+malformed SQL into text boxes. A buffer overflow attempts to
+put more data in a variable than it can hold.
+105. D. This is an example of an application distributed denial-ofservice
+(DDoS) attack, aimed at a gaming application. A network
+DDoS would be aimed at network technology, either the devices
+or protocols that underly networks. An operational technology
+(OT) DDoS targets SCADA, ICS, utility or similar operational
+systems. A GDoS was made up for this question.
+106. D. Purple teams are a combination of red and blue teams
+intended to leverage the techniques and tools from both sides to
+improve organizational security. A red team is a team that tests
+security by using tools and techniques like an actual attacker. A
+blue team is a defender team that protects against attackers (and
+testers like red teams!). White teams oversee cybersecurity
+contests and judge events between red teams and blue teams.
+107. B. This is an example of ransomware, which demands payment
+to return your data. A rootkit provides access to
+administrator/root privileges. A logic bomb executes its
+malicious activity when some condition is met. This scenario
+does not describe whaling.
+108. D. If access is not handled properly, a time of check/time of use
+condition can exist where the memory is checked, changed, then
+used. Memory leaks occur when memory is allocated but not
+deallocated. A buffer overflow is when more data is put into a
+variable than it can hold. An integer overflow occurs when an
+attempt is made to put an integer that is too large into a
+variable, such as trying to put a 64-bit integer into a 32-bit
+variable.
+109. B. Near-field communication (NFC) is susceptible to an
+attacker eavesdropping on the signal. Tailgating is a physical
+attack and not affected by NFC technology. Both IP spoofing and
+race conditions are unrelated to NFC technology.
+110. B. Fileless viruses often take advantage of PowerShell to
+perform actions once they have used a vulnerability in a browser
+or browser plug-in to inject themselves into system memory.
+Rick’s best option from the list provided is to enable PowerShell
+logging and then to review the logs on systems he believes are
+infected. Since fileless viruses don’t use files, an image of the
+disk is unlikely to provide much useful data. Disabling the
+administrative user won’t have an impact, since the compromise
+will happen inside the account of whichever user is logged in
+and impacted by the malware. Crash dump files could have
+artifacts of the fileless virus if the machine crashed while it was
+active, but unless that occurs they will not have that
+information.
+111. B. Tailgating involves simply following a legitimate user
+through the door once they have opened it, and it is a common
+means of exploiting a smartcard-based entry access system. It is
+simpler and usually easier than attempting to capture and clone
+a card. Phishing is unrelated to physical security. Although it is
+possible to generate a fake smartcard, it is a very uncommon
+attack. RFID spoofing can be accomplished but requires access
+to a valid RFID card and is relatively uncommon as well.
+112. B. Adam should look for one or more threat feeds that match
+the type of information he is looking for. Open threat feeds exist
+that typically use STIX and TAXII to encode and transfer feed
+data to multiple tools in an open format. None of the other feed
+types here would meet Adam’s needs.
+113. B. Malicious tools like BadUSB can make a USB cable or drive
+look like a keyboard when they are plugged in. Somewhat
+strangely, the Security+ exam outline focuses on malicious USB
+cables, but you should be aware that malicious thumb drives are
+far more common and have been used by penetration testers
+simply by dropping them in a parking lot near their intended
+target. A Trojan or a worm is a possibility, but the clue involving
+the keyboard would point to a USB device as the first place
+Naomi should look.
+114. D. Using a pass-the-hash attack requires attackers to acquire a
+legitimate hash, and then present it to a server or service. A real
+hash was provided; it was not spoofed. An evil twin is a wireless
+attack. Shimming is inserting malicious code between an
+application and a library.
+115. B. Claiming to be from tech support is claiming authority, and
+the story the caller gave indicates urgency. Yes, this caller used
+urgency (the virus spread) but did not attempt intimidation.
+Authority and trust are closely related, and in this case urgency
+was the second major factor. This caller used urgency but not
+intimidation.
+116. B. The questions tells us that these are Windows 10 systems, a
+current operating system. From there, it is safe to presume that
+something has gone wrong with the patching process or that
+there isn’t a patching process. Elaine should investigate both
+what the process is and if there are specific reasons the systems
+are not patched. Since we know these systems run a current OS,
+option A, unsupported operating systems, can be ruled out. The
+vulnerabilities are specifically noted to be Windows
+vulnerabilities, ruling out option C, and there is no mention of
+protocols, eliminating option D as well.
+117. A. Address Resolution Protocol (ARP) poisoning, often called
+ARP spoofing, occurs when an attacker sends malicious ARP
+packets to the default gateway of a local area network, causing it
+to change the mappings it maintains between hardware (MAC)
+addresses and IP addresses. In DNS poisoning, domain name to
+IP address entries in a DNS server are altered. This attack did
+not involve an on-path attack. A backdoor provides access to the
+attacker, which circumvents normal authentication.
+118. A. In a known environment (white-box) test, the tester is given
+extensive knowledge of the target network. Full disclosure is not
+a term used to describe testing. Unknown environment (blackbox)
+testing involves only very minimal information being given
+to the tester. A red team test simulates a particular type of
+attacker, such as a nation-state attacker, an insider, or other
+type of attacker.
+119. C. Social engineering is about using people skills to get
+information you would not otherwise have access to. Illegal
+copying of software isn’t social engineering, nor is gathering of
+discarded manuals and printouts, which describes dumpster
+diving. Phishing emails use some social engineering, but that is
+one example of social engineering, not a definition.
+120. C. Shoulder surfing involves literally looking over someone’s
+shoulder in a public place and gathering information, perhaps
+login passwords. ARP poisoning alters the Address Resolution
+Protocol tables in the switch. Phishing is an attempt to gather
+information, often via email, or to convince a user to click a link
+to, and/or download, an attachment. A Smurf attack is a
+historical form of denial-of-service attack.
+121. A. Invoice scams typically either send legitimate appearing
+invoices to trick an organization into paying the fake invoice, or
+they focus on tricking employees into logging into a fake site to
+allow the acquisition of credentials. They typically do not focus
+on delivery of malware or stealing cryptocurrency.
+122. B. Vulnerability scans use automated and semiautomated
+processes to identify known vulnerabilities. Audits usually
+involve document checks. Unknown and known environment
+testing are both types of penetration tests.
+123. A. A partially known (gray-box) test involves the tester being
+given partial information about the network. A known
+environment (white-box) test involves the tester being given full
+or nearly full information about the target network, and
+unknown (black-box) environments don’t provide information
+about the target environment. Masked is not a testing term.
+124. D. In the on-path (man-in-the-middle) attack, the attacker is
+between the client and the server, and to either end, the attacker
+appears like the legitimate other end. This does not describe any
+denial-of-service attack. A replay attack involves resending login
+information. Although an on-path attack can be used to perform
+eavesdropping, in this scenario the best answer is an on-path
+attack.
+125. A. In a man-in-the-browser attack, the malware intercepts calls
+from the browser to the system, such as system libraries. Onpath
+attack involves having some process between the two ends
+of communication in order to compromise passwords or
+cryptography keys. In a buffer overflow attack, more data is put
+into a variable than the variable was intended to hold. Session
+hijacking involves taking over an authenticated session.
+126. B. Uniform resource locator (URL) redirection is frequently
+used in web applications to direct users to another service or
+portion of the site. If this redirection is not properly secured, it
+can be used to redirect to an arbitrary untrusted or malicious
+site. This issue, known as Open Redirect vulnerabilities, remains
+quite common. The code shown does not contain SQL or LDAP
+code, and there is no mention of changing DNS information on
+the server, thus making the other options incorrect.
+127. D. Placing a larger integer value into a smaller integer variable
+is an integer overflow. Memory overflow is not a term used, and
+memory leak is about allocating memory and not deallocating it.
+Buffer overflows often involve arrays. Variable overflow is not a
+term used in the industry.
+128. B. Cross-site request forgery (XSRF or CSRF) takes advantage
+of the cookies and URL parameters legitimate sites use to help
+track and serve their visitors. In an XSRF or a CSRF attack,
+attackers leverage authorized, authenticated users’ rights by
+providing them with a cookie or session data that will be read
+and processed when they visit the target site. An attacker may
+embed a link within an email or other location that will be
+clicked or executed by the user or an automated process with
+that user’s session already open. This is not SQL injection, which
+would attempt to send commands to a database, or LDAP
+injection, which gathers data from a directory server. Cross-site
+scripting (XSS) would embed code in user-submittable data
+fields that a website will display to other users, causing it to run.
+129. D. You will need to be able to read and understand basic scripts
+and programs in multiple languages for the Security+ exam. In
+this example, you can recognize common Bash syntax and see
+that it is adding a key to the authorized keys file for root. If that’s
+not an expected script, you should be worried!
+130. D. Rootkits provide administrative access to systems, thus the
+“root” in rootkit. A Trojan horse combines malware with a
+legitimate program. A logic bomb performs its malicious activity
+when some condition is met. A multipartite virus infects the
+boot sector and a file.
+131. C. Memory leaks can cause crashes, resulting in an outage. This
+targets the availability leg of the CIA (confidentiality, integrity,
+and availability) triad, making it a security issue. Memory leaks
+do not actually leak to other locations, nor do they allow code
+injection. Instead memory leaks cause memory exhaustion or
+other issues over time as memory is not properly reclaimed.
+132. B. This question combines two pieces of knowledge: how
+botnet command and control works, and that IRC’s default port
+is TCP 6667. Although this could be one of the other answers,
+the most likely answer given the information available is a
+botnet that uses Internet Relay Chat (IRC) as its command-andcontrol
+channel.
+133. A. Software updates for consumer-grade wireless routers are
+typically applied as firmware updates, and Susan should
+recommend that the business owner regularly upgrade their
+wireless router firmware. If updates are not available, they may
+need to purchase a new router that will continue to receive
+updates and configure it appropriately. This is not a default
+configuration issue nor an unsecured administrative account—
+neither is mentioned, nor is encryption.
+134. B. Radio frequency identification (RFID) is commonly used for
+access badges, inventory systems, and even for identifying pets
+using implantable chips. In a penetration testing scenario,
+attackers are most likely to attempt to acquire or clone RFIDbased
+access badges to gain admittance to a building or office
+suite.
+135. B. The word you will need to know for the Security+ exam for
+phishing via SMS is “smishing,” a term that combines SMS and
+phishing. Bluejacking sends unsolicited messages to Bluetooth
+devices, and phonejacking and text whaling were made up for
+this question.
+136. B. This is vishing, or using voice calls for phishing. Spear
+phishing is targeting a small, specific group. War dialing is
+dialing numbers hoping a computer modem answers.
+Robocalling is used to place unsolicited telemarketing calls.
+137. A. Worms spread themselves via vulnerabilities, making this an
+example of a worm. A virus is software that self-replicates. A
+logic bomb executes its malicious activity when some condition
+is met. A Trojan horse combines malware with a legitimate
+program.
+138. B. Dumpster diving is the process of going through the trash to
+find documents. Shredding documents will help to prevent
+dumpster diving, but truly dedicated dumpster divers can
+reassemble even well-shredded documents, leading some
+organizations to burn their most sensitive documents after they
+have been shredded. Phishing is often done via email or phone
+and is an attempt to elicit information or convince a user to click
+a link or open an attachment. Shoulder surfing is literally
+looking over someone’s shoulder. In the on-path (man-in-themiddle)
+attack, the attacker is between the client and the server,
+and to either end, the attacker appears like the legitimate other
+end.
+139. B. Systems should not have a rootkit on them when a
+penetration test starts, and rootkits installed during the test
+should be fully removed and securely deleted. The rest of the
+options are all typical parts of a penetration testing cleanup
+process. You can read more at the penetration testing standard
+site at www.pentest-standard.org/index.php/Post_Exploitation.
+140. C. This is an example of an online brute-force dictionary attack.
+Dictionary attacks use common passwords as well as common
+substitutions to attempt to break into a system or service. Backoff
+algorithms that lock out attackers after a small number of
+incorrect password attempts can help slow or stop dictionary
+attacks and other brute-force password attacks. Rainbow tables
+are tables of precomputed hashes. The birthday attack is a
+method for generating collisions of hashes. Finally, no spoofing
+is indicated in this scenario.
+141. C. Jim has discovered a skimmer, a device used for skimming
+attacks that capture credit and debit card information.
+Skimmers may be able to wirelessly upload the information they
+capture, or they may require attackers to retrieve data in person.
+Some skimmers include cameras to capture keypresses for PINs
+and other data. A replay attack would reuse credentials or other
+information to act like a legitimate user, a race condition occurs
+when the time of use and time of check of data can be exploited,
+and a card cloner would be used after cards were skimmed to
+duplicate them.
+142. D. Active reconnaissance connects to the network using
+techniques such as port scanning. Both active and passive
+reconnaissance can be done manually or with tools. Black-box
+and white-box refer to the amount of information the tester is
+given. Attackers and testers use both types of reconnaissance.
+143. D. Browser toolbars are sometimes examples of PUPs, or
+potentially unwanted programs like spyware or adware. A worm
+is a type of malware that spreads on its own by exploiting
+vulnerabilities on network-connected systems. Once it infects a
+system, it will typically scan for other vulnerable systems and
+continue to spread. A RAT is a remote-access Trojan, and a
+rootkit is used to gain and keep administrative access.
+144. B. OSINT, or open source intelligence, is intelligence
+information obtained from public sources like search engines,
+websites, domain name registrars, and a host of other locations.
+OPSEC, or operational security, refers to habits such as not
+disclosing unnecessary information. STIX is the Structured
+Threat Intelligence Exchange protocol, and IntCon was made up
+for this question.
+145. C. Watering hole attacks target groups by focusing on common
+shared behaviors like visiting specific websites. If attackers can
+compromise the site or deliver targeted attacks through it, they
+can then target that group. Watercooler, phishing net, and phish
+pond attacks were all made up for this question.
+146. C. Although Structured Query Language (SQL) queries are
+often parameterized, Lightweight Directory Access Protocol
+(LDAP) security practices focus instead on user input validation
+and filtering of output to ensure that an excessive amount of
+data is not being returned in queries. As with all services,
+securely configuring LDAP services is one of the first protections
+that should be put in place.
+147. B. Although it may sound dramatic, sites accessible via Tor or
+other tools that separate them from the rest of the Internet are
+sometimes called “the dark web.” The Security+ exam uses this
+term, so you need to be aware of it for the exam. The rest of the
+options were made up and may be almost as silly as calling a
+section of the Internet the dark web.
+148. B. URL redirection has many legitimate uses, from redirecting
+traffic from no-longer-supported links to current replacements
+to URL shortening, but URL redirection was commonly used for
+phishing attacks. Modern browsers display the full, real URL,
+helping to limit the impact of this type of attack. Certificate
+expiration tracking is used to ensure that website certificates are
+current, but it does not prevent URL redirection attacks.
+JavaScript being enabled or disabling cookies is not helpful for
+this purpose either.
+149. A. Vulnerabilities in cloud services require work on the part of
+the cloud service provider to remediate them. You can remediate
+most vulnerabilities in your own infrastructure yourself without
+a third party. Vulnerabilities in cloud services and local
+infrastructure can both be as severe and take as much time to
+remediate. Regardless of where your organization stores its data,
+your responsibility for it is likely the same!
+150. C. Consumer wireless routers provide local administrative
+access via their default credentials. Although they recommend
+that you change the password (and sometimes the username for
+greater security), many installations result in an unsecured
+administrative account. The other answers are all common
+issues but not what is described in the question.
+151. A. A red team is a team that tests security by using tools and
+techniques like an actual attacker. A blue team is a defender
+team that protects against attackers (and testers like red
+teams!). Purple teams are a combination of red and blue teams
+intended to leverage the techniques and tools from both sides to
+improve organizational security. White teams oversee
+cybersecurity contests and judge events between red teams and
+blue teams.
+152. A. Directory traversal attacks attempt to exploit tools that can
+read directories and files by moving through the directory
+structure. The example would try to read the config.txt file
+three layers above the working directory of the web application
+itself. Adding common directory names or common filenames
+can allow attackers (or penetration testers) to read other files in
+accessible directories if they are not properly secured. The
+remainder of the options were made up for this question,
+although Slashdot is an actual website.
+153. A. Security orchestration, automation, and response (SOAR)
+services are designed to integrate with a broader range of both
+internal and external applications. Both security information
+and event management (SIEM) and SOAR systems typically
+include threat and vulnerability management tools, as well as
+security operations’ automation capabilities.
+154. A. A known environment (white-box) test involves providing
+extensive information, as described in this scenario. A known
+environment test could be internal or external. This scenario
+describes the opposite of an unknown environment (black-box)
+test, which would involve zero knowledge. Finally, threat test is
+not a term used in penetration testing.
+155. C. The Windows Security Account Manager (SAM) file and the
+/etc/shadow file for Linux systems both contain passwords and
+are popular targets for offline brute-force attacks.
+156. C. An SSL stripping attack requires attackers to persuade a
+victim to send traffic through them via HTTP while continuing
+to send HTTPS encrypted traffic to the legitimate server by
+pretending to be the victim. This is not a brute-force attack, a
+Trojan attack would require malware, and a downgrade attack
+would try to move the encrypted session to a less secure
+encryption protocol.
+157. C. The U.S. Trusted Foundry program is intended to prevent
+supply chain attacks by ensuring end-to-end supply chain
+security for important integrated circuits and electronics.
+158. B. Threat maps like those found at threatmap.fortiguard.com
+and threatmap.checkpoint.com are visualizations of real-time or
+near real-time data gathered by vendors and other organizations
+that can help visualize major threats and aid in analysis of them.
+Pie charts may be done in real time via security information and
+event management (SIEM) or other systems, but note that no
+SIEM or other device was mentioned. A dark web tracker was
+made up for the question, and OSINT repositories wouldn’t
+show real-time data like this.
+159. B. Bluesnarfing involves accessing data from a Bluetooth device
+when it is in range. Bluejacking involves sending unsolicited
+messages to Bluetooth devices when they are in range. Evil twin
+attacks use a rogue access point whose name is similar or
+identical to that of a legitimate access point. A RAT is a remoteaccess
+Trojan, and nothing in this scenario points to a RAT
+being the cause of the stolen data.
+160. B. The rules of engagement for a penetration test typically
+include the type and scope of testing, client contact information
+and requirements for when the team should be notified,
+sensitive data handling requirements, and details of regular
+status meetings and reports.
+161. C. This command starts a reverse shell connecting to
+example.com on port 8989 every hour. If you’re not familiar with
+cron , you should take a moment to read the basics of cron
+commands and what you can do with them—you can read a man
+page for cron at
+manpages.ubuntu.com/manpages/focal/man8/cron.8.html.
+162. C. The penetration tester leveraged the principle of urgency
+and also used some elements of authority by claiming to be a
+senior member of the organization. They didn’t threaten or
+intimidate the help desk staff member and did not make
+something seem scarce, nor did they attempt to build trust with
+the staff member.
+163. A. Proprietary, or closed threat, intelligence is threat
+intelligence that is not openly available. OSINT, or open source
+threat intelligence, is freely available. ELINT is a military term
+for electronic and signals intelligence. Corporate threat
+intelligence was made up for this question.
+164. B. CompTIA defines “maneuver” in the context of threat
+hunting as how to think like a malicious user to help you identify
+potential indicators of compromise in your environment.
+Outside of the Security+ exam, this is not a commonly used term
+in normal security practice, although it does make an
+appearance in military usage. Since this term is not common
+outside of the Security+ exam, make sure you understand the
+CompTIA definition. Intelligence fusion adds multiple
+intelligence sources together, threat feeds are used to provide
+information about threats, and advisories and bulletins are often
+combined with threat feeds to understand new attacks,
+vulnerabilities, and other threat information.
+165. B. Script kiddies are the least resourced of the common threat
+actors listed above. In general, they flow from national state
+actors as the most highly resourced, to organized crime, to
+hacktivists, to inside actors, and then to script kiddies as the
+least capable and least resourced actors. As with any scale like
+this, there is room for some variability between specific actors,
+but for the exam, you should track them in that order.
+166. B. A SYN flood is a type of resource exhaustion attack and uses
+up all available sessions on the system it is aimed at. Although a
+SYN flood can be a DDoS, no mention was made of multiple
+source machines for the attack. No application was mentioned,
+and a SYN flood targets the TCP/IP stack on the system rather
+than an application. No vulnerability was mentioned, and none
+is required for a SYN flood, since it simply tries to overwhelm
+the target’s ability to handle the opened connections.
+Protections against SYN floods tend to focus on preventing
+opened connections from causing resource exhaustion and
+identifying and blocking abusive hosts.
+167. A. Pretexting is a type of social engineering that involves using
+a false motive and lying to obtain information. Here, the
+penetration tester lied about their role and why they are calling
+(impersonation), and then built some trust with the user before
+asking for personal information. A watering hole attack
+leverages a website that the targeted users all use and places
+malware on it to achieve their purpose. Prepending is described
+by CompTIA as “adding an expression or a phrase,” and
+shoulder surfing involves looking over an individual’s shoulder
+or otherwise observing them entering sensitive information like
+passwords.
+168. C. You may be familiar with the term war driving, but war
+flying is increasingly common as drones have entered wide use.
+Although penetration testers are somewhat unlikely to fly a
+helicopter or airplane over a target site, inexpensive drones can
+provide useful insight into both physical security and wireless
+network coverage if equipped with the right hardware. Droning
+and aerial snooping were made up for this question, and Air
+Snarf is an old tool for capturing usernames and passwords on
+vulnerable wireless networks.
+169. C. Many organizations have legacy platforms in place that
+cannot be patched or upgraded but that are still an important
+part of their business. Security professionals are often asked to
+suggest ways to secure the systems while leaving them
+operational. Common options include moving the devices to an
+isolated virtual LAN (VLAN), disconnecting the devices from the
+network and ensuring they are not plugged back in, and using a
+firewall or other security device to ensure that the legacy system
+is protected from attacks and cannot browse the Internet or
+perform other actions that could result in compromise.
+170. B. According to the national council of ISACs, information
+sharing and analysis centers, “Information Sharing and Analysis
+Centers (ISACs) help critical infrastructure owners and
+operators protect their facilities, personnel and customers from
+cyber and physical security threats and other hazards. ISACs
+collect, analyze and disseminate actionable threat information to
+their members and provide members with tools to mitigate risks
+and enhance resiliency.” IRTs are incident response teams,
+Feedburner is Google’s RSS feed management tool, and vertical
+threat feeds is not an industry term.
+171. B. TCP port 23 is typically associated with Telnet, an
+unencrypted remote shell protocol. Since Telnet sends its
+authentication and other traffic in the clear (clear/plain text), it
+should not be used, and Lucca should identify this as a
+configuration issue involving an insecure protocol.
+172. B. Privilege escalation attacks focus on gaining additional
+privileges. In this case, Cameron used physical access to the
+system to modify it, allowing him to then conduct a privilege
+escalation attack as an unprivileged user. A Trojan would have
+required a file to act like it was desirable, a denial-of-service
+attack would have prevented access to a system or service, and
+swapfiles (or pagefiles) are drive space used to contain the
+contents of memory when memory runs low. Swapfiles may
+contain sensitive data, but the term swapfile attack is not
+commonly used.
+173. C. Common attributes of threat actors that you should be able
+to describe and explain for the Security+ exam include whether
+they are internal or external threats, their level of sophistication
+or capability, their resources or funding, and their intent or
+motivation. The number of years of experience is difficult to
+determine for many threat actors and is not a direct way to
+gauge their capabilities, and is therefore not a common attribute
+that is used to assess them.
+174. B. Although engaging domain experts is often encouraged,
+requiring third-party review of proprietary algorithms is not.
+Many machine learning algorithms are sensitive since they are
+part of an organization’s competitive advantage. Ensuring that
+data is secure and of sufficient quality, ensuring a secure
+development environment, and requiring change control are all
+common artificial intelligence (AI)/machine learning (ML)
+security practices.
+175. A. White teams act as judges and provide oversight of
+cybersecurity exercises and competitions. Options B and C may
+remind you of white- and gray-box tests, but they’re only there
+to confuse you. Cybersecurity teams are usually referred to with
+colors like red, blue, and purple as the most common colors, as
+well as the white teams that the Security+ exam outline
+mentions. Defenders in an exercise are part of the blue team.
+176. C. Bug bounties are increasingly common and can be quite
+lucrative. Bug bounty websites match vulnerability researchers
+with organizations that are willing to pay for information about
+issues with their software or services. Ransoms are sometimes
+demanded by attackers, but this is not a ransom since it was
+voluntarily paid as part of a reward system. A zero-day
+disclosure happens when a vulnerability is disclosed and the
+organization has not been previously informed and allowed to
+fix the issue. Finally, you might feel like $10,000 is a payday, but
+the term is not used as a technical term and doesn’t appear on
+the exam.
+177. A. Linux privileges can be set numerically, and 777 sets user,
+group, and world to all have read, write, and execute access to
+the entire /etc directory. Setting permissions like this is a
+common workaround when permissions aren’t working but can
+expose data or make binaries executable by users who should
+not have access to them. When you set permissions for a system,
+remember to set them according to the rule of least privilege:
+only the permissions that are required for the role or task should
+be configured.
+178. B. Footprinting is the process of gathering information about a
+computer system or network, and it can involve both active and
+passive techniques. Mapping, fingerprinting, and aggregation
+are not the correct or common terms for this practice.
+179. C. When dial-up modems were in heavy use, hackers would
+conduct war dialing exercises to call many phone numbers to
+find modems that would answer. When wireless networks
+became the norm, the same type of language was used, leading
+to terms like war walking, war driving, and even war flying. The
+rest of the options were made up, but you should remember that
+the Security+ exam expects you to know about war driving and
+war flying.
+180. B. Lighting and utility systems, as well as SCADA, PLCs, CNC,
+scientific equipment and similar devices are types of operational
+technology. Since this is a distributed attack that results in a
+denial of service, it is a distributed denial-of-service (DDoS)
+attack. OT systems are often isolated or otherwise protected
+from remote network connections to prevent this type of attack
+since many OT devices do not have strong security controls or
+frequent updates. A SCADA overflow is not a term used in the
+industry, but network and application DDoS attacks do appear
+on the Security+ exam outline, and you will need to be able to
+differentiate them from this type of OT DDoS.
+181. C. A false negative occurs with a vulnerability scanning system
+when a scan is run and an issue that exists is not identified. This
+can be because of a configuration option, a firewall, or other
+security setting or because the vulnerability scanner is otherwise
+unable to detect the issue. A missing vulnerability update might
+be a concern if the problem did not specifically state that the
+definitions are fully up-to-date. Unless the vulnerability is so
+new that there is no definition, a missing update shouldn’t be
+the issue. Silent patching refers to a patching technique that
+does not show messages to users that a patch is occurring. A
+false positive would have caused a vulnerability to show that was
+not actually there. This sometimes happens when a patch or fix
+is installed but the application does not change in a way that
+shows the change.
+182. A. Refactoring a program by automated means can include
+adding additional text, comments, or nonfunctional operations
+to make the program have a different signature without
+changings its operations. This is typically not a manual
+operation due to the fact that antimalware tools can quickly find
+new versions. Instead, refactoring is done via a polymorphic or
+code mutation technique that changes the malware every time it
+is installed to help avoid signature-based systems.
+183. B. Hybrid warfare is a relatively new term that describes the
+multipronged attacks conducted as part of a military or national
+strategy of political warfare that uses traditional, asymmetric,
+and cyberwarfare techniques along with influence methods to
+achieve goals.
+184. C. This is an example of a hoax. Hoaxes are fake security
+threats and can consume both time and resources to combat.
+User awareness and good habits for validating potential hoaxes
+are both useful ways to prevent them from consuming more
+time and energy than they should. A phishing attempt would
+target credentials or other information, no identity information
+is mentioned for identity fraud here, and an invoice scam
+involves a fake or modified invoice.
+185. B. This is an attempt to get the server to send a request to itself
+as part of an API call, and it is an example of server-side request
+forgery. A cross-site scripting attack would use the victim’s
+browser rather than a server-side request, as would a CSRF
+attack.
+186. B. Threat hunting can involve a variety of activities such as
+intelligence fusion, combining multiple data sources and threat
+feeds, and reviewing advisories and bulletins to remain aware of
+the threat environment for your organization or industry.
+187. C. Passwords in memory are often stored in plain text for use.
+This means that attackers can recover them if they can access
+the memory where the password is stored, even if the storage is
+ephemeral.
+188. D. The AIS service uses STIX and TAXII. STIX and TAXII are
+open standards that the Department of Homeland Security
+started the development of and uses for this type of effort. You
+can read more about AIS here: www.us-cert.gov/ais.
+189. C. The reconnaissance phase of a penetration test involves
+gathering information about the target, including domain
+information, system information, and details about employees
+like phone numbers, names, and email addresses.
+190. A. Angela has impersonated an actual employee of the delivery
+service to gain access to the company. Company uniforms are a
+very useful element for in-person social engineering. Whaling is
+a type of phishing attack aimed at leaders in an organization. A
+watering hole attack deploys malware or other attack tools at a
+site or sites that a target group frequently uses. Prepending is
+vaguely defined by the Security+ exam but can mean a number
+of things. When you see prepending on the exam, it should
+normally mean “adding something to the front of text.”
+191. D. Acquisition via the gray market can lead to lack of vendor
+support, lack of warranty coverage, and the inability to validate
+where the devices came from. Nick should express concerns
+about the supply chain, and if his devices need to be from a
+trusted source or supplier with real support he may need to
+change his organization’s acquisition practices.
+192. B. XML injection is often done by modifying HTTP queries sent
+to an XML-based web service. Reviewing web server logs to see
+what was sent and analyzing them for potential attacks will help
+Christina see if unexpected user input is visible in the logs.
+Syslog, authentication logs, and event logs are unlikely to
+contain information about web applications that would show
+evidence of an XML injection–based attack.
+Use the following scenario for questions 193–195.
+Frank is the primary IT staff member for a small company and
+has migrated his company’s infrastructure from an on-site
+datacenter to a cloud-based infrastructure as a service (IaaS)
+provider. Recently he has been receiving reports that his website
+is slow to respond and that it is inaccessible at times. Frank
+believes that attackers may be conducting a denial-of-service
+attack against his organization.
+193. C. Frank’s best option is to review the anti-denial-of-service
+and other security tools that his cloud hosting provider provides,
+and to make appropriate use of them. The major infrastructure
+as a service (IaaS) providers have a variety of security tools that
+can help both detect and prevent DoS attacks from taking down
+sites that are hosted in their infrastructure. Calling the cloud
+service provider’s ISP will not work because the ISP works with
+the cloud provider, not with Frank! It is possible the cloud
+service provider might be able to assist Frank, but they are most
+likely to instruct him to use the existing tools that they already
+provide.
+194. C. Since Frank is using the cloud service provider’s web
+services, he will need to review the logs that they capture. If he
+has not configured them, he will need to do so, and he will then
+need a service or capability to analyze them for the types of
+traffic he is concerned about. Syslog and Apache logs are both
+found on a traditional web host, and they would be appropriate
+if Frank was running his own web servers in the infrastructure
+as a service (IaaS) environment.
+195. B. The most useful data is likely to come from an IPS, or
+intrusion prevention system. He will be able to determine if the
+attack is a denial-of-service (DoS) attack, and the IPS may be
+able to help him determine the source of the denial-of-service
+attack. A firewall might provide some useful information but
+would only show whether or not traffic was allowed and would
+not analyze the traffic for attack information. A vulnerability
+scanner would indicate if there was an issue with his application
+or the server, but it would not identify this type of attack.
+Antimalware software can help find malware on the system but
+isn’t effective against a DoS attack.
+196. D. Contractual terms, auditing, and security reviews are all
+common means of reducing third-party risks when working with
+a vendor that is performing systems integration work. An SOC
+(service organization controls) report would typically be
+requested if you were going to use a third-party vendor’s
+datacenter or hosted services.
+197. B. Training an artificial intelligence (AI) or machine learning
+(ML) system with tainted data is a significant concern. Elias
+needs to ensure that the traffic on his network is typical and
+nonmalicious to ensure that the AI does not presume that
+malicious traffic is normal for his network.
+198. C. The most common motivation for hacktivists is to make a
+political statement. Reputational gains are often associated with
+script kiddies, whereas financial gain is most commonly a goal of
+organized crime or insider threats. Gathering high-value data is
+typical of both nation-state actors and organized crime.
+199. D. Predictive analysis tools use large volumes of data, including
+information about security trends and threats, large security
+datasets from various security tools and other sources, and
+behavior patterns, to predict and identify malicious and
+suspicious behavior.
+200. C. Identity fraud and identity theft commonly use Social
+Security numbers as part of the theft of identity. Tailgating
+involves following a person through a security door or gate so
+that you do not have to present credentials or a code, whereas
+impersonation is a social engineering technique where you claim
+to be someone else. Blackmail is a potential answer, but the
+most common usage is for identity fraud.
+201. A. SOAR tools, like security information and event
+management (SIEM) tools, are highly focused on security
+operations. They include threat and vulnerability management,
+security incident response, and security operations and
+automation tools, but they do not provide source code analysis
+and testing tools.
+202. B. The Security+ exam outline specifically lists these items as
+threat vectors. Although there are many others, you should be
+familiar with direct access, wireless, email, supply chain, social
+media, removable media, and cloud as vectors for the exam.
+203. C. Although it may seem strange at first, both SourceForge and
+GitHub are used to house sample exploit code as well as other
+information that threat intelligence analysts may find useful.
+They are not part of the dark web, nor are they an automated
+indicator sharing (AIS) source or a public information sharing
+center.
+204. B. Trusting rather than validating user input is the root cause
+of improper input handling. All input should be considered
+potentially malicious and thus treated as untrusted. Appropriate
+filtering, validation, and testing should be performed to ensure
+that only valid data input is accepted and processed.
+205. C. The code is an example of a PowerShell script that
+downloads a file into memory. You can rule out the upload
+options by reading the script since it mentions a download in the
+script example. Since we see a string being downloaded, rather
+than a file and location, you may be able to guess that this is a
+fileless malware example.
+206. C. Session IDs should be unique for distinct users and systems.
+A very basic type of session replay attack involves providing a
+victim with a session ID and then using that session ID once
+they have used the link and authenticated themselves.
+Protections such as session timeouts and encrypting session
+data, as well as encoding the source IP, hostname, or other
+identifying information in the session key, can all help prevent
+session replay attacks.
+207. B. The Security+ exam outline lists seven major impact
+categories, including data loss, data breaches, and data
+exfiltration. Data modification is not listed, but it is a concern as
+part of the integrity leg of the CIA triad.
+208. C. Academic journals are the slowest of the items listed because
+of the review processes involved with most reputable journals.
+Although academic journals can be useful resources, they are
+typically not up-to-the-minute sources. Other resources you
+should be aware of are vendor websites, conferences, social
+media, and RFCs (requests for comments).
+209. C. Vulnerability scans and port scans can often be detected in
+logs by looking for a series of ports being connected to. In this
+case, the log was created by scanning a system with an OpenVAS
+scanner. There is no indication of a successful login or other
+hacking attempt, and a service startup would show in the
+messages log, not the auth log. A reboot would also show in the
+messages log rather than the auth log.
+210. C. Although it may be tempting to immediately upgrade,
+reading and understanding the CVEs for a vulnerability is a good
+best practice. Once Charles understands the issue, he can then
+remediate it based on the recommendations for that specific
+problem. Disabling PHP or the web server would break the
+service, and in this case, only newer versions of PHP than 5.4
+have the patch Charles needs.
+211. D. Although 80 and 443 are the most common HTTP ports, it
+is common practice to run additional web servers on port 8080
+when a nonstandard port is needed. SSH would be expected to
+be on port 22, RDP on 3389, and MySQL on 3306.
+212. B. Once this issue is remediated, Rick should investigate why
+the system was running a plug-in from 2007. In many cases,
+when you discover a vulnerable component like this it indicates
+a deeper issue that exists in the organization or processes for
+system and application maintenance. Installing a web
+application firewall (WAF) or reviewing intrusion prevention
+system (IPS) logs may be useful if Rick thinks there are ongoing
+attacks or that successful attacks have occurred, but the problem
+does not state anything about that. There is no indication of
+compromise, merely a completely outdated plug-in version in
+the problem. If you want a sample system with vulnerable plugins
+like this to test, you can download the 2015 release of the
+Open Web Application Security Project (OWASP) broken web
+applications virtual machine. It has a wide range of completely
+out-of-date applications and services to practice against.
+213. C. A network device running SSH and a web server on TCP port
+443 is a very typical discovery when running a vulnerability
+scan. Without any demonstrated issues, Carolyn should simply
+note that she saw those services. Telnet runs on port 21, an
+unencrypted web server will run on TCP 80 in most cases, and
+Windows fileshares use a variety of ports including TCP ports
+135–139 and 445.
+214. B. Configuration reviews, either using automated tool or
+manual validation, can be a useful proactive way to ensure that
+unnecessary ports and services are not accessible. Configuration
+management tools can also help ensure that expected
+configurations are in place. Neither passive nor active network
+packet capture will show services that are not accessed, meaning
+that open ports could be missed, and log review won’t show all
+open ports either.
+215. C. Errors are considered a vulnerability because they often
+provide additional details about the system or its configuration.
+They typically cannot be used to directly exploit or crash the
+system.
+216. D. This appears to be a situation where your network’s DNS
+server is compromised and sending people to a fake site. A
+Trojan horse is malware tied to a legitimate program. IP
+spoofing would be using a fake IP address, but that is not
+described in this scenario. In fact, the users are not even typing
+in IP addresses—they are typing in URLs. Clickjacking involves
+tricking users into clicking something other than what they
+intended.
+217. C. This is a classic example of typo squatting. The website is off
+by only one or two letters; the attacker hopes that users of the
+real website mistype the URL and are taken to their fake
+website. Session hijacking is taking over an authenticated
+session. Cross-

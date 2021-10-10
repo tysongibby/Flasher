@@ -1,0 +1,82 @@
+1. C. The correct answer is spear phishing. Spear phishing is
+targeted to a specific group, in this case insurance professionals.
+Although this is a form of phishing, the more specific answer is
+the one you will need to choose on questions like this. Phishing
+uses social engineering techniques to succeed but is once again a
+broader answer than spear phishing and thus is not the correct
+choice. Finally, a Trojan horse pretends to be a legitimate or
+desirable program or file, which this scenario doesn’t describe.
+■
+2. B. A logic bomb is malware that performs its malicious activity
+when some condition is met. A worm is malware that selfpropagates.
+A Trojan horse is malware attached to a legitimate
+program, and a rootkit is malware that gets root or
+administrative privileges.
+■
+3. C. This is a very basic form of SQL injection. Cross-site
+scripting would have JavaScript in the text field and would be
+designed to impact other sites from a user’s session. Cross-site
+request forgery would not involve any text being entered in the
+web page, and ARP poisoning is altering the ARP table in a
+switch; it is not related to website hacking.
+■
+4. B. This describes a jamming attack, where legitimate traffic is
+interfered with by another signal. Jamming can be intentional or
+unintentional and may be intermittent. IV attacks are obscure
+cryptographic attacks on stream ciphers. Wi-Fi protected setup
+(WPS) uses a PIN to connect to the wireless access point (WAP).
+The WPS attack attempts to intercept that PIN in transmission,
+connect to the WAP, and then steal the WPA2 password. A
+botnet is a group of machines that are being used, without their
+consent, as part of an attack.
+■
+5. B. The best option listed to defend against the attacks
+mentioned is input validation. Encrypting the web traffic will
+not have any effect on these two attacks. A web application
+firewall (WAF) might mitigate these attacks, but it would be
+secondary to input validation, and an intrusion detection system
+(IDS) will simply detect the attack—it won’t stop it.
+■
+6. C. If users have been connecting but the AP does not show
+them connecting, then they have been connecting to a rogue
+access point. This could be the cause of an architecture and
+design weakness such as a network without segmentation and
+control of devices connecting to the network. Session hijacking
+involves taking over an already authenticated session. Most
+session hijacking attacks involve impersonation. The attacker
+attempts to gain access to another user’s session by posing as
+that user. Clickjacking involves causing visitors to a website to
+click on the wrong item. Finally, bluejacking is a Bluetooth
+attack.
+■
+7. C. Cross-site scripting involves entering a script into text areas
+that other users will view. SQL injection is not about entering
+scripts, but rather SQL commands. Clickjacking is about tricking
+users into clicking on the wrong thing. Bluejacking is a
+Bluetooth attack.
+■
+8. D. Retaining the actual password is not a best practice, and
+thus encrypting password plain text is not a common technique
+to make passwords harder to crack. Since the application would
+need the cryptographic key to read the passwords, anybody who
+had access to that key could decrypt the passwords. Using a salt,
+a pepper, and a cryptographic hashing algorithm designed for
+passwords are all common best practices to prevent offline
+brute-force attacks.
+■
+9. A. Although this is one of the more dated items on the
+Security+ exam outline, you need to know that the term for
+Internet messaging spam messages is SPIM. The rest of the
+answers were made up, and though this shows up in the exam
+outline, the rest of the world has moved on from using this term.
+■
+10. B. A segmentation fault will typically stop the program from
+running. This type of issue is why a NULL pointer or other
+pointer de-referencing error is considered a potential security
+issue, as a denial-of-service condition impacts the availability of
+the service. This type of error is unlikely to cause a data breach
+or allow privilege escalation, and permissions creep occurs as
+individuals accrue more permissions over time in a single
+organization as their permissions are not cleaned up when they
+switch positions or roles.
+■

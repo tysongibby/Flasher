@@ -11,6 +11,6 @@ namespace FlasherShared.Data.Models
         public int Id { get; set; }
         public string Front { get; set; }
         public string Back { get; set; }
-        public bool AnsweredCorrectly { get; set; }
+        public bool AnsweredCorrectly { get; set; } = false;
     }
 }

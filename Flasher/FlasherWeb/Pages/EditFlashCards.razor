@@ -3,9 +3,9 @@
 <h3>Edit Flash Cards</h3>
 
 <h4>Text for Fronts</h4>
-<textarea rows="@TextAreaRows" cols="50" @bind-value="Text1" @bind-value:event="oninput" />
+<textarea rows="@TextArea1Rows" cols="50" @bind-value="TextArea1Text" @bind-value:event="oninput" />
 <h4>Text for Backs</h4>
-<textarea rows="@TextAreaRows" cols="50" @bind-value="Text2" @bind-value:event="oninput" />
-<button class="btn btn-primary" @onclick="() => Submit(Text1, Text2)">Submit</button>
+<textarea rows="@TextArea2Rows" cols="50" @bind-value="TextArea2Text" @bind-value:event="oninput" />
+<button class="btn btn-primary" @onclick="() => Submit(TextArea1Text, TextArea2Text)">Submit</button>
 
 

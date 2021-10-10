@@ -11,7 +11,7 @@ namespace FlasherWeb.Pages
     public partial class Index
     {
         [Inject]
-        private IFlasherService FlasherService { get; set; }
+        private IFlashCardService FlashCardService { get; set; }
         private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
         private int CardIndex { get; set; } = 0;
         private bool Front { get; set; } = true;
@@ -20,15 +20,15 @@ namespace FlasherWeb.Pages
         private string FlashCardBody { get; set; }
         private string ShowButton { get; set; } = "Back";
 
-        //public Index(IFlasherService flasherService)
+        //public Index(IFlashCardService flashCardService)
         //{
-        //    FlasherService = flasherService;
+        //    FlashCardService = flashCardService;
         //}
 
         protected override async Task OnInitializedAsync()
         {
             //Console.WriteLine("OnIitializedAsync was called");
-            FlashCards = await FlasherService.GetAll();
+            FlashCards = await FlashCardService.GetAll();
             Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
             FlashCardBody = FlashCards[0].Front;
 

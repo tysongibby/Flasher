@@ -1,55 +1,87 @@
-﻿using FlasherShared.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlasherShared.Data.Models;
+using FlasherWeb.Services.Interfaces;
+using Microsoft.AspNetCore.Components;
 
 namespace FlasherWeb.Pages
 {
     public partial class EditFlashCards
     {
-        private string text1;
-        private string text2;
+        private string textArea1Text;
+        private string textArea2Text;
         //private FlashCard flashCard;
-        private int TextAreaRows { get; set; }
-        protected string Text
+        private int TextArea1Rows { get; set; }
+        private int TextArea2Rows { get; set; }
+        private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
+        [Inject]
+        private IFlashCardService FlashCardService { get; set; }
+        //public EditFlashCards()
+        //{            
+        //}
+
+        protected string TextArea1Text
         {
-            get => text1;
-            set
+            get => textArea1Text;
+            set 
             {
-                text1 = value;
-                CalculateSize(value);
+                textArea1Text = value;
+                TextArea1Rows = CalculateRows(value);
             }
         }
-        protected string Text2
+        protected string TextArea2Text
         {
-            get => text2;
+            get => textArea2Text;
             set
             {
-                text2 = value;
-                CalculateSize(value);
+                textArea2Text = value;
+                TextArea2Rows = CalculateRows(value);
             }
         }
 
-        private void CalculateSize(string value)
+        private int CalculateRows(string textToCalculate)
         {
-            TextAreaRows = Math.Max(value.Split('\n').Length, value.Split('\r').Length);
-            TextAreaRows = Math.Max(TextAreaRows, 2);
-
+            int textAreaRows = Math.Max(textToCalculate.Split('\n').Length, textToCalculate.Split('\r').Length);
+            textAreaRows = Math.Max(textAreaRows, 2);
+            return textAreaRows;
         }
 
         public void Submit(string textForFronts, string textForBacks)
         {
             List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
-            List<string> newFlashCardBacks = textForFronts.Split('■').ToList();
-            foreach (string fc in newFlashCardFronts)
+            List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
+            //foreach (string fc in newFlashCardFronts)
+            //{
+            //    Console.WriteLine(fc);
+            //}
+            //foreach (string bc in newFlashCardBacks)
+            //{
+            //    Console.WriteLine(bc);
+            //}
+            foreach (string f in newFlashCardFronts)
             {
-                Console.WriteLine(fc);
+                FlashCard newFlashCard = new FlashCard()
+                {
+                    Front = f
+                };
+                NewflashCards.Add(newFlashCard);
             }
-            foreach (string bc in newFlashCardBacks)
+
+            for (int b = 0; b < NewflashCards.Count; b++ )
+            {                
+                NewflashCards[b].Back = newFlashCardBacks[b];
+            }
+
+            //TODO: add new flash cards to database
+            foreach(FlashCard fc in NewflashCards)
             {
-                Console.WriteLine(bc);
+                var result = FlashCardService.Create(fc).Result;
             }
+            
+            
         }
+
     }
 }

@@ -24,7 +24,7 @@ namespace FlasherWeb
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["api_base_url"]) });
 
-            builder.Services.AddHttpClient<IFlasherService, FlasherService>(api => api.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
+            builder.Services.AddHttpClient<IFlashCardService, FlashCardService>(api => api.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
 
             await builder.Build().RunAsync();
         }
