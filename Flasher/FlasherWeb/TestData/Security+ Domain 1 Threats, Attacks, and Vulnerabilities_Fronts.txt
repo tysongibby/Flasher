@@ -63,6 +63,7 @@ A. Use of a salt
 B. Use of a pepper
 C. Use of a purpose-built password hashing algorithm
 D. Encrypting password plain text using symmetric encryption
+■
 9. What term is used to describe spam over Internet messaging services?
 A. SPIM
 B. SMSPAM

@@ -1,0 +1,11 @@
+﻿@page "/Edit"
+
+<h3>Edit Flash Cards</h3>
+
+<h4>Text for Fronts</h4>
+<textarea rows="@TextAreaRows" cols="50" @bind-value="Text1" @bind-value:event="oninput" />
+<h4>Text for Backs</h4>
+<textarea rows="@TextAreaRows" cols="50" @bind-value="Text2" @bind-value:event="oninput" />
+<button class="btn btn-primary" @onclick="() => Submit(Text1, Text2)">Submit</button>
+
+
