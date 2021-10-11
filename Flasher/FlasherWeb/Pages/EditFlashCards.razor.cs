@@ -13,8 +13,11 @@ namespace FlasherWeb.Pages
         private string textArea1Text;
         private string textArea2Text;
         //private FlashCard flashCard;
+        private string TextArea3Text { get; set; } = string.Empty;
         private int TextArea1Rows { get; set; }
         private int TextArea2Rows { get; set; }
+        List<FlashCard> createdFlashCards = new List<FlashCard>();
+
         private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
@@ -50,16 +53,10 @@ namespace FlasherWeb.Pages
 
         public void Submit(string textForFronts, string textForBacks)
         {
+            
             List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
             List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
-            //foreach (string fc in newFlashCardFronts)
-            //{
-            //    Console.WriteLine(fc);
-            //}
-            //foreach (string bc in newFlashCardBacks)
-            //{
-            //    Console.WriteLine(bc);
-            //}
+
             foreach (string f in newFlashCardFronts)
             {
                 FlashCard newFlashCard = new FlashCard()
@@ -74,13 +71,19 @@ namespace FlasherWeb.Pages
                 NewflashCards[b].Back = newFlashCardBacks[b];
             }
 
-            //TODO: add new flash cards to database
+            // add new flash cards to database
             foreach(FlashCard fc in NewflashCards)
-            {
-                var result = FlashCardService.Create(fc).Result;
+            {                
+                CreateFlashCard(fc);                
             }
+            TextArea3Text = $"{createdFlashCards.Count} flash cards have been added.";
             
-            
+        }
+
+        private async void CreateFlashCard(FlashCard fc)
+        {
+            FlashCard response = await FlashCardService.Create(fc);
+            createdFlashCards.Add(response);
         }
 
     }

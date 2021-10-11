@@ -26,7 +26,8 @@ namespace FlasherApi
         }
 
         public IConfiguration Configuration { get; }
-        readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
+        //readonly string AllowSpecifiedOrigins = "AllowSpecifiedOrigins";
+        readonly string AllowAllPolicy = "AllowCors";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -46,15 +47,24 @@ namespace FlasherApi
             // Dependency Injection
             services.AddScoped<IFlashCardRepository, FlashCardRepository>();
 
-            // Cross Origin Requests (CORS)
-            services.AddCors(options =>
+            // Cross Origin RequestS (CORS) policies
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: AllowSpecifiedOrigins,
+            //                      builder =>
+            //                      {
+            //                          builder.WithOrigins("http://localhost:65059", "https://localhost:44398")
+            //                          .WithMethods("GET", "POST", "PUT");
+            //                      });
+            //});
+            services.AddCors(opt =>
             {
-                options.AddPolicy(name: AllowSpecificOrigins,
-                                  builder =>
-                                  {
-                                      builder.WithOrigins("http://localhost:65059",
-                                                          "https://localhost:44398");
-                                  });
+                opt.AddPolicy(name: AllowAllPolicy, builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
             });
         }
 
@@ -73,7 +83,7 @@ namespace FlasherApi
             app.UseRouting();
 
             // CORS
-            app.UseCors(AllowSpecificOrigins);
+            app.UseCors(AllowAllPolicy);
 
             app.UseAuthorization();
 
