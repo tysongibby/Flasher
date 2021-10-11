@@ -3,16 +3,24 @@
 <div class="">
     <div class="col">
         <div class="card">
-            <div class="card-header"><h3>Question @*@FlashCards[CardIndex].Title*@ </h3></div>
+            <div class="card-header"><h3>@FlashCardTitle</h3></div>
             <div class="card-body">
                 <h5>@FlashCardSide</h5>
                 <p>@FlashCardBody</p>
             </div>
             <div class="card-footer">
-                <div class="btn-group">
+                <div class="row">
                     <button class="btn btn-primary" @onclick="FlipFlashCard">Show @ShowButton</button>
-                    <button class="btn btn-success ml-4">Answered Correctly</button>
-                    <button class="btn btn-outline-primary ml-4" @onclick="NextFlashCard">Next</button>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary ml-4" @onclick="LastFlashCard">Last</button>
+                        <button class="btn btn-outline-primary ml-4" @onclick="NextFlashCard">Next</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="answeredCorrectly" @onclick="UpdateAnswerStatus" @bind="AnsweredCorrectly" />
+                        <label class="form-check-label" for="answeredCorrectly">Answered Correctly</label>
+                    </div>
                 </div>
             </div>
         </div>

@@ -16,9 +16,10 @@ namespace FlasherWeb.Pages
         private int CardIndex { get; set; } = 0;
         private bool Front { get; set; } = true;
         private string FlashCardSide { get; set; } = "Front";
-
-        private string FlashCardBody { get; set; }
+        private string FlashCardTitle { get; set; } = string.Empty;
+        private string FlashCardBody { get; set; } = string.Empty;
         private string ShowButton { get; set; } = "Back";
+        private bool AnsweredCorrectly { get; set; } = false;
 
         //public Index(IFlashCardService flashCardService)
         //{
@@ -26,11 +27,12 @@ namespace FlasherWeb.Pages
         //}
 
         protected override async Task OnInitializedAsync()
-        {
-            //Console.WriteLine("OnIitializedAsync was called");
+        {            
             FlashCards = await FlashCardService.GetAll();
-            Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
-            FlashCardBody = FlashCards[0].Front;
+            //Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
+            FlashCardBody = FlashCards[CardIndex].Front;
+            FlashCardTitle = FlashCards[CardIndex].Title;
+            AnsweredCorrectly = FlashCards[CardIndex].AnsweredCorrectly;
 
         }
 
@@ -38,14 +40,35 @@ namespace FlasherWeb.Pages
         {
             if (CardIndex < FlashCards.Count - 1)
             {
-                CardIndex++;
+                if (CardIndex != FlashCards.Count - 1)
+                {
+                    CardIndex++;
+                }
                 if (Front)
                 {
-                    FlashCardBody = FlashCards[CardIndex].Front;
+                    SetFlashCardFront(FlashCards[CardIndex]);
                 }
                 else
                 {
-                    FlashCardBody = FlashCards[CardIndex].Back;
+                    SetFlashCardBack(FlashCards[CardIndex]);
+                }
+            }
+        }
+        public void LastFlashCard()
+        {
+            if (CardIndex >= 0 )
+            {
+                if (CardIndex != 0)
+                {
+                    CardIndex--;
+                }
+                if (Front)
+                {
+                    SetFlashCardFront(FlashCards[CardIndex]);
+                }
+                else
+                {
+                    SetFlashCardBack(FlashCards[CardIndex]);
                 }
             }
         }
@@ -66,6 +89,28 @@ namespace FlasherWeb.Pages
                 FlashCardBody = @FlashCards[CardIndex].Back;
             }
         }
+
+        public void UpdateAnswerStatus()
+        {
+            AnsweredCorrectly = !AnsweredCorrectly;
+            FlashCards[CardIndex].AnsweredCorrectly = AnsweredCorrectly;
+            FlashCardService.Update(FlashCards[CardIndex]);
+        }
+
+        private void SetFlashCardFront(FlashCard fc)
+        {
+            FlashCardTitle = fc.Title;
+            FlashCardBody = fc.Front;
+            AnsweredCorrectly = fc.AnsweredCorrectly;            
+        }
+
+        private void SetFlashCardBack(FlashCard fc)
+        {
+            FlashCardTitle = fc.Title;
+            FlashCardBody = fc.Back;
+            AnsweredCorrectly = fc.AnsweredCorrectly;           
+        }
+
 
     }
 }
