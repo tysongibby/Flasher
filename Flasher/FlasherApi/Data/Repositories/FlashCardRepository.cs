@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using FlasherShared.Data.Models;
+using FlasherApi.Data.Models;
 using Flasher.Server.Data.Repositories.Interfaces;
 using Flasher.Server.Data;
 

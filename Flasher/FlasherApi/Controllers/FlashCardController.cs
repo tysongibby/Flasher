@@ -1,6 +1,5 @@
 ﻿using Flasher.Server.Data.Repositories.Interfaces;
-using FlasherShared;
-using FlasherShared.Data.Models;
+using FlasherApi.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

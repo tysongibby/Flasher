@@ -1,4 +1,4 @@
-﻿using FlasherShared.Data.Models;
+﻿using FlasherWeb.Services.Models;
 using FlasherWeb.Services.Interfaces;
 using System;
 using System.Collections.Generic;
