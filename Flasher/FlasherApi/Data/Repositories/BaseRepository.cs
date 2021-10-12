@@ -35,6 +35,8 @@ namespace Flasher.Server.Data.Repositories
             }
         }
 
+
+
         /// <summary>
         /// Returns all entities in the dbcontext
         /// </summary>
@@ -65,6 +67,26 @@ namespace Flasher.Server.Data.Repositories
             catch (Exception e)
             {
                 throw new Exception($"Could not find entity: { e.Message}");
+            }
+        }
+
+        public async Task<bool> Exists(int id)
+        {
+            try
+            {
+                var response = await _context.Set<TEntity>().FindAsync(id);
+                if (response != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not find entity: {e.Message}");
             }
         }
 

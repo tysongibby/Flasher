@@ -1,4 +1,5 @@
 ﻿using Flasher.Server.Data.Repositories.Interfaces;
+using FlasherApi.Data.Dtos;
 using FlasherApi.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Flasher.Server.Controllers
 {
@@ -25,43 +27,62 @@ namespace Flasher.Server.Controllers
         [HttpGet]
         public ActionResult<FlashCard> Get(int id = 1)
         {
-            FlashCard flashCardItem = _flashCardRepository.Get(id).Result;
-            return Ok(flashCardItem);
+            FlashCard flashCard = _flashCardRepository.Get(id).Result;
+            return Ok(flashCard);
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<FlashCard>> GetAll()
         {
-            List<FlashCard> flashCardItems = _flashCardRepository.GetAll().Result.ToList();
-            return Ok(flashCardItems);
+            List<FlashCard> flashCards = _flashCardRepository.GetAll().Result.ToList();
+            return Ok(flashCards);
         }
 
         [HttpPost]
-        public ActionResult<FlashCard> Create(FlashCard flashCardToCreate)
+        public ActionResult<FlashCardDto> Create(FlashCardDto flashCardDto)
         {            
             try
             {
-                _flashCardRepository.Add(flashCardToCreate);
-                return Ok(flashCardToCreate);
+                FlashCard newFlashCard = new FlashCard()
+                {
+                    Title = flashCardDto.Title,
+                    Front = flashCardDto.Front,
+                    Back = flashCardDto.Back,
+                    AnsweredCorrectly = false
+                };
+                _flashCardRepository.Add(newFlashCard);
+                return Ok(flashCardDto);
             }
             catch (Exception e)
-            {
+            {                
                 throw new Exception("Flash card was not created: ", e);
             }
         }
 
         [HttpPost]
-        public ActionResult<FlashCard> Update(FlashCard flashCardToUpdate)
-        {            
-            try
-            {         
-                FlashCard updatedFlashCard = _flashCardRepository.Update(flashCardToUpdate).Result;
-                return Ok(updatedFlashCard);
-            }
-            catch (Exception e)
+        public ActionResult<FlashCardDto> Update(int flashCardId, FlashCardDto flashCardDto)
+        {
+            if (_flashCardRepository.Exists(flashCardId).Result)
             {
-                throw new Exception("Flash card was not updated: ", e);
-            }
+                try
+                {
+                    FlashCard newFlashCard = new FlashCard()
+                    {
+                        Id = flashCardId,
+                        Title = flashCardDto.Title,
+                        Front = flashCardDto.Front,
+                        Back = flashCardDto.Back,
+                        AnsweredCorrectly = false
+                    };
+                    FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
+                    return Ok(updatedFlashCard);                    
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Flash card was not updated: ", e);
+                }
+            }            
+            else return NotFound($"Flash card {flashCardId} not found.");
         }
 
         [HttpPost]
@@ -82,7 +103,6 @@ namespace Flasher.Server.Controllers
                 throw new Exception($"Flash card {id} was not deleted: ", e);
             }
         }
-
 
     }
 

@@ -15,6 +15,8 @@ using Flasher.Server.Data;
 using Flasher.Server.Data.Repositories;
 using Flasher.Server.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using FlasherApi.Data.Dtos.Interfaces;
+using FlasherApi.Data.Dtos;
 
 namespace FlasherApi
 {
@@ -45,7 +47,7 @@ namespace FlasherApi
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
 
             // Dependency Injection
-            services.AddScoped<IFlashCardRepository, FlashCardRepository>();
+            services.AddScoped<IFlashCardRepository, FlashCardRepository>();            
 
             // Cross Origin RequestS (CORS) policies
             //services.AddCors(options =>

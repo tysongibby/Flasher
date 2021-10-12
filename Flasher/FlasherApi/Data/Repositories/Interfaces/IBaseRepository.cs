@@ -10,6 +10,7 @@ namespace Flasher.Server.Data.Repositories.Interfaces
         Task<TEntity> Get(int id);
         Task<IEnumerable<TEntity>> GetAll();
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<bool> Exists(int id);
         
         Task<TEntity> FindSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
 
