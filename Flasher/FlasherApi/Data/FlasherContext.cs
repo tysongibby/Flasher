@@ -21,6 +21,7 @@ namespace Flasher.Server.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration<FlashCard>(new FlashCardConfig());
+            modelBuilder.ApplyConfiguration<FlashCardSet>(new FlashCardSetConfig());
         }
 
         

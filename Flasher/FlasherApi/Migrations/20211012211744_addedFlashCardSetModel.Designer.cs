@@ -3,14 +3,16 @@ using System;
 using Flasher.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FlasherApi.Migrations
 {
     [DbContext(typeof(FlasherContext))]
-    partial class FlasherContextModelSnapshot : ModelSnapshot
+    [Migration("20211012211744_addedFlashCardSetModel")]
+    partial class addedFlashCardSetModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
