@@ -4,7 +4,7 @@ Flash Card Application - WIP
 Blazor web assembly flash card application for studing any topic.
 Uses a SQLite database (no db setup required, just clone or branch).
 
-This project is one of the places where I practice and implement the new coding practices and .NET techonologies that I learn. Some of these include:
+This project is one of the places where I practice and implement the new coding practices and .NET techonologies that I learn. Some of these used in this project include:
 
 * Repositories
 * Dependency Injection
@@ -13,11 +13,12 @@ This project is one of the places where I practice and implement the new coding 
 * REST
 * DTOs
 * Web Assemblies (WASM)
-* Local Storage (not yet implemented)
 * DBContext
 * Entity Framework
 * SQLite
 * JSON
 * Blazor
-* .NET
+* .NET 5 (core)
 * C#
+* Regular Expressions
+* Fluent API
