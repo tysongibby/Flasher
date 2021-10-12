@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FlasherWeb.Services.Models;
 using FlasherWeb.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
+using System.Text.RegularExpressions;
 
 namespace FlasherWeb.Pages
 {
@@ -56,11 +57,15 @@ namespace FlasherWeb.Pages
             
             List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
             List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
+            Regex titleRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
+            
 
             foreach (string f in newFlashCardFronts)
             {
+                var result = titleRegEx.Match(f);                
                 FlashCard newFlashCard = new FlashCard()
                 {
+                    Title = result.ToString(),
                     Front = f
                 };
                 NewflashCards.Add(newFlashCard);
