@@ -13,11 +13,11 @@ This project is one of the places where I practice and implement the new coding 
 * REST
 * DTOs
 * Web Assemblies (WASM)
-* Local Storage (not yet implemented)
 * DBContext
 * Entity Framework
 * SQLite
 * JSON
 * Blazor
-* .NET
+* .NET 5 (core)
 * C#
+* Regular Expressions
