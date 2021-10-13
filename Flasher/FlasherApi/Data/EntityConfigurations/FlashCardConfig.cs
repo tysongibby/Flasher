@@ -20,7 +20,7 @@ namespace Flasher.Server.Data.EntityConfigurations
             builder.Property(c => c.Title)
                    .IsRequired();
 
-            builder.HasOne(c => c.SuperFlashCardSet);
+            builder.HasOne(c => c.FlashCardSuperSet);
 
 
             // uncomment to add starting data for FlashCardSet object

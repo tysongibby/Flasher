@@ -25,17 +25,70 @@ namespace Flasher.Server.Controllers
         }
 
         [HttpGet]
-        public ActionResult<FlashCard> Get(int id = 1)
+        public ActionResult<FlashCardDto> Get(int id = 1)
         {
             FlashCard flashCard = _flashCardRepository.Get(id).Result;
-            return Ok(flashCard);
+
+            FlashCardSetDto flashCardSetDto = new FlashCardSetDto();
+            if (flashCard.FlashCardSet is not null)
+            {
+                FlashCardSetDto superFlashCardSetDto = new FlashCardSetDto();
+                if (flashCard.FlashCardSet.FlashCardSuperSet is not null)
+                {
+                    superFlashCardSetDto.Id = flashCard.FlashCardSet.FlashCardSuperSet.Id;
+                    superFlashCardSetDto.Title = flashCard.FlashCardSet.FlashCardSuperSet.Title;
+                }
+                flashCardSetDto.Id = flashCard.FlashCardSet.Id;
+                flashCardSetDto.Title = flashCard.FlashCardSet.Title;
+                flashCardSetDto.FlashCardSuperSetDto = superFlashCardSetDto;
+            }
+            FlashCardDto flashCardDto = new FlashCardDto()
+            {
+                Id = flashCard.Id,
+                Title = flashCard.Title,
+                Front = flashCard.Front,
+                Back = flashCard.Back,
+                AnsweredCorrectly = flashCard.AnsweredCorrectly,
+                FlashCardSetDto = flashCardSetDto
+            };
+            return Ok(flashCardDto);
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<FlashCard>> GetAll()
+        public ActionResult<IEnumerable<FlashCardDto>> GetAll()
         {
             List<FlashCard> flashCards = _flashCardRepository.GetAll().Result.ToList();
-            return Ok(flashCards);
+            
+            List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
+            foreach (FlashCard fc in flashCards) 
+            {
+                FlashCardSetDto flashCardSetDto = new FlashCardSetDto();
+                if (fc.FlashCardSet is not null)
+                {
+                    FlashCardSetDto superFlashCardSetDto = new FlashCardSetDto();
+                    if (fc.FlashCardSet.FlashCardSuperSet is not null)
+                    {
+                        superFlashCardSetDto.Id = fc.FlashCardSet.FlashCardSuperSet.Id;
+                        superFlashCardSetDto.Title = fc.FlashCardSet.FlashCardSuperSet.Title;                        
+                    }
+                    flashCardSetDto.Id = fc.FlashCardSet.Id;
+                    flashCardSetDto.Title = fc.FlashCardSet.Title;
+                    flashCardSetDto.FlashCardSuperSetDto = superFlashCardSetDto;                    
+                }
+                FlashCardDto flashCardDto = new FlashCardDto()
+                {
+                    Id = fc.Id,
+                    Title = fc.Title,
+                    Front = fc.Front,
+                    Back = fc.Back,
+                    AnsweredCorrectly = fc.AnsweredCorrectly,
+                    FlashCardSetDto = flashCardSetDto
+
+                };
+                flashCardDtos.Add(flashCardDto);
+            }
+
+            return Ok(flashCardDtos);
         }
 
         [HttpPost]
