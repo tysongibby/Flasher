@@ -1,18 +1,26 @@
 ﻿@page "/Edit"
 
 <h3>Edit Flash Cards</h3>
-
+@*Fronts*@
 <h4 class="mt-4">Text for Fronts</h4>
-<div class="row">    
-    <textarea rows="@TextArea1Rows" cols="50" @bind-value="TextArea1Text" @bind-value:event="oninput" />
+<div class="row d-inline-flex mt-4">
+    <label for="flashCardSet" class="form-label">Flash Card Set</label>
+    <input type="text" class="form-control" id="flashCardSet" @bind="FlashCardSetTitle" />
+    <label for="flashCardSuperset" class="col-form-label">Flash Card Super Set</label>
+    <input type="text" class="form-control" id="flashCardSuperset" @bind="FlashCardSupersetTitle"  />
 </div>
+<div class="row mt-2">
+    <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
+</div>
+@*Backs*@
 <h4 class="mt-4">Text for Backs</h4>
 <div class="row">
-    <textarea rows="@TextArea2Rows" cols="50" @bind-value="TextArea2Text" @bind-value:event="oninput" />
+    <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
 </div>
 <div class="row mt-4">
-    <button class="btn btn-primary" @onclick="() => Submit(TextArea1Text, TextArea2Text)">Submit</button>
+    <button class="btn btn-primary" @onclick="() => Submit(FrontsTextAreaText, BacksTextAreaText)">Submit</button>
 </div>
 <div class="row mt-4">
-    <textarea @bind-value="TextArea3Text" @bind-value:event="onchange"></textarea>
+    <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
 </div>
+

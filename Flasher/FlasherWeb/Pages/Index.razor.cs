@@ -18,6 +18,8 @@ namespace FlasherWeb.Pages
         private string FlashCardSide { get; set; } = "Front";
         private string FlashCardTitle { get; set; } = string.Empty;
         private string FlashCardBody { get; set; } = string.Empty;
+        private string FlashCardSuperset { get; set; } = string.Empty;
+        private string FlashCardSet { get; set; } = string.Empty;
         private string ShowButton { get; set; } = "Back";
         private bool AnsweredCorrectly { get; set; } = false;
 
@@ -32,6 +34,14 @@ namespace FlasherWeb.Pages
             //Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
             FlashCardBody = FlashCards[CardIndex].Front;
             FlashCardTitle = FlashCards[CardIndex].Title;
+            if (FlashCards[CardIndex].FlashCardSet is not null)
+            {
+                FlashCardSet = FlashCards[CardIndex].FlashCardSet.Title;
+                if (FlashCards[CardIndex].FlashCardSet.FlashCardSuperset is not null)
+                {
+                    FlashCardSuperset = FlashCards[CardIndex].FlashCardSet.FlashCardSuperset.Title;
+                }
+            }
             AnsweredCorrectly = FlashCards[CardIndex].AnsweredCorrectly;
 
         }
@@ -44,6 +54,7 @@ namespace FlasherWeb.Pages
                 {
                     CardIndex++;
                 }
+                SetFlashCardFront(FlashCards[CardIndex]);
                 if (Front)
                 {
                     SetFlashCardFront(FlashCards[CardIndex]);
@@ -54,6 +65,7 @@ namespace FlasherWeb.Pages
                 }
             }
         }
+
         public void LastFlashCard()
         {
             if (CardIndex >= 0 )
@@ -62,6 +74,7 @@ namespace FlasherWeb.Pages
                 {
                     CardIndex--;
                 }
+                SetFlashCardFront(FlashCards[CardIndex]);
                 if (Front)
                 {
                     SetFlashCardFront(FlashCards[CardIndex]);
@@ -80,13 +93,14 @@ namespace FlasherWeb.Pages
             {
                 FlashCardSide = "Front";
                 ShowButton = "Back";
-                FlashCardBody = @FlashCards[CardIndex].Front;
+                SetFlashCardFront(FlashCards[CardIndex]);
+                //FlashCardBody = @FlashCards[CardIndex].Front;
             }
             else
             {
                 FlashCardSide = "Back";
                 ShowButton = "Front";
-                FlashCardBody = @FlashCards[CardIndex].Back;
+                SetFlashCardBack(FlashCards[CardIndex]);
             }
         }
 
@@ -99,6 +113,7 @@ namespace FlasherWeb.Pages
 
         private void SetFlashCardFront(FlashCard fc)
         {
+            
             FlashCardTitle = fc.Title;
             FlashCardBody = fc.Front;
             AnsweredCorrectly = fc.AnsweredCorrectly;            
@@ -106,6 +121,7 @@ namespace FlasherWeb.Pages
 
         private void SetFlashCardBack(FlashCard fc)
         {
+            
             FlashCardTitle = fc.Title;
             FlashCardBody = fc.Back;
             AnsweredCorrectly = fc.AnsweredCorrectly;           

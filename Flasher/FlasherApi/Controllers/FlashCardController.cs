@@ -33,14 +33,14 @@ namespace Flasher.Server.Controllers
             if (flashCard.FlashCardSet is not null)
             {
                 FlashCardSetDto superFlashCardSetDto = new FlashCardSetDto();
-                if (flashCard.FlashCardSet.FlashCardSuperSet is not null)
+                if (flashCard.FlashCardSet.FlashCardSuperset is not null)
                 {
-                    superFlashCardSetDto.Id = flashCard.FlashCardSet.FlashCardSuperSet.Id;
-                    superFlashCardSetDto.Title = flashCard.FlashCardSet.FlashCardSuperSet.Title;
+                    superFlashCardSetDto.Id = flashCard.FlashCardSet.FlashCardSuperset.Id;
+                    superFlashCardSetDto.Title = flashCard.FlashCardSet.FlashCardSuperset.Title;
                 }
                 flashCardSetDto.Id = flashCard.FlashCardSet.Id;
                 flashCardSetDto.Title = flashCard.FlashCardSet.Title;
-                flashCardSetDto.FlashCardSuperSetDto = superFlashCardSetDto;
+                flashCardSetDto.FlashCardSupersetDto = superFlashCardSetDto;
             }
             FlashCardDto flashCardDto = new FlashCardDto()
             {
@@ -66,14 +66,14 @@ namespace Flasher.Server.Controllers
                 if (fc.FlashCardSet is not null)
                 {
                     FlashCardSetDto superFlashCardSetDto = new FlashCardSetDto();
-                    if (fc.FlashCardSet.FlashCardSuperSet is not null)
+                    if (fc.FlashCardSet.FlashCardSuperset is not null)
                     {
-                        superFlashCardSetDto.Id = fc.FlashCardSet.FlashCardSuperSet.Id;
-                        superFlashCardSetDto.Title = fc.FlashCardSet.FlashCardSuperSet.Title;                        
+                        superFlashCardSetDto.Id = fc.FlashCardSet.FlashCardSuperset.Id;
+                        superFlashCardSetDto.Title = fc.FlashCardSet.FlashCardSuperset.Title;                        
                     }
                     flashCardSetDto.Id = fc.FlashCardSet.Id;
                     flashCardSetDto.Title = fc.FlashCardSet.Title;
-                    flashCardSetDto.FlashCardSuperSetDto = superFlashCardSetDto;                    
+                    flashCardSetDto.FlashCardSupersetDto = superFlashCardSetDto;                    
                 }
                 FlashCardDto flashCardDto = new FlashCardDto()
                 {
@@ -96,12 +96,26 @@ namespace Flasher.Server.Controllers
         {            
             try
             {
+                FlashCardSet _flashCardSuperSet = new FlashCardSet();
+                FlashCardSet _flashCardSet = new FlashCardSet();
+                if (flashCardDto.FlashCardSetDto is not null)
+                {
+                    if (flashCardDto.FlashCardSetDto.FlashCardSupersetDto is not null)
+                    {
+                        _flashCardSuperSet.Id = (int)flashCardDto.FlashCardSetDto.FlashCardSupersetDto.Id;
+                        _flashCardSuperSet.Title = flashCardDto.FlashCardSetDto.FlashCardSupersetDto.Title;
+                    }
+                    _flashCardSet.Id = (int)flashCardDto.Id;
+                    _flashCardSet.Title = flashCardDto.FlashCardSetDto.Title;
+                    _flashCardSet.FlashCardSuperset = _flashCardSuperSet;
+                }
                 FlashCard newFlashCard = new FlashCard()
                 {
                     Title = flashCardDto.Title,
                     Front = flashCardDto.Front,
                     Back = flashCardDto.Back,
-                    AnsweredCorrectly = false
+                    AnsweredCorrectly = false,
+                    FlashCardSet = _flashCardSet
                 };
                 _flashCardRepository.Add(newFlashCard);
                 return Ok(flashCardDto);
@@ -119,13 +133,27 @@ namespace Flasher.Server.Controllers
             {
                 try
                 {
+                    FlashCardSet _flashCardSuperSet = new FlashCardSet();
+                    FlashCardSet _flashCardSet = new FlashCardSet();                    
+                    if (flashCardDto.FlashCardSetDto is not null)
+                    {
+                        if (flashCardDto.FlashCardSetDto.FlashCardSupersetDto is not null)
+                        {
+                            _flashCardSuperSet.Id = (int)flashCardDto.FlashCardSetDto.FlashCardSupersetDto.Id;
+                            _flashCardSuperSet.Title = flashCardDto.FlashCardSetDto.FlashCardSupersetDto.Title;
+                        }
+                        _flashCardSet.Id = (int)flashCardDto.Id;
+                        _flashCardSet.Title = flashCardDto.FlashCardSetDto.Title;
+                        _flashCardSet.FlashCardSuperset = _flashCardSuperSet;
+                    }
                     FlashCard newFlashCard = new FlashCard()
                     {
                         Id = flashCardId,
                         Title = flashCardDto.Title,
                         Front = flashCardDto.Front,
                         Back = flashCardDto.Back,
-                        AnsweredCorrectly = false
+                        AnsweredCorrectly = false,
+                        FlashCardSet = _flashCardSet
                     };
                     FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
                     return Ok(updatedFlashCard);                    

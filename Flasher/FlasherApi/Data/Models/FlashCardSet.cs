@@ -12,6 +12,6 @@ namespace FlasherApi.Data.Models
         public string Title { get; set; }
 
 
-        public FlashCardSet FlashCardSuperSet { get; set; }
+        public FlashCardSet FlashCardSuperset { get; set; }
     }
 }

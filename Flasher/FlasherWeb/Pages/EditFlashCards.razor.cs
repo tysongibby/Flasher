@@ -11,37 +11,36 @@ namespace FlasherWeb.Pages
 {
     public partial class EditFlashCards
     {
-        private string textArea1Text;
-        private string textArea2Text;
-        //private FlashCard flashCard;
-        private string TextArea3Text { get; set; } = string.Empty;
-        private int TextArea1Rows { get; set; }
-        private int TextArea2Rows { get; set; }
+        private string frontsTextAreaText;
+        private string backsTextAreaText;       
+        private string ResultsTextAreaText { get; set; } = string.Empty;
+        private int FrontsTextAreaRows { get; set; }
+        private int BacksTextAreaRows { get; set; }
         List<FlashCard> createdFlashCards = new List<FlashCard>();
-
         private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
+        private string FlashCardSetTitle { get; set; } = string.Empty;
+        private string FlashCardSupersetTitle { get; set; } = string.Empty;
+
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
-        //public EditFlashCards()
-        //{            
-        //}
+        
 
-        protected string TextArea1Text
+        protected string FrontsTextAreaText
         {
-            get => textArea1Text;
+            get => frontsTextAreaText;
             set 
             {
-                textArea1Text = value;
-                TextArea1Rows = CalculateRows(value);
+                frontsTextAreaText = value;
+                FrontsTextAreaRows = CalculateRows(value);
             }
         }
-        protected string TextArea2Text
+        protected string BacksTextAreaText
         {
-            get => textArea2Text;
+            get => backsTextAreaText;
             set
             {
-                textArea2Text = value;
-                TextArea2Rows = CalculateRows(value);
+                backsTextAreaText = value;
+                BacksTextAreaRows = CalculateRows(value);
             }
         }
 
@@ -62,7 +61,17 @@ namespace FlasherWeb.Pages
 
             foreach (string f in newFlashCardFronts)
             {
-                var result = titleRegEx.Match(f);                
+                var result = titleRegEx.Match(f);
+                FlashCardSet _flashCardSet = new FlashCardSet();
+                FlashCardSet _flashCardSuperset = new FlashCardSet();
+                if (FlashCardSetTitle is not null || FlashCardSetTitle != string.Empty)
+                {
+                    _flashCardSet.Title = FlashCardSetTitle;
+                    if (FlashCardSupersetTitle is not null || FlashCardSupersetTitle != string.Empty)
+                    {
+                        _flashCardSuperset.Title = FlashCardSupersetTitle;
+                    }
+                }
                 FlashCard newFlashCard = new FlashCard()
                 {
                     Title = result.ToString(),
@@ -81,8 +90,7 @@ namespace FlasherWeb.Pages
             {                
                 CreateFlashCard(fc);                
             }
-            TextArea3Text = $"{createdFlashCards.Count} flash cards have been added.";
-            
+            ResultsTextAreaText = $"{createdFlashCards.Count} flash cards have been added.";            
         }
 
         private async void CreateFlashCard(FlashCard fc)

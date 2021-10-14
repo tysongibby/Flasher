@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherApi.Data.Dtos
+namespace FlasherWeb.Services.Models
 {
-    public class FlashCardSetDto
+    public class FlashCardSet
     {        
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
 
 
-        public FlashCardSetDto FlashCardSupersetDto { get; set; }
+        public FlashCardSet FlashCardSuperset { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace FlasherWeb.Services.Models
         public string Front { get; set; }
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;
+        
+        public FlashCardSet FlashCardSet { get; set; }
     }
 }
