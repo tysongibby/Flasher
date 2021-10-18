@@ -1,11 +1,11 @@
 ﻿@page "/"
 
-<div class="">
+<EditForm Model="FlashCard" OnSubmit="Submit">
     <div class="col">
         <div class="card">
             <div class="card-header">
                 <h3>@FlashCardTitle</h3>
-                <h5>@FlashCardSuperset, @FlashCardSet</h5>
+                <h5>@SuperSet, @Set</h5>
             </div>
             <div class="card-body">
                 <h5>@FlashCardSide</h5>
@@ -21,14 +21,17 @@
                 </div>
                 <div class="row mt-4">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="answeredCorrectly" @onclick="UpdateAnswerStatus" @bind="AnsweredCorrectly" />
+                        <InputCheckbox @onclick="UpdateAnswerStatus" @bind-Value="AnsweredCorrectly" id="answeredCorrectly" ></InputCheckbox>                        
                         <label class="form-check-label" for="answeredCorrectly">Answered Correctly</label>
                     </div>
+                </div>
+                <div class="row mt-4">
+                    <InputSelect @bind-Value="FlashCard.SuperSet"></InputSelect>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</EditForm>
 
 
 

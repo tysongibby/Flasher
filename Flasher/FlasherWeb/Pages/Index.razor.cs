@@ -13,36 +13,37 @@ namespace FlasherWeb.Pages
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
         private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
+        private FlashCard FlashCard { get; set; } = new FlashCard();
         private int CardIndex { get; set; } = 0;
         private bool Front { get; set; } = true;
         private string FlashCardSide { get; set; } = "Front";
         private string FlashCardTitle { get; set; } = string.Empty;
         private string FlashCardBody { get; set; } = string.Empty;
-        private string FlashCardSuperset { get; set; } = string.Empty;
-        private string FlashCardSet { get; set; } = string.Empty;
+        private string SuperSet { get; set; } = string.Empty;
+        private List<string> SuperSets { get; set; } = new List<string>();
+        private string Set { get; set; } = string.Empty;
+        private List<string> Sets { get; set; } = new List<string>();
         private string ShowButton { get; set; } = "Back";
         private bool AnsweredCorrectly { get; set; } = false;
 
-        //public Index(IFlashCardService flashCardService)
-        //{
-        //    FlashCardService = flashCardService;
-        //}
-
         protected override async Task OnInitializedAsync()
         {            
-            FlashCards = await FlashCardService.GetAll();
-            //Console.WriteLine($"FlashCard: {FlashCards[0].Id}, {FlashCards[0].Front}, {FlashCards[0].Back}");
-            FlashCardBody = FlashCards[CardIndex].Front;
-            FlashCardTitle = FlashCards[CardIndex].Title;
-            if (FlashCards[CardIndex].FlashCardSet is not null)
+            FlashCards = await FlashCardService.GetAll();            
+            FlashCard = FlashCards[CardIndex];
+            FlashCardBody = FlashCard.Front;
+            FlashCardTitle = FlashCard.Title;
+            var result = FlashCards.Where(fc => !string.IsNullOrEmpty(fc.Set) && !string.IsNullOrWhiteSpace(fc.Set))
+                            .Distinct()
+                            .ToList();
+            if (FlashCard.SuperSet is not null || FlashCard.SuperSet != string.Empty)
             {
-                FlashCardSet = FlashCards[CardIndex].FlashCardSet.Title;
-                if (FlashCards[CardIndex].FlashCardSet.FlashCardSuperset is not null)
+                SuperSet = FlashCard.SuperSet;
+                if (FlashCard.Set is not null || FlashCard.Set != string.Empty)
                 {
-                    FlashCardSuperset = FlashCards[CardIndex].FlashCardSet.FlashCardSuperset.Title;
+                    Set = FlashCard.Set;
                 }
             }
-            AnsweredCorrectly = FlashCards[CardIndex].AnsweredCorrectly;
+            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
 
         }
 
@@ -53,16 +54,9 @@ namespace FlasherWeb.Pages
                 if (CardIndex != FlashCards.Count - 1)
                 {
                     CardIndex++;
+                    FlashCard = FlashCards[CardIndex];
                 }
-                SetFlashCardFront(FlashCards[CardIndex]);
-                if (Front)
-                {
-                    SetFlashCardFront(FlashCards[CardIndex]);
-                }
-                else
-                {
-                    SetFlashCardBack(FlashCards[CardIndex]);
-                }
+                SetFlashCardFront();
             }
         }
 
@@ -73,16 +67,9 @@ namespace FlasherWeb.Pages
                 if (CardIndex != 0)
                 {
                     CardIndex--;
+                    FlashCard = FlashCards[CardIndex];
                 }
-                SetFlashCardFront(FlashCards[CardIndex]);
-                if (Front)
-                {
-                    SetFlashCardFront(FlashCards[CardIndex]);
-                }
-                else
-                {
-                    SetFlashCardBack(FlashCards[CardIndex]);
-                }
+                SetFlashCardFront();
             }
         }
 
@@ -91,42 +78,45 @@ namespace FlasherWeb.Pages
             Front = !Front;
             if (Front == true)
             {
-                FlashCardSide = "Front";
-                ShowButton = "Back";
-                SetFlashCardFront(FlashCards[CardIndex]);
-                //FlashCardBody = @FlashCards[CardIndex].Front;
+                SetFlashCardFront();                
             }
             else
             {
-                FlashCardSide = "Back";
-                ShowButton = "Front";
-                SetFlashCardBack(FlashCards[CardIndex]);
+                SetFlashCardBack();
             }
         }
 
-        public void UpdateAnswerStatus()
+        public async void UpdateAnswerStatus()
         {
             AnsweredCorrectly = !AnsweredCorrectly;
-            FlashCards[CardIndex].AnsweredCorrectly = AnsweredCorrectly;
-            FlashCardService.Update(FlashCards[CardIndex]);
+            FlashCard.AnsweredCorrectly = AnsweredCorrectly;
+            await FlashCardService.Update(FlashCard);
         }
 
-        private void SetFlashCardFront(FlashCard fc)
+        private void SetFlashCardFront()
         {
             
-            FlashCardTitle = fc.Title;
-            FlashCardBody = fc.Front;
-            AnsweredCorrectly = fc.AnsweredCorrectly;            
+            FlashCardTitle = FlashCard.Title;
+            FlashCardBody = FlashCard.Front;
+            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
+            FlashCardSide = "Front";
+            ShowButton = "Back";
         }
 
-        private void SetFlashCardBack(FlashCard fc)
+        private void SetFlashCardBack()
         {
             
-            FlashCardTitle = fc.Title;
-            FlashCardBody = fc.Back;
-            AnsweredCorrectly = fc.AnsweredCorrectly;           
+            FlashCardTitle = FlashCard.Title;
+            FlashCardBody = FlashCard.Back;
+            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
+            FlashCardSide = "Back";
+            ShowButton = "Front";
         }
 
+        private void Submit()
+        {
+            Console.WriteLine("Page submit has been called.");
+        }
 
     }
 }

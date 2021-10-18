@@ -18,8 +18,8 @@ namespace FlasherWeb.Pages
         private int BacksTextAreaRows { get; set; }
         List<FlashCard> createdFlashCards = new List<FlashCard>();
         private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
-        private string FlashCardSetTitle { get; set; } = string.Empty;
-        private string FlashCardSupersetTitle { get; set; } = string.Empty;
+        private string SuperSetTitle { get; set; } = string.Empty;
+        private string SetTitle { get; set; } = string.Empty;
 
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
@@ -61,22 +61,20 @@ namespace FlasherWeb.Pages
 
             foreach (string f in newFlashCardFronts)
             {
-                var result = titleRegEx.Match(f);
-                FlashCardSet _flashCardSet = new FlashCardSet();
-                FlashCardSet _flashCardSuperset = new FlashCardSet();
-                if (FlashCardSetTitle is not null || FlashCardSetTitle != string.Empty)
-                {
-                    _flashCardSet.Title = FlashCardSetTitle;
-                    if (FlashCardSupersetTitle is not null || FlashCardSupersetTitle != string.Empty)
-                    {
-                        _flashCardSuperset.Title = FlashCardSupersetTitle;
-                    }
-                }
+                var result = titleRegEx.Match(f);                
                 FlashCard newFlashCard = new FlashCard()
                 {
                     Title = result.ToString(),
-                    Front = f
+                    Front = f             
                 };
+                if (SuperSetTitle is not null || SuperSetTitle != string.Empty)
+                {
+                    newFlashCard.SuperSet = SuperSetTitle;
+                    if (SetTitle is not null || SetTitle != string.Empty)
+                    {
+                        newFlashCard.Set = SetTitle;
+                    }
+                }
                 NewflashCards.Add(newFlashCard);
             }
 

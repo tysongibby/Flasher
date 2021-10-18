@@ -5,10 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using FlasherApi.Data.Models;
 
-namespace Flasher.Server.Data.Repositories.Interfaces
+namespace FlasherApi.Data.Repositories.Interfaces
 {
     public interface IFlashCardRepository : IBaseRepository<FlashCard>
     {
         Task<FlashCard> Update(FlashCard flashCard);
+        IEnumerable<FlashCard> GetAllFlashCardsInSuperset(int supersetId);
+        IEnumerable<FlashCard> GetAllFlashCardsInSet(int setId);
+        public string GetSupersetTitle(int supersetId);
+        public string GetSetTitle(int setId);
     }
 }

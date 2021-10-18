@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace FlasherApi.Data.Dtos
 {
-    public class FlashCardSetDto
+    public class SetDto
     {        
-        public int? Id { get; set; }
-        public string Title { get; set; }
-
-
-        public FlashCardSetDto FlashCardSupersetDto { get; set; }
+        public int? Id { get; set; }     
+        public string Title { get; set; }    
+        public int SupersetId { get; set; }
     }
 }

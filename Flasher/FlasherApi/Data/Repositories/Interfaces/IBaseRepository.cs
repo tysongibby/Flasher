@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Flasher.Server.Data.Repositories.Interfaces
+namespace FlasherApi.Data.Repositories.Interfaces
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
         Task<TEntity> Get(int id);
-        Task<IEnumerable<TEntity>> GetAll();
+        Task<IEnumerable<TEntity>> GetAll();       
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
-        Task<bool> Exists(int id);
-        
+        Task<bool> Exists(int id);        
         Task<TEntity> FindSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
-
         Task<int> Add(TEntity entity);
         Task<int> AddRange(IEnumerable<TEntity> entities);      
         void Remove(TEntity entity);

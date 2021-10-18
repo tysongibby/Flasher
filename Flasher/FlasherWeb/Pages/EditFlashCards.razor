@@ -4,10 +4,10 @@
 @*Fronts*@
 <h4 class="mt-4">Text for Fronts</h4>
 <div class="row d-inline-flex mt-4">
+    <label for="flashCardSubset" class="col-form-label">Flash Card Super Set</label>
+    <input type="text" class="form-control" id="flashCardSubset" @bind="SetTitle" />
     <label for="flashCardSet" class="form-label">Flash Card Set</label>
-    <input type="text" class="form-control" id="flashCardSet" @bind="FlashCardSetTitle" />
-    <label for="flashCardSuperset" class="col-form-label">Flash Card Super Set</label>
-    <input type="text" class="form-control" id="flashCardSuperset" @bind="FlashCardSupersetTitle"  />
+    <input type="text" class="form-control" id="flashCardSet" @bind="SuperSetTitle" />
 </div>
 <div class="row mt-2">
     <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />

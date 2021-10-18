@@ -7,33 +7,43 @@ using System.Text;
 using System.Threading.Tasks;
 using FlasherApi.Data.Models;
 
-namespace Flasher.Server.Data.EntityConfigurations
+namespace FlasherApi.Data.EntityConfigurations
 {
-    class FlashCardSetConfig : IEntityTypeConfiguration<FlashCardSet>
+    class FlashCardConfig : IEntityTypeConfiguration<FlashCard>
     {
-        public void Configure(EntityTypeBuilder<FlashCardSet> builder)
+        public void Configure(EntityTypeBuilder<FlashCard> builder)
         {
-            builder.HasKey(c => c.Id);
-            //builder.Property(c => c.Id)                   
+            //builder.HasKey(c => c.Id);
+
+            //builder.Property(c => c.Title)
             //       .IsRequired();
 
-            builder.Property(c => c.Title)
-                   .IsRequired();
+            //builder.Property(c => c.Front)
+            //       .IsRequired();
 
-            builder.HasOne(c => c.FlashCardSuperset);
+            //builder.Property(c => c.Back)
+            //       .IsRequired();
 
+            //builder.Property(fc => fc.Superset)
+            //       .IsRequired();
 
-            // uncomment to add starting data for FlashCardSet object
-            //builder.HasData(
-            //        new List<FlashCardSet>
-            //        {
-            //            //add starting data here
-            //        }
-            //    );
+            //builder.Property(fc => fc.Set);
 
-            
+            builder.HasData(
+                new List<FlashCard>
+                {
+                                new FlashCard{ Id = 1, Title = "FlashCard1", Front = "Front1", Back = "Back1", SupersetId = 1, SetId = 1},
+                                new FlashCard{ Id = 2, Title = "FlashCard2", Front = "Front2", Back = "Back2", SupersetId = 1, SetId = 1},
+                                new FlashCard{ Id = 3, Title = "FlashCard3", Front = "Front3", Back = "Back3", SupersetId = 1, SetId = 2},
+                                new FlashCard{ Id = 4, Title = "FlashCard4", Front = "Front4", Back = "Back4", SupersetId = 1, SetId = 2},
+                                new FlashCard{ Id = 5, Title = "FlashCard5", Front = "Front5", Back = "Back5", SupersetId = 2, SetId = 3},
+                                new FlashCard{ Id = 6, Title = "FlashCard6", Front = "Front5", Back = "Back6", SupersetId = 2, SetId = 3},
+                                new FlashCard{ Id = 7, Title = "FlashCard7", Front = "Front7", Back = "Back7", SupersetId = 2, SetId = 4},
+                                new FlashCard{ Id = 8, Title = "FlashCard8", Front = "Front8", Back = "Back8", SupersetId = 2, SetId = 4}
+                }
+            );
+
         }
 
-       
     }
 }

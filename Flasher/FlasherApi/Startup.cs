@@ -11,11 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Flasher.Server.Data;
-using Flasher.Server.Data.Repositories;
-using Flasher.Server.Data.Repositories.Interfaces;
+using FlasherApi.Data;
+using FlasherApi.Data.Repositories;
+using FlasherApi.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using FlasherApi.Data.Dtos.Interfaces;
 using FlasherApi.Data.Dtos;
 
 namespace FlasherApi
@@ -29,7 +28,7 @@ namespace FlasherApi
 
         public IConfiguration Configuration { get; }
         //readonly string AllowSpecifiedOrigins = "AllowSpecifiedOrigins";
-        readonly string AllowAllPolicy = "AllowCors";
+        readonly string AllowAllPolicy = "AllowCors";        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -45,6 +44,7 @@ namespace FlasherApi
 
             // SQLite service
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
+            
 
             // Dependency Injection
             services.AddScoped<IFlashCardRepository, FlashCardRepository>();            

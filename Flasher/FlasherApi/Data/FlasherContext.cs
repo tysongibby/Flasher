@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlasherApi.Data.Models;
-using Flasher.Server.Data.EntityConfigurations;
+using FlasherApi.Data.EntityConfigurations;
 
-namespace Flasher.Server.Data
+namespace FlasherApi.Data
 {
     public class FlasherContext : DbContext
     {
@@ -16,12 +16,17 @@ namespace Flasher.Server.Data
         public FlasherContext(DbContextOptions<FlasherContext> options) : base(options)
         { }
 
+        public virtual DbSet<Superset> Supersets { get; set; }
+        public virtual DbSet<Set> Sets { get; set; }
         public virtual DbSet<FlashCard> FlashCards { get; set; }
+        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration<Superset>(new SupersetConfig());
+            modelBuilder.ApplyConfiguration<Set>(new SetConfig());
             modelBuilder.ApplyConfiguration<FlashCard>(new FlashCardConfig());
-            modelBuilder.ApplyConfiguration<FlashCardSet>(new FlashCardSetConfig());
         }
 
         
