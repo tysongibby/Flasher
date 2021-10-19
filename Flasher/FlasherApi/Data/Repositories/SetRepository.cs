@@ -18,7 +18,7 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
-        public async Task<Set> Update(Set setUpdate)
+        public override async Task<Set> Update(Set setUpdate)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace FlasherApi.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                //TODO: add update entity to IBaseRepository.cs if possible                
+                //TODO: add update entity to BaseRepository.cs if possible                
                 Set setToUpdate = await FlasherContext.Sets.FindAsync(setUpdate.Id);
                 if (setToUpdate != null)
                 {
@@ -48,5 +48,6 @@ namespace FlasherApi.Data.Repositories
 
 
         }
+
     }
 }

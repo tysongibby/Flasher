@@ -13,7 +13,8 @@ namespace FlasherApi.Data.Repositories.Interfaces
         Task<bool> Exists(int id);        
         Task<TEntity> FindSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         Task<int> Add(TEntity entity);
-        Task<int> AddRange(IEnumerable<TEntity> entities);      
+        Task<int> AddRange(IEnumerable<TEntity> entities);
+        Task<TEntity> Update(TEntity entity);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
     }

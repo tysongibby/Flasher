@@ -156,6 +156,8 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
+        public abstract Task<TEntity> Update(TEntity entity);
+
         //TODO: disocver how to remove/delete entities with async
         public virtual void Remove(TEntity entity)
         {

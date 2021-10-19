@@ -18,7 +18,7 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
-        public async Task<Superset> Update(Superset supersetUpdate)
+        public override async Task<Superset> Update(Superset supersetUpdate)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace FlasherApi.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                //TODO: add update entity to IBaseRepository.cs if possible                
+                //TODO: add update entity to BaseRepository.cs if possible                
                 Superset supersetToUpdate = await FlasherContext.Supersets.FindAsync(supersetUpdate.Id);
                 if (supersetToUpdate != null)
                 {

@@ -190,7 +190,7 @@ namespace FlasherApi.Controllers
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"Flash card ${id} could not be found.");
+                return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
             }
         }
 
@@ -203,11 +203,11 @@ namespace FlasherApi.Controllers
                 if (flashCardToDelete is not null)
                 {
                     _flashCardRepository.Remove(flashCardToDelete);
-                    return StatusCode(StatusCodes.Status200OK, $"Flash card ${id} was deleted.");
+                    return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was deleted.");
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status204NoContent, $"Flash card ${id} could not be found.");
+                    return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
                 }
             }
             catch (Exception e)

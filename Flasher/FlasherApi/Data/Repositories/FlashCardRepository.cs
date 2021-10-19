@@ -21,7 +21,7 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
-        public async Task<FlashCard> Update(FlashCard flashCardUpdate)
+        public override async Task<FlashCard> Update(FlashCard flashCardUpdate)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace FlasherApi.Data.Repositories
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
                 }
-                //TODO: add update entity to IBaseRepository.cs if possible                
+                //TODO: add update entity to BaseRepository.cs if possible                
                 FlashCard flashCardToUpdate = await FlasherContext.FlashCards.FindAsync(flashCardUpdate.Id);
                 if (flashCardToUpdate != null)
                 {

@@ -47,7 +47,9 @@ namespace FlasherApi
             
 
             // Dependency Injection
-            services.AddScoped<IFlashCardRepository, FlashCardRepository>();            
+            services.AddScoped<IFlashCardRepository, FlashCardRepository>();
+            services.AddScoped<ISupersetRepository, SupersetRepository>();
+            services.AddScoped<ISetRepository, SetRepository>();
 
             // Cross Origin RequestS (CORS) policies
             //services.AddCors(options =>
