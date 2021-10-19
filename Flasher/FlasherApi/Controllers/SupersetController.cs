@@ -1,4 +1,7 @@
-﻿using FlasherApi.Data.Repositories.Interfaces;
+﻿using FlasherApi.Data.Dtos;
+using FlasherApi.Data.Models;
+using FlasherApi.Data.Repositories.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,12 +16,142 @@ namespace FlasherApi.Controllers
     public class SupersetController : ControllerBase
     {
         private readonly ILogger<SupersetController> _logger;
-        private readonly ISupersetRepository _superSetRepository;
+        private readonly ISupersetRepository _supersetRepository;
 
         public SupersetController(ILogger<SupersetController> logger, ISupersetRepository superSetRepository)
         {
             _logger = logger;
-            _superSetRepository = superSetRepository;
+            _supersetRepository = superSetRepository;
         }
+
+        [HttpGet]
+        public ActionResult<SupersetDto> Get(int id)
+        {
+            try
+            {
+                Superset superset = _supersetRepository.Get(id).Result;
+                if (superset is not null)
+                {
+                    SupersetDto supersetDto = new SupersetDto()
+                    {
+                        Id = superset.Id,
+                        Title = superset.Title
+                    };
+                    return StatusCode(StatusCodes.Status201Created, supersetDto);
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, $"Superset {id} could not be found");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult<List<SupersetDto>> GetAll()
+        {
+            try
+            {
+                List<SupersetDto> supersetDtos = new List<SupersetDto>();
+                List<Superset> supersets = _supersetRepository.GetAll().Result.ToList();
+                if (supersets.Count > 0)
+                {
+                    foreach (Superset s in supersets)
+                    {
+                        SupersetDto supersetDto = new SupersetDto()
+                        {
+                            Id = s.Id,
+                            Title = s.Title
+                        };
+                        supersetDtos.Add(supersetDto);
+                    }
+                    return StatusCode(StatusCodes.Status200OK, supersetDtos);
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, $"No supersets have been created yet.");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<SupersetDto> Create(SupersetDto newSupersetDto)
+        {
+            try
+            {
+                Superset newSuperset = new Superset()
+                {
+                    Title = newSupersetDto.Title
+                };
+                _supersetRepository.Add(newSuperset);
+                return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Superset to return status            
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }   
+        
+        [HttpPost]
+        public ActionResult<Superset> Update(int id, SupersetDto supersetDtoUpdate)
+        {
+            try
+            {
+                if (id == supersetDtoUpdate.Id)
+                {
+                    if (_supersetRepository.Exists(id).Result)
+                    {
+                        Superset supersetUpdate = new Superset()
+                        {
+                            Id = (int)supersetDtoUpdate.Id,
+                            Title = supersetDtoUpdate.Title
+                        };
+                        return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Superset to return status 
+                    }
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status204NoContent, $"Superset {supersetDtoUpdate.Id} could not be found.");
+                    }
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, $"id {id} and supersetDtoUpdate.Id {supersetDtoUpdate.Id} must be the same");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<Superset> Delete(int id)
+        {
+            try
+            {
+                Superset supersetToDelete = _supersetRepository.Find(fc => fc.Id == id).FirstOrDefault();
+                if (supersetToDelete is not null)
+                {
+                    _supersetRepository.Remove(supersetToDelete);
+                    return StatusCode(StatusCodes.Status200OK, $"Superset {id} has been deleted.");
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, $"Superset {id} could not be found.");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
     }
 }

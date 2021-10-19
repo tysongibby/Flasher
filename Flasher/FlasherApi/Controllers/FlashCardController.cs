@@ -26,11 +26,11 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<FlashCardDto> Get(int id = 1)
+        public ActionResult<FlashCardDto> Get(int id)
         {
             FlashCard flashCard = _flashCardRepository.Get(id).Result;
             FlashCardDto flashCardDto = new FlashCardDto();            
-            if (flashCard is not null)
+            if (flashCard is not null && flashCard.Id != 0)
             {            
                 flashCardDto.Id = flashCard.Id;
                 flashCardDto.Title = flashCard.Title;
@@ -39,11 +39,11 @@ namespace FlasherApi.Controllers
                 flashCardDto.AnsweredCorrectly = flashCard.AnsweredCorrectly;
                 flashCardDto.SupersetId = flashCard.SupersetId;
                 flashCardDto.SetId = flashCard.SetId;
-                return Ok(flashCardDto);
+                return StatusCode(StatusCodes.Status200OK, flashCardDto);
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"FlashCardDto id {id} not found.");
+                return StatusCode(StatusCodes.Status204NoContent);
             }            
         }
 
@@ -71,7 +71,7 @@ namespace FlasherApi.Controllers
                     flashCardDtos.Add(flashCardDto);
                 }
 
-                return Ok(flashCardDtos);
+                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
             }
             else
             {
@@ -84,7 +84,7 @@ namespace FlasherApi.Controllers
         {
             List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
             List<FlashCard> flashCards = _flashCardRepository.GetAllFlashCardsInSuperset(id).ToList();            
-            if (flashCards is not null)
+            if (flashCards is not null && flashCards.Count > 0)
             {
                 foreach (FlashCard fc in flashCards)
                 {                    
@@ -101,11 +101,11 @@ namespace FlasherApi.Controllers
                     flashCardDtos.Add(flashCardDto);
                 }
 
-                return flashCardDtos;
+                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"Flash card superset {id} could not be found.");
+                return StatusCode(StatusCodes.Status204NoContent);
             }
         }
 
@@ -115,7 +115,7 @@ namespace FlasherApi.Controllers
             List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
             List<FlashCard> flashCards = _flashCardRepository.GetAllFlashCardsInSet(setId).ToList();
             
-            if (flashCards is not null)
+            if (flashCards is not null && flashCards.Count > 0)
             {
                 foreach (FlashCard fc in flashCards)
                 {
@@ -132,13 +132,13 @@ namespace FlasherApi.Controllers
                     flashCardDtos.Add(flashCardDto);
                 }
 
-                return flashCardDtos;
+                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"Flash card set {setId} could not be found.");
+                return StatusCode(StatusCodes.Status204NoContent);
             }
-            }
+        }
 
         [HttpPost]
         public ActionResult<FlashCardDto> Create(FlashCardDto flashCardDto)
@@ -155,11 +155,11 @@ namespace FlasherApi.Controllers
                     SetId = flashCardDto.SetId
                 };
                 _flashCardRepository.Add(newFlashCard);
-                return StatusCode(StatusCodes.Status201Created, flashCardDto);
+                return StatusCode(StatusCodes.Status201Created);  //TODO: add url for new FlashCard to return status
             }
             catch (Exception e)
-            {
-                throw new Exception($"Flash card {flashCardDto.Title} was not created: ", e);
+            {                
+                return StatusCode(StatusCodes.Status400BadRequest, e);
             }
         }
 
@@ -181,16 +181,16 @@ namespace FlasherApi.Controllers
                         SetId = flashCardDto.SetId
                     };
                     FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                    return Ok(updatedFlashCard);
+                    return StatusCode(StatusCodes.Status200OK, $"Flash card {Id} was updated"); //TODO: add url for updated FlashCard to return status
                 }
                 catch (Exception e)
-                {
-                    throw new Exception("Flash card was not updated: ", e);
+                {                    
+                    return StatusCode(StatusCodes.Status400BadRequest, e);
                 }
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"Flash card id {Id} could not be found.");
+                return StatusCode(StatusCodes.Status204NoContent, $"Flash card ${id} could not be found.");
             }
         }
 
@@ -203,16 +203,16 @@ namespace FlasherApi.Controllers
                 if (flashCardToDelete is not null)
                 {
                     _flashCardRepository.Remove(flashCardToDelete);
-                    return Ok($"Flash card {id} has been deleted.");
+                    return StatusCode(StatusCodes.Status200OK, $"Flash card ${id} was deleted.");
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status204NoContent, $"Flash card id {id} could not be found.");
+                    return StatusCode(StatusCodes.Status204NoContent, $"Flash card ${id} could not be found.");
                 }
             }
             catch (Exception e)
-            {
-                throw new Exception($"Flash card {id} was not deleted: ", e);
+            {                
+                return StatusCode(StatusCodes.Status500InternalServerError, e);
             }
         }
 
