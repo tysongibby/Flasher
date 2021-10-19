@@ -84,7 +84,7 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<SetDto> Create(SetDto newSetDto)
+        public ActionResult<string> Create(SetDto newSetDto)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<Set> Update(int id, SetDto setDtoUpdate)
+        public ActionResult<string> Update(int id, SetDto setDtoUpdate)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Set> Delete(int id)
+        public ActionResult<string> Delete(int id)
         {
             try
             {

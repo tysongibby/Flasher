@@ -141,7 +141,7 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<FlashCardDto> Create(FlashCardDto flashCardDto)
+        public ActionResult<string> Create(FlashCardDto flashCardDto)
         {
             try
             {
@@ -164,15 +164,15 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<FlashCardDto> Update(int Id, FlashCardDto flashCardDto)
+        public ActionResult<string> Update(int id, FlashCardDto flashCardDto)
         {
-            if (_flashCardRepository.Exists(Id).Result)
+            if (_flashCardRepository.Exists(id).Result)
             {
                 try
                 {
                     FlashCard newFlashCard = new FlashCard()
                     {
-                        Id = Id,
+                        Id = id,
                         Title = flashCardDto.Title,
                         Front = flashCardDto.Front,
                         Back = flashCardDto.Back,
@@ -181,7 +181,7 @@ namespace FlasherApi.Controllers
                         SetId = flashCardDto.SetId
                     };
                     FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                    return StatusCode(StatusCodes.Status200OK, $"Flash card {Id} was updated"); //TODO: add url for updated FlashCard to return status
+                    return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was updated"); //TODO: add url for updated FlashCard to return status
                 }
                 catch (Exception e)
                 {                    

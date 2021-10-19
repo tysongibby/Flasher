@@ -82,7 +82,7 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<SupersetDto> Create(SupersetDto newSupersetDto)
+        public ActionResult<string> Create(SupersetDto newSupersetDto)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<Superset> Update(int id, SupersetDto supersetDtoUpdate)
+        public ActionResult<string> Update(int id, SupersetDto supersetDtoUpdate)
         {
             try
             {
@@ -132,7 +132,7 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Superset> Delete(int id)
+        public ActionResult<string> Delete(int id)
         {
             try
             {
