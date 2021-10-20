@@ -21,4 +21,6 @@ This project is one of the places where I practice and implement the new coding 
 * .NET 5 (core)
 * C#
 * Regular Expressions
-* Fluent API
+* Inheritence
+* Interfaces
+* Generics
