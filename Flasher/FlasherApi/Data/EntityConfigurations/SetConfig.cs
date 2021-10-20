@@ -17,14 +17,14 @@ namespace FlasherApi.Data.EntityConfigurations
             builder.HasData(
                     new List<Set>
                     {
-                        new Set{ Id = 1, Title = "Set1"},
-                        new Set{ Id = 2, Title = "Set2"},
-                        new Set{ Id = 3, Title = "Set3"},
-                        new Set{ Id = 4, Title = "Set4"},
-                        new Set{ Id = 5, Title = "Set5"},
-                        new Set{ Id = 6, Title = "Set6"},
-                        new Set{ Id = 7, Title = "Set7"},
-                        new Set{ Id = 8, Title = "Set8"}
+                        new Set{ Id = 1, Title = "Set1", SupersetId = 1},
+                        new Set{ Id = 2, Title = "Set2", SupersetId = 1},
+                        new Set{ Id = 3, Title = "Set3", SupersetId = 1},
+                        new Set{ Id = 4, Title = "Set4", SupersetId = 1},
+                        new Set{ Id = 5, Title = "Set5", SupersetId = 2},
+                        new Set{ Id = 6, Title = "Set6", SupersetId = 2},
+                        new Set{ Id = 7, Title = "Set7", SupersetId = 2},
+                        new Set{ Id = 8, Title = "Set8", SupersetId = 2}
                     }
                 );
 

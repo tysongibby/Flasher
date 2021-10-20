@@ -166,31 +166,40 @@ namespace FlasherApi.Controllers
         [HttpPost]
         public ActionResult<string> Update(int id, FlashCardDto flashCardDto)
         {
-            if (_flashCardRepository.Exists(id).Result)
+            try
             {
-                try
+                if (id == flashCardDto.Id)
                 {
-                    FlashCard newFlashCard = new FlashCard()
+                    if (_flashCardRepository.Exists(id).Result)
                     {
-                        Id = id,
-                        Title = flashCardDto.Title,
-                        Front = flashCardDto.Front,
-                        Back = flashCardDto.Back,
-                        AnsweredCorrectly = false,
-                        SupersetId = flashCardDto.SupersetId,
-                        SetId = flashCardDto.SetId
-                    };
-                    FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                    return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was updated"); //TODO: add url for updated FlashCard to return status
+
+                        FlashCard newFlashCard = new FlashCard()
+                        {
+                            Id = id,
+                            Title = flashCardDto.Title,
+                            Front = flashCardDto.Front,
+                            Back = flashCardDto.Back,
+                            AnsweredCorrectly = flashCardDto.AnsweredCorrectly,
+                            SupersetId = flashCardDto.SupersetId,
+                            SetId = flashCardDto.SetId
+                        };
+                        FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
+                        return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was updated"); //TODO: add url for updated FlashCard to return status
+
+                    }
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
+                    }
                 }
-                catch (Exception e)
-                {                    
-                    return StatusCode(StatusCodes.Status400BadRequest, e);
+                else
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, $"id {id} and flashCardDto.Id {flashCardDto.Id} must be the same.");
                 }
             }
-            else
+            catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
 
@@ -212,7 +221,7 @@ namespace FlasherApi.Controllers
             }
             catch (Exception e)
             {                
-                return StatusCode(StatusCodes.Status500InternalServerError, e);
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
 

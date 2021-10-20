@@ -18,10 +18,10 @@ namespace FlasherApi.Controllers
         private readonly ILogger<SetController> _logger;
         private readonly ISetRepository _setRepository;
 
-        public SetController(ILogger<SetController> logger, ISetRepository superSetRepository)
+        public SetController(ILogger<SetController> logger, ISetRepository setRepository)
         {
             _logger = logger;
-            _setRepository = superSetRepository;
+            _setRepository = setRepository;
         }
 
         [HttpGet]
@@ -38,7 +38,7 @@ namespace FlasherApi.Controllers
                         Title = set.Title,
                         SupersetId = set.SupersetId
                     };
-                    return StatusCode(StatusCodes.Status201Created, setDto);
+                    return StatusCode(StatusCodes.Status200OK, setDto);
                 }
                 else
                 {
@@ -117,6 +117,7 @@ namespace FlasherApi.Controllers
                             Title = setDtoUpdate.Title,
                             SupersetId = setDtoUpdate.SupersetId
                         };
+                        var updatedSet =_setRepository.Update(setUpdate).Result;
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Set to return status 
                     }
                     else

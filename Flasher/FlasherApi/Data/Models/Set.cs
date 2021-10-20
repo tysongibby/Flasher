@@ -11,8 +11,10 @@ namespace FlasherApi.Data.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public string Title { get; set; }
+        
         [ForeignKey("Superset")]
         public int SupersetId { get; set; }
 

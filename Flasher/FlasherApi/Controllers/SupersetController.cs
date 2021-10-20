@@ -113,6 +113,7 @@ namespace FlasherApi.Controllers
                             Id = (int)supersetDtoUpdate.Id,
                             Title = supersetDtoUpdate.Title
                         };
+                        var updatedSuperset = _supersetRepository.Update(supersetUpdate).Result;
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Superset to return status 
                     }
                     else

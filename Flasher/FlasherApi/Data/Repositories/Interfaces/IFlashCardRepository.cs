@@ -9,8 +9,8 @@ namespace FlasherApi.Data.Repositories.Interfaces
 {
     public interface IFlashCardRepository : IBaseRepository<FlashCard>
     {        
-        IEnumerable<FlashCard> GetAllFlashCardsInSuperset(int supersetId);
-        IEnumerable<FlashCard> GetAllFlashCardsInSet(int setId);
+        public IEnumerable<FlashCard> GetAllFlashCardsInSuperset(int supersetId);
+        public IEnumerable<FlashCard> GetAllFlashCardsInSet(int setId);
         public string GetSupersetTitle(int supersetId);
         public string GetSetTitle(int setId);
     }
