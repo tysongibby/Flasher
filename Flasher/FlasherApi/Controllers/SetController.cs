@@ -52,6 +52,32 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
+        public ActionResult<SetDto> GetSuperset(int id)
+        {
+            try
+            {
+                Superset superset = _setRepository.GetSuperset(id).Result;
+                if (superset is not null)
+                {
+                    SupersetDto supersetDto = new SupersetDto()
+                    {
+                        Id = superset.Id,
+                        Title = superset.Title                        
+                    };
+                    return StatusCode(StatusCodes.Status200OK, supersetDto);
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, $"Set {id} could not be found");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpGet]
         public ActionResult<List<SetDto>> GetAll()
         {
             try

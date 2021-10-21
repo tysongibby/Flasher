@@ -67,14 +67,8 @@ namespace FlasherWeb.Pages
                     Title = result.ToString(),
                     Front = f             
                 };
-                if (SuperSetTitle is not null || SuperSetTitle != string.Empty)
-                {
-                    newFlashCard.SuperSet = SuperSetTitle;
-                    if (SetTitle is not null || SetTitle != string.Empty)
-                    {
-                        newFlashCard.Set = SetTitle;
-                    }
-                }
+                //TODO: set newFlashCard.SupersetId
+                //TODO: set newFlashCard.SetId
                 NewflashCards.Add(newFlashCard);
             }
 

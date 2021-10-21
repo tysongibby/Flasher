@@ -18,12 +18,12 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
-        public Superset GetSuperset(int id)
+        public async Task<Superset> GetSuperset(int id)
         {
-            Set set = FlasherContext.Sets.FindAsync(id).Result;
+            var set = FlasherContext.Sets.FindAsync(id).Result;
             if (set is not null)
             {
-                Superset superset = FlasherContext.Supersets.FindAsync(set.SupersetId).Result;
+                Superset superset = await FlasherContext.Supersets.FindAsync(set.SupersetId);
                 return superset;
             }
             else

@@ -12,7 +12,7 @@ namespace FlasherWeb.Services.Models
         public string Front { get; set; }
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;
-        public string SuperSet { get; set; }
-        public string Set { get; set; }
+        public int SuperSetId { get; set; }
+        public int? SetId { get; set; }
     }
 }

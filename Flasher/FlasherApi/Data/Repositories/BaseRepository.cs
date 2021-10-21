@@ -122,10 +122,11 @@ namespace FlasherApi.Data.Repositories
                 if (entity == null)
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
-                }
+                }                
+                //int entityCount = _context.Set<TEntity>().OrderByDescending(e => e.Id); 
                 _context.Set<TEntity>().Add(entity);
                 ;
-                int entitiesAdded = await _context.SaveChangesAsync();
+                int entitiesAdded = await _context.SaveChangesAsync(); //TODO: return new entity or entity id instead of int for entitiesAdded
                 return entitiesAdded;
             }
             catch (Exception e)

@@ -11,41 +11,49 @@ namespace FlasherWeb.Pages
     public partial class Index
     {
         [Inject]
+        private ISupersetService SupersetService { get; set; }
+        [Inject]
+        private ISetService SetService { get; set; }
+        [Inject]
         private IFlashCardService FlashCardService { get; set; }
         private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
         private FlashCard FlashCard { get; set; } = new FlashCard();
         private int CardIndex { get; set; } = 0;
         private bool Front { get; set; } = true;
-        private string FlashCardSide { get; set; } = "Front";
-        private string FlashCardTitle { get; set; } = string.Empty;
-        private string FlashCardBody { get; set; } = string.Empty;
-        private string SuperSet { get; set; } = string.Empty;
-        private List<string> SuperSets { get; set; } = new List<string>();
-        private string Set { get; set; } = string.Empty;
-        private List<string> Sets { get; set; } = new List<string>();
+        private string Side { get; set; } = "Front";
+        private string Title { get; set; } = string.Empty;
+        private string Body { get; set; } = string.Empty;
+        private string SupersetTitle { get; set; } = string.Empty;
+        private List<Superset> Supersets { get; set; } = new List<Superset>();
+        private string SetTitle { get; set; } = string.Empty;
+        private List<Set> Sets { get; set; } = new List<Set>();
         private string ShowButton { get; set; } = "Back";
         private bool AnsweredCorrectly { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
-        {            
-            FlashCards = await FlashCardService.GetAll();            
+        {
+            Supersets = await SupersetService.GetAll();
+            Sets = await SetService.GetAll();
+            FlashCards = await FlashCardService.GetAll();    
             FlashCard = FlashCards[CardIndex];
-            FlashCardBody = FlashCard.Front;
-            FlashCardTitle = FlashCard.Title;
-            var result = FlashCards.Where(fc => !string.IsNullOrEmpty(fc.Set) && !string.IsNullOrWhiteSpace(fc.Set))
-                            .Distinct()
-                            .ToList();
-            if (FlashCard.SuperSet is not null || FlashCard.SuperSet != string.Empty)
-            {
-                SuperSet = FlashCard.SuperSet;
-                if (FlashCard.Set is not null || FlashCard.Set != string.Empty)
-                {
-                    Set = FlashCard.Set;
-                }
-            }
-            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
 
+            Body = FlashCard.Front;
+            Title = FlashCard.Title;
+            SupersetTitle = Supersets.Where(ss => ss.Id == FlashCard.SuperSetId).FirstOrDefault().Title;
+            if (FlashCard.SetId is not null && FlashCard.SetId != 0)
+            {
+                SetTitle = Sets.Where(s => s.Id == FlashCard.SetId).FirstOrDefault().Title;
+            }
+            AnsweredCorrectly = FlashCard.AnsweredCorrectly;          
         }
+
+
+
+
+
+
+
+
 
         public void NextFlashCard()
         {
@@ -96,20 +104,20 @@ namespace FlasherWeb.Pages
         private void SetFlashCardFront()
         {
             
-            FlashCardTitle = FlashCard.Title;
-            FlashCardBody = FlashCard.Front;
+            Title = FlashCard.Title;
+            Body = FlashCard.Front;
             AnsweredCorrectly = FlashCard.AnsweredCorrectly;
-            FlashCardSide = "Front";
+            Side = "Front";
             ShowButton = "Back";
         }
 
         private void SetFlashCardBack()
         {
             
-            FlashCardTitle = FlashCard.Title;
-            FlashCardBody = FlashCard.Back;
+            Title = FlashCard.Title;
+            Body = FlashCard.Back;
             AnsweredCorrectly = FlashCard.AnsweredCorrectly;
-            FlashCardSide = "Back";
+            Side = "Back";
             ShowButton = "Front";
         }
 

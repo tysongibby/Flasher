@@ -164,18 +164,16 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Update(int id, FlashCardDto flashCardDto)
+        public ActionResult<string> Update(FlashCardDto flashCardDto)
         {
             try
             {
-                if (id == flashCardDto.Id)
-                {
-                    if (_flashCardRepository.Exists(id).Result)
+                    if (_flashCardRepository.Exists((int)flashCardDto.Id).Result)
                     {
 
                         FlashCard newFlashCard = new FlashCard()
                         {
-                            Id = id,
+                            Id = (int)flashCardDto.Id,
                             Title = flashCardDto.Title,
                             Front = flashCardDto.Front,
                             Back = flashCardDto.Back,
@@ -184,18 +182,13 @@ namespace FlasherApi.Controllers
                             SetId = flashCardDto.SetId
                         };
                         FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                        return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was updated"); //TODO: add url for updated FlashCard to return status
+                        return StatusCode(StatusCodes.Status200OK, $"Flash card {flashCardDto.Id} was updated"); //TODO: replace update message with url for updated FlashCard
 
                     }
                     else
                     {
-                        return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
+                        return StatusCode(StatusCodes.Status204NoContent, $"Flash card {flashCardDto.Id} could not be found.");
                     }
-                }
-                else
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, $"id {id} and flashCardDto.Id {flashCardDto.Id} must be the same.");
-                }
             }
             catch (Exception e)
             {

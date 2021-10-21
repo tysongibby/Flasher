@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherApi", "Flasher\FlasherApi\FlasherApi.csproj", "{58D20FC8-6315-48B3-88C8-802EDF849485}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherWeb", "Flasher\FlasherWeb\FlasherWeb.csproj", "{33242CB6-3CBD-4AA9-9737-72365ECAA19B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58D20FC8-6315-48B3-88C8-802EDF849485} = {58D20FC8-6315-48B3-88C8-802EDF849485}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

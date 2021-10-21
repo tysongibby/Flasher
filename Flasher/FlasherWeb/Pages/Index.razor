@@ -4,12 +4,12 @@
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h3>@FlashCardTitle</h3>
-                <h5>@SuperSet, @Set</h5>
+                <h3>@Title</h3>
+                <h5>@SupersetTitle, @SetTitle</h5>
             </div>
             <div class="card-body">
-                <h5>@FlashCardSide</h5>
-                <p>@FlashCardBody</p>
+                <h5>@Side</h5>
+                <p>@Body</p>
             </div>
             <div class="card-footer">
                 <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <InputSelect @bind-Value="FlashCard.SuperSet"></InputSelect>
+                    <InputSelect @bind-Value="AnsweredCorrectly"></InputSelect>
                 </div>
             </div>
         </div>
