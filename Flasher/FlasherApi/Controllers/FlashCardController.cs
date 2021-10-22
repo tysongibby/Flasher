@@ -182,7 +182,7 @@ namespace FlasherApi.Controllers
                             SetId = flashCardDto.SetId
                         };
                         FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                        return StatusCode(StatusCodes.Status200OK, $"Flash card {flashCardDto.Id} was updated"); //TODO: replace update message with url for updated FlashCard
+                        return StatusCode(StatusCodes.Status200OK, $"Flash card {updatedFlashCard.Id} was updated"); //TODO: replace update message with url for updated FlashCard
 
                     }
                     else

@@ -122,10 +122,8 @@ namespace FlasherApi.Data.Repositories
                 if (entity == null)
                 {
                     throw new ArgumentNullException($"{nameof(Add)} entity must not be null");
-                }                
-                //int entityCount = _context.Set<TEntity>().OrderByDescending(e => e.Id); 
-                _context.Set<TEntity>().Add(entity);
-                ;
+                }                                
+                var result = _context.Set<TEntity>().Add(entity);                
                 int entitiesAdded = await _context.SaveChangesAsync(); //TODO: return new entity or entity id instead of int for entitiesAdded
                 return entitiesAdded;
             }
@@ -159,7 +157,7 @@ namespace FlasherApi.Data.Repositories
 
         public abstract Task<TEntity> Update(TEntity entity);
 
-        //TODO: disocver how to remove/delete entities with async
+        //TODO: remove/delete entities with async (haven't figured it out yet)
         public virtual void Remove(TEntity entity)
         {
             try
@@ -177,7 +175,7 @@ namespace FlasherApi.Data.Repositories
             }
         }
 
-        //TODO: discover how to remove/delete entities with async
+        //TODO: remove/delete range of entities with async (haven't figured it out yet)
         public virtual void RemoveRange(IEnumerable<TEntity> entities)
         {
             try

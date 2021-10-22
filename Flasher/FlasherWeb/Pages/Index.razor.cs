@@ -47,14 +47,6 @@ namespace FlasherWeb.Pages
             AnsweredCorrectly = FlashCard.AnsweredCorrectly;          
         }
 
-
-
-
-
-
-
-
-
         public void NextFlashCard()
         {
             if (CardIndex < FlashCards.Count - 1)

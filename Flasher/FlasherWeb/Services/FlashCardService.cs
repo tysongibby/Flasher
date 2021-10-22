@@ -95,9 +95,9 @@ namespace FlasherWeb.Services
         {
             try
             {
-                
+                string content = string.Empty;
                 HttpResponseMessage response = await _httpClient.PostAsJsonAsync(ControllerSubdirectory + "/Update", flashCardUpdate);
-                string content = await response.Content.ReadFromJsonAsync<string>();
+                //content = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return content;
             }
             catch (Exception e)
