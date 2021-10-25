@@ -6,13 +6,13 @@ using FlasherWeb.Services.Models;
 using FlasherWeb.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using System.Text.RegularExpressions;
+using FlasherWeb.Pages.Models;
 
 namespace FlasherWeb.Pages
 {
     public partial class EditFlashCards
     {
-        private string frontsTextAreaText;
-        private string backsTextAreaText;       
+        private EditFlashCardsPage FlashCardsPage { get; set; } = new EditFlashCardsPage();
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
@@ -20,6 +20,10 @@ namespace FlasherWeb.Pages
         private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
         private string SuperSetTitle { get; set; } = string.Empty;
         private string SetTitle { get; set; } = string.Empty;
+        
+        private string frontsTextAreaText;
+        private string backsTextAreaText;
+
 
         [Inject]
         private IFlashCardService FlashCardService { get; set; }

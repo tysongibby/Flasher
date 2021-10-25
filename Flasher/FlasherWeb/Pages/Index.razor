@@ -1,19 +1,20 @@
 ﻿@page "/"
+@using FlasherWeb.Services.Models
 
-<EditForm Model="FlashCard" OnSubmit="Submit">
+<EditForm Model="IndexPage" OnSubmit="Submit">
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h3>@Title</h3>
-                <h5>@SupersetTitle, @SetTitle</h5>
+                <h3>@IndexPage.Title</h3>
+                <h5>@IndexPage.SupersetTitle, @IndexPage.SetTitle</h5>
             </div>
             <div class="card-body">
-                <h5>@Side</h5>
-                <p>@Body</p>
+                <h5>@IndexPage.Side</h5>
+                <p>@IndexPage.Body</p>
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <button class="btn btn-primary" @onclick="FlipFlashCard">Show @ShowButton</button>
+                    <button class="btn btn-primary" @onclick="FlipFlashCard">Show @IndexPage.ShowButton</button>
                     <div class="btn-group">
                         <button class="btn btn-outline-primary ml-4" @onclick="LastFlashCard">Last</button>
                         <button class="btn btn-outline-primary ml-4" @onclick="NextFlashCard">Next</button>
@@ -21,13 +22,48 @@
                 </div>
                 <div class="row mt-4">
                     <div class="form-check">
-                        <InputCheckbox @onclick="UpdateAnswerStatus" @bind-Value="AnsweredCorrectly" id="answeredCorrectly" ></InputCheckbox>                        
+                        <InputCheckbox @onclick="UpdateAnswerStatus" @bind-Value="IndexPage.AnsweredCorrectly" id="answeredCorrectly"></InputCheckbox>
                         <label class="form-check-label" for="answeredCorrectly">Answered Correctly</label>
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <InputSelect @bind-Value="AnsweredCorrectly"></InputSelect>
+                @*<div class="row mt-4">
+                    <div class="form-group">
+                        <label for="SupersetSelect">
+                            Superset:
+                            <select id="SupersetSelect" class="form-control" value="@IndexPage.SelectedSupersetId" @onchange="LoadSupersetSets">
+                                <option value="0">All supersets</option>
+                                @if (IndexPage.Supersets != null)
+                                {
+                                    @foreach (Superset ss in IndexPage.Supersets)
+                                    {
+                                        <option value="@ss.Id" @onclick="() => OnselectSupersetSelect(ss.Id)">@ss.Title</option>
+                                    }
+                                }
+                            </select>
+                        </label>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="SetSelect">
+                            Sets (can select multiple):
+                            <InputSelect id="SetSelect" @bind-Value="@IndexPage.SelectedSetId" @onselect="LoadSetFlashCards" class="form-control">
+                                @if (IndexPage.Sets != null)
+                                {
+                                    <option value="0">All sets</option>
+                                    @foreach (Set s in IndexPage.SelectedSets)
+                                    {
+                                        <option value="@s.Id">@s.Title</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="0">...select a flash card superset first</option>
+                                }
+                            </InputSelect>
+                        </label>
+                    </div>
+                </div>*@
             </div>
         </div>
     </div>

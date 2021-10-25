@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FlasherWeb.Services.Models;
 using FlasherWeb.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
+using FlasherWeb.Pages.Models;
 
 namespace FlasherWeb.Pages
 {
@@ -16,67 +17,158 @@ namespace FlasherWeb.Pages
         private ISetService SetService { get; set; }
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
-        private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
-        private FlashCard FlashCard { get; set; } = new FlashCard();
-        private int CardIndex { get; set; } = 0;
-        private bool Front { get; set; } = true;
-        private string Side { get; set; } = "Front";
-        private string Title { get; set; } = string.Empty;
-        private string Body { get; set; } = string.Empty;
-        private string SupersetTitle { get; set; } = string.Empty;
-        private List<Superset> Supersets { get; set; } = new List<Superset>();
-        private string SetTitle { get; set; } = string.Empty;
-        private List<Set> Sets { get; set; } = new List<Set>();
-        private string ShowButton { get; set; } = "Back";
-        private bool AnsweredCorrectly { get; set; } = false;
+        private IndexPage IndexPage { get; set; } = new IndexPage();
+        //private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
+        //private FlashCard FlashCard { get; set; } = new FlashCard();
+        //private int CardIndex { get; set; } = 0;
+        //private bool Front { get; set; } = true;
+        //private string Side { get; set; } = "Front";
+        //private string Title { get; set; } = string.Empty;
+        //private string Body { get; set; } = string.Empty;
+        //private string SupersetTitle { get; set; } = string.Empty;
+        //private List<Superset> Supersets { get; set; } = new List<Superset>();
+        //private string SetTitle { get; set; } = string.Empty;
+        //private List<Set> Sets { get; set; } = new List<Set>();
+        //private string ShowButton { get; set; } = "Back";
+        //private bool AnsweredCorrectly { get; set; } = false;        
+        //private List<Set> SuperSetSelectElements { get; set; } = new List<Set>();
+        //private List<Set> SelectedSets { get; set; } = new List<Set>();
+        //private int SelectedSupersetId { get; set; } = 0;
+        //private int SelectedSetId { get; set; } = 0;
+
 
         protected override async Task OnInitializedAsync()
         {
-            Supersets = await SupersetService.GetAll();
-            Sets = await SetService.GetAll();
-            FlashCards = await FlashCardService.GetAll();    
-            FlashCard = FlashCards[CardIndex];
+            IndexPage.Supersets = await SupersetService.GetAll();
+            IndexPage.Sets = await SetService.GetAll();
+            IndexPage.FlashCards = await FlashCardService.GetAll();
+            IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];
 
-            Body = FlashCard.Front;
-            Title = FlashCard.Title;
-            SupersetTitle = Supersets.Where(ss => ss.Id == FlashCard.SuperSetId).FirstOrDefault().Title;
-            if (FlashCard.SetId is not null && FlashCard.SetId != 0)
+            IndexPage.Body = IndexPage.FlashCard.Front;
+            IndexPage.Title = IndexPage.FlashCard.Title;
+            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SuperSetId).FirstOrDefault().Title;
+            if (IndexPage.FlashCard.SetId is not null && IndexPage.FlashCard.SetId != 0)
             {
-                SetTitle = Sets.Where(s => s.Id == FlashCard.SetId).FirstOrDefault().Title;
+                IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.FlashCard.SetId).FirstOrDefault().Title;
             }
-            AnsweredCorrectly = FlashCard.AnsweredCorrectly;          
+            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;          
         }
 
-        public void NextFlashCard()
+        private void NextFlashCard()
         {
-            if (CardIndex < FlashCards.Count - 1)
+            if (IndexPage.CardIndex < IndexPage.FlashCards.Count - 1)
             {
-                if (CardIndex != FlashCards.Count - 1)
+                if (IndexPage.CardIndex != IndexPage.FlashCards.Count - 1)
                 {
-                    CardIndex++;
-                    FlashCard = FlashCards[CardIndex];
+                    IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
+                    IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];
                 }
                 SetFlashCardFront();
             }
         }
 
-        public void LastFlashCard()
+        private void LastFlashCard()
         {
-            if (CardIndex >= 0 )
+            if (IndexPage.CardIndex >= 0 )
             {
-                if (CardIndex != 0)
+                if (IndexPage.CardIndex != 0)
                 {
-                    CardIndex--;
-                    FlashCard = FlashCards[CardIndex];
+                    IndexPage.CardIndex = FindPreviousIndex(IndexPage.CardIndex);
+                    IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];                        
                 }
                 SetFlashCardFront();
             }
         }
 
-        public void FlipFlashCard()
+        // Finds index of next FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        private int FindNextIndex(int currentIndex)
         {
-            Front = !Front;
-            if (Front == true)
+            // finds the index of the last incorrect answer (AnsweredCorrectly == false)
+            int _lastIncorrectAnswerIndex = -100;
+            if (IndexPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            {
+                _lastIncorrectAnswerIndex = currentIndex; 
+            }
+            else
+            {
+                int x = currentIndex;
+                while (_lastIncorrectAnswerIndex == -100 && x > 0) 
+                {
+                    if (IndexPage.FlashCards[x].AnsweredCorrectly == false)
+                    {
+                        _lastIncorrectAnswerIndex = currentIndex;                        
+                    }
+                    else 
+                    { 
+                        x--; 
+                    }
+                }
+            }
+
+            // returns the index of the next incorrect answer (AnsweredCorrectly == false)
+            // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
+            int i = currentIndex;
+            while ( i <= IndexPage.FlashCards.Count - 1)
+            {
+                if (i != currentIndex && IndexPage.FlashCards[i].AnsweredCorrectly == false)
+                {
+                    return i;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return _lastIncorrectAnswerIndex;
+            
+        }
+
+        // Finds index of previous FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        private int FindPreviousIndex(int currentIndex)
+        {
+            // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
+            int _latestIncorrectAnswerIndex = -100;
+            if (IndexPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            {
+                _latestIncorrectAnswerIndex = currentIndex;
+            }
+            else
+            {
+                int x = currentIndex;
+                while (_latestIncorrectAnswerIndex == -100 && x < IndexPage.FlashCards.Count - 1)
+                {
+                    if (IndexPage.FlashCards[x].AnsweredCorrectly == false)
+                    {
+                        _latestIncorrectAnswerIndex = currentIndex;
+                    }
+                    else
+                    {
+                        x++;
+                    }
+                }
+            }
+
+            // returns the index of the previous incorrect answer (AnsweredCorrectly == false)
+            // if previous answers are all correct (AnsweredCorrectly == true), _latestIncorrectAnswerIndex is returned
+            int i = currentIndex;
+            while (i >= 0)
+            {
+                if (i != currentIndex && IndexPage.FlashCards[i].AnsweredCorrectly == false)
+                {
+                    return i;
+                }
+                else
+                {
+                    i--;
+                }
+            }
+            return _latestIncorrectAnswerIndex;
+        }
+
+        private void FlipFlashCard()
+        {
+            IndexPage.Front = !IndexPage.Front;
+            if (IndexPage.Front == true)
             {
                 SetFlashCardFront();                
             }
@@ -86,37 +178,66 @@ namespace FlasherWeb.Pages
             }
         }
 
-        public async void UpdateAnswerStatus()
+        private async void UpdateAnswerStatus()
         {
-            AnsweredCorrectly = !AnsweredCorrectly;
-            FlashCard.AnsweredCorrectly = AnsweredCorrectly;
-            await FlashCardService.Update(FlashCard);
+            IndexPage.AnsweredCorrectly = !IndexPage.AnsweredCorrectly;
+            IndexPage.FlashCard.AnsweredCorrectly = IndexPage.AnsweredCorrectly;
+            await FlashCardService.Update(IndexPage.FlashCard);
         }
 
         private void SetFlashCardFront()
         {
-            
-            Title = FlashCard.Title;
-            Body = FlashCard.Front;
-            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
-            Side = "Front";
-            ShowButton = "Back";
+
+            IndexPage.Title = IndexPage.FlashCard.Title;
+            IndexPage.Body = IndexPage.FlashCard.Front;
+            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;
+            IndexPage.Side = "Front";
+            IndexPage.ShowButton = "Back";
         }
 
         private void SetFlashCardBack()
         {
-            
-            Title = FlashCard.Title;
-            Body = FlashCard.Back;
-            AnsweredCorrectly = FlashCard.AnsweredCorrectly;
-            Side = "Back";
-            ShowButton = "Front";
+
+            IndexPage.Title = IndexPage.FlashCard.Title;
+            IndexPage.Body = IndexPage.FlashCard.Back;
+            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;
+            IndexPage.Side = "Back";
+            IndexPage.ShowButton = "Front";
+        }
+
+        private void SetSelectedSuperSet(int id)
+        {
+            throw new NotImplementedException("SetSelectedSuperSet has not yet be implmemented");
+        }
+
+        private void LoadSuperSetSelectElements()
+        {
+            throw new NotImplementedException("LoadSuperSetSelectElements has not yet be implmemented");
+        }
+
+        private void LoadSupersetSets()
+        {
+            IndexPage.SelectedSets = IndexPage.Sets.Where(s => s.SupersetId == IndexPage.SelectedSupersetId).ToList();
+            Console.WriteLine($"Sets for SupersetId {IndexPage.SelectedSupersetId} have been loaded.");
+        }
+
+        private void OnselectSupersetSelect(int id)
+        {
+            IndexPage.SelectedSetId = id;
+        }
+
+        private void LoadSetFlashCards()
+        {
+            throw new NotImplementedException("LoadSetFlashCards has not yet be implmemented");
         }
 
         private void Submit()
-        {
-            Console.WriteLine("Page submit has been called.");
+        {    
+            //TODO: create submit action if needed.
+            //throw new NotImplementedException("Submit has not yet be implmemented");
         }
+
+
 
     }
 }
