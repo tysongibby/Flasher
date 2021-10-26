@@ -1,29 +1,29 @@
 ﻿@page "/Edit"
 
 
-    <EditForm Model="FlashCardsPage" OnSubmit="() => Submit(FrontsTextAreaText, BacksTextAreaText)">
-        <h3>Edit Flash Cards</h3>
-        @*Fronts*@
-        <h4 class="mt-4">Text for Fronts</h4>
-        <div class="row d-inline-flex mt-4">
-            <label for="flashCardSubset" class="col-form-label">Flash Card Super Set</label>
-            <input type="text" class="form-control" id="flashCardSubset" @bind="SetTitle" />
-            <label for="flashCardSet" class="form-label">Flash Card Set</label>
-            <input type="text" class="form-control" id="flashCardSet" @bind="SuperSetTitle" />
-        </div>
-        <div class="row mt-2">
-            <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
-        </div>
-        @*Backs*@
-        <h4 class="mt-4">Text for Backs</h4>
-        <div class="row">
-            <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
-        </div>
-        <div class="row mt-4">
-            <button class="btn btn-primary" @onclick="() => Submit(FrontsTextAreaText, BacksTextAreaText)">Submit</button>
-        </div>
-        <div class="row mt-4">
-            <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
-        </div>
-    </EditForm>
+<EditForm Model="FlashCardsPage" OnSubmit="() => Submit(FrontsTextAreaText, BacksTextAreaText)">
+    <h3>Edit Flash Cards</h3>
+    @*Fronts*@
+    @*<div class="row mt-4">
+        <label for="flashCardSubset" class="col-form-label">Flash Card Super Set</label>
+        <input type="text" class="form-control" id="flashCardSubset" @bind="SetTitle" />
+        <label for="flashCardSet" class="form-label">Flash Card Set</label>
+        <input type="text" class="form-control" id="flashCardSet" @bind="SuperSetTitle" />
+    </div>*@
+    <h4 class="mt-4">Text for Fronts</h4>
+    <div class="row mt-2">
+        <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
+    </div>
+    @*Backs*@
+    <h4 class="mt-4">Text for Backs</h4>
+    <div class="row">
+        <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
+    </div>
+    <div class="row mt-4">
+        <button class="btn btn-primary" @onclick="() => Submit(FrontsTextAreaText, BacksTextAreaText)">Submit</button>
+    </div>
+    <div class="row mt-4">
+        <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
+    </div>
+</EditForm>
 

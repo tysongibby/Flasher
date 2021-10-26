@@ -45,6 +45,7 @@ namespace FlasherWeb.Pages
             {
                 backsTextAreaText = value;
                 BacksTextAreaRows = CalculateRows(value);
+                Console.WriteLine($"Fronts text area rows: {FrontsTextAreaRows}\n Backs text area rows: {BacksTextAreaRows}");
             }
         }
 
@@ -61,38 +62,64 @@ namespace FlasherWeb.Pages
             List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
             List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
             Regex titleRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
-            
-
-            foreach (string f in newFlashCardFronts)
+            if (newFlashCardFronts.Count == newFlashCardBacks.Count)
             {
-                var result = titleRegEx.Match(f);                
-                FlashCard newFlashCard = new FlashCard()
+                for (int i = 0; i <= newFlashCardFronts.Count - 1; i++)
                 {
-                    Title = result.ToString(),
-                    Front = f             
-                };
-                //TODO: set newFlashCard.SupersetId
-                //TODO: set newFlashCard.SetId
-                NewflashCards.Add(newFlashCard);
+                    var result = titleRegEx.Match(newFlashCardFronts[i]);
+                    FlashCard newFlashCard = new FlashCard()
+                    {
+                        SuperSetId = 2,
+                        SetId = 2,
+                        Title = result.ToString(),
+                        Front = newFlashCardFronts[i],
+                        Back = newFlashCardBacks[i]
+                    };
+                    //TODO: get Superset from webform
+                    //TODO: get set from webform
+                    NewflashCards.Add(newFlashCard);
+                }
+            }
+            else 
+            {
+                throw new Exception($"Flash card fronts and flash card backs must be equal in number: Fronts = {newFlashCardFronts.Count}, Backs = {newFlashCardBacks.Count}");
             }
 
-            for (int b = 0; b < NewflashCards.Count; b++ )
-            {                
-                NewflashCards[b].Back = newFlashCardBacks[b];
-            }
+            //foreach (string f in newFlashCardFronts)
+            //{
+            //    var result = titleRegEx.Match(f);                
+            //    FlashCard newFlashCard = new FlashCard()
+            //    {
+            //        SuperSetId = 1,
+            //        SetId = 1,
+            //        Title = result.ToString(),
+            //        Front = f                     
+            //    };
+            //    //TODO: get new Superset from webform
+            //    //TODO: get new set from webform
+            //    NewflashCards.Add(newFlashCard);
+            //}
+
+            //for (int b = 0; b <= NewflashCards.Count - 1; b++ )
+            //{                
+            //    NewflashCards[b].Back = newFlashCardBacks[b];
+            //}
 
             // add new flash cards to database
-            foreach(FlashCard fc in NewflashCards)
+            foreach (FlashCard fc in NewflashCards)
             {                
-                CreateFlashCard(fc);                
+                CreateFlashCardAsync(fc);                
             }
-            ResultsTextAreaText = $"{createdFlashCards.Count} flash cards have been added.";            
+            ResultsTextAreaText = $"{NewflashCards.Count} flash cards have been added.";            
         }
 
-        private async void CreateFlashCard(FlashCard fc)
+        private async void CreateFlashCardAsync(FlashCard fc)
         {
-            FlashCard response = await FlashCardService.Create(fc);
-            createdFlashCards.Add(response);
+            if (fc is not null)
+            {
+                FlashCard response = await FlashCardService.Create(fc);
+                createdFlashCards.Add(response);
+            }
         }
 
     }

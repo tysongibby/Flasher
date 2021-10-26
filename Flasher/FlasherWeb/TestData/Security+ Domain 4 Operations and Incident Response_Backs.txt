@@ -1,0 +1,1036 @@
+1. A. Mila should select a hash because a hash is designed to be
+unique to each possible input. That means that multiple files
+could have the same checksum value, whereas a hashing
+algorithm will be unique for each file that it is run against.
+■
+2. A. Allow lists are lists of approved software. Software can only
+be installed if it is on an allow list. Deny lists block specific
+applications, but they cannot account for every possible
+malicious application. Access control lists (ACLs) determine
+who can access a resource. A host intrusion detection system
+(HIDS) does not prevent software from being installed.
+■
+3. C. Correlation dashboards are used to aggregate events and to
+seek out connections. In some cases, this is done with advanced
+analytic algorithms, including artificial intelligence (AI) and
+machine learning (ML). A network intrusion detection system
+(NIDS) would be helpful but will not (by itself) necessarily
+correlate events. A public key infrastructure (PKI) handles
+certificates, not correlation and visibility of security events.
+Trend dashboards would show how things are going and which
+way statistics and information are moving.
+■
+4. D. Using tcpdump with flags like -i to set the interface, tcp to set
+the protocol, and port to set the port will capture exactly the
+traffic Emily needs to capture. Port 443 is the default HTTPS
+port. There is no -proto flag for tcpdump .
+■
+5. A. Tabletop exercises are used to talk through a process. Unlike
+walk-throughs, which focus on step-by-step review of an
+incident, Mila will focus more on how her team responds and on
+learning from those answers. A tabletop exercise can involve
+gaming out a situation. A simulation actually emulates an event
+or incident, either on a small or a large scale. Drills are not
+defined as part of the Security+ exam outline.
+■
+6. A. Backups are considered to be the least volatile type of
+storage since they change at a much slower pace and, in fact,
+may be intentionally retained for long periods of time without
+changing. In this list, CPU cache will change the most
+frequently, then RAM, then local disk contents.
+■
+7. C. Incident responders know that scan results can show
+vulnerable systems and services, providing clues about how
+attackers may have obtained access to systems. The scans will
+not show the programs the attackers used but may show services
+that they have enabled or changed. The scans will show the
+versions of software installed before the attack, but that
+information is only useful if the attackers either upgraded or
+changed the software or the software was vulnerable, making
+this a less accurate and useful answer. Finally, the scans may
+show where network security devices are, but that information
+should be available to the incident response team without trying
+to figure it out from scans.
+■
+8. C. After eradication of the issue has been completed, recovery
+can begin. Recovery can include restoration of services and a
+return to normal operations.
+■
+9. C. The -p flag adds a persistent route when combined with the
+ADD command. Persistent routes will remain in the routing table
+between boots. By default, they are cleared at each boot. An
+attacker may choose to use this to help with an on-path (man-inthe-
+middle) attack.
+■
+10. D. Of the options provided, only theHarvester is an open source
+intelligence tool. Curl is a tool used to transfer data, hping is a
+tool that is frequently used to build custom packets and to
+perform packet analyzer functions, and netcat is a utility that
+allows you to read and write to network connections, making it a
+broadly used tool for pen testers and attackers who need to
+transfer data using a small, capable utility.
+■
+11. C. The MITRE ATT&CK framework focuses on techniques and
+tactics and does not focus on a specific order of operations like
+the Cyber Kill Chain does. It also covers a broader range of
+techniques and adversaries than the Diamond Model does and is
+broadly implemented in many existing tools. The CVSS standard
+is a vulnerability scoring system and is not a useful framework
+for analyzing malware and attacks.
+■
+12. D. To properly preserve the system, Ted needs to ensure that it
+does not change. Turning the system off will cause anything in
+memory to be lost, which may be needed for the investigation.
+Removing the drive while a system is running can cause data to
+be lost. Instead, live imaging the machine and its memory may
+be required. Allowing users to continue to use a machine will
+result in changes, which can also damage Ted’s ability to
+perform a forensic investigation.
+■
+13. D. Containment efforts are used to limit the spread or impact of
+an incident. Containment may focus on keeping systems or
+services online to ensure that organizations can continue to
+function until other options for business continuity can be
+implemented. Segmentation moves systems or services into
+different security zones, and isolation removes them from all
+contact or puts them in small groups that are removed from the
+rest of the organization and systems that are not impacted.
+■
+14. D. Windows does not log network traffic at a level of
+granularity that will show if a file has been uploaded. Basic
+traffic statistics can be captured, but without additional sensors
+and information gathering capabilities, Jessica will not be able
+to determine if files are sent from a Windows system.
+■
+15. C. The chain of custody in forensic activities tracks who has a
+device, data, or other forensic artifact at any time, when
+transfers occur, who performed analysis, and where the item,
+system, or device goes when the forensic process is done.
+Evidence logs may be maintained by law enforcement to track
+evidence that is gathered. Paper trail and digital footprint are
+not technical terms used for digital forensics.
+■
+16. A. Of the listed tools, only nmap is a port scanner, and thus it is
+the tool that will provide the required information. route is a
+command-line tool to view and add network traffic routes. hping
+is a packet generator and analyzer, and netstat is a commandline
+tool that shows network connections, interface statistics,
+and other useful information about a system’s network usage.
+■
+17. B. The -c flag for grep counts the number of occurrences for a
+given string in a file. The -n flag shows the matched lines and
+line numbers. Even if you’re not sure about which flag is which,
+the syntax should help on a question like this. When using grep ,
+the pattern comes before the filename, allowing you to rule out
+two of the options right away.
+■
+18. B. Stakeholder management involves working with
+stakeholders, or those who have an interest in the event or
+impacted systems or services. COOP, or Continuity of
+Operations Planning, is a U.S. federal government effort to
+ensure that federal agencies have continuity plans. PAM is
+privileged account management. Stakeholder management
+involves more than just communications, although
+communications is an important part of it.
+■
+19. D. The most common reason for a one-hour time offset
+between two systems in the same location is a faulty time zone
+setting creating a time offset between the systems.
+■
+20. C. DNS data is frequently logged to help identify compromised
+systems or systems that have visited known phishing sites. DNS
+logs can be used along with IP reputation and known bad
+hostname lists to identify issues like these. DNS data is not
+commonly used to identify network scans and cannot capture
+them. Domain transfers are not attacks, although they are
+information gathering and will show in the logs. DNS does not
+capture information about logins.
+■
+21. D. Even if you’re not deeply familiar with the openssl
+command-line utility, you should know that certificates use
+ciphers that accept a bit length as a flag and that bit lengths like
+1024, 2048, and 4096 are common. These key lengths are not
+commonly communicated in bytes, and certificates are unlikely
+to last for multiple decades, although a certificate authority (CA)
+root certificate can last for a long time.
+■
+22. B. By default, the tail command shows the last 10 lines of a
+file, and using the -f flag follows changes in the file. head shows
+the top of a file, and foot and follow were made up for this
+question.
+■
+23. B. Although firmware acquisition is a less commonly used
+technique, firmware is typically stored in a chip on a system
+board rather than on disk. Henry is most likely to succeed if he
+retrieves the running firmware from memory. A serial
+connection may work but would typically require rebooting the
+system.
+■
+24. B. Network flows using NetFlow or sFlow would provide the
+information that Eric wants, with details of how much traffic
+was used, when, and where traffic was directed. A firewall or
+data loss prevention (DLP) would not show the bandwidth
+detail, although a firewall may show the connection information
+for events. Packetflow was made up for this question and is not a
+technology used for this purpose.
+■
+25. D. Hashing using MD5 or SHA1 is commonly used to validate
+that a forensic image matches the original drive. Many forensic
+duplicators automatically generate a hash of both drives when
+they complete the imaging process to ensure that there is a
+documentation chain for the forensic artifacts. A third image
+may be useful but does not validate this. Directory listings do
+not prove that drives match, and photos, though useful to
+document the drives and serial numbers, do not validate the
+contents of the drives.
+■
+26. B. Nessus is a popular vulnerability scanning tool. It is not a
+fuzzer, web application firewall (WAF), or protocol analyzer.
+■
+27. A. Of the options listed, the only requirement for admissibility
+is that the evidence must be relevant. Evidence must also be
+authenticated, meaning that it needs to be genuine.
+■
+28. D. The cost to the organization is not typically a part of
+communications planning. Since incidents can have a broad
+range of costs, and since exposing those costs can cause worry or
+a loss of customer confidence in the worst case, the costs of the
+incident are relatively rarely exposed as part of the incident
+response process. Communications with customers and
+employees is critical, and having different communication plans
+for different event severities helps ensure that appropriate
+communications occur.
+■
+29. B. The cat command without an angle bracket to redirect it will
+simply display the contents of the files listed. Thus, this
+command will display file1.txt , and then file2.txt . If Rick
+had inserted > between the two files, it would have appended
+file1.txt to file2.txt .
+■
+30. D. CentOS and Red Hat both store authentication log
+information in /var/log/secure instead of /var/log/auth.log
+used by Debian and Ubuntu systems. Knowing the differences
+between the major distributions can help speed up your forensic
+and incident investigations, and consistency is one of the
+reasons that organizations often select a single Linux
+distribution for their infrastructure whenever it is possible to do
+so.
+■
+31. B. Web page titles, as well as headers like meta tags, are
+examples of metadata about a page and are frequently used to
+gather information about web pages and websites. Headers are
+used as part of a page’s design and typically describe the bar at
+the top of the page used for site navigation. Summary and
+hidden data are not technical terms used to describe web page
+components.
+■
+32. C. Cuckoo , or Cuckoo Sandbox, is a malware analysis sandbox
+that will safely run malware and then analyze and report on its
+behavior. strings is a command-line tool that retrieves strings
+from binary data. scanless is a tool described as a port scraper,
+which retrieves port information without running a port scan by
+using websites and services to run the scan for you. Sn1per is a
+pen test framework.
+■
+33. C. Although Autopsy, strings , and grep can all be used to
+retrieve information from files, exiftool is the only purposebuilt
+file metadata retrieval tool listed.
+■
+34. B. FTK Imager is a free tool that can image both systems and
+memory, allowing Isaac to capture the information he wants.
+Although dd is useful for capturing disks, other tools are
+typically used for memory dumps, and though dd can be used on
+a Windows system, FTK Imager is a more likely choice. Autopsy
+is a forensic analysis tool and does not provide its own imaging
+tools. WinDump is a Windows version of tcpdump , a protocol
+analyzer.
+■
+35. B. When artifacts are acquired as part of an investigation, they
+should be logged and documented as part of the evidence related
+to the investigation. Artifacts could include a piece of paper with
+passwords on it, tools or technology related to an exploit or
+attack, smartcards, or any other element of an investigation.
+■
+36. A. The MX records for a domain list its email servers. Gary can
+use nslookup to query Domain Name System (DNS) for the MX
+servers using the command nslookup -query =mx example.com to
+look up example.com’s email server. ping does not support MX
+server lookups, and both smtp and email are not command-line
+tools.
+■
+37. B. Wireshark can be used to capture and analyze live Session
+Initiation Protocol (SIP) traffic on a network. Analysts should
+keep the fact that SIP traffic may be encrypted on their network
+and that they may need to take additional steps to fully view the
+content of SIP packets. Log files can provide information about
+SIP sessions and events and are useful for analysis after the fact,
+but they won’t provide the same detail about live SIP traffic.
+Nessus is a vulnerability scanner, and SIPper was made up for
+this question.
+■
+38. A. Although all of the tools listed can perform a port scan and
+identify open ports, netcat is the only one that does not also
+integrate automated service identification.
+■
+39. D. Forensic reports should include appropriate technical detail.
+Analysis of a system does not include a picture of the person
+from whom the system was acquired.
+■
+40. A. This question tests your knowledge of both the common
+Linux logs and basic format information for the auth.log file.
+Greg could use grep to search for "Failed password" in the
+auth.log file found in /var/log on many Linux systems. There is
+not a common log file named bruteforce.log ; tail and head are
+not useful for searching through the file, only for showing a set
+number of lines; and /etc/ is not the normal location for the
+auth.log file.
+■
+41. C. The browser cache, history, and session information will all
+contain information from recently visited sites. Bookmarks may
+indicate sites that a user has visited at some point, but a
+bookmark can be added without visiting a site at all.
+■
+42. C. Wireshark is a packet analyzer that can be used to capture
+and analyze network traffic for forensic purposes. Unlike disk
+forensics, network forensics require forethought and intentional
+capture of data before it is needed since traffic is ephemeral.
+Organizations that want to have a view of network traffic
+without capturing all traffic might use NetFlow or sFlow to
+provide some information about network traffic patterns and
+usage. Nessus is a vulnerability scanner, nmap is a port scanner,
+and Simple Network Management Protocol (SNMP) is a
+protocol used to transfer and gather information about network
+devices and status.
+■
+43. A. Mapping networks using ping relies on pinging each host,
+and then uses time-to-live (TTL) information to determine how
+many hops exist between known hosts and devices inside a
+network. When TTLs decrease, another router or switch
+typically exists between you and the device. Packets sent and
+received can be used to determine if there are issues with the
+path or link, and transit time can provide information about
+relative network distance or the path used, but traceroute
+provides far more useful detail in that case.
+■
+44. C. Organizations define retention policies for different data
+types and systems. Many organizations use 30-, 45-, 90-, 180-,
+or 365-day retention policies, with some information required to
+be kept longer due to law or compliance reasons. Susan’s
+organization may keep logs for as little as 30 days depending on
+storage limitations and business needs. Data classification
+policies typically impact how data is secured and handled.
+Backup policies determine how long backups are retained and
+rotated and may have an impact on data if the logs are backed
+up, but backing up logs are a less common practice due to the
+space they take up versus the value of having logs backed up.
+Legal hold practices are common, but policies are less typically
+defined for legal holds since requirements are set by law.
+■
+45. C. Zero-wiping a drive can be accomplished using dd , and
+when this command is completed Selah will have written zeroes
+to the entire drive /dev/sda .
+■
+46. C. Involving impacted areas, or those that have a role in the
+process, is part of stakeholder management and ensures that
+those who need to be involved or aware of the incident response
+process are engaged throughout the process. Laws rarely have
+specific requirements for internal involvement, instead focusing
+on customers or those whose data is involved in an incident.
+Retention policies determine what data is kept and for how long.
+COOP is Continuity of Operations Planning, a federal effort to
+ensure disaster recovery and business continuity plans are in
+place for federal agencies.
+■
+47. A. A simulation is the closest you can get to a real-world event
+without having one. A tabletop exercise has personnel
+discussing scenarios, whereas a walk-through goes through
+checklists and procedures. A wargame is not a common exercise
+type.
+■
+48. C. The Content-Addressable Memory (CAM) tables on switches
+contain a list of all the devices they have talked to and will give
+Erin the best chance of identifying the devices on the network.
+Wireshark and netstat will only have a view of the devices that
+the system she is working from communicate with or that
+broadcast on the network segment she is on. Domain Name
+System (DNS) will list only systems that have a DNS entry. In
+most organizations, relatively few systems will have entries in
+DNS.
+■
+49. C. Sensors are deployed, either as agents, hardware, or virtual
+machines to gather information to relay it back to a security
+information and event management (SIEM) device. Alert levels,
+trend analysis features, and sensitivity thresholds are all used to
+analyze and report on data, not to gather data.
+■
+50. C. A quarantine process or setting will preserve malicious or
+dangerous files and programs without allowing them to run.
+This allows defenders to retrieve them for further analysis as
+well as to return them to use if they are determined not to be
+malicious, or if the malicious components can be removed from
+needed files. Purging, deep-freezing, and retention are not terms
+used to describe this behavior or setting.
+■
+51. C. Chuck should recommend a mobile device management
+(MDM) system to ensure that organizational devices can be
+managed and protected in the future. Data loss prevention
+(DLP) will not stop a lost phone from being a potential leak of
+data, isolating the phones is not a realistic scenario for devices
+that will actually be used, nor is containment because the phone
+is out of the organization’s control once lost.
+■
+52. A. A content filter is specifically designed to allow
+organizations to select both specific sites and categories of
+content that should be blocked. Gabby could review content
+categories and configure the filter to prevent students from
+browsing to the unwanted sites. A data loss prevention (DLP)
+solution is designed to prevent data loss, a firewall can block IP
+addresses or hostnames but would require additional
+functionality to filter content, and an intrusion detection system
+(IDS) can detect unwanted traffic but cannot stop it.
+■
+53. B. Information stored on a disk drive is one of the least volatile
+items in the order of volatility, but backups are even less volatile.
+That means Frank should capture backups after he images the
+disk drive and that he should capture CPU cache and registers as
+well as system RAM first if he needs them.
+■
+54. C. The -R flag applies the permission recursively to all files in
+the named directory. Here, the permissions are 7 , which sets the
+owner to read, write, and execute, and 55 , which sets group and
+then world permissions to read only. 755 is a very commonly
+used permission on Linux systems.
+■
+55. B. The most important action Charles can take while working
+with his forensic artifacts to provide nonrepudiation is to
+digitally sign the artifacts and information that he is creating in
+his evidence records. Encrypting the output will ensure its
+confidentiality but will not provide nonrepudiation by itself.
+MD5 checksums for images are commonly gathered but must
+then be signed so that they can be validated to ensure they have
+not been modified.
+■
+56. D. The memdump tool is a command-line memory dump utility
+that can dump physical memory. Somewhat confusingly,
+memdump is also a flag in the very useful Volatility framework,
+where it can be used to dump memory as well. The remaining
+options were made up and are not Linux tools, although you can
+create a ramdump on Android devices.
+■
+57. B. The Windows swapfile is pagefile.sys and is saved in the
+root of the C:\ drive by default.
+■
+58. A. The best way to capture a virtual machine from a running
+hypervisor is usually to use the built-in tools to obtain a
+snapshot of the system. Imaging tools are not typically capable
+of capturing machine state, and dd is not designed to capture
+VMs. Removing a server’s drives can be challenging due to RAID
+and other specific server configuration items, and doing so
+might impact all other running VMs and services on the system.
+■
+59. C. A well-documented chain of custody can help establish
+provenance for data, proving where it came from, who handled
+it, and how it was obtained. Right to audit, timelines, and
+preservation of images do not establish provenance, although
+preservation is part of the chain of custody process.
+■
+60. B. Digital forensics techniques are commonly used to analyze
+attack patterns, tools, and techniques used by advanced
+persistent threat (APT) actors for counterintelligence purposes.
+They may sometimes be used to determine what information
+was stolen, but this is not the most common use for digital
+forensic techniques, nor is their use as a training mechanism.
+■
+61. A. Law enforcement is not typically part of organizational
+incident response teams, but incident response teams often
+maintain a relationship with local law enforcement officers.
+Security analysts, management, and communication staff as well
+as technical experts are all commonly part of a core incident
+response team.
+■
+62. A. Even if you’re not familiar with iptables , you can read
+through these rules and guess which rule includes the right
+details. DROP makes sense for a block, and you should know that
+SSH will be a TCP service on port 22.
+■
+63. C. logger is a Linux utility that will add information to the
+Linux syslog. It can accept file input, write to the system journal
+entry, send to remote syslog servers, and perform a variety of
+other functions. The other commands do not directly interface
+with the system log.
+■
+64. A. Incident response plans don’t stop incidents from occurring,
+but they do help responders react appropriately, prepare the
+organization for incidents, and may be required for legal or
+compliance reasons.
+■
+65. D. Degaussing a drive uses strong magnetic fields to wipe it and
+is the least likely to result in recoverable data. Deleted files can
+often be recovered because only the file index information will
+be removed until that space is needed and is overwritten. Quick
+formats work in a similar way and will leave remnant data, and
+files that are overwritten by smaller files will also leave
+fragments of data that can be recovered and analyzed.
+■
+66. D. Henry’s most likely use for the video is to document the
+forensic process, part of the chain of custody and provenance of
+the forensic data he acquires. The order of volatility helps
+determine what devices or drives he would image first. There is
+no crime being committed, so establishing guilt is not relevant
+to this scenario, and the video will not ensure data is preserved
+on a drive during a forensic process.
+■
+67. B. WinHex is the only disk editor in this list. Autopsy is a
+forensic analysis suite; dd and FTK Imager are both imaging
+tools. WinHex also provides the ability to read RAID and
+dynamic disks, perform data recovery, edit physical memory,
+clone disks, wipe files and drives, and a variety of other
+functions.
+■
+68. B. Playbooks list the required steps that are needed to address
+an incident. A runbook focuses on the steps to perform an action
+or process as part of an incident response process. Thus, a
+playbook may reference runbooks. Business continuity (BC)
+plans and disaster recovery (DR) plans are not used for incident
+response, but they are used to ensure that a business stays
+online or can recover from a disaster.
+■
+69. C. Passwords are typically stored using a hash, and best
+practices would have them stored using a password security–
+specific hash. Alaina can speed up her efforts if she knows what
+hashing algorithm and options were used on the passwords. The
+age and length of the passwords are not necessary, and
+passwords should not be stored in encrypted form—but the
+question also specifically notes they’re hashed passwords.
+■
+70. D. An application block list would fit Vincent’s needs the best
+from the list provided. An approved list would prevent other
+tools from being installed, which may impede functionality
+while making the maintenance of the list challenging. A data loss
+prevention (DLP) solution attempts to prevent data from being
+sent or exposed but does not prevent installations or downloads
+of games. A content filter might help, but workarounds are easy,
+including sending games via email or via a thumb drive.
+■
+71. B. IPSec is not a tool used to capture network flows. sFlow,
+NetFlow, and IPFIX are all used to capture network flow
+information, which will provide the information Charlene needs.
+■
+72. C. A system crash, or system dump, file contains the contents of
+memory at the time of the crash. The infamous Windows blue
+screen of death results in a memory dump to a file, allowing
+analysis of memory contents. The swapfile (pagefile) is used to
+store information that would not fit in memory but is unlikely to
+contain a currently running malware package, since files are
+swapped out when they are not in use. The Windows security log
+does not contain this type of information, nor does the system
+log.
+■
+73. C. The Windows tracert command will show the route to a
+remote system as well as delays along the route. traceroute is
+the equivalent command in Linux. The arp command allows you
+to view and modify the Address Resolution Protocol (ARP)
+cache in Windows, and netstat has varying functions in
+different operating systems but generally shows statistics and
+information about network usage and status.
+■
+74. B. PRTG and Cacti are both network monitoring tools that can
+provide bandwidth monitoring information. Bandwidth
+monitors can help identify exfiltration, heavy and abnormal
+bandwidth usage, and other information that can be helpful for
+both incident identification and incident investigations. If you
+encounter a question like this on the exam, even if you’re not
+familiar with either tool, you can use your knowledge of what
+Simple Network Management Protocol (SNMP) is used for to
+identify which of the categories is most likely correct.
+■
+75. D. The Security+ exam outline focuses on right to audit clauses,
+regulatory and jurisdictional issues, and data breach notification
+laws as key elements to consider when planning on-site versus
+cloud forensic differences. Provenance is important regardless of
+where the forensic activity occurs.
+■
+76. A. A variety of configuration changes could be pushed to
+mobile devices to help: setting passcodes, enabling full-disk
+encryption (FDE) on mobile devices via organizationally
+deployed mobile device management (MDM), or even
+preventing some sensitive files from being downloaded or kept
+on those devices could all help. Firewall rules, data loss
+prevention (DLP) rules, and URL filters will not prevent a stolen
+device from being accessed and the data being exposed.
+■
+77. B. The @ command for dig selects the Domain Name System
+(DNS) server it should query. In this case, it will query one of
+Google’s DNS servers at 8.8.8.8 for the DNS information for
+example.com.
+■
+78. C. Greg should use the built-in hashing functions to compare
+either an MD5 or SHA-1 hash of the source drive to a hash using
+the same function run on the image. If they match, he has a valid
+and intact image. None of the other answers will provide
+validation that the full drive was properly imaged.
+■
+79. B. The Linux grep command is a search tool that Adam can use
+to search through files or directories to find strings. cat is short
+for concatenate, and the command can be used to create files, to
+view their contents, or to combine files. head and tail are used
+to view the beginning or end of a file, respectively.
+■
+80. C. Segmentation splits networks or systems into smaller units
+that align with specific needs. Segmentation can be functional,
+security based, or for other purposes. Removing potentially
+infected systems would be an example of isolation, using
+firewalls and other tools to stop the spread of an infection is
+containment, and adding security systems to prevent data loss is
+an example of implementing a security tool or feature.
+■
+81. B. Unlike a disaster recovery plan that is written to help an
+organization recovery from a person-made or natural disaster, a
+business continuity plan focuses on how to keep the business
+running when it is disrupted. Thus, Charlene’s BC plan would
+detail how to keep the organization running when a system
+outage occurs.
+■
+82. C. OpenSSL can be used to generate a certificate using a
+command like this:
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048
+-keyout
+privateKey.key -out certificate.crt.
+None of the other tools listed can be used to generate a
+certificate.
+■
+83. A. The only password cracker listed is John the Ripper. John
+accepts custom wordlists, meaning that Cameron can create and
+use his own wordlist, as shown in option A.
+■
+84. A. Autopsy does not have a built-in capability to create disk
+images. Instead, it relies on third-party tools for acquisition and
+then imports disk images and other media. Autopsy has built-in
+timeline generation, image filtering and identification, and
+communication visualization, among many other capabilities.
+■
+85. C. Many cloud service providers do not allow customer-driven
+audits, either by the customer or a third party. They also
+commonly prohibit vulnerability scans of their production
+environment to avoid service outages. Instead, many provide
+third-party audit results in the form of a service organization
+controls (SOC) report or similar audit artifact.
+■
+86. B. The Cyber Kill Chain moves to privilege escalation after
+exploitation. The entire kill chain is: 1) Reconnaissance, 2)
+Intrusion, 3) Exploitation, 4) Privilege Escalation, 5) Lateral
+Movement, 6) Obfuscation/Anti-forensics, 7) Denial of Service,
+and 8) Exfiltration.
+■
+87. D. Of the tools that are listed, only Metasploit is an exploitation
+framework. Cuckoo is a malware testing sandbox, theHarvester
+is an open source intelligence gathering tool, and Nessus is a
+vulnerability scanner. Tools like Metasploit, BeEF, and Pacu are
+all examples of exploitation frameworks.
+■
+88. A. A playbook for a security orchestration, automation, and
+response (SOAR) environment is a set of rules that determine
+what actions will be performed when an event occurs that is
+identified by the SOAR using data it collects or receives.
+■
+89. B. The Security+ exam outline uses a six-step process for
+incident response: Preparation, Identification, Containment,
+Eradication, Recovery, and Lessons Learned.
+■
+90. D. A disaster recovery plan addresses what to do during a
+person-made or natural disaster. A flood that completely fills a
+datacenter would require significant efforts to recover from, and
+Gurvinder will need a solid disaster recovery plan—and perhaps
+a new datacenter location as soon as possible! A COOP, or
+Continuity of Operations Pan, is needed for U.S. government
+agencies but is not required for businesses. A business
+continuity plan would cover how to keep business running, but
+it does not cover all the requirements in a natural disaster of this
+scale, and a flood insurance plan is not a term used in the
+Security+ exam.
+■
+91. C. pathping combines both ping and tracert / traceroute style
+functionality to help identify both the path used and where
+latency is an issue. It is built into Windows and can be used for
+exactly the troubleshooting that Frank needs to accomplish. He
+could use both ping and tracert / traceroute to perform the
+task, but he would need to spend more time using each tool in
+turn to identify the same information that pathping will put into
+a single interface. netcat , while useful for many tasks, isn’t as
+well suited to this one.
+■
+92. A. The dnsenum tool can perform many Domain Name System
+(DNS)-related functions, including querying A records,
+nameservers, and MX records, as well as performing zone
+transfers, Google searches for hosts and subdomains, and net
+range reverse lookups. dig and host are useful for DNS queries
+but do not provide this range of capabilities, and dnscat was
+made up for this question.
+■
+93. C. Jill wants the least possible changes to occur on the system,
+so she should instruct the user to not save any files or make any
+changes. Rebooting the system will not create a memory dump,
+and may cause new files to be written or changed if patches were
+waiting to install or other changes are set to occur during a
+reboot. Turning off secure delete or making other changes will
+not impact the files that were deleted prior to that setting
+change.
+■
+94. C. Anti-forensics activities follow lateral movement in the
+Cyber Kill Chain model. It helps to remember that after an
+attacker has completed their attack, they will attempt to hide
+traces of their efforts, and then may proceed to denial-of-service
+or exfiltration activities in the model.
+■
+95. B. The IR process used for the Security+ exam outline is
+Preparation, Identification, Containment, Eradication,
+Recovery, and Lessons Learned. Veronica should move into the
+lessons learned phase.
+■
+96. C. Quick formatting merely deletes file indexes rather than
+removing and overwriting files, making it inappropriate for
+sanitization. Physical destruction will ensure that the data is not
+readable, as will degaussing and zero wiping.
+■
+97. D. Microsoft Office places information like the name of the
+creator of the file, editors, creation and change dates, and other
+useful information in the file metadata that is stored in each
+Office document. Bart can simply open the Office document to
+review this information or can use a forensic or file metadata
+tool to review it. Filenames may contain the creator’s name, but
+this would only be if the creator included it. Microsoft Office
+does not create or maintain a log, and the application log for
+Windows does not contain this information.
+■
+98. B. Windows Defender Firewall operates on a per-application
+model and can filter traffic based on whether the system is on a
+trusted private network or a public network. Nathaniel should
+allow Chrome by name in the firewall, which will allow it to send
+traffic without needing to specify ports or protocols.
+■
+99. B. The dnsenum Perl script builds in quite a few Domain Name
+System (DNS) enumeration capabilities, including host,
+nameserver, and MX record gathering; zone transfer; Google
+scraping for domains; subdomain brute forcing from files; as
+well as Whois automation and reverse lookups for networks up to
+class C in size. Although you could manually use dig or nslookup
+or even netcat to perform many of these functions, dnsenum is
+the only automated tool on the list.
+■
+100. B. Building a timeline, particularly from multiple systems,
+relies on accurately set system clocks or adding a manually
+configured offset. Disk hashing and acquisition does not need an
+accurate system clock, and file metadata can be reviewed even
+without an accurate clock, although accurate clock information
+or knowing the offset can be useful for analysis.
+■
+101. B. Data breach notification laws often build in a maximum
+length of time that can pass before notification is required. They
+also often include a threshold for notification, with a maximum
+number of exposed individuals before the state or other
+authorities must be notified. They do not include a maximum
+number of individuals who can be notified, nor do they typically
+have specific requirements about police involvement in forensic
+investigations or certification types or levels.
+■
+102. C. A data loss prevention (DLP) tool that can scan and review
+emails for SSN style data is the most effective tool listed here.
+Naomi may want to set the tool to block all emails with potential
+SSNs, and then review those emails manually to ensure that no
+further emails leave while allowing legitimate emails to pass
+through. An intrusion detection system (IDS) might look
+tempting as an answer, but an IDS can only detect, not stop, the
+traffic, which would allow the SSNs to exit the organization.
+Antimalware and firewalls will not stop this type of event.
+■
+103. C. Email headers contain a significant amount of metadata,
+including where the email was sent from. The from: field lists a
+sender but does not indicate where the email was actually sent
+from. The to: field lists who the email was sent to, and footers
+are not used to store this information for email.
+■
+104. A. Jurisdictional boundaries exist between states and localities,
+as well as countries, making it challenging for local law
+enforcement to execute warrants and acquire data from
+organizations outside of their jurisdiction in many cases. Venue
+is used to describe where a legal case is conducted. Legislation
+may or may not have an impact, and breach laws are unlikely to
+impact this but would guide Henry about when notifications of a
+breach would need to occur.
+■
+105. A. Olivia should use John the Ripper. Although both John the
+Ripper and rainbow table tools like Ophcrack can be used to
+crack passwords, John the Ripper will provide a better view of
+how hard the password was to crack, whereas rainbow table
+tools will simply determine if the password hash can be cracked.
+Crack.it and TheHunter were made up for this question.
+■
+106. B. The Federal Emergency Management Agency (FEMA), part
+of the Department of Homeland Security, is in charge of
+Continuity of Operations Planning (COOP), which is a
+requirement for federal agencies. The U.S. Department of
+Agriculture (USDA), the National Security Agency (NSA), and
+the Federal Bureau of Investigations (FBI) are not in charge of
+Continuity of Operations Planning.
+■
+107. B. Windows configuration data can be queried using
+PowerShell, allowing Elaine to write scripts that will gather
+security configuration data. Bash is a shell used for Linux
+systems. Although Windows systems can now run Bash in the
+Linux subsystem, it isn’t installed by default. Secure Shell (SSH)
+is used for remote shell access, and Python could be used but
+would need to be installed specifically for this purpose and isn’t
+available by default.
+■
+108. C. The best option listed is a Wireshark capture of traffic from
+the phone. In some cases, this traffic may be encrypted, and
+Ramon may need to take additional steps to decrypt the data.
+Call manager logs and Session Initiation Protocol (SIP) logs do
+not include the full audio of a conversation.
+■
+109. C. NXLog is a log collection and centralization tool. IPFIX,
+NetFlow, and sFlow all gather data about network traffic,
+including source, destination, port, protocol, and amount of data
+sent to be collected.
+■
+110. A. Pete has isolated the system by placing it on a separate
+logical network segment without access. Some malware can
+detect if systems lose their network connection, and Pete may
+want to perform forensics via the network or monitor attempts
+to send outbound traffic, meaning that simply unplugging the
+system may not meet his needs. Containment would involve
+limiting the spread or impact of an attack, segmentation places
+systems in groups based on rules or security groupings, and
+eradication is a part of the incident response (IR) process where
+components of an incident or attack are removed.
+■
+111. C. Virtual machine forensics typically rely on a snapshot
+gathered using the underlying virtualization environment’s
+snapshot capabilities. This will capture both memory state and
+the disk for the system and can be run on an independent
+system or analyzed using forensic tools.
+■
+112. B. The tcpreplay tool is specifically designed to allow PCAP
+capture files to be replayed to a network, allowing exactly this
+type of testing. hping can be used to craft packets, but it’s not
+designed to replay capture files. tcpdump is used to capture
+packets, but again, it not a replay tool, and Cuckoo is a
+sandboxing tool for testing and identifying malware packages.
+■
+113. C. Windows creates a dump file, which contains all the contents
+of active memory to allow analysis of the crash.
+■
+114. D. Segmenting a network based on security or risk levels helps
+ensure that attacks and compromises are constrained to the
+same type of systems or devices with similar levels of security
+requirements. Isolation would remove a device or system from
+contact with the network or other systems. Fragmentation and
+tiering are not terms used for the Security+ exam.
+■
+115. A. Tagging each drive helps with inventory and ensures that the
+drive is tracked properly and that the chain of custody can be
+maintained. Taking a picture may be useful to identify the drive,
+but tagging and inventory control are more important. Drives
+are not labeled with an order of volatility because the order of
+volatility is associated with the type of forensic target, not with a
+specific drive. Interviews may be useful but are not always
+conducted with every person whose machine is imaged.
+■
+116. B. The provenance of a forensic artifact includes the chain of
+custody, including ownership and acquisition of the artifact,
+device, or image. E-discovery is the process of doing discovery in
+electronic formats for litigation, investigations, and records
+requests. Jurisdiction is the region or area where laws or law
+enforcement has authority. Volatility is how likely a device or
+component is to change.
+■
+117. B. The Volatility framework is a purpose-built tool for the
+acquisition of random access memory (RAM) from a live system.
+Autopsy is a forensic tool for drive analysis and forensic
+investigations, dd is used to image drives, and netcat is a tool
+used to transfer data or to make connections to systems across a
+network.
+■
+118. D. Wireshark is a network protocol analyzer and capture tool
+that can be used for troubleshooting in circumstances like this.
+In fact, security practitioners are often asked to verify that traffic
+is being received properly as part of firewall rule
+troubleshooting. Randy may want to capture traffic at both ends
+of the communication to make sure that the clients are sending
+traffic properly and then to match that to the same traffic being
+received—or going missing—at the other end. tracert and
+traceroute are useful for validating the route that traffic takes
+but would not show if HTTPS packets were being blocked, and
+Sn1per is a pen test framework that allows automated pen
+testing.
+■
+119. B. The oldest and least capable tool listed is syslog, the original
+system logging tool for Linux and Unix systems. The other three
+options have advanced features, which mean that they are more
+broadly implemented when flexibility and reliability are needed.
+■
+120. A. The only tool on this list that can be used to craft packets is
+hping . Susan could use the sample code or exploit by building
+the necessary packet with hping and then sending it to a
+Dynamic Host Configuration Protocol (DHCP) server in her
+network while monitoring with her intrusion prevention system
+(IPS). She may want to capture all of her traffic with Wireshark
+or tcpdump to observe what happens on both ends too!
+■
+121. D. SQL injection attempts are sent as HTTP or HTTPS requests
+to a web server, meaning that Valerie will be able to see the
+attacks in the web server log. Domain Name System (DNS) logs,
+if available, will not show these. Auth logs show logins, not web
+or SQL Server queries or requests. Unlike Windows, there is no
+security log file for Linux, although there is a secure log for some
+systems.
+■
+122. A. If the private key and the passphrase for a certificate are
+exposed, the certificate should be revoked. A new certificate will
+need to be issued, but the certificate cannot be trusted and
+revocation is the first step to handle the issue properly.
+Changing the password will not help, and changing the private
+or public key will require a new certificate.
+■
+123. C. A legal hold notice will inform the company that they must
+preserve and protect information related to the case. None of the
+other items are terms used in this process.
+124. B. netstat can show all active connections, and using the -a
+flag will do so. netstat does not provide a -c command flag. The
+route command is used to modify and display the system’s
+routing table. hping is a packet analyzer and packet building tool
+often used to craft specific packets as part of penetration tests
+and attacks.
+■
+125. B. A quarantine setting will place a malicious or suspect file in a
+safe location and will keep it there until a set timeframe has
+passed or until an administrator takes action to deal with it. This
+can allow you to further analyze the file or to restore it if it was
+an incorrect identification or if the file is needed for another
+purpose. Containment is used to limit the extent of an incident
+or attack, isolation keeps a system or device from connecting to
+or accessing others, and deleting a file wouldn’t keep it around.
+■
+126. D. Although Linux systems can use a file for swap space, a
+common solution is to use a separate partition for swap space.
+127. A. Tracking multiple drives requires careful inventory, evidence
+handling logging, and tagging of the drives to ensure that they
+are the right drive and that they are tracked throughout the
+forensic investigation. Marco should carefully tag each of the
+drives and ensure that those tags are used throughout the
+investigation.
+■
+128. D. The -v flag for netcat sets it to verbose mode. That means
+that Isaac has attempted to connect to every port from 1 to 1024
+on 10.11.10.1 using netcat . Since there are no other flags or
+options, it will simply try to connect, and then provide a verbose
+result about what happened, resulting in a simple but effective
+port scan.
+■
+129. B. Tony’s best option is likely containment. He may want to
+remove that location from the corporate network or to prevent
+most traffic from being permitted until he can take a deeper look
+into what is going on. If he isolated the entire site, he might
+disrupt critical business operations, and segmentation would
+have been more appropriate before the event occurred.
+■
+130. C. Right-to-audit clauses are commonly accepted as part of
+service and leasing contracts regardless of location for
+datacenter co-location and facility rental contracts. Cloud
+service providers, however, are less likely to sign a right-to-audit
+contract. Instead, they may provide third-party audit data to
+customers or even to potential customers.
+■
+131. D. The best option for Alaina would be to use a URL filter to
+block users from visiting the link in the phishing email. A WAF,
+or web application firewall, is designed to prevent attacks
+against a web application. Patching can help stop exploits of
+vulnerable services or systems, but this is a phishing attack, and
+an allow list lists allowed items, not blocked items, and limiting
+which websites an entire company can visit is almost impossible
+in most circumstances.
+■
+132. A. Playbooks list the actions that an organization will take as
+part of a response process. A runbook lists the steps required to
+perform an action like notification, removing malware, or
+similar tasks. Playbooks tend to be used to document processes,
+whereas runbooks tend to be used for specific actions. A disaster
+recovery (DR) plan is used to recover from disasters, and a
+business continuity (BC) plan is used to ensure that the
+organization continues to function.
+■
+133. B. Since MAC addresses are only visible within a broadcast
+domain (local network), the MAC addresses of external hosts
+cannot be retrieved using the arp command. The MAC addresses
+for local systems, the IP addresses of the local host, and whether
+they are dynamic or static can all be determined using the arp
+command.
+■
+134. C. The journalctl tool is used to query the systemd journal. On
+systemd-enabled Linux distributions, the journal contains
+kernel and boot messages as well as syslog messages and
+messages from services.
+■
+135. C. The recovery phase often involves adding firewall rules and
+patching systems in addition to rebuilding systems. Although
+preparation may involve configuring firewall rules or regular
+patching, it does not do so in response to an incident.
+Containment might involve both but is less likely to, since the
+focus will be on broader fixes, and eradication works to remove
+the threat.
+■
+136. A. The curl command-line tool supports downloads and
+uploads from a wide variety of services, and it would be the ideal
+solution for this scenario. hping is used for crafting packets, nmap
+is a port scanner, and theHarvester is an open source
+intelligence gathering tool, none of which meet Gary’s needs.
+■
+137. C. Gary should look at the trend information for malware
+detections to check to see if there are more infections being
+detected than during recent weeks. This can be a useful
+indicator of a change, either due to a new malware technique or
+package, a successful attack that has resulted in staff members
+clicking on malicious links or opening malicious emails, or other
+paths into the organization. Gary could then check with users
+whose systems reported the malware to see what had occurred.
+Alerts might show the infections but would not show the data
+over time as easily as trends. Sensors will show individual places
+data is gathered, and bandwidth dashboards can show useful
+information about which systems are using more or less
+bandwidth, but the trends dashboard remains the right place for
+him to look in this situation.
+■
+138. B. Although it can be easy to focus on the digital part of digital
+forensics, interviews with end users and others involved in an
+incident can be a key element of a forensic investigation.
+Investigators still need to gather information and record what
+they found, but an interview can provide firsthand knowledge
+and additional details that may not be able to be recovered via
+technical means like email or disk forensics. A chain of custody
+does not provide information about reports from end users.
+139. B. The only option on this list that supports Aaron’s
+requirements is NXLog. Syslog can receive Windows events if
+they are converted to syslog, but it isn’t a native feature. IPFIX is
+a network flow standard, and journalctl is used to access the
+systemd journal.
+■
+140. A. Typical exercise types for most organizations include
+simulations that emulate an actual incident response process,
+walk-throughs that guide staff through an event, and tabletop
+exercises that are gamed out without taking actual action. Drills
+are classified as more focused on specific actions or functions,
+and they are less common because they can result in inadvertent
+action or mistakes and do not cover the breadth of an incident.
+141. A. Of the options listed, netstat is the only tool that will not
+perform a port scan.
+■
+142. C. The top of the diamond should be labeled Adversary, one of
+the four vertices on the Diamond model.
+■
+143. C. Electronic discovery, or e-discovery, is the legal proceeding
+involved in litigation, FoIA requests, and similar efforts that
+produce information in electronic form. Email forensics could
+be required to recover data in an investigation, but there is no
+indication in the question of any need for forensic investigation.
+Inquisitions and provenance are not concepts for the Security+
+exam

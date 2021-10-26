@@ -1,0 +1,1037 @@
+1. A. Caroline should select ISO 27002. ISO 27002 is an
+international standard for implementing and maintaining
+information security systems. ISO 27017 is an international
+standard for cloud security; NIST 800-12 is a general security
+standard and it is a U.S. standard, not an international one; and
+NIST 800-14 is a standard for policy development, and it is also
+a U.S. standard, not an international one.
+■
+2. B. If a system is infected with malware, the malware will
+operate with the privileges of the current user. If you use
+nonadministrative accounts, with least privileges, then the
+malware won’t be able to access administrative functionality
+without a privilege escalation capability.
+■
+3. D. Least privilege is the most fundamental concept in
+establishing accounts. Each user should have just enough
+privileges to do their job. This concept also applies to service
+accounts. Although each of the other options is something you
+would consider, they are not as critical as the principle of least
+privilege.
+■
+4. C. Change management is the process of documenting all
+changes made to a company’s network and computers. Avoiding
+making changes at the same time makes tracking any problems
+that can occur much simpler. Due diligence is the process of
+investigation and verification of the accuracy of a particular act.
+Acceptable use policies state what actions and practices are
+allowed in an organization while using technology. Due care is
+the effort made by a reasonable party to avoid harm to another.
+It is the level of judgment, care, determination, and activity a
+person would reasonably expect to do under certain conditions.
+■
+5. A. An acceptable use policy (AUP) is a document stating what a
+user may or may not have access to on a company’s network or
+the Internet. A clean desk policy ensures that all
+sensitive/confidential documents are removed from an end-user
+workstation and locked up when the documents are not in use.
+Mandatory vacation policy is used by companies to detect fraud
+by having a second person, familiar with the duties, help
+discover any illicit activities. Job rotation is a policy that
+describes the practice of moving employees between different
+tasks. Job rotation can help detect fraud because employees
+cannot perform the same actions for long periods of time.
+■
+6. C. The PCI-DSS, or Payment Card Industry Data Security
+Standard, is a security standard that is mandated by credit card
+vendors. The Payment Card Industry Security Standards Council
+is responsible for updates and changes to the standard. GDPR,
+or the General Data Protection Regulation, is a standard for data
+privacy and security in the European Union (EU). COPPA is the
+Children’s Online Privacy Protection Act, a U.S. federal law. CIS
+is the Center for Internet Security and is not a law or a
+regulation.
+■
+7. A. Companies will use mandatory vacation policies to detect
+fraud by having a second person, familiar with the duties, help
+discover any illicit activities. Clean desk policy ensures that all
+sensitive/confidential documents are removed from an end-user
+workstation and locked up when the documents are not in use. A
+nondisclosure agreement (NDA) protects sensitive and
+intellectual data from getting into the wrong hands. Continuing
+education is the process of training adult learners in a broad list
+of postsecondary learning activities and programs. Companies
+will use continuing education in training their employees on the
+new threats and also reiterating current policies and their
+importance.
+■
+8. B. Locking cabinets and drawers is the best solution because
+they allow individuals to lock their drawers and ensure that
+access to a single key does not allow broad access to documents
+like a department door lock or proximity cards for the space.
+Onboarding is the process of adding an employee to a company’s
+identity and access management system and would not help
+with securing documents, but it might teach the process of doing
+so.
+■
+9. D. Quantitative risk assessment is the process of assigning
+numerical values to the probability an event will occur and what
+the impact of the event will have. Change management is the
+process of managing configuration changes made to a network.
+Vulnerability assessment attempts to identify, quantify, and
+rank the weaknesses in a system. Qualitative risk assessment is
+the process of ranking which risk poses the most danger using
+ratings like low, medium, and high.
+■
+10. D. A memorandum of understanding (MOU) is a type of
+agreement that is usually not legally binding. This agreement is
+intended to be mutually beneficial without involving courts or
+money. An SLA (service level agreement) defines the level of
+service the customer expects from the service provider. The level
+of service definitions should be specific and measurable in each
+area. A BPA (business partnership agreement) is a legal
+agreement between partners. It establishes the terms,
+conditions, and expectations of the relationship between the
+partners. An ISA (interconnection security agreement) is an
+agreement that specifies the technical and security requirements
+of the interconnection between organizations.
+■
+11. A. Escalation is necessary in cases where the current breach
+goes beyond the scope of the organization or investigators or is
+required by law. In this case, Sally believes a crime has been
+committed and has escalated the case to law enforcement. Other
+escalations might be to federal or state law enforcement, or to
+other more capable internal or external investigators.
+Tokenizing data uses a deidentified replacement data item,
+public notification notifies the population or customers at large,
+and outsourcing investigations may be done if specialized skills
+are needed.
+■
+12. A. The single loss expectancy (SLE) is the product of the value
+($16,000) and the exposure factor (.35), or $5,600.
+13. C. Antivirus is an example of a corrective control. A corrective
+control is designed to correct a situation. An IDS (intrusion
+detection system) is a detective control because it detects
+security breaches. An audit log is a detective control because it
+detects security breaches. A router is a preventive control
+because it prevents security breaches with access control lists
+(ACLs).
+■
+14. A. A deterrent control is used to warn a potential attacker not
+to attack. Lighting added to the perimeter and warning signs
+such as a “no trespassing” sign are deterrent controls. The other
+options are examples of detective controls. A detective control is
+designed to uncover a violation, although some detective
+controls may serve as a deterrent—for example, when a camera
+is visible, they are not primarily deterrent controls.
+■
+15. D. Testing and training are preventive administrative controls.
+Administrative controls dictate how security policies should be
+executed to accomplish the company’s security goals. A detective
+technical control uncovers a violation through technology. A
+preventive technical control attempts to stop a violation through
+technology. Detective administrative controls uncover a
+violation through policies, procedures, and guidelines.
+■
+16. A. Risk acceptance is a strategy of recognizing, identifying, and
+accepting a risk that is sufficiently unlikely or that has such
+limited impact that a corrective control is not warranted. Risk
+transfer is the act of moving the risk to hosted providers who
+assume the responsibility for recovery and restoration or by
+acquiring insurance to cover the costs emerging from a risk. Risk
+avoidance is the removal of the vulnerability that can increase a
+particular risk so that it is avoided altogether. Risk mitigation is
+when a company implements controls to reduce vulnerabilities
+or weaknesses in a system. It can also reduce the impact of a
+threat.
+■
+17. D. In most cases, operating a facility in a state is sufficient
+reason to need to comply with state laws. Jim should check with
+a lawyer, but he should plan on needing to comply with Illinois,
+Indiana, and Ohio law, as well as federal laws.
+■
+18. A. Onboarding is the process of adding an employee to a
+company’s identity and access management system. Offboarding
+is the process of removing an employee from the company’s
+identity and access management system. Adverse action is an
+official personnel action that is taken for disciplinary reasons.
+Job rotation gives individuals the ability to see various parts of
+the organization and how it operates. It also eliminates the need
+for a company to rely on one individual for security expertise
+should the employee become disgruntled and decide to harm the
+company. Recovering from a disgruntled employee’s attack is
+easier when multiple employees understand the company’s
+security posture.
+■
+19. A. A clean desk policy ensures that sensitive information and
+documents are not left on desks after hours and requires
+employees to place those files into a less exposed or secure
+location. Background checks, continuing education, and job
+rotation do not protect confidential information left on desks
+from being exposed.
+■
+20. A. As users register for an account, they enter letters and
+numbers they are given on the web page before they can register.
+This is an example of a deterrent control since it prevents bots
+from registering and proves this is a real person. Detective
+controls detect intrusion as it happens and uncovers a violation.
+A compensating control is used to satisfy a requirement for a
+security measure that is too difficult or impractical to implement
+at the current time. Degaussing is a method of removing data
+from a magnetic storage media by changing the magnetic field.
+■
+21. D. A parking policy generally outlines parking provisions for
+employees and visitors. This includes the criteria and
+procedures for allocating parking spaces for employees and is
+not a part of organizational security policy. Instead, it is an
+operational or business policy. An acceptable use policy
+describes the limits and guidelines for users to make use of an
+organization’s physical and intellectual resources. This includes
+allowing or limiting the use of personal email during work
+hours. Social media policy defines how employees should use
+social media networks and applications such as Facebook,
+Twitter, LinkedIn, and others. It can adversely affect a
+company’s reputation. Password policies define the complexity
+of creating passwords. It should also define weak passwords and
+how users should protect password safety.
+■
+22. C. Proprietary data is a form of confidential information, and if
+the information is revealed, it can have severe effects on the
+company’s competitive edge. High is a generic label assigned to
+data internally that represents the amount of risk being exposed
+outside the company. The top-secret label is often used in
+governmental systems where data and access may be granted or
+denied based on assigned categories. Low is a generic label
+assigned to data internally that represents the amount of risk
+being exposed outside the company.
+■
+23. C. Antivirus software is used to protect computer systems from
+malware and is not a physical security control. Physical controls
+are security measures put in place to reduce the risk of harm
+coming to a physical property. This includes protection of
+personnel, hardware, software, networks, and data from
+physical actions and events that could cause damage or loss.
+■
+24. A. Quantitative risk assessment is the process of assigning
+numerical values to the probability an event will occur and what
+impact the event will have. Qualitative risk assessment is the
+process of ranking which risk poses the most danger such as
+low, medium, and high. A business impact analysis (BIA) is used
+to evaluate the possible effect a business can suffer should an
+interruption to critical system operations occur. This
+interruption could be as a result of an accident, emergency, or
+disaster. Threat assessment is the process of identifying and
+categorizing different threats such as environmental and
+person-made. It also attempts to identify the potential impact
+from the threats.
+■
+25. D. A nondisclosure agreement (NDA) protects sensitive and
+intellectual data from getting into the wrong hands. An NDA is a
+legal contract between the company and third-party vendor to
+not disclose information per the agreement. Encrypted data that
+is sent can still be decrypted by the third-party vendor if they
+have the appropriate certificate or the key but does not restrict
+access to the data. Violating an NDA would constitute
+unauthorized data sharing, and a violation of privileged user
+role-based awareness training has nothing to do with sharing
+proprietary information.
+■
+26. A. Detective controls like CCTV detect intrusion as it happens
+and can help uncover violations. Policies are administrative
+controls. Firewalls and intrusion prevention system (IPS)
+devices are technical controls. Technical controls are applied
+through technology and may be also be deterrent, preventive,
+detective, or compensating.
+■
+27. C. Sharing of profits and losses and the addition or removal of a
+partner, as well as the responsibilities of each partner, are
+typically included in a BPA (business partner agreement).
+Expectations between parties such as a company and an Internet
+service provider are typically found in a service level agreement
+(SLA). Expectations include the level of performance given
+during the contractual service. An SLA will provide a clear
+means of determining whether a specific function or service has
+been provided according to the agreed-on level of performance.
+Security requirements associated with interconnecting IT
+systems are typically found in an interconnection security
+agreement, or ICA.
+■
+28. D. A backup generator is a compensating control—an alternate
+control that replaces the original control when it cannot be used
+due to limitations of the environment. A firewall is considered a
+preventive control, a security guard is considered a physical
+control, and an IDS (intrusion detection system) is considered a
+detective control.
+■
+29. A. Preventive controls stop an action from happening—in this
+scenario, preventing an unauthorized user from gaining access
+to the network when the user steps away. A corrective control is
+designed to correct a situation, a deterrent control is used to
+deter a security breach, and a detective control is designed to
+uncover a violation.
+■
+30. C. Job rotation allows individuals to see various parts of the
+organization and how it operates. It also eliminates the need for
+a company to rely on one individual for security expertise should
+the employee become disgruntled and decide to harm the
+company.
+Recovering from a disgruntled employee’s attack is easier when
+multiple employees understand the company’s security posture.
+Separation of duties is the concept of having more than one
+person required to complete a task, allowing problems to be
+noted by others involved. A mandatory vacation policy is used by
+companies to detect fraud by having a second person, familiar
+with the duties, help discover any illicit activities while the
+person who normally performs them is out of the office.
+Onboarding is the process of adding an employee to a company’s
+identity and access management system or other infrastructure.
+■
+31. B. Data minimization is the process of ensuring that only data
+that is required for business functions is collected and
+maintained. Tony should ensure that his organization is
+minimizing the data collected. Data masking redacts data but
+does not decrease how much is collected. Tokenization replaces
+sensitive values with a unique identifier that can be looked up in
+a lookup table. Anonymization removes the ability to identify
+individuals from data but is quite difficult.
+■
+32. A. Risk avoidance is a strategy to deflect threats in order to
+avoid the costly and disruptive consequences of a damaging
+event. It also attempts to minimize vulnerabilities that can pose
+a threat. A risk register is a document that tracks an
+organization’s risks and information about the risks like who
+owns it, if it is being remediated, and similar details. Risk
+acceptance is a strategy of recognizing, identifying, and
+accepting a risk that is sufficiently unlikely or that has such
+limited impact that a corrective control is not warranted. Risk
+mitigation is when a company implements controls to reduce
+vulnerabilities or weaknesses in a system. It can also reduce the
+impact of a threat.
+■
+33. D. Systems should be restored within four hours with a
+minimum loss of one day’s worth of data. The RTO (recovery
+time objective) is the amount of time within which a process or
+service must be restored after a disaster to meet business
+continuity. It defines how much time it takes to recover after
+notification of process disruption. The recovery point objective,
+or RPO, specifies the amount of time that can pass before the
+amount of data lost may exceed the organization’s maximum
+tolerance for data loss.
+■
+34. A. A data retention policy defines how long an organization will
+keep data. Removing sensitive documents not in use is a clean
+desk policy. A formal process for managing configuration
+changes is change management, and a memorandum of
+understanding consists of legal documents that describe mutual
+agreement between two parties.
+■
+35. B. ALE (annual loss expectancy) is the product of the ARO
+(annual rate of occurrence) and the SLE (single loss expectancy)
+and is mathematically expressed as ALE = ARO × SLE. Single
+loss expectancy is the cost of any single loss, and it is
+mathematically expressed as SLE = AV (asset value) × EF
+(exposure factor).
+■
+36. B. The Center for Internet Security (CIS) benchmarks provide
+recommendations for how to secure an operating system,
+application, or other covered technology. Michelle will find
+Windows 10–specific security configuration guidelines and
+techniques.
+■
+37. A. Preventive controls like data backups are proactive and are
+used to avoid a security breach or an interruption of critical
+services before they can happen. Security cameras, smoke
+detectors, and door alarms are examples of detective control.
+Detective controls detect intrusion as it happens and uncovers a
+violation.
+■
+38. C. Risk transfer is the act of moving the risk to hosted providers
+who assume the responsibility for recovery and restoration or by
+acquiring insurance to cover the costs emerging from a risk. Risk
+acceptance is a strategy of recognizing, identifying, and
+accepting a risk that is sufficiently unlikely or that has such
+limited impact that a corrective control is not warranted. Risk
+mitigation is when a company implements controls to reduce
+vulnerabilities or weaknesses in a system. It can also reduce the
+impact of a threat. Risk avoidance is the removal of the
+vulnerability that can increase a particular risk so that it is
+avoided altogether.
+■
+39. D. A preventive control is used to avoid a security breach or an
+interruption of critical services before they can happen.
+Administrative controls are defined through policies,
+procedures, and guidelines. A compensating control is used to
+satisfy a requirement for a security measure that is too difficult
+or impractical to implement at the current time. A deterrent
+control is used to deter a security breach.
+■
+40. C. Mean time between failures (MTBF) is a measurement to
+show how reliable a hardware component is. MTTR (mean time
+to repair) is the average time it takes for a failed device or
+component to be repaired or replaced. An RPO (recovery point
+objective) is the period of time a company can tolerate lost data
+being unrecoverable between backups. ALE (annual loss
+expectancy) is the product of the annual rate of occurrence
+(ARO) and the single loss expectancy (SLE).
+■
+41. C. A single point of failure (SPOF) is a single weakness that can
+bring an entire system down and prevent it from working. Cloud
+computing allows the delivery of hosted service over the
+Internet. Load balancing spreads traffic or other load between
+multiple systems or servers. Virtualization uses a system to host
+virtual machines that share the underlying resources such as
+RAM, hard drive, and CPU.
+■
+42. A. Quantitative risk analysis requires complex calculations and
+is more time-consuming because it requires detailed financial
+data and calculations. Quantitative risk assessment is often
+subjective and requires expertise on systems and infrastructure,
+and both types of assessment can provide clear answers on riskbased
+questions.
+■
+43. D. A custodian configures data protection based on security
+policies. The local community bank is the data owner, not Leigh
+Ann. Leigh Ann is a network administrator, not a user, and
+power user is not a standard security role in the industry.
+■
+44. B. Risk acceptance is a strategy of recognizing, identifying, and
+accepting a risk that is sufficiently unlikely or has such limited
+impact that a corrective control is not warranted. Risk
+mitigation is when a company implements controls to reduce
+vulnerabilities or weaknesses in a system. It can also reduce the
+impact of a threat. Risk avoidance is the removal of the
+vulnerability that can increase a particular risk so that it is
+avoided altogether. Risk transfer is the act of moving the risk to
+other organizations like insurance providers or hosting
+companies who assume the responsibility for recovery and
+restoration or by acquiring insurance to cover the costs
+emerging from a risk.
+■
+45. A. Data owners assign labels such as top secret to data.
+Custodians assign security controls to data. A privacy officer
+ensures that companies comply with privacy laws and
+regulations. System administrators are responsible for the
+overall functioning of IT systems.
+■
+46. C. Employees can leak a company’s confidential information.
+Exposing a company’s information could put the company’s
+security position at risk because attackers can use this
+information as part of attacks against the company. Gaining
+access to a computer’s MAC address is not relevant to social
+media network risk. Gaining access to a computer’s IP address is
+not relevant to social media network risk. Employees can easily
+express their concerns about a company in general. This is not
+relevant to social media network risk as long as the employee
+doesn’t reveal any confidential information.
+■
+47. C. Separation of duties is the concept of having more than one
+person required to complete a task. A background check is a
+process that is performed when a potential employee is
+considered for hire. Job rotation allows individuals to see
+various parts of the organization and how it operates. It also
+eliminates the need for a company to rely on one individual for
+security expertise should the employee become disgruntled and
+decide to harm the company. Recovering from a disgruntled
+employee’s attack is easier when multiple employees understand
+the company’s security posture. Collusion is an agreement
+between two or more parties to defraud a person of their rights
+or to obtain something that is prohibited by law.
+■
+48. B. ALE (annual loss expectancy) = SLE (single loss expectancy)
+× ARO (annualized rate of occurrence). SLE equals $750,000
+(2,500 records × $300), and ARO equals 5%, so $750,000 times
+5% equals $37,500.
+■
+49. C. RPO (recovery point objective) specifies the allowable data
+loss. It is the amount of time that can pass during an
+interruption before the quantity of data lost during that period
+surpasses business continuity planning’s maximum acceptable
+threshold. MTBF (mean time between failures) is the rating on a
+device or component that predicts the expected time between
+failures. MTTR (mean time to repair) is the average time it takes
+for a failed device or component to be repaired or replaced. ARO
+(annual rate of occurrence) is the ratio of an estimated
+possibility that a threat will take place within a one-year time
+frame.
+■
+50. D. A data retention policy states how data should be stored
+based on various types, such as storage location, amount of time
+the data should be retained, and the type of storage medium that
+should be used. A clean desk policy ensures that all
+sensitive/confidential documents are removed from an end-user
+workstation and locked up when the documents are not in use.
+An AUP, or acceptable use policy, describes the limits and
+guidelines for users to make use of an organization’s physical
+and intellectual resources. This includes allowing or limiting the
+use of personal email during work hours. A security policy
+defines how to secure physical and information technology
+assets. This document should be continuously updated as
+technology and employee requirements change.
+■
+51. C. Onboarding is the process of adding an employee to
+company’s identity and access management system. Offboarding
+is the process of removing an employee from the company’s
+identity and access management system. A system owner is an
+individual who is in charge of managing one or more systems
+and can include patching and updating operating systems. An
+executive user was made up for this question.
+■
+52. B. Separation of duty can be classified as an operational control
+that attempts to minimize fraud by ensuring that an individual
+cannot exploit a process and conceal the errors or issues that
+they are creating. It is not a physical control or a technical
+control, and nothing in the question indicates that this is
+compensating for gaps left by another control.
+■
+53. D. The General Data Protection Regulation (GDPR) does not
+include a right to anonymity, although organizations must be
+able to provide security safeguards that may include
+anonymization where appropriate.
+■
+54. D. The NIST RMF’s process is.
+1. Prepare
+2. Categorize system
+3. Select controls
+4. Implement controls
+5. Assess controls
+6. Authorize system
+7. Monitor controls
+■
+55. B. Security program administrators often use different types of
+training to ensure that trainees who react and respond
+differently to training are given training that helps them. There
+may be other valid reasons, but this is the most common reason
+for training diversity.
+■
+56. A. Risks that the organization itself creates are internal risks.
+External risks are those created by factors outside the
+organization’s control. Qualitative and quantitative are both
+types of risk assessment, rather than categorizations of risk.
+■
+57. B. Risk registers are documents used by organizations to track
+and manage risks and include information including the owner
+or responsible party, details about the risk, and other useful
+information. Statement on Standards for Attestation
+Engagements (SSAEs) are audit reports, Payment Card Industry
+Data Security Standard (PCI-DSS) is a security standard used
+for credit card operations, and risk table is not a common
+industry term.
+■
+58. C. The mean time to repair (MTTR) for a system or devices is
+the average time that it will take to repair it if it fails. The MTTR
+is used as part of business continuity planning to determine if a
+system needs additional redundancy or other options put in
+place if a failure and repair would exceed the maximum
+tolerable outage. It is calculated by dividing the total
+maintenance time by the total number of repairs. MTBF is the
+mean time between failures, MTTF the mean time to fail, and
+MITM is an on-path attack, a term that has been increasingly
+replaced with on-path.
+■
+59. D. Common results of breaches like this include identity theft
+using the personal information of the customers, financial loss
+to the company due to breach costs and lawsuits, and
+reputational loss. Since the incident response process is over,
+Olivia’s company should have remediated the underlying issues
+that led to the breach, hopefully preventing further downtime
+and thus availability loss.
+■
+60. D. There is no civilian classification level for government data.
+Data may be unclassified, or sensitive but unclassified. Top
+Secret, Secret, and Confidential are all commonly used
+classifications.
+■
+61. B. The source code for a product is not typically used as a
+location for privacy terms and conditions. Instead, they are in
+the contract, user license or related legal terms, or in a formal
+privacy notice.
+■
+62. B. Pseudonymization can allow reidentification of the data
+subject if additional data is available. Properly done
+anonymization cannot be reversed. Anonymization techniques
+will group information so that individuals cannot be identified
+from data and use other techniques to prevent additional
+information, leading to de-anonymization of individuals.
+■
+63. A. A data governance policy clearly states who owns the
+information collected and used by an organization. Information
+security policies provide the high-level authority and guidance
+for security programs and efforts. Acceptable use policies
+(AUPs) define what information resources can be used for and
+how. Data retention policies establish what information an
+organization will collect and how long it will be kept before
+destruction.
+■
+64. C. Helen has created a functional recovery plan focused on a
+specific technical and business function. A disaster recovery
+plan (DRP) has a broader perspective and might include
+multiple functional recovery plans. RPOs, or recovery point
+objectives, and MTBF, or mean time between failures, are not
+types of plans typically built by organizations.
+■
+65. B. Health information may be covered by state, local, or federal
+law, and Greg’s organization should ensure that they understand
+any applicable laws before storing, processing, or handling
+health information.
+■
+66. C. Control risks specifically apply to financial information,
+where they may impact the integrity or availability of the
+financial information.
+■
+67. D. An individual is most likely to face identity theft issues if
+their personally identifiable information (PII) is stolen or
+breached.
+■
+68. C. It is common practice to prohibit interactive logins to a GUI
+or shell for service accounts. Use of a service account for
+interactive logins or attempting to log in as one should be
+immediately flagged and alerted on as an indicator of
+compromise (IoC).
+■
+69. C. Asset management policies typically include all stages of an
+asset’s life cycle, and asset tags like those described are used to
+track assets in many organizations. Change management,
+incident response, and acceptable use policies do not require
+asset tagging.
+■
+70. D. The diagram shows a fully redundant internal network with
+pairs of firewalls, routers, and core switches, but with a single
+connection to the Internet. This means that Megan should
+consider how her organization would connect to the outside
+world if that link was severed or disrupted. There is no
+indication whether this is a wired or wireless link, and the image
+does not show a redundant link.
+■
+71. D. Emma should categorize this as a supply chain risk. When
+organizations cannot get the systems, equipment, and supplies
+they need to operate, it can have significant impact on their
+ability to conduct business. That could create financial risk, but
+financial risk is not the direct risk here. There is no indication
+that the vendor will not support the systems, nor is there any
+information about whether there is an integration issue in the
+description.
+■
+72. A. An intrusion detection system (IDS) can detect attacks, and
+is a detective control. Since it is a technical system rather than a
+physical control or an administrative policy or procedure, Henry
+can correctly categorize it as a technical, detective control.
+■
+73. C. The Federal Trade Commission (FTC) does not provide
+security configuration guides or benchmarks for operating
+systems or devices. The Center for Internet Security (CIS),
+Microsoft (and other vendors), and the National Security Agency
+(NSA) all provide configuration benchmarks.
+■
+74. C. Legacy systems that no longer receive support are a
+significant concern because they cannot be patched if security
+vulnerabilities are discovered. Windows 2008 reached its end of
+life in January 2020. It ran on both 32-bit and 64-bit platforms,
+and you can still install modern web servers on it.
+■
+75. B. Patching is a form of avoidance because it works to remove a
+risk from the environment. Acceptance of flaws that need
+patching would involve leaving the software unpatched;
+mitigation strategies might include firewalls, intrusion
+prevention systems (IPSs), or web application firewall (WAF)
+devices; and transference options include third-party hosting or
+services.
+■
+76. B. Risk heat maps or a risk matrix can allow an organization to
+quickly look at risks and compare them based on their
+probability and impact or other rating elements. Qualitative and
+quantitative risk assessments are types of assessment, not
+means of presenting risk information in an easy-to-understand
+format, and risk plots are not a common term used in the field.
+■
+77. A. The fines that can result from violation or infringement of
+regulations like the General Data Protection Regulation can
+have a significant impact on an organization, or could even
+potentially put it out of business. Due to this, organizations will
+track compliance with regulations as part of their risk posture.
+■
+78. D. Disaster recovery requires forethought and preparation,
+response to issues to minimize impact during a disaster, and
+response activities after a disaster. Thus, a complete disaster
+recovery plan should include actions that may or will occur
+before, during, and after a disaster, and not just the recovery
+process after the fact.
+■
+79. B. Although data breaches could result in termination of a card
+processing agreement, the fact that her organization is
+noncompliant is most likely to result in a fine. PCI-DSS, or
+Payment Card Industry Data Security Standard, is a vendor
+standard, not a law, and criminal charges would not typically be
+filed in a situation like this.
+■
+80. C. The Cloud Security Alliance’s Cloud Control Matrix maps
+existing standards to common control descriptions allowing
+control requirements to be compared and validated across many
+standards and regulations. The CSA reference architecture is a
+set of standard designs, and ISO 27001 and ISO 27002 are
+standards for managing information security.
+■
+81. B. Gamification makes training into a game to get more
+involvement and interest. Scoring points and receiving rewards,
+either in-game or virtually, can have a significant positive
+impact on the response to training. Capture-the-flag events
+focus on techniques like finding hidden information or
+otherwise obtaining “flags” as part of a contest. Phishing
+campaigns send fake phishing emails to staff to identify
+individuals who may fall for them. Role-based training focuses
+on training specifically for the role or job that an individual has
+or will have.
+■
+82. D. The General Data Protection Regulation, or GDPR, requires
+a data protection officer (DPO). They oversee the organization’s
+data protection strategy and implementation, and make sure
+that the organization complies with the GDPR.
+■
+83. D. Although recovering from a breach can be costly, the loss of
+data like intellectual property in circumstances like these is the
+most critical issue. The institution is likely to suffer reputational
+harm and may not be trusted to conduct research like this in the
+future, leading to an even greater cost to the university’s ability
+to do new research with the government.
+■
+84. B. Mission-essential functions are defined as those functions
+that an organization must run throughout a disaster or that
+must be resumed as quickly as possible after one if they cannot
+be sustained. They are the core functions of the organization and
+are key to its success and ongoing existence. A single point of
+failure (SPOF) is a point where a device, system, or resource can
+fail and cause an entire function or organization to no longer
+work. Recovery time objectives (RTOs) are the time allotted to
+return to normal functionality. Core recovery functions were
+made up for this question.
+■
+85. B. A SLA (service level agreement) defines the level of service
+the customer expects from the service provider. The level of
+service definitions should be specific and measurable in each
+area. An MOU (memorandum of understanding) is a legal
+document that describes a mutual agreement between parties.
+An ISA (interconnection security agreement) is an agreement
+that specifies the technical and security requirements of the
+interconnection between organizations. A BPA (business
+partnership agreement) is a legal agreement between partners.
+It establishes the terms, conditions, and expectations of the
+relationship between the partners.
+■
+86. A. Customer data can include any information that a customer
+uploads, shares, or otherwise places in or creates via a service.
+Customers may have contractual security guarantees in the
+terms of service, and notification or other clauses may also
+impact what Rick needs to do if the data is breached. PII is
+personally identifiable information like name, address, or other
+details that can identify a person. Financial information may
+include bills, account balances, and similar details. Health
+information covers a broad range of data about an individual’s
+medical and health status or history.
+■
+87. C. Theft of proprietary information like a formula or code is an
+example of intellectual property (IP) theft. IP theft can be harder
+to quantify the cost of a loss in many cases but can have
+significant impact to an organization that relies on the IP for
+their business. External risk is risk created by factors outside the
+organization, internal risk is created by the organization itself or
+its decisions, and licensing risk exists through software and
+other contracts.
+■
+88. B. This is an example of a personnel credential policy since it
+applies to the staff who are employed by his organization.
+Policies like this help to ensure that accounts are not shared or
+reused. There is no mention of specific devices, service accounts,
+or administrative accounts.
+■
+89. C. The likelihood of occurrence, or probability, is multiplied by
+the impact to determine a risk’s severity.
+■
+90. D. Organizations can determine how they want to determine
+asset value, but consistency is important in many cases. Thus,
+the original cost, the replacement cost, or a depreciated cost may
+be used.
+■
+91. A. A business impact analysis (BIA) helps to identify critical
+systems by determining which systems will create the largest
+impact if they are not available. MTBF is the mean time between
+failures, an RTO is a recovery time objective, and an ICD was
+made up for this question.
+■
+92. D. The most common means of transferring breach risk is to
+purchase cybersecurity insurance. Accepting breaches is rarely
+considered a valid risk process, blaming breaches on
+competitors does not actually transfer risk, and selling data to
+another organization is not a risk handling process but may be a
+business process.
+■
+93. B. Service accounts are not typically allowed to use interactive
+logins, and thus prohibiting interactive logins is a common
+security policy for them. Limited login hours or locations are
+more commonly used for employee accounts when they should
+not be accessing resources after hours or from nonwork
+locations. Frequent password expiration for service accounts is
+actually likely to cause a service outage, and many service
+accounts have complex passwords and are set with longer
+password expiration timeframes or are set to never expire.
+■
+94. C. The cost of a breach is an example of the impact of a breach.
+Probability is how likely the risk is to occur, and risk severity is
+calculated by multiplying probability and impact.
+■
+95. B. Sean is conducting a site risk assessment that will help him
+understand and communicate the risks that the site itself has. If
+the location is in a FEMA-identified flood plain, or if there are
+concerns about tornadoes or other natural disasters, those need
+to be taken into account as the organization makes its decisions
+about the location. A BIA identifies mission-critical functions
+and the systems that support them. Crime prevention through
+environmental design is a design concept that uses the design of
+facilities to reduce the likelihood of criminal actions through use
+of lighting and other controls. Business continuity planning
+focuses on how to keep an organization operating despite
+disruptions.
+■
+96. D. SOC 2 engagement assesses the security and privacy
+controls that are in place, and a Type 2 report provides
+information on the auditor’s assessment of the effectiveness of
+the controls that are in place. An SOC 1 report assesses the
+controls that impact the accuracy of financial reporting. Type 1
+reports a review auditor’s opinion of the description provided by
+management about the suitability of the controls as designed.
+They do not look at the actual operating effectiveness of the
+controls.
+■
+97. B. Ensuring that leadership throughout an organization is
+aware of the risks the organization faces and that they are
+regularly updating and providing feedback on those risks helps
+increase risk awareness. Inherent risk is risk that exists before
+controls are in place, and residual risk is risk that remains after
+controls are in place. Risk appetite is the risk that an
+organization is willing to take as part of doing business.
+■
+98. C. State laws often include breach notification thresholds and
+requirements that organizations must follow. Laura should
+ensure that she is both aware of the breach laws for her state and
+any other states or countries her company operates in, and that
+her incident response plans have appropriate processes in place
+if a breach occurs. Organizations that process data like SSNs are
+unlikely to delete them even if a breach occurs, reclassifying data
+would not help unless the data was improperly classified before
+the breach, and data minimization plans are used to limit how
+much data an organization has, not to respond to a breach
+directly.
+■
+99. C. Nondisclosure agreements (NDAs) are signed by an
+employee at the time of hiring, and they impose a contractual
+obligation on employees to maintain the confidentiality of
+information. Disclosure of information can lead to legal
+ramifications and penalties. NDAs cannot ensure a decrease in
+security breaches. A job rotation policy is the practice of moving
+employees between different tasks to promote experience and
+variety. Separation of ties has more than one person required to
+complete a task. Mandatory vacation policy is used by
+companies to detect fraud by having a second person, familiar
+with the duties, help discover any illicit activities.
+■
+100. B. Olivia should establish a service level agreement (SLA) with
+her provider to ensure that they meet the expected level of
+service. If they don’t, financial or other penalties are typically
+included. Olivia should ensure that those penalties are
+meaningful to her vendor to make sure they are motivated to
+meet the SLA. An MOU is a memorandum of understanding and
+explains the relationship between two organizations; an MSA is
+a master services agreement, which establishes a business
+relationship under which additional work orders or other
+documentation describe the actual work that is done; and a BPA
+is a business partnership agreement, which is used when
+companies wish to partner on efforts and may outline division of
+profits or responsibilities in the partnership.
+■
+101. D. The most accurate risk descriptor for this is software
+compliance. Although this is an internal risk, software
+compliance fully describes the issue. Intellectual property (IP)
+theft risk occurs when an organization’s intellectual property is
+stolen, not when license violations for third parties occurs. This
+is not a legacy system, or at least it was not described that way in
+the question.
+■
+102. D. Inherent risk is the risk that an organization faces before
+controls are put in place. Without risk assessment and controls
+in place, Gary must first deal with the inherent risks the
+organization has as it exists today. Residual risk is the risk that
+is left after controls are put in place. The theft of intellectual
+property (IP) like algorithms, formulas, and processes are IP
+risks, and multiparty risk is risk that impacts more than one
+group, company, or person.
+■
+103. A. The single loss expectancy (SLE) describes what a single risk
+event is likely to cost. It is calculated using the asset value (AV)
+times the exposure factor (EF), which is an estimated percentage
+of the cost that will occur in damage if the loss occurs. MTTR is
+the mean time to restore, ARO is the annual rate of occurrence,
+and RTO is the recovery time objective. These are not part of the
+SLE equation.
+■
+104. C. Third-party credential policies address how contractors and
+consultants credentials are handled. This may require
+sponsorship by an internal staff member, additional controls
+regarding password resets or changes, and shorter lifespans,
+among other controls and requirements.
+105. B. Annual rate of occurrence (ARO) is expressed as the number
+of times an event will occur in a year. Wayne has estimated that
+the risk event that is being assessed will happen three times a
+year.
+■
+106. D. Although humans can create fires or floods, industrial
+accidents are the only item on the list that are exclusively
+person-made disasters.
+■
+107. C. Information on a website made available to customers is
+typically classified as public information because it is easily
+available and intentionally exposed to them. Confidential,
+sensitive, or critical information is unlikely to be exposed to
+customers without a specific data handling agreement and
+additional security layers.
+■
+108. D. Data processors are service providers that process data for
+data controllers. A data controller or data owner is the
+organization or individual who collects and controls data. A data
+steward carries out the intent of the data controller and is
+delegated responsibility for the data. Data custodians are those
+who are entrusted with the data to store, manage, or secure the
+data.
+■
+109. D. Data masking partially redacts sensitive data by replacing
+some or all information in a sensitive data field with blanks or
+other replacement characters. Tokenization replaces sensitive
+data with unique identifiers using a lookup table. Hashing
+performs a one-way function on a value to get a unique hash,
+and encryption protects data using an algorithm that can be
+reversed to restore the original data while allowing for
+confidentiality and integrity validation.
+■
+110. C. The Cloud Security Alliance’s reference architecture includes
+information about tools in a vendor-neutral manner. CIS
+provides vendor specific benchmarks for AWS, Azure, and
+Oracle’s cloud offerings. The International Organization for
+Standardization (ISO) and the National Institute of Standards
+and Technology (NIST) do not offer this type of resource.
+■
+111. C. Locks are physical controls. An example of a managerial
+control would be a policy or practice, a technical control can
+include things like firewalls or antivirus, and corrective controls
+are put in place to ensure that a problem or gap in another
+control is fixed.
+■
+112. C. Control risk is a term used in public accounting. It is the risk
+that arises from a potential lack of internal controls within an
+organization that may cause a material misstatement in the
+organization’s financial reports. In this case, the lack of controls
+that would validate the financial system’s data and function is a
+control risk.
+■
+113. C. Although fires, oil spills, and wars are all potential examples
+of person-made disasters, hurricanes remain solely a natural
+disaster. Some disasters could be either a person-made or
+natural disaster. For example, fires can be caused by humans or
+by nature, as can floods, and even chemical spills when an
+earthquake occurs.
+■
+114. C. Confidential information is classified by the U.S.
+government as information that requires some protection and
+that if disclosed without authorization, would cause identifiable
+harm to national security. Top Secret information requires the
+highest degree of protection and would cause exceptionally
+grave harm if exposed without authorization. Secret information
+requires a substantial degree of protection and would cause
+serious damage if exposed. Business Sensitive is not a U.S.
+government classification but is a term commonly used in
+businesses.
+■
+115. C. Phone numbers uniquely identify individuals, making them
+an example of personally identifiable information, or PII. PHI is
+protected health information, financial information includes
+financial records of all types, and government information is
+information that belongs to the government or may be classified
+by the government and entrusted to an organization.
+■
+116. B. Tokenization is an ideal option for this scenario.
+Tokenization replaces a sensitive value with an alternate value
+that can be looked up in a table when the value needs to be
+referenced back to its original form. Encryption does not meet
+this need, data masking only hides part of the value, and data
+washing is not a commonly used term for techniques of this
+nature.
+■
+117. C. Privacy notices are often included on websites to meet the
+requirements of laws or regulations like the General Data
+Protection Regulation (GDPR) or state privacy laws.
+■
+118. C. Nicole is a data controller, sometimes called a data owner.
+She determines the reasons for processing personal information
+and how it is processed. A data steward carries out the intents of
+the data controller, data custodians are charged with
+safeguarding information, and data consumer is not a common
+data privacy role.
+■
+119. B. This is an internal disaster—one in which internal issues
+have led to a problem. An external disaster would be caused by
+forces outside the organization like a natural disaster, malicious
+activity, or other outside forces. An RTO, or recovery time
+objective, is not a type of disaster, and an MRO disaster was
+made up for this question.
+■
+120. C. Minimizing the amount of data that is collected is the first
+step in ensuring that organizations can handle the volume and
+types of data that they work with. After that, classifying it and
+then determining how long you retain it are also important parts
+of the data life cycle.
+■
+121. D. Kirk has mitigated the risk to his organization by increasing
+the resources targeted by the DoS attack in an attempt to ensure
+that the attack will not be successful. Acceptance would involve
+simply letting the attacks occur knowing they are likely to stop,
+avoidance might involve finding a way to ensure the attacks
+cannot occur, and transfer could leverage a third-party mirror or
+anti-DoS hosting service.
+■
+122. A. A multiparty risk involves multiple organizations. Since
+there are multiple customers and organizations involved, this is
+an example of multiparty risk. An internal risk originates inside
+an organization—instead, this is an external risk. A legacy
+system risk is created by a system or process that is no longer
+supported or updated. An intellectual property (IP) theft risk
+occurs when proprietary information or trade secrets might be
+exposed or lost.
+■
+123. B. EOL, or end of life, occurs when a service or system is no
+longer supported, available, or does not function. Natasha needs
+to plan to transition smoothly away from the service, either to a
+replacement service or to stop using the service itself. An MOU
+is a memorandum of understanding, and an NDA is a
+nondisclosure agreement, neither of which is directly relevant
+here. A last will and testament is not used for a service EOL.
+■
+124. C. The Center for Internet Security (CIS) provides a wide range
+of OS, application, server, and other benchmarks. Microsoft
+provides benchmarks for their own operating systems but does
+not provide Linux benchmarks. The National Institute of
+Standards and Technology (NIST) does not provide
+benchmarks, but the National Security Agency (NSA) does.
+■
+125. C. Offboarding processes are conducted to ensure that accounts
+and access is removed and that materials, computers, and data
+are all recovered from the staff member when a member of an
+organization leaves. Exit interviews are an HR process, job
+rotation helps to prevent an individual from conducting
+fraudulent activities over time, and governance helps to manage
+and maintain data by establishing high level control over the
+processes, procedures, and classification of the data an
+organization uses.
+■
+126. D. Public, private, sensitive, confidential, critical, and
+proprietary are all commonly used data classification labels for
+business. Secret, however, is more commonly used in
+government classification schemes.
+■
+127. D. Privacy notices are frequently provided as part of license or
+contractual terms, as well as in website usage agreements.

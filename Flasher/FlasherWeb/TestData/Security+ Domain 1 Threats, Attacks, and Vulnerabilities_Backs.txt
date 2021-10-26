@@ -1774,4 +1774,7 @@ intended.
 by only one or two letters; the attacker hopes that users of the
 real website mistype the URL and are taken to their fake
 website. Session hijacking is taking over an authenticated
-session. Cross-
+session. Cross-site request forgery sends fake requests to a
+website that purport to be from a trusted, authenticated user.
+Clickjacking attempts to trick users into clicking on something
+other than what they intended.
