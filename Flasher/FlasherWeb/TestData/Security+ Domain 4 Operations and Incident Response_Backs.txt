@@ -895,6 +895,7 @@ or public key will require a new certificate.
 123. C. A legal hold notice will inform the company that they must
 preserve and protect information related to the case. None of the
 other items are terms used in this process.
+■
 124. B. netstat can show all active connections, and using the -a
 flag will do so. netstat does not provide a -c command flag. The
 route command is used to modify and display the system’s
@@ -913,6 +914,7 @@ or accessing others, and deleting a file wouldn’t keep it around.
 ■
 126. D. Although Linux systems can use a file for swap space, a
 common solution is to use a separate partition for swap space.
+■
 127. A. Tracking multiple drives requires careful inventory, evidence
 handling logging, and tagging of the drives to ensure that they
 are the right drive and that they are tracked throughout the
@@ -1008,6 +1010,7 @@ they found, but an interview can provide firsthand knowledge
 and additional details that may not be able to be recovered via
 technical means like email or disk forensics. A chain of custody
 does not provide information about reports from end users.
+■
 139. B. The only option on this list that supports Aaron’s
 requirements is NXLog. Syslog can receive Windows events if
 they are converted to syslog, but it isn’t a native feature. IPFIX is
@@ -1021,6 +1024,7 @@ exercises that are gamed out without taking actual action. Drills
 are classified as more focused on specific actions or functions,
 and they are less common because they can result in inadvertent
 action or mistakes and do not cover the breadth of an incident.
+■
 141. A. Of the options listed, netstat is the only tool that will not
 perform a port scan.
 ■

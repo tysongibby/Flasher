@@ -68,7 +68,7 @@ namespace FlasherWeb.Pages
                 int i = 0;
                 while (i <= (newFlashCardFronts.Count - 1))
                 {
-                    Console.WriteLine($"while loop: {i}");
+                    //Console.WriteLine($"while loop: {i}");
                     string _title = titleRegEx.Match(newFlashCardFronts[i]).ToString();
                     if (_title is null || _title == string.Empty)
                     {
@@ -77,7 +77,7 @@ namespace FlasherWeb.Pages
                     FlashCard newFlashCard = new FlashCard()
                     {                        
                         SuperSetId = 1,
-                        SetId = 1,
+                        SetId = 5,
                         Title = _title,
                         Front = newFlashCardFronts[i],
                         Back = newFlashCardBacks[i]

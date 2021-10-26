@@ -1624,6 +1624,7 @@ A. Disable PHP-CGI.
 B. Upgrade PHP to version 5.4.
 C. Review the vulnerability descriptions in the CVEs listed.
 D. Disable the web server.
+■
 211. Ian runs a vulnerability scan, which notes that a service is running on TCP port 8080. What
 type of service is most likely running on that port?
 A. SSH

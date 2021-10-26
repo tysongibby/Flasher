@@ -109,6 +109,7 @@ are needed.
 ■
 12. A. The single loss expectancy (SLE) is the product of the value
 ($16,000) and the exposure factor (.35), or $5,600.
+■
 13. C. Antivirus is an example of a corrective control. A corrective
 control is designed to correct a situation. An IDS (intrusion
 detection system) is a detective control because it detects
@@ -876,6 +877,7 @@ consultants credentials are handled. This may require
 sponsorship by an internal staff member, additional controls
 regarding password resets or changes, and shorter lifespans,
 among other controls and requirements.
+■
 105. B. Annual rate of occurrence (ARO) is expressed as the number
 of times an event will occur in a year. Wayne has estimated that
 the risk event that is being assessed will happen three times a

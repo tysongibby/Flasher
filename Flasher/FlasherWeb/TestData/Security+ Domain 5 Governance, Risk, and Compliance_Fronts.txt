@@ -540,6 +540,7 @@ A. Financial risk
 B. A lack of vendor support
 C. System integration
 D. Supply chain
+■
 72. Henry has implemented an intrusion detection system. What category and control type could
 he list for an IDS?
 A. Technical, Detective
