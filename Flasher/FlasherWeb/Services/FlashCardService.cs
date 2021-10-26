@@ -75,13 +75,13 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<FlashCard> Create(FlashCard flashCardToCreate)
+        public async Task<string> Create(FlashCard flashCardToCreate)
         {
             try
             {
                 HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Create", flashCardToCreate);
-                FlashCard newFlashCard = await response.Content.ReadFromJsonAsync<FlashCard>();
-                return newFlashCard;
+                string result = await response.Content.ReadFromJsonAsync<string>();
+                return result;
             }            
             catch(Exception e)
             {

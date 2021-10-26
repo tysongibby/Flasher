@@ -155,7 +155,7 @@ namespace FlasherApi.Controllers
                     SetId = flashCardDto.SetId
                 };
                 _flashCardRepository.Add(newFlashCard);
-                return StatusCode(StatusCodes.Status201Created);  //TODO: add url for new FlashCard to return status
+                return StatusCode(StatusCodes.Status201Created, "new flash card URL placeholder");  //TODO: add url for new FlashCard to return status
             }
             catch (Exception e)
             {                
