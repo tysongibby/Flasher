@@ -79,8 +79,9 @@ namespace FlasherWeb.Services
         {
             try
             {
+                string result = string.Empty;
                 HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Create", flashCardToCreate);
-                string result = await response.Content.ReadFromJsonAsync<string>();
+                //result = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return result;
             }            
             catch(Exception e)
@@ -96,7 +97,7 @@ namespace FlasherWeb.Services
             try
             {
                 string content = string.Empty;
-                HttpResponseMessage response = await _httpClient.PostAsJsonAsync(ControllerSubdirectory + "/Update", flashCardUpdate);
+                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Update", flashCardUpdate);
                 //content = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return content;
             }
@@ -111,8 +112,9 @@ namespace FlasherWeb.Services
         {
             try
             {
+                string result = string.Empty;
                 HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Delete", flashCardToDelete);
-                string result = await response.Content.ReadFromJsonAsync<string>();
+                //result = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return result;
             }
             catch (Exception e)

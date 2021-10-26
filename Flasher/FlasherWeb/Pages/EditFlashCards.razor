@@ -20,9 +20,10 @@
         <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
     </div>
     <div class="row mt-4">
-        <button class="btn btn-primary" @onclick="() => Submit(FrontsTextAreaText, BacksTextAreaText)">Submit</button>
+        <button class="btn btn-primary">Submit</button>
     </div>
     <div class="row mt-4">
+        <h4>Results</h4>
         <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
     </div>
 </EditForm>
