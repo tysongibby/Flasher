@@ -10,9 +10,16 @@ using FlasherWeb.Pages.Models;
 
 namespace FlasherWeb.Pages
 {
-    public partial class EditFlashCards
+    public partial class Import
     {
-        private EditFlashCardsPage FlashCardsPage { get; set; } = new EditFlashCardsPage();
+        //TODO: add edit/create subset form
+        //TODO: add edit/create set form        
+        //TODO: add feature to turn "View AnsweredCorrectly" on and off (currently it is always off)
+        //TODO: add feature to choose question superset
+        //TODO: add feature to filter by question set
+        //TODO: add optional image to flash card Front
+        //TODO: add feature to reset all flash cards to AnsweredCorrectly = false
+        private ImportPage ImportPage { get; set; } = new ImportPage();
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }       
@@ -67,8 +74,7 @@ namespace FlasherWeb.Pages
             {                                
                 int i = 0;
                 while (i <= (newFlashCardFronts.Count - 1))
-                {
-                    //Console.WriteLine($"while loop: {i}");
+                {                    
                     string _title = titleRegEx.Match(newFlashCardFronts[i]).ToString();
                     if (_title is null || _title == string.Empty)
                     {

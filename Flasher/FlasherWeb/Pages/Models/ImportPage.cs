@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlasherWeb.Pages.Models
 {
-    public class EditFlashCardsPage
+    public class ImportPage
     {
         string SupersetTitle { get; set; }
         string SetTitle { get; set; }
