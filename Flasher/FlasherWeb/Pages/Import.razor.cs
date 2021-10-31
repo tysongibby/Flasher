@@ -12,13 +12,6 @@ namespace FlasherWeb.Pages
 {
     public partial class Import
     {
-        //TODO: add edit/create subset form
-        //TODO: add edit/create set form        
-        //TODO: add feature to turn "View AnsweredCorrectly" on and off (currently it is always off)
-        //TODO: add feature to choose question superset
-        //TODO: add feature to filter by question set
-        //TODO: add optional image to flash card Front
-        //TODO: add feature to reset all flash cards to AnsweredCorrectly = false
         private ImportPage ImportPage { get; set; } = new ImportPage();
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }

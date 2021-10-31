@@ -1,0 +1,56 @@
+What is SOAR?  Security Orchestration Automation and Response
+
+What is SEIM?  Security Event Information Management
+
+What is a RAT?  Remote Access Trojan
+
+What is a Birthday Attack? A cryptographic hash functions attack that exploits the birthday problem in probability theory and relies on finding collisions between random attack attempts and the number of potential permutations of a solution. 
+
+What is a stream cipher IV?  Initialization Vector
+
+What is CVE? Common Vulnerabilities and Exposures
+
+What is an APT? An advanced persistent threat (APT) involves sophisticated (i.e., advanced) attacks over a period of time (i.e., persistent)
+
+What is a disassociation attack?  It sends a deauthentication packet to users system, this causes the user's system to disassociate from the WAP; the attacker can then execute a second attack targeting the user's authentication credentials or other wireless data using an evil twin attack. For a successful attack, the cybercriminal needs to know only the victim’s MAC address.
+
+What is on on-path attack?
+
+What is an IDS? Intrusion Detection System
+
+What is a PUP? Potentially Unwanted Program
+
+What is a logic bomb? Malware that performs its misdeed when some logical condition is met.
+
+What is an OpenVAS system? Open Vulnerability Assessment Sacanner
+
+What is XSS? Cross-site Scripting
+
+What is CSRF? Criss-site Request Forgery
+
+What is a sparse infector virus?  Performs its malicious activity intermittently to make it harder to detect.
+
+What is OSINT? Open Sourse Intelligence
+
+What is ARP? Address Resolution Protocol
+
+watering hole attack places malware or malicious code on a site or sites that are frequently visited by a targeted group.
+
+Asymmetric warfare is warfare between groups with significantly different power or capabilities.
+
+A zero-day attack takes place when hackers exploit the flaw before developers have a chance to address it.
+
+Card cloning often occurs after a skimming attack is used to capture card data, whether from credit cards or entry access cards. 
+
+What is a time check/time of use flaw? When a multithreaded application does not properly handle various threads accessing a common value, and one thread can change the data while another thread is relying on it.
+
+What is a pharming attack? attempts to redirect traffic intended for a legitimate site to another malicious site. Attackers most often do this by changing the local hosts file or by exploiting a trusted DNS server.
+
+What is STIX? Structured Threat Information eXpression is a standardized XML programming language for conveying data about cybersecurity threats in a common language that can be easily understood by humans and security technologies.
+
+What is TAXII? Trusted Automated eXchange of Intelligence Information, defines how cyber threat information can be shared via services and message exchanges. It is designed specifically to support STIX information, which it does by defining an API that aligns with common sharing models.
+
+What is SCADA? Supervisory Control and Data Acquisition is a control system architecture comprising computers, networked data communications and graphical user interfaces for high-level supervision of machines and processes. It also covers sensors and other devices, such as programmable logic controllers, which interface with process plant or machinery.
+
+What is ICS? Incident Command System is a standardized approach to the command, control, and coordination of emergency response providing a common hierarchy within which responders from multiple agencies can be effective.
+
