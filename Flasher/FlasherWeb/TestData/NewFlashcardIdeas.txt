@@ -20,6 +20,8 @@ What is an IDS? Intrusion Detection System
 
 What is a PUP? Potentially Unwanted Program
 
+What is an IPS? Intrusion Prevention System
+
 What is a logic bomb? Malware that performs its misdeed when some logical condition is met.
 
 What is an OpenVAS system? Open Vulnerability Assessment Sacanner
@@ -33,6 +35,68 @@ What is a sparse infector virus?  Performs its malicious activity intermittently
 What is OSINT? Open Sourse Intelligence
 
 What is ARP? Address Resolution Protocol
+
+What is an ISAC? Information Sharing and Analysis Centers
+
+What is an IRT? Incident Response Teams
+
+What is are SOCs? Service Ograniztion Controls
+
+What is a WAF? Web Application Firewall
+
+What is an HSM? Hardware Secruity Module
+
+What is a VPC? Virtual Private Cloud
+
+What is PaaS? Platform as a Service
+
+What is Iaas? Infrastructure as a Service
+
+What is IDaas? Identity as a Service
+
+Waht is Faas? Function as a Service
+
+What is AAA? Authentication, Authorization, and Accounting
+
+What is IaC? Infrastructure as Code
+
+What is an SDN? Software Defined Network
+
+What is an HSM? Hardware Secruity Module
+
+What is a CASB? A Cloud Access Security Broker is used to monitor cloud activity and usage and to enforce security policies on users of cloud services.
+
+RAID 5 is disk striping with distributed parity. It can withstand the loss of any single disk. 
+RAID 0 is disk striping; it does not provide any fault tolerance. 
+RAID 1 is mirroring. It does protect against the loss of a single disk but not with distributed parity. 
+RAID 3 is disk striping with dedicated parity. This means a dedicated drive containing all the parity bits.
+RAID 1+0, or RAID 10, is a mirrored data set (RAID 1), which is then striped (RAID 0): a “stripe of mirrors.” 
+RAID 6 is disk striping with dual parity (distributed), 
+RAID 0 is just striping
+RAID 1 is just mirroring
+
+What is an RTOS? Real-Time Operating System
+
+What is CER? Crossover Error Rate (CER), the point where the FAR (false acceptance rate) and the FRR (false rejection rate) cross over. CER provides a means of comparing biometric systems based on their efficiency, with a lower CER being more desirable.
+
+What is a PDU? Power Distrubutio Unit  provides remote management and power monitoring but will not prevent power loss in an outage.
+
+What is an MSSP? Managed Security Service Provider, an outside company that handles security tasks
+
+What is a TOTP? Time-based One-Time Password
+
+
+
+
+What is Zigbee?
+
+What is TLS?
+
+What is steganography?
+
+What is a reverse shell?
+
+Perfect forward secrecy (PFS) is used to change keys used to encrypt and decrypt data, ensuring that even if a compromise occurs, only a very small amount of data will be exposed.
 
 watering hole attack places malware or malicious code on a site or sites that are frequently visited by a targeted group.
 
@@ -53,4 +117,42 @@ What is TAXII? Trusted Automated eXchange of Intelligence Information, defines h
 What is SCADA? Supervisory Control and Data Acquisition is a control system architecture comprising computers, networked data communications and graphical user interfaces for high-level supervision of machines and processes. It also covers sensors and other devices, such as programmable logic controllers, which interface with process plant or machinery.
 
 What is ICS? Incident Command System is a standardized approach to the command, control, and coordination of emergency response providing a common hierarchy within which responders from multiple agencies can be effective.
+
+Review Linux permissions settings.
+
+What is a threat vector? A one of six paths or a means by which a cybercriminal gains access into a computer system.
+
+What is the difference between a stream cypher and a block cypher?
+
+review linux perissions
+
+
+7 Types of Cyber Security Threats (correct answer for sec+ exam?)
+https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/
+Cyber security professionals should have an in-depth understanding of the following types of cyber security threats.
+
+1. Malware
+Malware is malicious software such as spyware, ransomware, viruses and worms. Malware is activated when a user clicks on a malicious link or attachment, which leads to installing dangerous software. Cisco reports that malware, once activated, can:
+
+Block access to key network components (ransomware)
+Install additional harmful software
+Covertly obtain information by transmitting data from the hard drive (spyware)
+Disrupt individual parts, making the system inoperable
+2. Emotet
+The Cybersecurity and Infrastructure Security Agency (CISA) describes Emotet as “an advanced, modular banking Trojan that primarily functions as a downloader or dropper of other banking Trojans. Emotet continues to be among the most costly and destructive malware.”
+
+3. Denial of Service
+A denial of service (DoS) is a type of cyber attack that floods a computer or network so it can’t respond to requests. A distributed DoS (DDoS) does the same thing, but the attack originates from a computer network. Cyber attackers often use a flood attack to disrupt the “handshake” process and carry out a DoS. Several other techniques may be used, and some cyber attackers use the time that a network is disabled to launch other attacks. A botnet is a type of DDoS in which millions of systems can be infected with malware and controlled by a hacker, according to Jeff Melnick of Netwrix, an information technology security software company. Botnets, sometimes called zombie systems, target and overwhelm a target’s processing capabilities. Botnets are in different geographic locations and hard to trace.
+
+4. Man in the Middle
+A man-in-the-middle (MITM) attack occurs when hackers insert themselves into a two-party transaction. After interrupting the traffic, they can filter and steal data, according to Cisco. MITM attacks often occur when a visitor uses an unsecured public Wi-Fi network. Attackers insert themselves between the visitor and the network, and then use malware to install software and use data maliciously.
+
+5. Phishing
+Phishing attacks use fake communication, such as an email, to trick the receiver into opening it and carrying out the instructions inside, such as providing a credit card number. “The goal is to steal sensitive data like credit card and login information or to install malware on the victim’s machine,” Cisco reports.
+
+6. SQL Injection
+A Structured Query Language (SQL) injection is a type of cyber attack that results from inserting malicious code into a server that uses SQL. When infected, the server releases information. Submitting the malicious code can be as simple as entering it into a vulnerable website search box.
+
+7. Password Attacks
+With the right password, a cyber attacker has access to a wealth of information. Social engineering is a type of password attack that Data Insider defines as “a strategy cyber attackers use that relies heavily on human interaction and often involves tricking people into breaking standard security practices.” Other types of password attacks include accessing a password database or outright guessing.
 

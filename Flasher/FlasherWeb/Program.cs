@@ -16,7 +16,7 @@ using FlasherWeb.Services.Interfaces;
 //TODO: add edit/create Subset form
 //TODO: add edit/create Set form
 //TODO: add edit/create FlashCard
-//TODO: add feature to reset all FlashCards to AnsweredCorrectly = false
+//TODO: add feature to reset all FlashCards to AnsweredCorrectly = false **won't be needed with test object
 //TODO: add feature to turn "View AnsweredCorrectly" on and off (currently it is always off)
 //TODO: add feature to choose question Superset
 //TODO: add feature to filter by question Set
