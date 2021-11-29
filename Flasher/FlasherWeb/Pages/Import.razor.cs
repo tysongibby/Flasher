@@ -75,7 +75,7 @@ namespace FlasherWeb.Pages
                     }
                     FlashCard newFlashCard = new FlashCard()
                     {                        
-                        SuperSetId = 1,
+                        SupersetId = 1,
                         SetId = 5,
                         Title = _title,
                         Front = newFlashCardFronts[i],

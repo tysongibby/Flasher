@@ -26,5 +26,7 @@ namespace FlasherWeb.Pages.Models
         public int SelectedSupersetId { get; set; } = 0;
         public int SelectedSetId { get; set; } = 0;
 
+        public int Counter { get; set; } = 0; //TEMP property until list object features are implemented
+
     }
 }

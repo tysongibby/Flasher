@@ -1,5 +1,7 @@
 What is SOAR?  Security Orchestration Automation and Response
 
+What is UTM? Unified Threat Management
+
 What is SEIM?  Security Event Information Management
 
 What is a RAT?  Remote Access Trojan
@@ -17,6 +19,10 @@ What is a disassociation attack?  It sends a deauthentication packet to users sy
 What is on on-path attack?
 
 What is an IDS? Intrusion Detection System
+
+What is NERC? North American Electric Reliability Corporation
+
+What is OWASP? Open Web Application Security Project
 
 What is a PUP? Potentially Unwanted Program
 
@@ -41,20 +47,23 @@ What is an ISAC? Information Sharing and Analysis Centers
 What is an IRT? Incident Response Teams
 
 What is are SOCs? Service Ograniztion Controls
+SOC Assessments:
+  SOC 1 assesses the financial controls that are in place, focusing on thier impact the accuracy of reporting
+  SOC 2 assesses the security and privacy controls that are in place
 
 What is a WAF? Web Application Firewall
 
 What is an HSM? Hardware Secruity Module
 
+What is an NG SWG? Next-generation (NG) secure web gateways (SWG) add additional features beyond those found in cloud access security brokers and next generation firewalls. While features can vary, they may include web filtering, TLS decryption to allow traffic analysis and advanced threat protection, cloud access security broker (CASB) features, data loss prevention (DLP), and other advanced capabilities.
+
 What is a VPC? Virtual Private Cloud
 
 What is PaaS? Platform as a Service
-
 What is Iaas? Infrastructure as a Service
-
 What is IDaas? Identity as a Service
-
 Waht is Faas? Function as a Service
+What is Daas? Device as a Service
 
 What is AAA? Authentication, Authorization, and Accounting
 
@@ -62,9 +71,21 @@ What is IaC? Infrastructure as Code
 
 What is an SDN? Software Defined Network
 
+What is an SPI? Stateful Packet Inspection
+
 What is an HSM? Hardware Secruity Module
 
+What is an SED? Self-Encrypting Drive
+
+What is TLS? Transport Layer Secruity
+
 What is a CASB? A Cloud Access Security Broker is used to monitor cloud activity and usage and to enforce security policies on users of cloud services.
+
+What is DLP?  Data Loss Prevention
+
+What is FIDO? An open standard provided by the Fast IDentity Online Alliance, is a standard for security keys.
+What is SAML? Security Assertion Markup Language - used to make assertions about identities and authorization
+What is a PAM system? privileged access management (PAM) system. PAM systems are used to manage and control privileged accounts securely.
 
 RAID 5 is disk striping with distributed parity. It can withstand the loss of any single disk. 
 RAID 0 is disk striping; it does not provide any fault tolerance. 
@@ -75,7 +96,11 @@ RAID 6 is disk striping with dual parity (distributed),
 RAID 0 is just striping
 RAID 1 is just mirroring
 
+What is an OTA update? Over-The-Air update for a mobile device
+
 What is an RTOS? Real-Time Operating System
+
+What is Non-repudiation? The assurance that someone cannot deny the validity of something
 
 What is CER? Crossover Error Rate (CER), the point where the FAR (false acceptance rate) and the FRR (false rejection rate) cross over. CER provides a means of comparing biometric systems based on their efficiency, with a lower CER being more desirable.
 
@@ -85,8 +110,189 @@ What is an MSSP? Managed Security Service Provider, an outside company that hand
 
 What is a TOTP? Time-based One-Time Password
 
+What is ESP? Encapsulating Security Protocol
+
+What is DNSSEC? It provides the ability to validate DNS data and denial of existence, and provides data integrity for DNS
+
+What is East-west traffic?  East-west traffic is traffic sent laterally inside a network.
+
+What is a PSK? Pre-Shared Key
+
+What is an AH? Authentication Header
+
+What is SIP? Session Initiation Protocol for VOIP
+
+What is MDM? Mobile Device Management
+What is UEM? Unified Endpoint Management
+
+What is a TPM? A TPM, or Trusted Platform Module, is a secure cryptoprocessor used to provide a hardware root of trust for systems. They enable secure boot and boot attestation capabilities, and include a random number generator, the ability to generate cryptographic keys for specific uses, and the ability to bind and seal data used for processes the TPM supports.
+
+What is a CA? Certificate Authority - issues cetrificates.
+What is a CSR? Cetrificate Signing Request
+What is an Intermedia CA? trusted by the root CA to issue certificates
+What is an RA? Registration Authority - receives requests for new certificates as well as renewal requests for existing certificates. hey can also receive revocation requests and similar tasks.
+What is a CRL? Cetification Revocation List
+What is OCSP? Online Certificate Status Protocol - used to determine the status of a certificate
+What is a .PFX file? A Personal Information Exchange formatted file is a binary format used to store server certificates, as well as intermediary certificates, and it can also contain the server’s private key
+What is a CN? Common Name or FQND
+What is a SAN certificate?  Subject Alternate Name, certificate allows multiple hostnames to be protected by the same certificate.
+What is an EV certificate? Extended Validation certificates prove that the X.509 certificate has been issued to the correct legal entity. In addition, only specific certificate authorities (Cas) can issue EV certificates. 
+What is a Domain-validated certificate? It requires proof that you have control of the domain, such as setting the DNS TXT record or responding to an email sent to a contact in the domain’s Whois record. 
+What is an organizational validation certificate? It requires either domain validation and additional proof that the organization is a legal entity.
+
+What is an IdP? Identity Provider creates and manages identities for federations. 
+What is an RP? An RP is a relying party, which relies on an identity provider. 
+What is an SP? An SP is a service provider.
+
+What is IKE? Internet Key Exchange is used to set up security associations (SAs) on each end of the tunnel. IKE is not directly involved in encrypting or authenticating. IKE itself does not establish the tunnel—it establishes the SAs.
+What is an SA? Secruity Assouciation, security associations have all the settings (i.e., cryptographic algorithms, hashes) for the tunnel
+
+HTTP – Port 80
+HTTPS – 443
+FTP – 21
+SSH – 22
+Telnet - 23
+DNS - 53
+LDAP - 389
+LDAPS - 636
+POP3 – 110
+POP3 SSL – 995
+IMAP – 143
+IMAP SSL (IMAPS) – 993
+SMTP – 25 (Alternate: 26)
+SMTP SSL (SMTPS) – 587
+FTPS - 990
+MySQL – 3306
+cPanel – 2082
+cPanel SSL – 2083
+WHM (Webhost Manager) – 2086
+WHM (Webhost Manager) SSL – 2087
+Webmail – 2095
+Webmail SSL – 2096
+WebDAV/WebDisk – 2077
+WebDAV/WebDisk SSL – 2078
 
 
+Linux chmod permissions:
+r (read) = 4
+w (write) = 2
+x (execute) = 1
+no permissions = 0
+0  – No permission.
+1  – Only execute permission.
+2  – Only write permission.
+3  – Write and execute permissions.
+4  – Only read permission.
+5  – Read and execute permission.
+6  – Read and write permissions.
+7  – Read, write, and execute permission.
+
+The Cyber Kill Chain:
+1) Reconnaissance
+2) Intrusion
+3) Exploitation
+4) Privilege Escalation
+5) Lateral Movement
+6) Obfuscation/Anti-forensics
+7) Denial of Service
+8) Exfiltration.
+
+What is Provenance? The provenance of a forensic artifact includes the chain of custody, including ownership and acquisition of the artifact, device, or image.
+
+Continuity of Operations Planning (COOP) is part of the Federal Emergency Management Agency (FEMA), which is part of the Department of Homeland Security
+FTK Imager is a free tool that can image both systems and memory, allowing Isaac to capture the information he wants.
+dd is useful for capturing disks
+Autopsy is a forensic analysis tool that focuses on drive analysis.
+WinDump is a Windows version of tcpdump , a protocol analyzer.
+Cuckoo is a malware testing sandbox.
+theHarvester is an open source intelligence gathering tool
+Nessus is a vulnerability scanner.
+Metasploit is an exploitation framework.
+BeEF is an exploitation framework.
+Pacu is an exploitation framework.
+exiftool is purposebuilt for file metadata retrieval.
+John the Ripper is
+Ophcrack is
+NXLog is
+IPFIX is a network flow anaylsis tool.
+NetFlow is a network flow anaylsis toolis
+NXLog is is a multiplatfrom logging tool
+sFlow is a network flow anaylsis tool
+tcpreplay is specifically designed to allow PCAP capture files to be replayed to a network, allowing incident conditions to be recreated for learning and testing.
+PCAP an application programming interface for capturing network traffic. 
+tcpdump is
+The Volatility framework is a purpose-built tool for the acquisition of random access memory (RAM) from a live system
+Sn1per is a pen test framework that allows automated pen testing.
+rsyslog is a flexible and reliable remote logging environment
+NXLog is a flexible and reliable remote logging environment
+syslog-ng is a flexible and reliable remote logging environment
+syslog is the original system logging tool for Linux and Unix systems, it does not have advanced or modern features.
+netcat is a utility that allows you to read and write to network connections
+nmap is
+netstat
+grep is a linux search tool
+theHarvester is tool used to automate open source intelligence information gathering that can leverage search engines and other tools like Shodan.
+ping -
+hping is a tool that can be used for crafting and sending packets to test vulnerabilities.
+tcpreplay is specifically designed to allow PCAP capture files to be replayed to a network, allowing exactly this type of testing
+tracert -
+pathping - combines both ping and tracert style functionality to help identify both the path used and where latency is an issue. It is built into Windows - 
+netcat -   
+dnsenum - can automate the performance opf Domain Name System (DNS)-related functions, including querying A records, nameservers, and MX records, as well as performing zone transfers, Google searches for hosts and subdomains, and net range reverse lookups
+dig - provides simple dns queries
+host - provides simple dns queries 
+journalctl is a linux tool used to access the systemd journal which contains kernal and boot messages as well as syslog messages and messages from services.
+curl is a linux tools that supports downloads and uploads from a wide variety of services such as HTTP and HTTPS, SFTP, and TFTP.
+
+BPA is a Business Partner Agreement
+MOU is a Memorandum of Understanding
+ISA is an Interconnection Security Agreement
+MSA is Master Service Agreement
+
+RTO is Recovery Time Objective
+RPO is Recovery Point Objective
+
+FoIA is Freedom of Information Act
+
+Diamond Model of Intrusion Analysis is
+The MITRE ATT&CK framework focuses on techniques and tactics and does not focus on a specific order of operations like the Cyber Kill Chain does. It also covers a broader range of techniques and adversaries than the Diamond Model does and is broadly implemented in many existing tools. 
+The CVSS standard is a vulnerability scoring system and is not a useful framework for analyzing malware and attacks.
+
+Administrative controls dictate how security policies should be executed to accomplish the company’s security goals. 
+A detective technical control uncovers a violation through technology. 
+A preventive technical control attempts to stop a violation through technology. 
+Detective administrative controls uncover a violation through policies, procedures, and guidelines.
+
+Preventive control is used to avoid a security breach or an interruption of critical services before they can happen. 
+Administrative controls are defined through policies, procedures, and guidelines. 
+Compensating control is used to satisfy a requirement for a security measure that is too difficult or impractical to implement at the current time. 
+Deterrent control is used to deter a security breach.
+
+Data controller determines the reasons for processing personal information and how it is processed. 
+Data steward carries out the intents of the data controller.
+Data custodians are charged with safeguarding information.
+Data consumer is not a common data privacy role.
+
+
+six-step process for incident response: 
+1. Preparation
+2. Identification
+3. Containment
+4. Eradication
+5. Recovery
+6. Lessons Learned.
+
+What are a cloud secrets management services? Cloud secrets management services provide the ability to store sensitive data like application programming interface (API) keys, passwords, and certificates. They also provide the ability to manage, retrieve, and audit those secrets.
+
+What is data confidentiality?
+
+What is data integrity?
+
+What is data repudiation?
+
+What is data replay protection?
+
+ICs, and ISA/IEC standards are for securing industrial automation and control systems (IACSs).
 
 What is Zigbee?
 
@@ -124,8 +330,72 @@ What is a threat vector? A one of six paths or a means by which a cybercriminal 
 
 What is the difference between a stream cypher and a block cypher?
 
+What is CHAP? Challenge Handshake Authentication Protocol (CHAP) periodically has the client reauthenticate. This is transparent to the user but is done specifically to prevent session hijacking
+
+What is MAC? Mandatory access control (MAC) will not allow lower privileged users to even see the data at a higher privilege level. 
+What is DAC? Discretionary access control (DAC) has each data owner configure his or her own security. 
+What is RBAC? Role-based access control (RBAC)
+
+What is NAC? network access control (NAC) 
+
+What is a WAF? Web Application Firewall
+
+What is a BC Plan? Business Contintuity Plan
+What is a DR Plan? Disaster Recovery Plan
+
+What is a runbook? the steps to perform an action or process as part of an incident response process
+What is a playbook? a list of the required steps that are needed to address an individual incident, often references runbooks.
+
+CIS is the Center for Internet Security
+
+ISA is Interconnection Security Agreement
+DRP is a Disaster Recovery Plan
+FRP is a Functional Recovery Plan
+RTO is Recovery Time Objective
+RPO is Recovery Point Objective
+BPA is Business Partner Agreement
+ALE is Annual Loss Expectancy : ALE (annual loss expectancy) = SLE (single loss expectancy) × ARO (annualized rate of occurrence)
+SLE is Single Loss Expectancy : SE (Single Loss Expentency) = AV (Asset Value) * EF (Exposure Factor)
+AV is Asset Value
+EF is Exposure Factor
+ARO is Annual Rate of Occurance
+MTTR is Mean Time To Repair
+MTTB is Mean Time Between Failures
+MTTR is Mean Time To Failure
+SPOF is Single Point of Failure
+GDPR is General Data Protection Regulation
+NIST is National Institute of Standards and Technology
+NSIT RMF is NIST Risk Management Framework
+  1. Prepare 
+  2. Categorize system 
+  3. Select controls 
+  4. Implement controls 
+  5. Assess controls 
+  6. Authorize system 
+  7. Monitor controls
+AUP is Acceptable Use Policy
+SSAE is Statement on Standards for Attestation Engagments
+PCI-DSS is Payment Card Industry- Digital Security Standards
+CObIT is Control Objectibes for Information Technology
+FedRAMP is Federal Risk Authorizaiton Managment Program
+CSA is Cloud Security Alliance
+DPI is Data Protection Officer
+BIA is Business Impact Analysis
+
+Data processors are service providers that process data for data controllers. 
+Data controller or data owner is the organization or individual who collects and controls data. 
+Data steward carries out the intent of the data controller and is delegated responsibility for the data. 
+Data custodians are those who are entrusted with the data to store, manage, or secure the data.
+
+What is a SYN flood?
+
 review linux perissions
 
+What is a Dynamic code review?
+
+What is a Fagan code review?
+
+What is the Forensics Order of Volatility?
 
 7 Types of Cyber Security Threats (correct answer for sec+ exam?)
 https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/
@@ -138,6 +408,7 @@ Block access to key network components (ransomware)
 Install additional harmful software
 Covertly obtain information by transmitting data from the hard drive (spyware)
 Disrupt individual parts, making the system inoperable
+
 2. Emotet
 The Cybersecurity and Infrastructure Security Agency (CISA) describes Emotet as “an advanced, modular banking Trojan that primarily functions as a downloader or dropper of other banking Trojans. Emotet continues to be among the most costly and destructive malware.”
 

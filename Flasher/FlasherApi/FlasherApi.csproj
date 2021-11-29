@@ -5,10 +5,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\EntityConfigurations\**" />
+    <Compile Remove="Data\Models\**" />
+    <Compile Remove="Data\Repositories\**" />
     <Compile Remove="Documentation\**" />
+    <Content Remove="Data\EntityConfigurations\**" />
+    <Content Remove="Data\Models\**" />
+    <Content Remove="Data\Repositories\**" />
     <Content Remove="Documentation\**" />
+    <EmbeddedResource Remove="Data\EntityConfigurations\**" />
+    <EmbeddedResource Remove="Data\Models\**" />
+    <EmbeddedResource Remove="Data\Repositories\**" />
     <EmbeddedResource Remove="Documentation\**" />
+    <None Remove="Data\EntityConfigurations\**" />
+    <None Remove="Data\Models\**" />
+    <None Remove="Data\Repositories\**" />
     <None Remove="Documentation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\FlasherContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Flasher - answered.db" />
+    <None Remove="Data\Flasher - empty.db" />
+    <None Remove="Data\Flasher.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +41,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlasherData\FlasherData.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using FlasherApi.Data.Dtos;
-using FlasherApi.Data.Models;
-using FlasherApi.Data.Repositories.Interfaces;
+using FlasherData.Models;
+using FlasherData.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -29,7 +29,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Superset superset = _supersetRepository.Get(id).Result;
+                Superset superset = _supersetRepository.GetAsync(id).Result;
                 if (superset is not null)
                 {
                     SupersetDto supersetDto = new SupersetDto()
@@ -56,7 +56,7 @@ namespace FlasherApi.Controllers
             try
             {
                 List<SupersetDto> supersetDtos = new List<SupersetDto>();
-                List<Superset> supersets = _supersetRepository.GetAll().Result.ToList();
+                List<Superset> supersets = _supersetRepository.GetAllAsync().Result.ToList();
                 if (supersets.Count > 0)
                 {
                     foreach (Superset s in supersets)
@@ -90,7 +90,7 @@ namespace FlasherApi.Controllers
                 {
                     Title = newSupersetDto.Title
                 };
-                _supersetRepository.Add(newSuperset);
+                _supersetRepository.AddAsync(newSuperset);
                 return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Superset to return status            
             }
             catch (Exception e)
@@ -106,14 +106,14 @@ namespace FlasherApi.Controllers
             {
                 if (id == supersetDtoUpdate.Id)
                 {
-                    if (_supersetRepository.Exists(id).Result)
+                    if (_supersetRepository.ExistsAsync(id).Result)
                     {
                         Superset supersetUpdate = new Superset()
                         {
                             Id = (int)supersetDtoUpdate.Id,
                             Title = supersetDtoUpdate.Title
                         };
-                        var updatedSuperset = _supersetRepository.Update(supersetUpdate).Result;
+                        _supersetRepository.Update(supersetUpdate);
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Superset to return status 
                     }
                     else
@@ -137,7 +137,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Superset supersetToDelete = _supersetRepository.Find(fc => fc.Id == id).FirstOrDefault();
+                Superset supersetToDelete = _supersetRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (supersetToDelete is not null)
                 {
                     _supersetRepository.Remove(supersetToDelete);

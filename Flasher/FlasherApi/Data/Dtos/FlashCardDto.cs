@@ -1,4 +1,4 @@
-﻿using FlasherApi.Data.Models;
+﻿using FlasherData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using FlasherApi.Data.Dtos;
-using FlasherApi.Data.Models;
-using FlasherApi.Data.Repositories.Interfaces;
+using FlasherData.Models;
+using FlasherData.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -29,7 +29,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Set set = _setRepository.Get(id).Result;
+                Set set = _setRepository.GetAsync(id).Result;
                 if (set is not null)
                 {
                     SetDto setDto = new SetDto()
@@ -83,7 +83,7 @@ namespace FlasherApi.Controllers
             try
             {
                 List<SetDto> setDtos = new List<SetDto>();
-                List<Set> sets = _setRepository.GetAll().Result.ToList();
+                List<Set> sets = _setRepository.GetAllAsync().Result.ToList();
                 if (sets.Count > 0)
                 {
                     foreach (Set s in sets)
@@ -119,7 +119,7 @@ namespace FlasherApi.Controllers
                     Title = newSetDto.Title,
                     SupersetId = newSetDto.SupersetId
                 };
-                _setRepository.Add(newSet);
+                _setRepository.AddAsync(newSet);
                 return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Set to return status            
             }
             catch (Exception e)
@@ -135,7 +135,7 @@ namespace FlasherApi.Controllers
             {
                 if (id == setDtoUpdate.Id)
                 {
-                    if (_setRepository.Exists(id).Result)
+                    if (_setRepository.ExistsAsync(id).Result)
                     {
                         Set setUpdate = new Set()
                         {
@@ -143,7 +143,7 @@ namespace FlasherApi.Controllers
                             Title = setDtoUpdate.Title,
                             SupersetId = setDtoUpdate.SupersetId
                         };
-                        var updatedSet =_setRepository.Update(setUpdate).Result;
+                        _setRepository.Update(setUpdate);
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Set to return status 
                     }
                     else
@@ -167,7 +167,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Set setToDelete = _setRepository.Find(fc => fc.Id == id).FirstOrDefault();
+                Set setToDelete = _setRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (setToDelete is not null)
                 {
                     _setRepository.Remove(setToDelete);

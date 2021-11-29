@@ -1,6 +1,6 @@
-﻿using FlasherApi.Data.Repositories.Interfaces;
+﻿using FlasherData.Repositories.Interfaces;
 using FlasherApi.Data.Dtos;
-using FlasherApi.Data.Models;
+using FlasherData.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,7 +28,7 @@ namespace FlasherApi.Controllers
         [HttpGet]
         public ActionResult<FlashCardDto> Get(int id)
         {
-            FlashCard flashCard = _flashCardRepository.Get(id).Result;
+            FlashCard flashCard = _flashCardRepository.GetAsync(id).Result;
             FlashCardDto flashCardDto = new FlashCardDto();            
             if (flashCard is not null && flashCard.Id != 0)
             {            
@@ -50,7 +50,7 @@ namespace FlasherApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<FlashCardDto>> GetAll()
         {
-            List<FlashCard> flashCards = _flashCardRepository.GetAll().Result.ToList();
+            List<FlashCard> flashCards = _flashCardRepository.GetAllAsync().Result.ToList();
             List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
             if (flashCards is not null)
             {
@@ -154,7 +154,7 @@ namespace FlasherApi.Controllers
                     SupersetId = flashCardDto.SupersetId,
                     SetId = flashCardDto.SetId
                 };
-                _flashCardRepository.Add(newFlashCard);
+                _flashCardRepository.AddAsync(newFlashCard);
                 return StatusCode(StatusCodes.Status201Created, "new flash card URL placeholder");  //TODO: add url for new FlashCard to return status
             }
             catch (Exception e)
@@ -168,7 +168,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                    if (_flashCardRepository.Exists((int)flashCardDto.Id).Result)
+                    if (_flashCardRepository.ExistsAsync((int)flashCardDto.Id).Result)
                     {
 
                         FlashCard newFlashCard = new FlashCard()
@@ -181,8 +181,8 @@ namespace FlasherApi.Controllers
                             SupersetId = flashCardDto.SupersetId,
                             SetId = flashCardDto.SetId
                         };
-                        FlashCard updatedFlashCard = _flashCardRepository.Update(newFlashCard).Result;
-                        return StatusCode(StatusCodes.Status200OK, $"Flash card {updatedFlashCard.Id} was updated"); //TODO: replace update message with url for updated FlashCard
+                        int pk = _flashCardRepository.Update(newFlashCard);
+                        return StatusCode(StatusCodes.Status200OK, ""); //TODO: replace update message with url for updated FlashCard
 
                     }
                     else
@@ -201,7 +201,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                FlashCard flashCardToDelete = _flashCardRepository.Find(fc => fc.Id == id).FirstOrDefault();
+                FlashCard flashCardToDelete = _flashCardRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (flashCardToDelete is not null)
                 {
                     _flashCardRepository.Remove(flashCardToDelete);

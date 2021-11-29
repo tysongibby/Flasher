@@ -46,7 +46,7 @@ namespace FlasherWeb.Pages
 
             IndexPage.Body = IndexPage.FlashCard.Front;
             IndexPage.Title = IndexPage.FlashCard.Title;
-            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SuperSetId).FirstOrDefault().Title;
+            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SupersetId).FirstOrDefault().Title;
             if (IndexPage.FlashCard.SetId is not null && IndexPage.FlashCard.SetId != 0)
             {
                 IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.FlashCard.SetId).FirstOrDefault().Title;
@@ -62,9 +62,12 @@ namespace FlasherWeb.Pages
                 {
                     IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
                     IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];
+                    IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SupersetId).FirstOrDefault().Title;
+                    IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.FlashCard.SetId).FirstOrDefault().Title;
                 }
                 SetFlashCardFront();
             }
+            IndexPage.Counter++;
         }
 
         private void LastFlashCard()
