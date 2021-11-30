@@ -25,14 +25,14 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<SetDto> Get(int id)
+        public ActionResult<Set> Get(int id)
         {
             try
             {
-                Set set = _setRepository.GetAsync(id).Result;
+                SetModel set = _setRepository.GetAsync(id).Result;
                 if (set is not null)
                 {
-                    SetDto setDto = new SetDto()
+                    Set setDto = new Set()
                     {
                         Id = set.Id,
                         Title = set.Title,
@@ -52,14 +52,14 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<SetDto> GetSuperset(int id)
+        public ActionResult<Set> GetSuperset(int id)
         {
             try
             {
-                Superset superset = _setRepository.GetSuperset(id).Result;
+                SupersetModel superset = _setRepository.GetSuperset(id).Result;
                 if (superset is not null)
                 {
-                    SupersetDto supersetDto = new SupersetDto()
+                    Superset supersetDto = new Superset()
                     {
                         Id = superset.Id,
                         Title = superset.Title                        
@@ -78,17 +78,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<SetDto>> GetAll()
+        public ActionResult<List<Set>> GetAll()
         {
             try
             {
-                List<SetDto> setDtos = new List<SetDto>();
-                List<Set> sets = _setRepository.GetAllAsync().Result.ToList();
+                List<Set> setDtos = new List<Set>();
+                List<SetModel> sets = _setRepository.GetAllAsync().Result.ToList();
                 if (sets.Count > 0)
                 {
-                    foreach (Set s in sets)
+                    foreach (SetModel s in sets)
                     {
-                        SetDto setDto = new SetDto()
+                        Set setDto = new Set()
                         {
                             Id = s.Id,
                             Title = s.Title,
@@ -110,11 +110,11 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(SetDto newSetDto)
+        public ActionResult<string> Create(Set newSetDto)
         {
             try
             {
-                Set newSet = new Set()
+                SetModel newSet = new SetModel()
                 {
                     Title = newSetDto.Title,
                     SupersetId = newSetDto.SupersetId
@@ -129,7 +129,7 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<string> Update(int id, SetDto setDtoUpdate)
+        public ActionResult<string> Update(int id, Set setDtoUpdate)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace FlasherApi.Controllers
                 {
                     if (_setRepository.ExistsAsync(id).Result)
                     {
-                        Set setUpdate = new Set()
+                        SetModel setUpdate = new SetModel()
                         {
                             Id = (int)setDtoUpdate.Id,
                             Title = setDtoUpdate.Title,
@@ -167,7 +167,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Set setToDelete = _setRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                SetModel setToDelete = _setRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (setToDelete is not null)
                 {
                     _setRepository.Remove(setToDelete);

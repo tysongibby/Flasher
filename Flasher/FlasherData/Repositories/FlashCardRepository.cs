@@ -11,7 +11,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class FlashCardRepository : BaseRepository<FlashCard>, IFlashCardRepository
+    public class FlashCardRepository : BaseRepository<FlashCardModel>, IFlashCardRepository
     {       
         public FlashCardRepository(FlasherContext context) : base(context) {}
         public FlasherContext FlasherContext
@@ -51,27 +51,27 @@ namespace FlasherData.Repositories
         //    }
         //}
 
-        public IEnumerable<FlashCard> GetAllFlashCardsInSuperset(int supersetId)
+        public IEnumerable<FlashCardModel> GetAllFlashCardsInSuperset(int supersetId)
         {           
-            IEnumerable<FlashCard> _flashCards = _context.Set<FlashCard>().Where(fc => fc.SupersetId == supersetId);         
+            IEnumerable<FlashCardModel> _flashCards = _context.Set<FlashCardModel>().Where(fc => fc.SupersetId == supersetId);         
             return _flashCards;
         }
 
-        public IEnumerable<FlashCard> GetAllFlashCardsInSet(int setId)
+        public IEnumerable<FlashCardModel> GetAllFlashCardsInSet(int setId)
         {
-            IEnumerable<FlashCard> _flashCards = _context.Set<FlashCard>().Where(fc => fc.SetId == setId);
+            IEnumerable<FlashCardModel> _flashCards = _context.Set<FlashCardModel>().Where(fc => fc.SetId == setId);
             return _flashCards;
         }
 
         public string GetSupersetTitle(int supersetId)
         {
-           var title = _context.Set<Superset>().Where(s => s.Id == supersetId).FirstOrDefault().Title;
+           var title = _context.Set<SupersetModel>().Where(s => s.Id == supersetId).FirstOrDefault().Title;
            return title;
         }
 
         public string GetSetTitle(int setId)
         {
-            var title = _context.Set<Set>().Where(s => s.Id == setId).FirstOrDefault().Title;
+            var title = _context.Set<SetModel>().Where(s => s.Id == setId).FirstOrDefault().Title;
             return title;
         }
 

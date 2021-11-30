@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServerPages.Data
+namespace FlasherServer.Data
 {
     public class WeatherForecastService
     {

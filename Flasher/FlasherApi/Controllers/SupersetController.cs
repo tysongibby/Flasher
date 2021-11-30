@@ -25,14 +25,14 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<SupersetDto> Get(int id)
+        public ActionResult<Superset> Get(int id)
         {
             try
             {
-                Superset superset = _supersetRepository.GetAsync(id).Result;
+                SupersetModel superset = _supersetRepository.GetAsync(id).Result;
                 if (superset is not null)
                 {
-                    SupersetDto supersetDto = new SupersetDto()
+                    Superset supersetDto = new Superset()
                     {
                         Id = superset.Id,
                         Title = superset.Title
@@ -51,17 +51,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<SupersetDto>> GetAll()
+        public ActionResult<List<Superset>> GetAll()
         {
             try
             {
-                List<SupersetDto> supersetDtos = new List<SupersetDto>();
-                List<Superset> supersets = _supersetRepository.GetAllAsync().Result.ToList();
+                List<Superset> supersetDtos = new List<Superset>();
+                List<SupersetModel> supersets = _supersetRepository.GetAllAsync().Result.ToList();
                 if (supersets.Count > 0)
                 {
-                    foreach (Superset s in supersets)
+                    foreach (SupersetModel s in supersets)
                     {
-                        SupersetDto supersetDto = new SupersetDto()
+                        Superset supersetDto = new Superset()
                         {
                             Id = s.Id,
                             Title = s.Title
@@ -82,11 +82,11 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(SupersetDto newSupersetDto)
+        public ActionResult<string> Create(Superset newSupersetDto)
         {
             try
             {
-                Superset newSuperset = new Superset()
+                SupersetModel newSuperset = new SupersetModel()
                 {
                     Title = newSupersetDto.Title
                 };
@@ -100,7 +100,7 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<string> Update(int id, SupersetDto supersetDtoUpdate)
+        public ActionResult<string> Update(int id, Superset supersetDtoUpdate)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace FlasherApi.Controllers
                 {
                     if (_supersetRepository.ExistsAsync(id).Result)
                     {
-                        Superset supersetUpdate = new Superset()
+                        SupersetModel supersetUpdate = new SupersetModel()
                         {
                             Id = (int)supersetDtoUpdate.Id,
                             Title = supersetDtoUpdate.Title
@@ -137,7 +137,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                Superset supersetToDelete = _supersetRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                SupersetModel supersetToDelete = _supersetRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (supersetToDelete is not null)
                 {
                     _supersetRepository.Remove(supersetToDelete);

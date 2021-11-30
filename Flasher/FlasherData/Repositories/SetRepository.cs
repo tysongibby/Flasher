@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SetRepository : BaseRepository<Set>, ISetRepository
+    public class SetRepository : BaseRepository<SetModel>, ISetRepository
     {
         public SetRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
@@ -19,12 +19,12 @@ namespace FlasherData.Repositories
             }
         }
 
-        public async Task<Superset> GetSuperset(int id)
+        public async Task<SupersetModel> GetSuperset(int id)
         {
             var set = FlasherContext.Sets.FindAsync(id).Result;
             if (set is not null)
             {
-                Superset superset = await FlasherContext.Supersets.FindAsync(set.SupersetId);
+                SupersetModel superset = await FlasherContext.Supersets.FindAsync(set.SupersetId);
                 return superset;
             }
             else

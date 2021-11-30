@@ -26,10 +26,10 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<FlashCardDto> Get(int id)
+        public ActionResult<FlashCard> Get(int id)
         {
-            FlashCard flashCard = _flashCardRepository.GetAsync(id).Result;
-            FlashCardDto flashCardDto = new FlashCardDto();            
+            FlashCardModel flashCard = _flashCardRepository.GetAsync(id).Result;
+            FlashCard flashCardDto = new FlashCard();            
             if (flashCard is not null && flashCard.Id != 0)
             {            
                 flashCardDto.Id = flashCard.Id;
@@ -48,17 +48,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<FlashCardDto>> GetAll()
+        public ActionResult<IEnumerable<FlashCard>> GetAll()
         {
-            List<FlashCard> flashCards = _flashCardRepository.GetAllAsync().Result.ToList();
-            List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
+            List<FlashCardModel> flashCards = _flashCardRepository.GetAllAsync().Result.ToList();
+            List<FlashCard> flashCardDtos = new List<FlashCard>();
             if (flashCards is not null)
             {
 
 
-                foreach (FlashCard fc in flashCards)
+                foreach (FlashCardModel fc in flashCards)
                 {
-                    FlashCardDto flashCardDto = new FlashCardDto()
+                    FlashCard flashCardDto = new FlashCard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
@@ -80,15 +80,15 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<FlashCardDto>> GetAllFlashCardsInSuperset(int id)
+        public ActionResult<List<FlashCard>> GetAllFlashCardsInSuperset(int id)
         {
-            List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
-            List<FlashCard> flashCards = _flashCardRepository.GetAllFlashCardsInSuperset(id).ToList();            
+            List<FlashCard> flashCardDtos = new List<FlashCard>();
+            List<FlashCardModel> flashCards = _flashCardRepository.GetAllFlashCardsInSuperset(id).ToList();            
             if (flashCards is not null && flashCards.Count > 0)
             {
-                foreach (FlashCard fc in flashCards)
+                foreach (FlashCardModel fc in flashCards)
                 {                    
-                    FlashCardDto flashCardDto = new FlashCardDto()
+                    FlashCard flashCardDto = new FlashCard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
@@ -110,16 +110,16 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<FlashCardDto>> GetAllFlashCardsInSet(int setId)
+        public ActionResult<List<FlashCard>> GetAllFlashCardsInSet(int setId)
         {
-            List<FlashCardDto> flashCardDtos = new List<FlashCardDto>();
-            List<FlashCard> flashCards = _flashCardRepository.GetAllFlashCardsInSet(setId).ToList();
+            List<FlashCard> flashCardDtos = new List<FlashCard>();
+            List<FlashCardModel> flashCards = _flashCardRepository.GetAllFlashCardsInSet(setId).ToList();
             
             if (flashCards is not null && flashCards.Count > 0)
             {
-                foreach (FlashCard fc in flashCards)
+                foreach (FlashCardModel fc in flashCards)
                 {
-                    FlashCardDto flashCardDto = new FlashCardDto()
+                    FlashCard flashCardDto = new FlashCard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
@@ -141,11 +141,11 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(FlashCardDto flashCardDto)
+        public ActionResult<string> Create(FlashCard flashCardDto)
         {
             try
             {
-                FlashCard newFlashCard = new FlashCard()
+                FlashCardModel newFlashCard = new FlashCardModel()
                 {
                     Title = flashCardDto.Title,
                     Front = flashCardDto.Front,
@@ -164,14 +164,14 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Update(FlashCardDto flashCardDto)
+        public ActionResult<string> Update(FlashCard flashCardDto)
         {
             try
             {
                     if (_flashCardRepository.ExistsAsync((int)flashCardDto.Id).Result)
                     {
 
-                        FlashCard newFlashCard = new FlashCard()
+                        FlashCardModel newFlashCard = new FlashCardModel()
                         {
                             Id = (int)flashCardDto.Id,
                             Title = flashCardDto.Title,
@@ -201,7 +201,7 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                FlashCard flashCardToDelete = _flashCardRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                FlashCardModel flashCardToDelete = _flashCardRepository.Where(fc => fc.Id == id).FirstOrDefault();
                 if (flashCardToDelete is not null)
                 {
                     _flashCardRepository.Remove(flashCardToDelete);

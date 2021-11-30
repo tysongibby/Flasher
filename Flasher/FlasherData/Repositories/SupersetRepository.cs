@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SupersetRepository : BaseRepository<Superset>, ISupersetRepository
+    public class SupersetRepository : BaseRepository<SupersetModel>, ISupersetRepository
     {
         public SupersetRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
@@ -19,7 +19,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        public override int Update(Superset supersetUpdate)
+        public override int Update(SupersetModel supersetUpdate)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
                 }
                 //TODO: add update entity to BaseRepository.cs if possible                
-                Superset supersetToUpdate = FlasherContext.Supersets.Find(supersetUpdate.Id);
+                SupersetModel supersetToUpdate = FlasherContext.Supersets.Find(supersetUpdate.Id);
                 if (supersetToUpdate != null)
                 {
                     supersetToUpdate.Title = supersetUpdate.Title;

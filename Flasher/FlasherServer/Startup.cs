@@ -1,4 +1,4 @@
-using FlasherServerPages.Data;
+using FlasherServer.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -10,8 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlasherData.Repositories.Interfaces;
+using FlasherData.Repositories;
 
-namespace FlasherServerPages
+
+namespace FlasherServer
 {
     public class Startup
     {
@@ -26,9 +29,16 @@ namespace FlasherServerPages
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Services
+            services.AddAutoMapper(typeof(Startup));
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            
+            // Dependency Injection
+            services.AddHttpClient<ISupersetRepository, SupersetRepository>();
+            services.AddHttpClient<ISetRepository, SetRepository>();
+            services.AddHttpClient<IFlashCardRepository, FlashCardRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

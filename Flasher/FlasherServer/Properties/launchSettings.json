@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "FlasherServerPages": {
+    "FlasherServer": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

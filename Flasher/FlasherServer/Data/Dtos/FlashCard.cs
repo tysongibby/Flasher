@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlasherApi.Data.Dtos
+namespace FlasherServer.Data.Dtos
 {
-    public class FlashCardDto
+    public class FlashCard
     {   
         public int? Id { get; set; }
         public string Title { get; set; }

@@ -16,17 +16,17 @@ namespace FlasherData.Context
         public FlasherContext(DbContextOptions<FlasherContext> options) : base(options)
         { }
 
-        public virtual DbSet<Superset> Supersets { get; set; }
-        public virtual DbSet<Set> Sets { get; set; }
-        public virtual DbSet<FlashCard> FlashCards { get; set; }
+        public virtual DbSet<SupersetModel> Supersets { get; set; }
+        public virtual DbSet<SetModel> Sets { get; set; }
+        public virtual DbSet<FlashCardModel> FlashCards { get; set; }
         
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<Superset>(new SupersetConfig());
-            modelBuilder.ApplyConfiguration<Set>(new SetConfig());
-            modelBuilder.ApplyConfiguration<FlashCard>(new FlashCardConfig());
+            modelBuilder.ApplyConfiguration<SupersetModel>(new SupersetConfig());
+            modelBuilder.ApplyConfiguration<SetModel>(new SetConfig());
+            modelBuilder.ApplyConfiguration<FlashCardModel>(new FlashCardConfig());
         }
 
         

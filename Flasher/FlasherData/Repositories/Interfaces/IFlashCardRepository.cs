@@ -7,10 +7,10 @@ using FlasherData.Models;
 
 namespace FlasherData.Repositories.Interfaces
 {
-    public interface IFlashCardRepository : IBaseRepository<FlashCard>
+    public interface IFlashCardRepository : IBaseRepository<FlashCardModel>
     {        
-        public IEnumerable<FlashCard> GetAllFlashCardsInSuperset(int supersetId);
-        public IEnumerable<FlashCard> GetAllFlashCardsInSet(int setId);
+        public IEnumerable<FlashCardModel> GetAllFlashCardsInSuperset(int supersetId);
+        public IEnumerable<FlashCardModel> GetAllFlashCardsInSet(int setId);
         public string GetSupersetTitle(int supersetId);
         public string GetSetTitle(int setId);
     }

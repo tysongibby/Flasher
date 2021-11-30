@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherApi.Data.Dtos
+namespace FlasherServer.Data.Dtos
 {
-    public class SupersetDto
+    public class Superset
     { 
         public int? Id { get; set; }        
         public string Title { get; set; } 

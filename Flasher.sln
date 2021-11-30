@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherWeb", "Flasher\Flash
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherData", "Flasher\FlasherData\FlasherData.csproj", "{3B4A16FB-3008-4999-862C-15E90C0D6853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlasherServerPages", "Flasher\FlasherServerPages\FlasherServerPages.csproj", "{E8AFF198-20FD-4DF3-B4E9-3359207C028B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherServer", "Flasher\FlasherServer\FlasherServer.csproj", "{E8AFF198-20FD-4DF3-B4E9-3359207C028B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

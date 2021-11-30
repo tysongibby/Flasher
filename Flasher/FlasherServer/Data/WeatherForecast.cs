@@ -1,6 +1,6 @@
 using System;
 
-namespace FlasherServerPages.Data
+namespace FlasherServer.Data
 {
     public class WeatherForecast
     {

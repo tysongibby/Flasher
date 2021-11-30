@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.Models
 {
-    public class FlashCard
+    public class FlashCardModel
     {
         [Key]
         public int Id { get; set; }
