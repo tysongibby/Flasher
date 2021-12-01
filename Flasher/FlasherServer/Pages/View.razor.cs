@@ -253,7 +253,7 @@ namespace FlasherServer.Pages
             throw new NotImplementedException("LoadSetFlashCards has not yet be implmemented");
         }
 
-        private void Submit()
+        private void HandleOnSubmit()
         {
             //TODO: create submit action if needed.
             //throw new NotImplementedException("Submit has not yet be implmemented");
