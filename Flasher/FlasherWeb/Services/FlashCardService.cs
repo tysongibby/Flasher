@@ -23,12 +23,12 @@ namespace FlasherWeb.Services
             ControllerSubdirectory = _configuration.GetValue<string>("api_flashcard_subdirectory");
         }
 
-        public async Task<FlashCard> Get(int id)
+        public async Task<Flashcard> Get(int id)
         {
             try
             {
-                FlashCard flashCard = await _httpClient.GetFromJsonAsync<FlashCard>(ControllerSubdirectory + "/Get");
-                return flashCard;
+                Flashcard flashcard = await _httpClient.GetFromJsonAsync<Flashcard>(ControllerSubdirectory + "/Get");
+                return flashcard;
             }
             catch (Exception e)
             {
@@ -36,11 +36,11 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<List<FlashCard>> GetAll()
+        public async Task<List<Flashcard>> GetAll()
         {
             try
             {                            
-                List<FlashCard> flashCards = await _httpClient.GetFromJsonAsync<List<FlashCard>>(ControllerSubdirectory + "/GetAll");
+                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAll");
                 return flashCards;
             }
             catch (Exception e)
@@ -49,11 +49,11 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<List<FlashCard>> GetAllFlashCardsInSuperset(int id)
+        public async Task<List<Flashcard>> GetAllFlashCardsInSuperset(int id)
         {
             try
             {
-                List<FlashCard> flashCards = await _httpClient.GetFromJsonAsync<List<FlashCard>>(ControllerSubdirectory + "/GetAllFlashCardsInSuperset");
+                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsInSuperset");
                 return flashCards;
             }
             catch (Exception e)
@@ -62,11 +62,11 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<List<FlashCard>> GetAllFlashCardsInSet(int id)
+        public async Task<List<Flashcard>> GetAllFlashCardsInSet(int id)
         {
             try
             {
-                List<FlashCard> flashCards = await _httpClient.GetFromJsonAsync<List<FlashCard>>(ControllerSubdirectory + "/GetAllFlashCardsInSet");
+                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsInSet");
                 return flashCards;
             }
             catch (Exception e)
@@ -75,12 +75,12 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<string> Create(FlashCard flashCardToCreate)
+        public async Task<string> Create(Flashcard flashCardToCreate)
         {
             try
             {
                 string result = string.Empty;
-                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Create", flashCardToCreate);
+                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<Flashcard>(ControllerSubdirectory + "/Create", flashCardToCreate);
                 //result = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return result;
             }            
@@ -92,12 +92,12 @@ namespace FlasherWeb.Services
         }
 
 
-        public async Task<string> Update(FlashCard flashCardUpdate)
+        public async Task<string> Update(Flashcard flashCardUpdate)
         {
             try
             {
                 string content = string.Empty;
-                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Update", flashCardUpdate);
+                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<Flashcard>(ControllerSubdirectory + "/Update", flashCardUpdate);
                 //content = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return content;
             }
@@ -108,12 +108,12 @@ namespace FlasherWeb.Services
 
         }
 
-        public async Task<string> Delete(FlashCard flashCardToDelete)
+        public async Task<string> Delete(Flashcard flashCardToDelete)
         {
             try
             {
                 string result = string.Empty;
-                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<FlashCard>(ControllerSubdirectory + "/Delete", flashCardToDelete);
+                HttpResponseMessage response = await _httpClient.PostAsJsonAsync<Flashcard>(ControllerSubdirectory + "/Delete", flashCardToDelete);
                 //result = await response.Content.ReadFromJsonAsync<string>(); //TODO: fix this JSON formatting error to get response from api
                 return result;
             }

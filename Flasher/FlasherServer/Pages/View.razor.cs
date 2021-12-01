@@ -18,8 +18,8 @@ namespace FlasherServer.Pages
         [Inject]
         private IMapper Mapper { get; set; }
         private ViewPage ViewPage { get; set; } = new ViewPage();
-        //private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
-        //private FlashCard FlashCard { get; set; } = new FlashCard();
+        //private List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
+        //private Flashcard Flashcard { get; set; } = new Flashcard();
         //private int CardIndex { get; set; } = 0;
         //private bool Front { get; set; } = true;
         //private string Side { get; set; } = "Front";
@@ -57,20 +57,20 @@ namespace FlasherServer.Pages
             foreach (FlashCardModel flashCardModel in flashCardModels)
             {
                 // convert data model to dto
-                ViewPage.FlashCards.Add(Mapper.Map<FlashCard>(flashCardModel));
+                ViewPage.FlashCards.Add(Mapper.Map<Flashcard>(flashCardModel));
             }
-            // get FlashCard to be displayed on page
-            ViewPage.FlashCard = ViewPage.FlashCards[ViewPage.CardIndex];
+            // get Flashcard to be displayed on page
+            ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
 
             // set data to be displayed on page
-            ViewPage.Body = ViewPage.FlashCard.Front;
-            ViewPage.Title = ViewPage.FlashCard.Title;
-            ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.FlashCard.SupersetId).FirstOrDefault().Title;
-            if (ViewPage.FlashCard.SetId is not null && ViewPage.FlashCard.SetId != 0)
+            ViewPage.Body = ViewPage.Flashcard.Front;
+            ViewPage.Title = ViewPage.Flashcard.Title;
+            ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.Flashcard.SupersetId).FirstOrDefault().Title;
+            if (ViewPage.Flashcard.SetId is not null && ViewPage.Flashcard.SetId != 0)
             {
-                ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.FlashCard.SetId).FirstOrDefault().Title;
+                ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.Flashcard.SetId).FirstOrDefault().Title;
             }
-            ViewPage.AnsweredCorrectly = ViewPage.FlashCard.AnsweredCorrectly;
+            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
         }
 
         private void NextFlashCard()
@@ -80,9 +80,9 @@ namespace FlasherServer.Pages
                 if (ViewPage.CardIndex != ViewPage.FlashCards.Count - 1)
                 {
                     ViewPage.CardIndex = FindNextIndex(ViewPage.CardIndex);
-                    ViewPage.FlashCard = ViewPage.FlashCards[ViewPage.CardIndex];
-                    ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.FlashCard.SupersetId).FirstOrDefault().Title;
-                    ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.FlashCard.SetId).FirstOrDefault().Title;
+                    ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
+                    ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.Flashcard.SupersetId).FirstOrDefault().Title;
+                    ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.Flashcard.SetId).FirstOrDefault().Title;
                 }
                 SetFlashCardFront();
             }
@@ -96,13 +96,13 @@ namespace FlasherServer.Pages
                 if (ViewPage.CardIndex != 0)
                 {
                     ViewPage.CardIndex = FindPreviousIndex(ViewPage.CardIndex);
-                    ViewPage.FlashCard = ViewPage.FlashCards[ViewPage.CardIndex];
+                    ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
                 }
                 SetFlashCardFront();
             }
         }
 
-        // Finds index of next FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of next Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindNextIndex(int currentIndex)
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
@@ -145,7 +145,7 @@ namespace FlasherServer.Pages
 
         }
 
-        // Finds index of previous FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of previous Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindPreviousIndex(int currentIndex)
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
@@ -203,16 +203,16 @@ namespace FlasherServer.Pages
         private void UpdateAnswerStatus()
         {
             ViewPage.AnsweredCorrectly = !ViewPage.AnsweredCorrectly;
-            ViewPage.FlashCard.AnsweredCorrectly = ViewPage.AnsweredCorrectly;
-            int pk = UnitOfWork.FlashCards.Update(Mapper.Map<FlashCardModel>(ViewPage.FlashCard));
+            ViewPage.Flashcard.AnsweredCorrectly = ViewPage.AnsweredCorrectly;
+            int pk = UnitOfWork.FlashCards.Update(Mapper.Map<FlashCardModel>(ViewPage.Flashcard));
         }
 
         private void SetFlashCardFront()
         {
 
-            ViewPage.Title = ViewPage.FlashCard.Title;
-            ViewPage.Body = ViewPage.FlashCard.Front;
-            ViewPage.AnsweredCorrectly = ViewPage.FlashCard.AnsweredCorrectly;
+            ViewPage.Title = ViewPage.Flashcard.Title;
+            ViewPage.Body = ViewPage.Flashcard.Front;
+            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
             ViewPage.Side = "Front";
             ViewPage.ShowButton = "Back";
         }
@@ -220,9 +220,9 @@ namespace FlasherServer.Pages
         private void SetFlashCardBack()
         {
 
-            ViewPage.Title = ViewPage.FlashCard.Title;
-            ViewPage.Body = ViewPage.FlashCard.Back;
-            ViewPage.AnsweredCorrectly = ViewPage.FlashCard.AnsweredCorrectly;
+            ViewPage.Title = ViewPage.Flashcard.Title;
+            ViewPage.Body = ViewPage.Flashcard.Back;
+            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
             ViewPage.Side = "Back";
             ViewPage.ShowButton = "Front";
         }

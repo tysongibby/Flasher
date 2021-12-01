@@ -16,7 +16,7 @@ namespace FlasherWeb.Services.Models
                 
         public int SupersetId { get; set; }
 
-        //public virtual IEnumerable<FlashCard> FlashCards { get; set; }
+        //public virtual IEnumerable<Flashcard> FlashCards { get; set; }
        
     }
 }

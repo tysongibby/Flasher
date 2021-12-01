@@ -12,8 +12,8 @@ namespace FlasherServer.Data
     {
         public AutoMapperProfile()
         {
-            // FlashCard mapping
-            CreateMap<FlashCardModel, FlashCard>()
+            // Flashcard mapping
+            CreateMap<FlashCardModel, Flashcard>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(src => (int?)src.Id))
                 .ForMember(destination => destination.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(src => src.Front))
@@ -21,7 +21,7 @@ namespace FlasherServer.Data
                 .ForMember(destination => destination.AnsweredCorrectly, opt => opt.MapFrom(src => src.AnsweredCorrectly))
                 .ForMember(destination => destination.SetId, opt => opt.MapFrom(src => src.SetId))
                 .ForMember(destination => destination.SupersetId, opt => opt.MapFrom(src => src.SupersetId));
-            CreateMap<FlashCard, FlashCardModel>()
+            CreateMap<Flashcard, FlashCardModel>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(src => (int)src.Id))
                 .ForMember(destination => destination.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(src => src.Front))

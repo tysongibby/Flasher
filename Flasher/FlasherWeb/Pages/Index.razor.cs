@@ -18,8 +18,8 @@ namespace FlasherWeb.Pages
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
         private IndexPage IndexPage { get; set; } = new IndexPage();
-        //private List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
-        //private FlashCard FlashCard { get; set; } = new FlashCard();
+        //private List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
+        //private Flashcard Flashcard { get; set; } = new Flashcard();
         //private int CardIndex { get; set; } = 0;
         //private bool Front { get; set; } = true;
         //private string Side { get; set; } = "Front";
@@ -42,16 +42,16 @@ namespace FlasherWeb.Pages
             IndexPage.Supersets = await SupersetService.GetAll();
             IndexPage.Sets = await SetService.GetAll();
             IndexPage.FlashCards = await FlashCardService.GetAll();
-            IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];
+            IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
 
-            IndexPage.Body = IndexPage.FlashCard.Front;
-            IndexPage.Title = IndexPage.FlashCard.Title;
-            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SupersetId).FirstOrDefault().Title;
-            if (IndexPage.FlashCard.SetId is not null && IndexPage.FlashCard.SetId != 0)
+            IndexPage.Body = IndexPage.Flashcard.Front;
+            IndexPage.Title = IndexPage.Flashcard.Title;
+            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.Flashcard.SupersetId).FirstOrDefault().Title;
+            if (IndexPage.Flashcard.SetId is not null && IndexPage.Flashcard.SetId != 0)
             {
-                IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.FlashCard.SetId).FirstOrDefault().Title;
+                IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.Flashcard.SetId).FirstOrDefault().Title;
             }
-            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;          
+            IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;          
         }
 
         private void NextFlashCard()
@@ -61,9 +61,9 @@ namespace FlasherWeb.Pages
                 if (IndexPage.CardIndex != IndexPage.FlashCards.Count - 1)
                 {
                     IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
-                    IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];
-                    IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.FlashCard.SupersetId).FirstOrDefault().Title;
-                    IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.FlashCard.SetId).FirstOrDefault().Title;
+                    IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
+                    IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.Flashcard.SupersetId).FirstOrDefault().Title;
+                    IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.Flashcard.SetId).FirstOrDefault().Title;
                 }
                 SetFlashCardFront();
             }
@@ -77,13 +77,13 @@ namespace FlasherWeb.Pages
                 if (IndexPage.CardIndex != 0)
                 {
                     IndexPage.CardIndex = FindPreviousIndex(IndexPage.CardIndex);
-                    IndexPage.FlashCard = IndexPage.FlashCards[IndexPage.CardIndex];                        
+                    IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];                        
                 }
                 SetFlashCardFront();
             }
         }
 
-        // Finds index of next FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of next Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindNextIndex(int currentIndex)
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
@@ -126,7 +126,7 @@ namespace FlasherWeb.Pages
             
         }
 
-        // Finds index of previous FlashCard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of previous Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindPreviousIndex(int currentIndex)
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
@@ -184,16 +184,16 @@ namespace FlasherWeb.Pages
         private async void UpdateAnswerStatus()
         {
             IndexPage.AnsweredCorrectly = !IndexPage.AnsweredCorrectly;
-            IndexPage.FlashCard.AnsweredCorrectly = IndexPage.AnsweredCorrectly;
-            await FlashCardService.Update(IndexPage.FlashCard);
+            IndexPage.Flashcard.AnsweredCorrectly = IndexPage.AnsweredCorrectly;
+            await FlashCardService.Update(IndexPage.Flashcard);
         }
 
         private void SetFlashCardFront()
         {
 
-            IndexPage.Title = IndexPage.FlashCard.Title;
-            IndexPage.Body = IndexPage.FlashCard.Front;
-            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;
+            IndexPage.Title = IndexPage.Flashcard.Title;
+            IndexPage.Body = IndexPage.Flashcard.Front;
+            IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;
             IndexPage.Side = "Front";
             IndexPage.ShowButton = "Back";
         }
@@ -201,9 +201,9 @@ namespace FlasherWeb.Pages
         private void SetFlashCardBack()
         {
 
-            IndexPage.Title = IndexPage.FlashCard.Title;
-            IndexPage.Body = IndexPage.FlashCard.Back;
-            IndexPage.AnsweredCorrectly = IndexPage.FlashCard.AnsweredCorrectly;
+            IndexPage.Title = IndexPage.Flashcard.Title;
+            IndexPage.Body = IndexPage.Flashcard.Back;
+            IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;
             IndexPage.Side = "Back";
             IndexPage.ShowButton = "Front";
         }

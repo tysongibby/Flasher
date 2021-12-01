@@ -22,7 +22,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //public override int Update(FlashCard flashCardUpdate)
+        //public override int Update(Flashcard flashCardUpdate)
         //{
         //    try
         //    {
@@ -31,7 +31,7 @@ namespace FlasherData.Repositories
         //            throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
         //        }
         //        //TODO: add update entity to BaseRepository.cs if possible                
-        //        FlashCard flashCardToUpdate = FlasherContext.FlashCards.Find(flashCardUpdate.Id);
+        //        Flashcard flashCardToUpdate = FlasherContext.FlashCards.Find(flashCardUpdate.Id);
         //        if (flashCardToUpdate != null)
         //        {
         //            flashCardToUpdate.Title = flashCardUpdate.Title;

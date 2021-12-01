@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FlasherWeb.Services.Models
 {
-    public class FlashCard
+    public class Flashcard
     {
         public int? Id { get; set; }
         public string Title { get; set; } = "Title Placeholder";

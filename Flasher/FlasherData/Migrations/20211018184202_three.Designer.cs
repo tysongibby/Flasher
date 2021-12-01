@@ -17,7 +17,7 @@ namespace FlasherData.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.11");
 
-            modelBuilder.Entity("FlasherApi.Data.Models.FlashCard", b =>
+            modelBuilder.Entity("FlasherApi.Data.Models.Flashcard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,7 +271,7 @@ namespace FlasherData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FlasherApi.Data.Models.FlashCard", b =>
+            modelBuilder.Entity("FlasherApi.Data.Models.Flashcard", b =>
                 {
                     b.HasOne("FlasherApi.Data.Models.Set", null)
                         .WithMany("FlashCards")

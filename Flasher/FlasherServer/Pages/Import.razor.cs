@@ -18,7 +18,7 @@ namespace FlasherServer.Pages
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
-        private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
+        private List<Flashcard> NewflashCards { get; set; } = new List<Flashcard>();
         private string SuperSetTitle { get; set; } = string.Empty;
         private string SetTitle { get; set; } = string.Empty;
 
@@ -76,7 +76,7 @@ namespace FlasherServer.Pages
                     {
                         _title = "Temp Title";
                     }
-                    FlashCard newFlashCard = new FlashCard()
+                    Flashcard newFlashCard = new Flashcard()
                     {
                         SupersetId = 1,
                         SetId = 5,
@@ -96,7 +96,7 @@ namespace FlasherServer.Pages
             }
 
             // add new flash cards to database
-            foreach (FlashCard fc in NewflashCards)
+            foreach (Flashcard fc in NewflashCards)
             {
                 UnitOfWork.FlashCards.Add(Mapper.Map<FlashCardModel>(fc));
             }
