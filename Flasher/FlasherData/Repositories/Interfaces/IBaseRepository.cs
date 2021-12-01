@@ -7,19 +7,26 @@ namespace FlasherData.Repositories.Interfaces
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        Task<TEntity> GetAsync(int id);
-        //TEntity Get(int id);
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        //IEnumerable<TEntity> GetAll();
+        TEntity Get(int id);
+        Task<TEntity> GetAsync(int id);        
+        
+        IList<TEntity> GetAll();
+        Task<IList<TEntity>> GetAllAsync();        
+        
         IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+        
+        bool Exists(int id);
         Task<bool> ExistsAsync(int id);
-        //bool Exists(int id);
+
+        TEntity WhereSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> WhereSingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
-        //Task<TEntity> WhereSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+
+        int Add(TEntity entity);
         Task<int> AddAsync(TEntity entity);
-        //int Add(TEntity entity);
-        Task<List<int>> AddRangeAsync(IEnumerable<TEntity> entities);
-        //List<int> AddRange(IEnumerable<TEntity> entities);
+
+        IList<int> AddRange(IEnumerable<TEntity> entities);
+        Task<IList<int>> AddRangeAsync(IEnumerable<TEntity> entities);
+        
         int Update(TEntity entity);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);

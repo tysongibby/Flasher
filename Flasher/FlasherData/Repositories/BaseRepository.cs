@@ -23,6 +23,22 @@ namespace FlasherData.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns>The entity found or null.</returns>
+        public virtual TEntity Get(int id)
+        {
+            try
+            {
+                return _context.Set<TEntity>().Find(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not find entity: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously finds an entity of TEntity type with the given primary key value.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The entity found or null.</returns>
         public virtual async Task<TEntity> GetAsync(int id)
         {
             try
@@ -39,7 +55,22 @@ namespace FlasherData.Repositories
         /// Finds all entities of TEnitity type.
         /// </summary>
         /// <returns>A List<TEntity> of the entities found of TEntity type</returns>  //TODO: determine if this returns List<> or IEnumerable<>
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual IList<TEntity> GetAll()
+        {
+            try
+            {
+                return _context.Set<TEntity>().ToList();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not find entities: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously finds all entities of TEnitity type.
+        /// </summary>
+        /// <returns>A List<TEntity> of the entities found of TEntity type</returns>  //TODO: determine if this returns List<> or IEnumerable<>
+        public virtual async Task<IList<TEntity>> GetAllAsync()
         {
             try
             {                
@@ -51,7 +82,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: how to make this method async?
+        //TODO: make this method async
         /// <summary>
         /// Filters a sequence of values of TEntity type based on a predicate.
         /// </summary>
@@ -78,6 +109,26 @@ namespace FlasherData.Repositories
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns>An entity of TEntity type from the input sequence that satisfy the condition specified by the predicate.</returns>   
+        public virtual TEntity WhereSingleOrDefault(Expression<Func<TEntity, bool>> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
+            }
+            try
+            {
+                return _context.Set<TEntity>().SingleOrDefault(predicate);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"could not be find entity: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously filters a value of TEntity type based on a predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns>An entity of TEntity type from the input sequence that satisfy the condition specified by the predicate.</returns>   
         public virtual async Task<TEntity> WhereSingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
         {
             if (predicate == null)
@@ -96,6 +147,30 @@ namespace FlasherData.Repositories
 
         /// <summary>
         /// Determines if entity with the given primary key value exists.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A boolean; true if the entity exists or false if the entity does not exist. </returns>
+        public virtual bool Exists(int id)
+        {
+            try
+            {
+                var response = _context.Set<TEntity>().Find(id);
+                if (response != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not find entity: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously determines if entity with the given primary key value exists.
         /// </summary>
         /// <param name="id"></param>
         /// <returns>A boolean; true if the entity exists or false if the entity does not exist. </returns>
@@ -120,7 +195,29 @@ namespace FlasherData.Repositories
         }
 
         /// <summary>
-        /// Adds an entity.
+        /// Adds an entity to the dbcontext.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>An integer that is the primary key of the added entity.</returns>
+        public virtual int Add(TEntity entity)
+        {
+            try
+            {
+                if (entity == null)
+                {
+                    throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
+                }
+                var result = _context.Set<TEntity>().Add(entity);
+                int pk = GetPrimaryKey(entity);
+                return pk;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"{nameof(TEntity)} could not be added: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously adds an entity to the dbcontext.
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>An integer that is the primary key of the added entity.</returns>
@@ -143,11 +240,38 @@ namespace FlasherData.Repositories
         }
 
         /// <summary>
-        /// Adds multiple entities.
+        /// Adds multiple entities to the dbcontext.
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>A List<int> that are the primary keys of the added entities.</int></returns>
-        public virtual async Task<List<int>> AddRangeAsync(IEnumerable<TEntity> entities)
+        public virtual IList<int> AddRange(IEnumerable<TEntity> entities)
+        {
+            try
+            {
+                List<int> pks = new List<int>();
+
+                if (entities == null)
+                {
+                    throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
+                }
+                _context.Set<TEntity>().AddRange(entities);
+                foreach (TEntity e in entities)
+                {
+                    pks.Add(GetPrimaryKey(e));
+                }
+                return pks;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"{nameof(IEnumerable<TEntity>)} could not be added: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously adds multiple entities to the dbcontext.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>A List<int> that are the primary keys of the added entities.</int></returns>
+        public virtual async Task<IList<int>> AddRangeAsync(IEnumerable<TEntity> entities)
         {            
             try
             {
@@ -170,7 +294,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: Does this need to be Async?
+        //TODO: Does GetPrimaryKey need to have an async conterpart?
         /// <summary>
         /// Finds the primary key of the given entity; used when entity is added with unknown or null PK
         /// </summary>
@@ -185,7 +309,7 @@ namespace FlasherData.Repositories
             return (int)entity.GetType().GetProperty(keyName).GetValue(entity, null);
         }
 
-        //TODO: make async
+        //TODO: add an async counterpart for Update?
         /// <summary>
         /// Updates the existing given entity.
         /// </summary>
@@ -201,7 +325,7 @@ namespace FlasherData.Repositories
             try
             {
                 _context.Update(entity);
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return GetPrimaryKey(entity);
             }
             catch (Exception e)
@@ -210,7 +334,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: update to async 
+        //TODO: add an async counterpart for Remove? 
         /// <summary>
         /// Deletes the given entity.
         /// </summary>
@@ -232,7 +356,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: update to async
+        //TODO: add an async counterpart for RemoveRange?
         /// <summary>
         /// Deletes multilple given entities.
         /// </summary>
@@ -254,12 +378,33 @@ namespace FlasherData.Repositories
             }
         }
 
-
         /// <summary>
-        /// Saves changes to dbcontext for an entity, returns an integer greater than zero if successful
+        /// Saves changes to dbcontext for an entity
         /// </summary>
         /// <param name="entity"></param>
-        /// <returns>An integer type</returns>
+        /// <returns>An integer representing the number of entites changed during the save</returns>
+        public virtual int SaveChanges(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
+            }
+
+            try
+            {
+                _context.Update(entity);
+                return _context.SaveChanges(); 
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"{nameof(TEntity)} could not be updated: {e.Message}");
+            }
+        }
+        /// <summary>
+        /// Asynchronously saves changes to dbcontext for an entity
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns>An integer representing the number of entites changed during the save</returns>
         public virtual async Task<int> SaveChangesAsync(TEntity entity)
         {
             if (entity == null)
@@ -278,5 +423,6 @@ namespace FlasherData.Repositories
                 throw new Exception($"{nameof(TEntity)} could not be updated: {e.Message}");
             }
         }
+
     }
 }

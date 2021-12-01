@@ -43,7 +43,7 @@ namespace FlasherApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FlasherApi", Version = "v1" });
             });
 
-            // SQLite
+            // SQLite database connection
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
             
 

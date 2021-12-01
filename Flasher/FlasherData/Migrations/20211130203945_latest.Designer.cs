@@ -3,14 +3,16 @@ using System;
 using FlasherData.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FlasherData.Migrations
 {
     [DbContext(typeof(FlasherContext))]
-    partial class FlasherContextModelSnapshot : ModelSnapshot
+    [Migration("20211130203945_latest")]
+    partial class latest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

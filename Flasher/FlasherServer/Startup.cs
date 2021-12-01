@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FlasherData.Repositories.Interfaces;
 using FlasherData.Repositories;
-
+using FlasherData.Context;
+using AutoMapper;
 
 namespace FlasherServer
 {
@@ -29,16 +31,26 @@ namespace FlasherServer
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // Services
-            services.AddAutoMapper(typeof(Startup));
+            // Blazor services            
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
-            
+
+            // AutoMapper
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // SQLite database connection
+            services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
+
             // Dependency Injection
-            services.AddHttpClient<ISupersetRepository, SupersetRepository>();
-            services.AddHttpClient<ISetRepository, SetRepository>();
-            services.AddHttpClient<IFlashCardRepository, FlashCardRepository>();
+            services.AddScoped<IFlashCardRepository, FlashCardRepository>();
+            services.AddScoped<ISupersetRepository, SupersetRepository>();
+            services.AddScoped<ISetRepository, SetRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
