@@ -2,29 +2,34 @@
 
 <div class="col">
     <div class="row">
-        <h3>Flasher</h3>
+        <h3>The Flasher</h3>
         <br />
         <h5>Flash Card application</h5>
     </div>
-    <div class="row">
-
+    <div class="row mt-4">
+        <div class="input-group">
+            <label for="supersets" class="col-2 col-form-label">Subject</label>
+            <select id="supersets" class="form-control" @bind="SelectedSuperset.Id">
+                <option value="0" disabled></option>
+                @foreach (Superset superset in Supersets)
+                {
+                    <option value="@superset.Id">@superset.Title</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="input-group">
+            <label for="sets" class="col-2 col-form-label">Category</label>
+            <select multiple id="sets" class="form-control" @bind="SelectedSet.Id" >                
+                @foreach (Set set in Sets)
+                {
+                    <option value="@set.Id">@set.Title</option>
+                }
+            </select>
+        </div>
     </div>
 
-
-
-
-
-
-    @*<div class="card">
-        <div class="card-header">
-        </div>
-
-        <div class="card-body">
-        </div>
-
-        <div class="card-footer">
-        </div>
-    </div>*@
 </div>
 
 
