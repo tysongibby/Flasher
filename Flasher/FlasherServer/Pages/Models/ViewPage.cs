@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlasherServer.Pages.Models
 {
-    public class IndexPage
+    public class ViewPage
     {
         public FlashCard FlashCard { get; set; } = new FlashCard();
         public List<FlashCard> FlashCards { get; set; } = new List<FlashCard>();
