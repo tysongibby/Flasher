@@ -1,36 +1,44 @@
 ﻿@page "/"
 
-<div class="col">
-    <div class="row">
-        <h3>The Flasher</h3>
-        <br />
-        <h5>Flash Card application</h5>
-    </div>
-    <div class="row mt-4">
-        <div class="input-group">
-            <label for="supersets" class="col-2 col-form-label">Subject</label>
-            <select id="supersets" class="form-control" @bind="SelectedSuperset.Id">
-                <option value="0" disabled></option>
-                @foreach (Superset superset in Supersets)
-                {
-                    <option value="@superset.Id">@superset.Title</option>
-                }
-            </select>
+<EditForm Model="SelectedSuperset" OnValidSubmit="HandleOnValidSubmit">
+    <div class="col">
+        <div class="row">
+            <h3>The Flasher</h3>
+            <br />
+            <h5>Flash Card application</h5>
         </div>
-    </div>
-    <div class="row mt-2">
-        <div class="input-group">
-            <label for="sets" class="col-2 col-form-label">Category</label>
-            <select multiple id="sets" class="form-control" @bind="SelectedSet.Id" >                
-                @foreach (Set set in Sets)
-                {
-                    <option value="@set.Id">@set.Title</option>
-                }
-            </select>
+        <div class="row mt-4">
+            <div class="input-group">
+                <label for="supersets" class="col-2 col-form-label">Subject</label>
+                <InputSelect id="supersets" class="form-control" @bind-Value="SelectedSupersetId" @bind-Value:event="onchange">
+                    <option value="0" disabled>select subject</option>
+                    @foreach (Superset superset in Supersets)
+                    {
+                        <option value="@superset.Id">@superset.Title</option>
+                    }
+                </InputSelect>
+            </div>
         </div>
-    </div>
+        @*<div class="row mt-2">
+                <div class="input-group">
+                    <label for="sets" class="col-2 col-form-label">Category</label>
+                    <select multiple id="sets" class="form-control" value="@SelectedSetId" onchange="@((args)=> HandleSupersetOnchange(args, ))"  disabled="@SupersetSelectDisabled">
+                        @foreach (Set set in Sets)
+                        {
+                            <option value="@set.Id">@set.Title</option>
+                        }
+                    </select>
+                </div>
+            </div>*@
+        <div class="row mt-4">
+            <div class="input-group">
+                <label for="start" class="col-2 col-form-label"></label>
+                <button id="start" type="submit" class="btn btn-primary col-2">Next</button>
+            </div>
+        </div>
 
-</div>
+    </div>
+</EditForm>
 
 
 @code {}
