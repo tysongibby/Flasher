@@ -22,8 +22,9 @@ namespace FlasherServer.Pages
         public string selectedsupersetid { get; set; }
         private int SelectedSuperSetId { get; set; }
         private Set SelectedSet { get; set; } = new Set();
-        private int SelectedSetId { get; set; }
-        private IList<Set> Sets { get; set; } = new List<Set>();
+
+        private List<int> SelectedSetIds { get; set; } = new List<int>();
+        private List<Set> Sets { get; set; } = new List<Set>();
 
         
         protected override void OnInitialized()
@@ -32,12 +33,31 @@ namespace FlasherServer.Pages
             SelectedSuperSetId = Int32.Parse(selectedsupersetid);
 
             // get sets form superset
-            IList<SetModel> _setModels = UnitOfWork.Sets.Where(s => s.SupersetId == SelectedSuperSetId).ToList();
+            List<SetModel> _setModels = UnitOfWork.Sets.Where(s => s.SupersetId == SelectedSuperSetId).ToList();
             foreach (SetModel _setModel in _setModels)
             {
                 Sets.Add(Mapper.Map<Set>(_setModel));
             }
             
+        }
+
+        private void CheckboxClicked(int? setId, object checkedValue)
+        {
+            int _setId = (int)setId; //Int32.Parse(setId);
+            if ((bool)checkedValue)
+            {
+                if (!SelectedSetIds.Contains(_setId))
+                {
+                    SelectedSetIds.Add(_setId);
+                }
+            }
+            else
+            {
+                if (SelectedSetIds.Contains(_setId))
+                {
+                    SelectedSetIds.Remove(_setId);
+                }
+            }
         }
 
         private void HandleOnValidSubmit()

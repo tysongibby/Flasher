@@ -8,16 +8,17 @@
             <h5>Flash Card application</h5>
         </div>
         <div class="row mt-4">
-            <div class="input-group">
-                <label for="supersets" class="col-2 col-form-label">Subject</label>
-                <InputSelect multiple id="supersets" class="form-control" @bind-Value="SelectedSetId" @bind-Value:event="onchange">
-                    @*<option value="0" disabled>select subject</option>*@
-                    @foreach (Set set in Sets)
-                    {
-                        <option value="@set.Id">@set.Title</option>
-                    }
-                </InputSelect>
-            </div>
+            
+                @foreach (Set set in Sets)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="@set.Id" value="false" @onchange="(args => { CheckboxClicked(set.Id, args.Value); })" />
+                        <label class="form-check-label" for="@set.Title">
+                            @set.Title
+                        </label>
+                    </div>                        
+                }                
+            
         </div>
         <div class="row mt-4">
             <div class="input-group">
