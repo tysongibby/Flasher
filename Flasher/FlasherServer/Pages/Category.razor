@@ -1,6 +1,6 @@
-﻿@page "/"
+﻿@page "/category/{selectedsupersetid}"
 
-<EditForm Model="SelectedSuperset" OnValidSubmit="HandleOnValidSubmit">
+<EditForm Model="SelectedSet" OnValidSubmit="HandleOnValidSubmit">
     <div class="col">
         <div class="row">
             <h3>The Flasher</h3>
@@ -10,11 +10,11 @@
         <div class="row mt-4">
             <div class="input-group">
                 <label for="supersets" class="col-2 col-form-label">Subject</label>
-                <InputSelect id="supersets" class="form-control" @bind-Value="SelectedSupersetId">
-                    @*<option disabled>select subject</option>*@
-                    @foreach (Superset superset in Supersets)
+                <InputSelect multiple id="supersets" class="form-control" @bind-Value="SelectedSetId" @bind-Value:event="onchange">
+                    @*<option value="0" disabled>select subject</option>*@
+                    @foreach (Set set in Sets)
                     {
-                        <option value="@superset.Id">@superset.Title</option>
+                        <option value="@set.Id">@set.Title</option>
                     }
                 </InputSelect>
             </div>
@@ -22,13 +22,9 @@
         <div class="row mt-4">
             <div class="input-group">
                 <label for="start" class="col-2 col-form-label"></label>
-                <button id="start" type="submit" class="btn btn-primary col-2">Next</button>
+                <button id="start" type="submit" class="btn btn-primary col-2">Start</button>
             </div>
         </div>
 
     </div>
 </EditForm>
-
-
-@code {}
-

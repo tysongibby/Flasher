@@ -14,13 +14,11 @@ namespace FlasherServer.Pages
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
+        [Inject]
+        NavigationManager NavManager { get; set; }
         private IList<Superset> Supersets { get; set; } = new List<Superset>();
         private Superset SelectedSuperset { get; set; } = new Superset();
-        private IList<Set> Sets { get; set; } = new List<Set>();
-        private Set SelectedSet { get; set; } = new Set();
-        private int SelectedSupersetId { get; set; } = 0;
-        private int SelectedSetId { get; set; } = 0;        
-        private bool SupersetSelectDisabled { get; set; } = true;
+        private int SelectedSupersetId { get; set; }
        
 
         protected override void OnInitialized()
@@ -33,13 +31,8 @@ namespace FlasherServer.Pages
         }
 
         private void HandleOnValidSubmit()
-        {            
-            IList<SetModel> _setModels = UnitOfWork.Sets.GetAll();
-            foreach (SetModel _setModel in _setModels)
-            {
-                Sets.Add(Mapper.Map<Set>(_setModel));
-            }
-            SupersetSelectDisabled = false;
+        {
+            NavManager.NavigateTo($"/category/{SelectedSupersetId}");
         }
     }
 }
