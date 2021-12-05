@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SupersetRepository : BaseRepository<SupersetModel>, ISupersetRepository
+    public class SupersetRepository : GenericRepository<SupersetModel>, ISupersetRepository
     {
         public SupersetRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext

@@ -7,7 +7,7 @@ using FlasherData.Models;
 
 namespace FlasherData.Repositories.Interfaces
 {
-    public interface IFlashCardRepository : IBaseRepository<FlashCardModel>
+    public interface IFlashCardRepository : IGenericRepository<FlashCardModel>
     {        
         public IEnumerable<FlashCardModel> GetAllFlashCardsInSuperset(int supersetId);
         public IEnumerable<FlashCardModel> GetAllFlashCardsInSet(int setId);

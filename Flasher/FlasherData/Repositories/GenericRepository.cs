@@ -9,11 +9,11 @@ using FlasherData.Repositories.Interfaces;
 
 namespace FlasherData.Repositories
 {
-    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext _context;
 
-        public BaseRepository(DbContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context;
         }
@@ -294,21 +294,6 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: Does GetPrimaryKey need to have an async conterpart?
-        /// <summary>
-        /// Finds the primary key of the given entity; used when entity is added with unknown or null PK
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="entity"></param>
-        /// <returns>An integer that is the primary key for the given entity.</returns>
-        private int GetPrimaryKey<T>(T entity)
-        {
-            var keyName = _context.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties
-                .Select(x => x.Name).Single();
-
-            return (int)entity.GetType().GetProperty(keyName).GetValue(entity, null);
-        }
-
         //TODO: add an async counterpart for Update?
         /// <summary>
         /// Updates the existing given entity.
@@ -422,6 +407,22 @@ namespace FlasherData.Repositories
             {
                 throw new Exception($"{nameof(TEntity)} could not be updated: {e.Message}");
             }
+        }
+
+        //TODO: add an async counterpart for GetPrimaryKey?
+        //TODO: test GetPrimaryKey, does it work?
+        /// <summary>
+        /// Finds the primary key of the given entity
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns>An integer that is the primary key for the given entity.</returns>
+        public virtual int GetPrimaryKey(TEntity entity)
+        {
+            var keyName = _context.Model.FindEntityType(typeof(TEntity)).FindPrimaryKey().Properties
+                .Select(x => x.Name).Single();
+
+            return (int)entity.GetType().GetProperty(keyName).GetValue(entity, null);
         }
 
     }

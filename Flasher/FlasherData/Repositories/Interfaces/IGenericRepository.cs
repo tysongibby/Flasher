@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.Repositories.Interfaces
 {
-    public interface IBaseRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
         TEntity Get(int id);
         Task<TEntity> GetAsync(int id);        
@@ -14,21 +14,23 @@ namespace FlasherData.Repositories.Interfaces
         Task<IList<TEntity>> GetAllAsync();        
         
         IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
-        
-        bool Exists(int id);
-        Task<bool> ExistsAsync(int id);
-
         TEntity WhereSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> WhereSingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
+
+        bool Exists(int id);
+        Task<bool> ExistsAsync(int id);
 
         int Add(TEntity entity);
         Task<int> AddAsync(TEntity entity);
 
         IList<int> AddRange(IEnumerable<TEntity> entities);
         Task<IList<int>> AddRangeAsync(IEnumerable<TEntity> entities);
-        
+
         int Update(TEntity entity);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
+
+        int GetPrimaryKey(TEntity entity);
     }
+
 }

@@ -43,7 +43,7 @@ namespace FlasherServer.Pages
 
         private void CheckboxClicked(int? setId, object checkedValue)
         {
-            int _setId = (int)setId; //Int32.Parse(setId);
+            int _setId = (int)setId;
             if ((bool)checkedValue)
             {
                 if (!SelectedSetIds.Contains(_setId))
@@ -62,6 +62,7 @@ namespace FlasherServer.Pages
 
         private void HandleOnValidSubmit()
         {
+            NavManager.NavigateTo($"/category/{SelectedSetIds}");
             // create flashscards list from sets chosen from superset
         }
     }

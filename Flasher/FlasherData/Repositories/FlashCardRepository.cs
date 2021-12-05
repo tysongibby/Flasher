@@ -11,7 +11,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class FlashCardRepository : BaseRepository<FlashCardModel>, IFlashCardRepository
+    public class FlashCardRepository : GenericRepository<FlashCardModel>, IFlashCardRepository
     {       
         public FlashCardRepository(FlasherContext context) : base(context) {}
         public FlasherContext FlasherContext

@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SetRepository : BaseRepository<SetModel>, ISetRepository
+    public class SetRepository : GenericRepository<SetModel>, ISetRepository
     {
         public SetRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
