@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace FlasherServer.Pages
 {
@@ -24,6 +25,7 @@ namespace FlasherServer.Pages
         private Set SelectedSet { get; set; } = new Set();
 
         private List<int> SelectedSetIds { get; set; } = new List<int>();
+        private Dictionary<string, string> SubjectAndCategories { get; set; } = new Dictionary<string, string>();
         private List<Set> Sets { get; set; } = new List<Set>();
 
         
@@ -62,8 +64,13 @@ namespace FlasherServer.Pages
 
         private void HandleOnValidSubmit()
         {
-            NavManager.NavigateTo($"/category/{SelectedSetIds}");
-            // create flashscards list from sets chosen from superset
+            SubjectAndCategories.Add("Subject", $"{SelectedSuperSetId}");
+            foreach (int i in SelectedSetIds)
+            {
+                SubjectAndCategories.Add($"Category{i}", $"{i}");
+            }
+            NavManager.NavigateTo(QueryHelpers.AddQueryString("/view", SubjectAndCategories));
+            //NavManager.NavigateTo($"/view/{SelectedSetIds}");            
         }
     }
 }

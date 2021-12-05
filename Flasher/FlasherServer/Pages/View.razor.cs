@@ -17,6 +17,9 @@ namespace FlasherServer.Pages
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
+        [Parameter]
+        public List<int> selectsetids { get; set; }
+        private List<int> SelectedSetIds { get; set; }
         private ViewPage ViewPage { get; set; } = new ViewPage();
         //private List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
         //private Flashcard Flashcard { get; set; } = new Flashcard();
@@ -34,10 +37,12 @@ namespace FlasherServer.Pages
         //private List<Set> SuperSetSelectElements { get; set; } = new List<Set>();
         //private List<Set> SelectedSets { get; set; } = new List<Set>();
         //private int SelectedSupersetId { get; set; } = 0;
-        //private int SelectedSetId { get; set; } = 0;        
+        //private int SelectedSetId { get; set; } = 0;
+        
 
         protected override void OnInitialized()
         {
+            SelectedSetIds = selectsetids;
             // get all Supersets from db
             List<SupersetModel> supersetModels = UnitOfWork.Supersets.GetAll().ToList();
             foreach (SupersetModel supersetModel in supersetModels)
