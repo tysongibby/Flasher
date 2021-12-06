@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherData.Models
+namespace FlasherWeb.Services.Models
 {
-    public class SupersetModel
+    public class Subject
     {
-        [Key]
+       
         public int Id { get; set; }
-        [Required]
+       
         public string Title { get; set; }
 
-        public virtual IEnumerable<FlashCardModel> FlashCards { get; set; }
+        //public virtual IEnumerable<Flashcard> FlashCards { get; set; }
        
     }
 }

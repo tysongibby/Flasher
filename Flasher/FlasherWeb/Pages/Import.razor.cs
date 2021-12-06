@@ -17,7 +17,7 @@ namespace FlasherWeb.Pages
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }       
         private List<Flashcard> NewflashCards { get; set; } = new List<Flashcard>();
-        private string SuperSetTitle { get; set; } = string.Empty;
+        private string SubjectTitle { get; set; } = string.Empty;
         private string SetTitle { get; set; } = string.Empty;
         
         private string frontsTextAreaText;
@@ -75,14 +75,14 @@ namespace FlasherWeb.Pages
                     }
                     Flashcard newFlashCard = new Flashcard()
                     {                        
-                        SupersetId = 1,
-                        SetId = 5,
+                        SubjectId = 1,
+                        CategoryId = 5,
                         Title = _title,
                         Front = newFlashCardFronts[i],
                         Back = newFlashCardBacks[i]
                     };
-                    //TODO: get Superset from webform
-                    //TODO: get set from webform
+                    //TODO: get Subject from webform
+                    //TODO: get Category from webform
                     NewflashCards.Add(newFlashCard);
                     i++;
                 }

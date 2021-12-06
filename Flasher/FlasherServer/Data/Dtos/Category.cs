@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherApi.Data.Dtos
+namespace FlasherServer.Data.Dtos
 {
-    public class Set
+    public class Category
     {        
         public int? Id { get; set; }     
         public string Title { get; set; }    
-        public int SupersetId { get; set; }
+        public int SubjectId { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlasherData.Models;
+using FlasherData.DataModels;
 using FlasherData.Context.EntityConfigurations;
 
 namespace FlasherData.Context
@@ -16,17 +16,17 @@ namespace FlasherData.Context
         public FlasherContext(DbContextOptions<FlasherContext> options) : base(options)
         { }
 
-        public virtual DbSet<SupersetModel> Supersets { get; set; }
-        public virtual DbSet<SetModel> Sets { get; set; }
-        public virtual DbSet<FlashCardModel> FlashCards { get; set; }
+        public virtual DbSet<SubjectDm> SubjectDms { get; set; }
+        public virtual DbSet<CategoryDm> CategoryDms { get; set; }
+        public virtual DbSet<FlashCardDm> FlashCardDms { get; set; }
         
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<SupersetModel>(new SupersetConfig());
-            modelBuilder.ApplyConfiguration<SetModel>(new SetConfig());
-            modelBuilder.ApplyConfiguration<FlashCardModel>(new FlashCardConfig());
+            modelBuilder.ApplyConfiguration<SubjectDm>(new SubjectDmConfig());
+            modelBuilder.ApplyConfiguration<CategoryDm>(new CategoryDmConfig());
+            modelBuilder.ApplyConfiguration<FlashCardDm>(new FlashCardConfig());
         }
 
         

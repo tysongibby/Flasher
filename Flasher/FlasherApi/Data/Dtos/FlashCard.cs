@@ -1,4 +1,4 @@
-﻿using FlasherData.Models;
+﻿using FlasherData.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace FlasherApi.Data.Dtos
         public string Front { get; set; }
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;
-        public int SupersetId { get; set; }
-        public int? SetId { get; set; }        
+        public int SubjectId { get; set; }
+        public int? CategoryId { get; set; }        
     }
 }

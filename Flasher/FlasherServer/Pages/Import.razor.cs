@@ -8,7 +8,7 @@ using FlasherServer.Pages.Models;
 using FlasherServer.Data.Dtos;
 using FlasherData.Repositories.Interfaces;
 using AutoMapper;
-using FlasherData.Models;
+using FlasherData.DataModels;
 
 namespace FlasherServer.Pages
 {
@@ -19,8 +19,8 @@ namespace FlasherServer.Pages
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
         private List<Flashcard> NewflashCards { get; set; } = new List<Flashcard>();
-        private string SuperSetTitle { get; set; } = string.Empty;
-        private string SetTitle { get; set; } = string.Empty;
+        private string SubjectTitle { get; set; } = string.Empty;
+        private string CategoryTitle { get; set; } = string.Empty;
 
         private string frontsTextAreaText;
         private string backsTextAreaText;
@@ -78,14 +78,14 @@ namespace FlasherServer.Pages
                     }
                     Flashcard newFlashCard = new Flashcard()
                     {
-                        SupersetId = 1,
-                        SetId = 5,
+                        SubjectId = 1,
+                        CategoryId = 5,
                         Title = _title,
                         Front = newFlashCardFronts[i],
                         Back = newFlashCardBacks[i]
                     };
-                    //TODO: get Superset from webform
-                    //TODO: get set from webform
+                    //TODO: get Subject from webform
+                    //TODO: get Category from webform
                     NewflashCards.Add(newFlashCard);
                     i++;
                 }
@@ -98,7 +98,7 @@ namespace FlasherServer.Pages
             // add new flash cards to database
             foreach (Flashcard fc in NewflashCards)
             {
-                UnitOfWork.FlashCards.Add(Mapper.Map<FlashCardModel>(fc));
+                UnitOfWork.FlashCardDms.Add(Mapper.Map<FlashCardDm>(fc));
             }
             ResultsTextAreaText = $"{createdFlashCardUrls.Count} flash cards have been added.";
         }

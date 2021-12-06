@@ -1,5 +1,5 @@
 ﻿using FlasherData.Repositories.Interfaces;
-using FlasherData.Models;
+using FlasherData.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +8,9 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SupersetRepository : GenericRepository<SupersetModel>, ISupersetRepository
+    public class SubjectRepository : GenericRepository<SubjectDm>, ISubjectDmRepository
     {
-        public SupersetRepository(FlasherContext context) : base(context) { }
+        public SubjectRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
         {
             get
@@ -19,22 +19,22 @@ namespace FlasherData.Repositories
             }
         }
 
-        public override int Update(SupersetModel supersetUpdate)
+        public override int Update(SubjectDm subjectUpdate)
         {
             try
             {
-                if (supersetUpdate == null)
+                if (subjectUpdate == null)
                 {
                     throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
                 }
                 //TODO: add update entity to BaseRepository.cs if possible                
-                SupersetModel supersetToUpdate = FlasherContext.Supersets.Find(supersetUpdate.Id);
-                if (supersetToUpdate != null)
+                SubjectDm subjectToUpdate = FlasherContext.SubjectDms.Find(subjectUpdate.Id);
+                if (subjectToUpdate != null)
                 {
-                    supersetToUpdate.Title = supersetUpdate.Title;
+                    subjectToUpdate.Title = subjectUpdate.Title;
                     FlasherContext.SaveChangesAsync();
                 }
-                return supersetToUpdate.Id;
+                return subjectToUpdate.Id;
             }
             catch (Exception e)
             {

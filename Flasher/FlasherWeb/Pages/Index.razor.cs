@@ -12,44 +12,26 @@ namespace FlasherWeb.Pages
     public partial class Index
     {
         [Inject]
-        private ISupersetService SupersetService { get; set; }
+        private ISubjectService SubjectService { get; set; }
         [Inject]
-        private ISetService SetService { get; set; }
+        private ICategoryService SetService { get; set; }
         [Inject]
         private IFlashCardService FlashCardService { get; set; }
         private IndexPage IndexPage { get; set; } = new IndexPage();
-        //private List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
-        //private Flashcard Flashcard { get; set; } = new Flashcard();
-        //private int CardIndex { get; set; } = 0;
-        //private bool Front { get; set; } = true;
-        //private string Side { get; set; } = "Front";
-        //private string Title { get; set; } = string.Empty;
-        //private string Body { get; set; } = string.Empty;
-        //private string SupersetTitle { get; set; } = string.Empty;
-        //private List<Superset> Supersets { get; set; } = new List<Superset>();
-        //private string SetTitle { get; set; } = string.Empty;
-        //private List<Set> Sets { get; set; } = new List<Set>();
-        //private string ShowButton { get; set; } = "Back";
-        //private bool AnsweredCorrectly { get; set; } = false;        
-        //private List<Set> SuperSetSelectElements { get; set; } = new List<Set>();
-        //private List<Set> SelectedSets { get; set; } = new List<Set>();
-        //private int SelectedSupersetId { get; set; } = 0;
-        //private int SelectedSetId { get; set; } = 0;
-
 
         protected override async Task OnInitializedAsync()
         {
-            IndexPage.Supersets = await SupersetService.GetAll();
-            IndexPage.Sets = await SetService.GetAll();
+            IndexPage.Subjects = await SubjectService.GetAll();
+            IndexPage.Categories = await SetService.GetAll();
             IndexPage.FlashCards = await FlashCardService.GetAll();
             IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
 
             IndexPage.Body = IndexPage.Flashcard.Front;
             IndexPage.Title = IndexPage.Flashcard.Title;
-            IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.Flashcard.SupersetId).FirstOrDefault().Title;
-            if (IndexPage.Flashcard.SetId is not null && IndexPage.Flashcard.SetId != 0)
+            IndexPage.SubjectTitle = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Title;
+            if (IndexPage.Flashcard.CategoryId is not null && IndexPage.Flashcard.CategoryId != 0)
             {
-                IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.Flashcard.SetId).FirstOrDefault().Title;
+                IndexPage.CategoryTitle = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Title;
             }
             IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;          
         }
@@ -62,8 +44,8 @@ namespace FlasherWeb.Pages
                 {
                     IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
                     IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
-                    IndexPage.SupersetTitle = IndexPage.Supersets.Where(ss => ss.Id == IndexPage.Flashcard.SupersetId).FirstOrDefault().Title;
-                    IndexPage.SetTitle = IndexPage.Sets.Where(s => s.Id == IndexPage.Flashcard.SetId).FirstOrDefault().Title;
+                    IndexPage.SubjectTitle = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Title;
+                    IndexPage.CategoryTitle = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Title;
                 }
                 SetFlashCardFront();
             }
@@ -208,30 +190,14 @@ namespace FlasherWeb.Pages
             IndexPage.ShowButton = "Front";
         }
 
-        private void SetSelectedSuperSet(int id)
+        private void LoadSubjectCategories()
         {
-            throw new NotImplementedException("SetSelectedSuperSet has not yet be implmemented");
+            IndexPage.SelectedCategories = IndexPage.Categories.Where(s => s.SubjectId == IndexPage.SelectedSubjectId).ToList();            
         }
 
-        private void LoadSuperSetSelectElements()
+        private void LoadCategoryFlashCards()
         {
-            throw new NotImplementedException("LoadSuperSetSelectElements has not yet be implmemented");
-        }
-
-        private void LoadSupersetSets()
-        {
-            IndexPage.SelectedSets = IndexPage.Sets.Where(s => s.SupersetId == IndexPage.SelectedSupersetId).ToList();
-            Console.WriteLine($"Sets for SupersetId {IndexPage.SelectedSupersetId} have been loaded.");
-        }
-
-        private void OnselectSupersetSelect(int id)
-        {
-            IndexPage.SelectedSetId = id;
-        }
-
-        private void LoadSetFlashCards()
-        {
-            throw new NotImplementedException("LoadSetFlashCards has not yet be implmemented");
+            throw new NotImplementedException("LoadCategoryFlashCards has not yet be implmemented");
         }
 
         private void Submit()

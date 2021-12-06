@@ -15,16 +15,16 @@ namespace FlasherData.Repositories
         public UnitOfWork(FlasherContext context)
         {
             _context = context;
-            FlashCards = new FlashCardRepository(_context);
-            Sets = new SetRepository(_context);
-            Supersets = new SupersetRepository(_context);
+            FlashCardDms = new FlashCardRepository(_context);
+            CategoryDms = new CategoryRepository(_context);
+            SubjectDms = new SubjectRepository(_context);
         }
 
-        public IFlashCardRepository FlashCards { get; private set; }
+        public IFlashCardDmRepository FlashCardDms { get; private set; }
 
-        public ISetRepository Sets { get; private set; }
+        public ICategoryDmRepository CategoryDms { get; private set; }
 
-        public ISupersetRepository Supersets { get; private set; }
+        public ISubjectDmRepository SubjectDms { get; private set; }
 
         public void Dispose()
         {

@@ -3,7 +3,7 @@ using FlasherServer.Data.Dtos;
 using AutoMapper;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using FlasherData.Models;
+using FlasherData.DataModels;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace FlasherServer.Pages
@@ -16,23 +16,23 @@ namespace FlasherServer.Pages
         private IMapper Mapper { get; set; }
         [Inject]
         NavigationManager NavManager { get; set; }
-        private IList<Superset> Supersets { get; set; } = new List<Superset>();
-        private Superset SelectedSuperset { get; set; } = new Superset();
-        private int SelectedSupersetId { get; set; }
+        private IList<Subject> Subjects { get; set; } = new List<Subject>();
+        private Subject SelectedSubject { get; set; } = new Subject();
+        private int SelectedSubjectId { get; set; }
        
 
         protected override void OnInitialized()
         {
-            IList<SupersetModel> _supersetModels = UnitOfWork.Supersets.GetAll();
-            foreach(SupersetModel _supersetModel in _supersetModels)
+            IList<SubjectDm> _subjectDmModels = UnitOfWork.SubjectDms.GetAll();
+            foreach(SubjectDm _subjectDmModel in _subjectDmModels)
             {
-                Supersets.Add(Mapper.Map<Superset>(_supersetModel));
+                Subjects.Add(Mapper.Map<Subject>(_subjectDmModel));
             }            
         }
 
         private void HandleOnValidSubmit()
         {
-            NavManager.NavigateTo($"/category/{SelectedSupersetId}");
+            NavManager.NavigateTo($"/categoryselect/{SelectedSubjectId}");
         }
     }
 }

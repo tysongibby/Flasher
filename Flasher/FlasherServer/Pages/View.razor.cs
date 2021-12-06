@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FlasherData.Models;
+using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
 using FlasherServer.Data.Dtos;
 using FlasherServer.Pages.Models;
@@ -18,51 +18,34 @@ namespace FlasherServer.Pages
         [Inject]
         private IMapper Mapper { get; set; }
         [Parameter]
-        public List<int> selectsetids { get; set; }
-        private List<int> SelectedSetIds { get; set; }
+        public List<int> selectcategoryids { get; set; }
+        private List<int> SelectedCategoryIds { get; set; }
         private ViewPage ViewPage { get; set; } = new ViewPage();
-        //private List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
-        //private Flashcard Flashcard { get; set; } = new Flashcard();
-        //private int CardIndex { get; set; } = 0;
-        //private bool Front { get; set; } = true;
-        //private string Side { get; set; } = "Front";
-        //private string Title { get; set; } = string.Empty;
-        //private string Body { get; set; } = string.Empty;
-        //private string SupersetTitle { get; set; } = string.Empty;
-        //private List<Superset> Supersets { get; set; } = new List<Superset>();
-        //private string SetTitle { get; set; } = string.Empty;
-        //private List<Set> Sets { get; set; } = new List<Set>();
-        //private string ShowButton { get; set; } = "Back";
-        //private bool AnsweredCorrectly { get; set; } = false;        
-        //private List<Set> SuperSetSelectElements { get; set; } = new List<Set>();
-        //private List<Set> SelectedSets { get; set; } = new List<Set>();
-        //private int SelectedSupersetId { get; set; } = 0;
-        //private int SelectedSetId { get; set; } = 0;
-        
+
 
         protected override void OnInitialized()
         {
-            SelectedSetIds = selectsetids;
-            // get all Supersets from db
-            List<SupersetModel> supersetModels = UnitOfWork.Supersets.GetAll().ToList();
-            foreach (SupersetModel supersetModel in supersetModels)
+            SelectedCategoryIds = selectcategoryids;
+            // get all Subjects from db
+            List<SubjectDm> subjectDms = UnitOfWork.SubjectDms.GetAll().ToList();
+            foreach (SubjectDm subjectDm in subjectDms)
             {
                 // convert data model to dto
-                ViewPage.Supersets.Add(Mapper.Map<Superset>(supersetModel));
+                ViewPage.Subjects.Add(Mapper.Map<Subject>(subjectDm));
             }
-            // get all Sets from db
-            IList<SetModel> setModels = UnitOfWork.Sets.GetAll();
-            foreach (SetModel setModel in setModels)
+            // get all Categories from db
+            IList<CategoryDm> categoryDms = UnitOfWork.CategoryDms.GetAll();
+            foreach (CategoryDm categoryDm in categoryDms)
             {
                 // convert data model to dto
-                ViewPage.Sets.Add(Mapper.Map<Set>(setModel));
+                ViewPage.Categories.Add(Mapper.Map<Category>(categoryDm));
             }
             // get all FlashCards db
-            IList<FlashCardModel> flashCardModels = UnitOfWork.FlashCards.GetAll();
-            foreach (FlashCardModel flashCardModel in flashCardModels)
+            IList<FlashCardDm> flashCardDms = UnitOfWork.FlashCardDms.GetAll();
+            foreach (FlashCardDm flashCardDm in flashCardDms)
             {
                 // convert data model to dto
-                ViewPage.FlashCards.Add(Mapper.Map<Flashcard>(flashCardModel));
+                ViewPage.FlashCards.Add(Mapper.Map<Flashcard>(flashCardDm));
             }
             // get Flashcard to be displayed on page
             ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
@@ -70,10 +53,10 @@ namespace FlasherServer.Pages
             // set data to be displayed on page
             ViewPage.Body = ViewPage.Flashcard.Front;
             ViewPage.Title = ViewPage.Flashcard.Title;
-            ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.Flashcard.SupersetId).FirstOrDefault().Title;
-            if (ViewPage.Flashcard.SetId is not null && ViewPage.Flashcard.SetId != 0)
+            ViewPage.SubjectTitle = ViewPage.Subjects.Where(ss => ss.Id == ViewPage.Flashcard.SubjectId).FirstOrDefault().Title;
+            if (ViewPage.Flashcard.CategoryId is not null && ViewPage.Flashcard.CategoryId != 0)
             {
-                ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.Flashcard.SetId).FirstOrDefault().Title;
+                ViewPage.CategoryTitle = ViewPage.Categories.Where(s => s.Id == ViewPage.Flashcard.CategoryId).FirstOrDefault().Title;
             }
             ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
         }
@@ -86,8 +69,8 @@ namespace FlasherServer.Pages
                 {
                     ViewPage.CardIndex = FindNextIndex(ViewPage.CardIndex);
                     ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
-                    ViewPage.SupersetTitle = ViewPage.Supersets.Where(ss => ss.Id == ViewPage.Flashcard.SupersetId).FirstOrDefault().Title;
-                    ViewPage.SetTitle = ViewPage.Sets.Where(s => s.Id == ViewPage.Flashcard.SetId).FirstOrDefault().Title;
+                    ViewPage.SubjectTitle = ViewPage.Subjects.Where(ss => ss.Id == ViewPage.Flashcard.SubjectId).FirstOrDefault().Title;
+                    ViewPage.CategoryTitle = ViewPage.Categories.Where(s => s.Id == ViewPage.Flashcard.CategoryId).FirstOrDefault().Title;
                 }
                 SetFlashCardFront();
             }
@@ -209,7 +192,7 @@ namespace FlasherServer.Pages
         {
             ViewPage.AnsweredCorrectly = !ViewPage.AnsweredCorrectly;
             ViewPage.Flashcard.AnsweredCorrectly = ViewPage.AnsweredCorrectly;
-            int pk = UnitOfWork.FlashCards.Update(Mapper.Map<FlashCardModel>(ViewPage.Flashcard));
+            int pk = UnitOfWork.FlashCardDms.Update(Mapper.Map<FlashCardDm>(ViewPage.Flashcard));
         }
 
         private void SetFlashCardFront()
@@ -232,30 +215,30 @@ namespace FlasherServer.Pages
             ViewPage.ShowButton = "Front";
         }
 
-        private void SetSelectedSuperSet(int id)
+        private void CategorySelectedSubject(int id)
         {
-            throw new NotImplementedException("SetSelectedSuperSet has not yet be implmemented");
+            throw new NotImplementedException("SetSelectedSubject has not yet be implmemented");
         }
 
-        private void LoadSuperSetSelectElements()
+        private void LoadSubjectElements()
         {
-            throw new NotImplementedException("LoadSuperSetSelectElements has not yet be implmemented");
+            throw new NotImplementedException("LoadSubjectElements has not yet be implmemented");
         }
 
-        private void LoadSupersetSets()
+        private void LoadSubjectCategories()
         {
-            ViewPage.SelectedSets = ViewPage.Sets.Where(s => s.SupersetId == ViewPage.SelectedSupersetId).ToList();
-            Console.WriteLine($"Sets for SupersetId {ViewPage.SelectedSupersetId} have been loaded.");
+            ViewPage.SelectedCategories = ViewPage.Categories.Where(s => s.SubjectId == ViewPage.SelectedSubjectId).ToList();
+            Console.WriteLine($"Categories for Subject with Id of {ViewPage.SelectedSubjectId} have been loaded.");
         }
 
-        private void OnselectSupersetSelect(int id)
+        private void OnSelectedSubjectSelect(int id)
         {
-            ViewPage.SelectedSetId = id;
+            ViewPage.SelectedCategoryId = id;
         }
 
-        private void LoadSetFlashCards()
+        private void LoadCategoryFlashCards()
         {
-            throw new NotImplementedException("LoadSetFlashCards has not yet be implmemented");
+            throw new NotImplementedException("LoadCategoryFlashCards has not yet be implmemented");
         }
 
         private void HandleOnSubmit()

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using FlasherData.Models;
+using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
 using FlasherData;
 using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class FlashCardRepository : GenericRepository<FlashCardModel>, IFlashCardRepository
+    public class FlashCardRepository : GenericRepository<FlashCardDm>, IFlashCardDmRepository
     {       
         public FlashCardRepository(FlasherContext context) : base(context) {}
         public FlasherContext FlasherContext
@@ -22,56 +22,27 @@ namespace FlasherData.Repositories
             }
         }
 
-        //public override int Update(Flashcard flashCardUpdate)
-        //{
-        //    try
-        //    {
-        //        if (flashCardUpdate == null)
-        //        {
-        //            throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-        //        }
-        //        //TODO: add update entity to BaseRepository.cs if possible                
-        //        Flashcard flashCardToUpdate = FlasherContext.FlashCards.Find(flashCardUpdate.Id);
-        //        if (flashCardToUpdate != null)
-        //        {
-        //            flashCardToUpdate.Title = flashCardUpdate.Title;
-        //            flashCardToUpdate.Front = flashCardUpdate.Front;
-        //            flashCardToUpdate.Back = flashCardUpdate.Back;
-        //            flashCardToUpdate.AnsweredCorrectly = flashCardUpdate.AnsweredCorrectly;
-        //            flashCardToUpdate.SupersetId = flashCardUpdate.SupersetId;
-        //            flashCardToUpdate.SetId = flashCardUpdate.SetId;
-        //            FlasherContext.SaveChangesAsync();                    
-        //        }
-        //        return flashCardToUpdate.Id;
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception($"Flash card could not be updated: {e.Message}");
-        //    }
-        //}
-
-        public IEnumerable<FlashCardModel> GetAllFlashCardsInSuperset(int supersetId)
+        public IEnumerable<FlashCardDm> GetAllFlashCardsForSubjectDm(int subjedtDmId)
         {           
-            IEnumerable<FlashCardModel> _flashCards = _context.Set<FlashCardModel>().Where(fc => fc.SupersetId == supersetId);         
+            IEnumerable<FlashCardDm> _flashCards = _context.Set<FlashCardDm>().Where(fc => fc.SubjectDmId == subjedtDmId);         
             return _flashCards;
         }
 
-        public IEnumerable<FlashCardModel> GetAllFlashCardsInSet(int setId)
+        public IEnumerable<FlashCardDm> GetAllFlashCardsForCategoryDm(int categoryDmId)
         {
-            IEnumerable<FlashCardModel> _flashCards = _context.Set<FlashCardModel>().Where(fc => fc.SetId == setId);
+            IEnumerable<FlashCardDm> _flashCards = _context.Set<FlashCardDm>().Where(fc => fc.CategoryDmId == categoryDmId);
             return _flashCards;
         }
 
-        public string GetSupersetTitle(int supersetId)
+        public string GetSubjectDmTitle(int subjectDmId)
         {
-           var title = _context.Set<SupersetModel>().Where(s => s.Id == supersetId).FirstOrDefault().Title;
+           var title = _context.Set<SubjectDm>().Where(s => s.Id == subjectDmId).FirstOrDefault().Title;
            return title;
         }
 
-        public string GetSetTitle(int setId)
+        public string GetCategoryDmTitle(int categoryDmId)
         {
-            var title = _context.Set<SetModel>().Where(s => s.Id == setId).FirstOrDefault().Title;
+            var title = _context.Set<CategoryDm>().Where(s => s.Id == categoryDmId).FirstOrDefault().Title;
             return title;
         }
 

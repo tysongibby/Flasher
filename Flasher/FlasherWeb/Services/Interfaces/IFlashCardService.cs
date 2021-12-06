@@ -10,8 +10,8 @@ namespace FlasherWeb.Services.Interfaces
     {
         Task<Flashcard> Get(int id);
         Task<List<Flashcard>> GetAll();
-        Task<List<Flashcard>> GetAllFlashCardsInSuperset(int id);
-        Task<List<Flashcard>> GetAllFlashCardsInSet(int id);
+        Task<List<Flashcard>> GetAllFlashCardsForSubject(int id);
+        Task<List<Flashcard>> GetAllFlashCardsForCategory(int id);
         Task<string> Create(Flashcard flashCardToCreate);
         Task<string> Update(Flashcard flashCardUpdate);
         Task<string> Delete(Flashcard flashCardToDelete);

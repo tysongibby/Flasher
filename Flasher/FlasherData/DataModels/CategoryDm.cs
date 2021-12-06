@@ -5,18 +5,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherWeb.Services.Models
+namespace FlasherData.DataModels
 {
-    public class Set
+    public class CategoryDm
     {
-       
+        [Key]
         public int Id { get; set; }
-        
-        public string Title { get; set; }
-                
-        public int SupersetId { get; set; }
 
-        //public virtual IEnumerable<Flashcard> FlashCards { get; set; }
+        [Required]
+        public string Title { get; set; }
+        
+        [ForeignKey("Subject")]
+        public int SubjectDmId { get; set; }
+
+        public virtual IEnumerable<FlashCardDm> FlashCardDms { get; set; }
        
     }
 }

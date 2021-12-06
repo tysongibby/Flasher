@@ -49,20 +49,20 @@ namespace FlasherWeb.Services
             }
         }
 
-        public async Task<List<Flashcard>> GetAllFlashCardsInSuperset(int id)
+        public async Task<List<Flashcard>> GetAllFlashCardsForSubject(int id)
         {
             try
             {
-                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsInSuperset");
+                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsInSubject");
                 return flashCards;
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash cards in Superset {id}: ", e);
+                throw new Exception($"Failed to retrieve list of flash cards in Subject {id}: ", e);
             }
         }
 
-        public async Task<List<Flashcard>> GetAllFlashCardsInSet(int id)
+        public async Task<List<Flashcard>> GetAllFlashCardsForCategory(int id)
         {
             try
             {

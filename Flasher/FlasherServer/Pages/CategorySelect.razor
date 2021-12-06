@@ -1,6 +1,6 @@
-﻿@page "/category/{selectedsupersetid}"
+﻿@page "/categoryselect/{selectedsubjectid}"
 
-<EditForm Model="SelectedSet" OnValidSubmit="HandleOnValidSubmit">
+<EditForm Model="SelectedCategory" OnValidSubmit="HandleOnValidSubmit">
     <div class="col">
         <div class="row">
             <h3>The Flasher</h3>
@@ -9,12 +9,12 @@
         </div>
         <div class="row mt-4">
             
-                @foreach (Set set in Sets)
+                @foreach (Category category in Categories)
                 {
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="@set.Id" value="false" @onchange="(args => { CheckboxClicked(set.Id, args.Value); })" />
-                        <label class="form-check-label" for="@set.Title">
-                            @set.Title
+                        <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />
+                        <label class="form-check-label" for="@category.Title">
+                            @category.Title
                         </label>
                     </div>                        
                 }                

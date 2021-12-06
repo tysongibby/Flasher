@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlasherServer.Data.Dtos
 {
-    public class Set
-    {        
-        public int? Id { get; set; }     
-        public string Title { get; set; }    
-        public int SupersetId { get; set; }
+    public class Subject
+    { 
+        public int? Id { get; set; }        
+        public string Title { get; set; } 
     }
 }

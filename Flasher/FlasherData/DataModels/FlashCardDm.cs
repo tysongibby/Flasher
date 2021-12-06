@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlasherData.Models
+namespace FlasherData.DataModels
 {
-    public class FlashCardModel
+    public class FlashCardDm
     {
         [Key]
         public int Id { get; set; }
@@ -19,19 +19,13 @@ namespace FlasherData.Models
         [Required]
         public string Back { get; set; }      
         public bool AnsweredCorrectly { get; set; } = false;
-        
-        //public virtual string Superset { get; set; }
-        //public virtual string Set { get; set; }
-        
+              
         [Required]
-        [ForeignKey("Superset")]
-        public int SupersetId {get; set; }
-
+        [ForeignKey("SubjectDm")]
+        public int SubjectDmId {get; set; }
        
-        [ForeignKey("Set")]
-        public int? SetId { get; set; }
+        [ForeignKey("CategoryDm")]
+        public int? CategoryDmId { get; set; }
 
-        //public virtual Superset Superset { get; set; }
-        //public virtual Superset Set { get; set; }
     }
 }
