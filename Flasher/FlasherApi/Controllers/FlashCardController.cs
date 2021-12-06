@@ -75,7 +75,7 @@ namespace FlasherApi.Controllers
             }
             else
             {
-                return StatusCode(StatusCodes.Status204NoContent, "No flash cards have been created yet.");
+                return StatusCode(StatusCodes.Status204NoContent, "No flashcards have been created yet.");
             }
         }
 
@@ -155,7 +155,7 @@ namespace FlasherApi.Controllers
                     CategoryDmId = flashCardDto.CategoryId
                 };
                 _flashCardRepository.AddAsync(newFlashCardDm);
-                return StatusCode(StatusCodes.Status201Created, "new flash card URL placeholder");  //TODO: add url for new Flashcard to return status
+                return StatusCode(StatusCodes.Status201Created, "new flashcard URL placeholder");  //TODO: add url for new Flashcard to return status
             }
             catch (Exception e)
             {                
@@ -187,7 +187,7 @@ namespace FlasherApi.Controllers
                     }
                     else
                     {
-                        return StatusCode(StatusCodes.Status204NoContent, $"Flash card {flashCardDto.Id} could not be found.");
+                        return StatusCode(StatusCodes.Status204NoContent, $"Flashcard {flashCardDto.Id} could not be found.");
                     }
             }
             catch (Exception e)
@@ -205,11 +205,11 @@ namespace FlasherApi.Controllers
                 if (flashCardDmToDelete is not null)
                 {
                     _flashCardRepository.Remove(flashCardDmToDelete);
-                    return StatusCode(StatusCodes.Status200OK, $"Flash card {id} was deleted.");
+                    return StatusCode(StatusCodes.Status200OK, $"Flashcard {id} was deleted.");
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status204NoContent, $"Flash card {id} could not be found.");
+                    return StatusCode(StatusCodes.Status204NoContent, $"Flashcard {id} could not be found.");
                 }
             }
             catch (Exception e)

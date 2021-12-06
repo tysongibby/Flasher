@@ -89,15 +89,15 @@ namespace FlasherWeb.Pages
             }
             else 
             {
-                throw new Exception($"Flash card fronts and flash card backs must be equal in number:\nFronts = {newFlashCardFronts.Count}, Backs = {newFlashCardBacks.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {newFlashCardFronts.Count}, Backs = {newFlashCardBacks.Count}");
             }
 
-            // add new flash cards to database
+            // add new flashcards to database
             foreach (Flashcard fc in NewflashCards)
             {                
                 CreateFlashCardAsync(fc);                
             }
-            ResultsTextAreaText = $"{createdFlashCardUrls.Count} flash cards have been added.";            
+            ResultsTextAreaText = $"{createdFlashCardUrls.Count} flashcards have been added.";            
         }
 
         private async void CreateFlashCardAsync(Flashcard fc)

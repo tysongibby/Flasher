@@ -32,7 +32,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve flash card subject {id}: ", e);
+                throw new Exception($"Failed to retrieve flashcard subject {id}: ", e);
             }
         }
 
@@ -46,7 +46,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash card subjects: ", e);
+                throw new Exception($"Failed to retrieve list of flashcard subjects: ", e);
             }
         }
 
@@ -60,7 +60,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception("Failed to create new flash card subject: ", e);
+                throw new Exception("Failed to create new flashcard subject: ", e);
             }
         }
 
@@ -74,7 +74,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to update flash card subject {subjectUpdate.Id}: ", e);
+                throw new Exception($"Failed to update flashcard subject {subjectUpdate.Id}: ", e);
             }
         }
         public async Task<string> Delete(Subject subjectToDelete)
@@ -87,7 +87,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to delete flash card subject {subjectToDelete.Id}: ", e);
+                throw new Exception($"Failed to delete flashcard subject {subjectToDelete.Id}: ", e);
             }
         }
     }

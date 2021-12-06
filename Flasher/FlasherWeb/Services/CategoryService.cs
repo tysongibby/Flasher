@@ -45,7 +45,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash card categories: ", e);
+                throw new Exception($"Failed to retrieve list of flashcard categories: ", e);
             }
         }
 
@@ -73,7 +73,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to update flash card category {categoryUpdate.Id}: ", e);
+                throw new Exception($"Failed to update flashcard category {categoryUpdate.Id}: ", e);
             }
         }
         public async Task<string> Delete(Category categoryToDelete)
@@ -86,7 +86,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to delete flash card category {categoryToDelete.Id}: ", e);
+                throw new Exception($"Failed to delete flashcard category {categoryToDelete.Id}: ", e);
             }
         }
     }

@@ -32,7 +32,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve flash card {id}: ", e);
+                throw new Exception($"Failed to retrieve flashcard {id}: ", e);
             }
         }
 
@@ -45,7 +45,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash cards: ", e);
+                throw new Exception($"Failed to retrieve list of flashcards: ", e);
             }
         }
 
@@ -58,7 +58,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash cards in Subject {id}: ", e);
+                throw new Exception($"Failed to retrieve list of flashcards in Subject {id}: ", e);
             }
         }
 
@@ -66,12 +66,12 @@ namespace FlasherWeb.Services
         {
             try
             {
-                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsInSet");
+                List<Flashcard> flashCards = await _httpClient.GetFromJsonAsync<List<Flashcard>>(ControllerSubdirectory + "/GetAllFlashCardsForCategory");
                 return flashCards;
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to retrieve list of flash cards in Set {id}: ", e);
+                throw new Exception($"Failed to retrieve list of flashcards in Category {id}: ", e);
             }
         }
 
@@ -86,7 +86,7 @@ namespace FlasherWeb.Services
             }            
             catch(Exception e)
             {
-                throw new Exception("Failed to create new flash card: ", e);
+                throw new Exception("Failed to create new flashcard: ", e);
             }
     
         }
@@ -103,7 +103,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to update flash card {flashCardUpdate.Id}: ", e);
+                throw new Exception($"Failed to update flashcard {flashCardUpdate.Id}: ", e);
             }
 
         }
@@ -119,7 +119,7 @@ namespace FlasherWeb.Services
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to delete flash card {flashCardToDelete.Id}: ", e);
+                throw new Exception($"Failed to delete flashcard {flashCardToDelete.Id}: ", e);
             }
 
         }

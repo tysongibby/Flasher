@@ -38,7 +38,7 @@ namespace FlasherData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception($"Flash card could not be updated: {e.Message}");
+                throw new Exception($"Flashcard could not be updated: {e.Message}");
             }
 
 
