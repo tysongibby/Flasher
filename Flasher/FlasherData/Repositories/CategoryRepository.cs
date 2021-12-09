@@ -24,7 +24,7 @@ namespace FlasherData.Repositories
             CategoryDm categoryDm = FlasherContext.CategoryDms.FindAsync(id).Result;
             if (categoryDm is not null)
             {
-                SubjectDm subject = await FlasherContext.SubjectDms.FindAsync(categoryDm.SubjectDmId);
+                SubjectDm subject = await FlasherContext.SubjectDms.FindAsync(categoryDm.SubjectId);
                 return subject;
             }
             else

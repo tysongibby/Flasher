@@ -17,14 +17,14 @@ namespace FlasherData.Context.EntityConfigurations
             builder.HasData(
                     new List<CategoryDm>
                     {
-                        new CategoryDm{ Id = 1, Title = "Category1", SubjectDmId = 1},
-                        new CategoryDm{ Id = 2, Title = "Category2", SubjectDmId = 1},
-                        new CategoryDm{ Id = 3, Title = "Category3", SubjectDmId = 1},
-                        new CategoryDm{ Id = 4, Title = "Category4", SubjectDmId = 1},
-                        new CategoryDm{ Id = 5, Title = "Category5", SubjectDmId = 2},
-                        new CategoryDm{ Id = 6, Title = "Category6", SubjectDmId = 2},
-                        new CategoryDm{ Id = 7, Title = "Category7", SubjectDmId = 2},
-                        new CategoryDm{ Id = 8, Title = "Category8", SubjectDmId = 2}
+                        new CategoryDm{ Id = 1, Name = "Category1", SubjectId = 1},
+                        new CategoryDm{ Id = 2, Name = "Category2", SubjectId = 1},
+                        new CategoryDm{ Id = 3, Name = "Category3", SubjectId = 1},
+                        new CategoryDm{ Id = 4, Name = "Category4", SubjectId = 1},
+                        new CategoryDm{ Id = 5, Name = "Category5", SubjectId = 2},
+                        new CategoryDm{ Id = 6, Name = "Category6", SubjectId = 2},
+                        new CategoryDm{ Id = 7, Name = "Category7", SubjectId = 2},
+                        new CategoryDm{ Id = 8, Name = "Category8", SubjectId = 2}
                     }
                 );
 

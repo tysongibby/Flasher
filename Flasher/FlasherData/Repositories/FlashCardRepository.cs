@@ -28,8 +28,8 @@ namespace FlasherData.Repositories
             using (FlasherContext context = new FlasherContext())
             {
                 flashcards = (from category in context.CategoryDms
-                              join flashcard in context.FlashcardDms on category.Id equals flashcard.CategoryDmId
-                              where category.SubjectDmId == subjedtDmId                              
+                              join flashcard in context.FlashcardDms on category.Id equals flashcard.CategoryId
+                              where category.SubjectId == subjedtDmId                              
                               select flashcard).ToList();
             }
             return flashcards;
@@ -37,19 +37,19 @@ namespace FlasherData.Repositories
 
         public IEnumerable<FlashcardDm> GetAllFlashcardsForCategoryDm(int categoryDmId)
         {
-            IEnumerable<FlashcardDm> _flashcards = _context.Set<FlashcardDm>().Where(fc => fc.CategoryDmId == categoryDmId);
+            IEnumerable<FlashcardDm> _flashcards = _context.Set<FlashcardDm>().Where(fc => fc.CategoryId == categoryDmId);
             return _flashcards;
         }
 
         public string GetSubjectDmTitle(int subjectDmId)
         {
-           var title = _context.Set<SubjectDm>().Where(s => s.Id == subjectDmId).FirstOrDefault().Title;
+           var title = _context.Set<SubjectDm>().Where(s => s.Id == subjectDmId).FirstOrDefault().Name;
            return title;
         }
 
         public string GetCategoryDmTitle(int categoryDmId)
         {
-            var title = _context.Set<CategoryDm>().Where(s => s.Id == categoryDmId).FirstOrDefault().Title;
+            var title = _context.Set<CategoryDm>().Where(s => s.Id == categoryDmId).FirstOrDefault().Name;
             return title;
         }
 

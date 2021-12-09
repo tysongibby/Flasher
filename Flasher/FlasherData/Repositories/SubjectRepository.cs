@@ -31,7 +31,7 @@ namespace FlasherData.Repositories
                 SubjectDm subjectToUpdate = FlasherContext.SubjectDms.Find(subjectUpdate.Id);
                 if (subjectToUpdate != null)
                 {
-                    subjectToUpdate.Title = subjectUpdate.Title;
+                    subjectToUpdate.Name = subjectUpdate.Name;
                     FlasherContext.SaveChangesAsync();
                 }
                 return subjectToUpdate.Id;

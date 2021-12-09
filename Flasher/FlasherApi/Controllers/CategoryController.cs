@@ -35,8 +35,8 @@ namespace FlasherApi.Controllers
                     Category categoryDto = new Category()
                     {
                         Id = categoryDm.Id,
-                        Title = categoryDm.Title,
-                        SubjectId = categoryDm.SubjectDmId
+                        Title = categoryDm.Name,
+                        SubjectId = categoryDm.SubjectId
                     };
                     return StatusCode(StatusCodes.Status200OK, categoryDto);
                 }
@@ -62,7 +62,7 @@ namespace FlasherApi.Controllers
                     Subject subjectDto = new Subject()
                     {
                         Id = subjectDm.Id,
-                        Title = subjectDm.Title                        
+                        Title = subjectDm.Name                        
                     };
                     return StatusCode(StatusCodes.Status200OK, subjectDto);
                 }
@@ -91,8 +91,8 @@ namespace FlasherApi.Controllers
                         Category categoryDto = new Category()
                         {
                             Id = s.Id,
-                            Title = s.Title,
-                            SubjectId = s.SubjectDmId
+                            Title = s.Name,
+                            SubjectId = s.SubjectId
                         };
                         categoryDtos.Add(categoryDto);
                     }
@@ -116,8 +116,8 @@ namespace FlasherApi.Controllers
             {
                 CategoryDm newCategoryDm = new CategoryDm()
                 {
-                    Title = newCategoryDto.Title,
-                    SubjectDmId = newCategoryDto.SubjectId
+                    Name = newCategoryDto.Title,
+                    SubjectId = newCategoryDto.SubjectId
                 };
                 _categoryDmRepository.AddAsync(newCategoryDm);
                 return StatusCode(StatusCodes.Status201Created); //TODO: add url for new CategoryDm to return status            
@@ -140,8 +140,8 @@ namespace FlasherApi.Controllers
                         CategoryDm categoryDmUpdate = new CategoryDm()
                         {
                             Id = (int)categoryDtoUpdate.Id,
-                            Title = categoryDtoUpdate.Title,
-                            SubjectDmId = categoryDtoUpdate.SubjectId
+                            Name = categoryDtoUpdate.Title,
+                            SubjectId = categoryDtoUpdate.SubjectId
                         };
                         _categoryDmRepository.Update(categoryDmUpdate);
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated CategoryDm to return status 

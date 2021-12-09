@@ -17,14 +17,14 @@ namespace FlasherData.Context.EntityConfigurations
             builder.HasData(
                     new List<SubjectDm>
                     {
-                        new SubjectDm{ Id = 1, Title = "Subject1"},
-                        new SubjectDm{ Id = 2, Title = "Subject2"},
-                        new SubjectDm{ Id = 3, Title = "Subject3"},
-                        new SubjectDm{ Id = 4, Title = "Subject4"},
-                        new SubjectDm{ Id = 5, Title = "Subject5"},
-                        new SubjectDm{ Id = 6, Title = "Subject6"},
-                        new SubjectDm{ Id = 7, Title = "Subject7"},
-                        new SubjectDm{ Id = 8, Title = "Subject8"}
+                        new SubjectDm{ Id = 1, Name = "Subject1"},
+                        new SubjectDm{ Id = 2, Name = "Subject2"},
+                        new SubjectDm{ Id = 3, Name = "Subject3"},
+                        new SubjectDm{ Id = 4, Name = "Subject4"},
+                        new SubjectDm{ Id = 5, Name = "Subject5"},
+                        new SubjectDm{ Id = 6, Name = "Subject6"},
+                        new SubjectDm{ Id = 7, Name = "Subject7"},
+                        new SubjectDm{ Id = 8, Name = "Subject8"}
                     }
                 );
 

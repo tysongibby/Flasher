@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // Used to designate smaller segments of a subject of study
     // Child of Subject, Parent of Flashcard
     [Table("Categories")]
     public class CategoryDm
@@ -15,15 +16,14 @@ namespace FlasherData.DataModels
         public int Id { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        [ForeignKey("Subject")]
-        [Column("SubjectId")]
-        public int SubjectDmId { get; set; }
+        [ForeignKey("Subject")]        
+        public int SubjectId { get; set; }
 
         // Navigation property for Flashcard FK relation
-        public ICollection<FlashcardDm> FlashcardsDm { get; set; }        
+        public ICollection<FlashcardDm> Flashcards { get; set; }        
 
     }
 }

@@ -33,11 +33,11 @@ namespace FlasherApi.Controllers
             if (flashcardDm is not null && flashcardDm.Id != 0)
             {            
                 flashcardDto.Id = flashcardDm.Id;
-                flashcardDto.Title = flashcardDm.Title;
+                flashcardDto.Title = flashcardDm.Name;
                 flashcardDto.Front = flashcardDm.Front;
                 flashcardDto.Back = flashcardDm.Back;
                 flashcardDto.AnsweredCorrectly = flashcardDm.AnsweredCorrectly;                
-                flashcardDto.CategoryId = flashcardDm.CategoryDmId;
+                flashcardDto.CategoryId = flashcardDm.CategoryId;
                 return StatusCode(StatusCodes.Status200OK, flashcardDto);
             }
             else
@@ -60,11 +60,11 @@ namespace FlasherApi.Controllers
                     Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
-                        Title = fc.Title,
+                        Title = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,                        
-                        CategoryId = fc.CategoryDmId
+                        CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
                 }
@@ -89,11 +89,11 @@ namespace FlasherApi.Controllers
                     Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
-                        Title = fc.Title,
+                        Title = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,                        
-                        CategoryId = fc.CategoryDmId
+                        CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
                 }
@@ -119,11 +119,11 @@ namespace FlasherApi.Controllers
                     Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
-                        Title = fc.Title,
+                        Title = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,
-                        CategoryId = fc.CategoryDmId
+                        CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
                 }
@@ -143,11 +143,11 @@ namespace FlasherApi.Controllers
             {
                 FlashcardDm newFlashcardDm = new FlashcardDm()
                 {
-                    Title = flashcardDto.Title,
+                    Name = flashcardDto.Title,
                     Front = flashcardDto.Front,
                     Back = flashcardDto.Back,
                     AnsweredCorrectly = false,
-                    CategoryDmId = flashcardDto.CategoryId
+                    CategoryId = flashcardDto.CategoryId
                 };
                 _flashcardRepository.AddAsync(newFlashcardDm);
                 return StatusCode(StatusCodes.Status201Created, "new flashcard URL placeholder");  //TODO: add url for new Flashcard to return status
@@ -169,11 +169,11 @@ namespace FlasherApi.Controllers
                         FlashcardDm newFlashcardDm = new FlashcardDm()
                         {
                             Id = (int)flashcardDto.Id,
-                            Title = flashcardDto.Title,
+                            Name = flashcardDto.Title,
                             Front = flashcardDto.Front,
                             Back = flashcardDto.Back,
                             AnsweredCorrectly = flashcardDto.AnsweredCorrectly,
-                            CategoryDmId = flashcardDto.CategoryId
+                            CategoryId = flashcardDto.CategoryId
                         };
                         int pk = _flashcardRepository.Update(newFlashcardDm);
                         return StatusCode(StatusCodes.Status200OK, ""); //TODO: replace update message with url for updated Flashcard

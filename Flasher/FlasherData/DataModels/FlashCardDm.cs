@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // Used to faciliate the study of a question or word in a question (front of card) and answer (back of card) format
     // Child of Category
     [Table("Flashcards")]
     public class FlashcardDm
@@ -16,7 +17,7 @@ namespace FlasherData.DataModels
         public int Id { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Front { get; set; }
@@ -27,9 +28,11 @@ namespace FlasherData.DataModels
         public bool AnsweredCorrectly { get; set; } = false;
 
         [Required]
-        [ForeignKey("Category")]
-        [Column("CategoryId")]
-        public int CategoryDmId { get; set; }
+        [ForeignKey("Category")]        
+        public int CategoryId { get; set; }
+
+        // Navigation property for Question FK relation
+        ICollection<QuestionDm> Questions { get; set; }
 
     }
 }
