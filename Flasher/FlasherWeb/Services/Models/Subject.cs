@@ -13,7 +13,7 @@ namespace FlasherWeb.Services.Models
        
         public string Title { get; set; }
 
-        //public virtual IEnumerable<Flashcard> FlashCards { get; set; }
+        //public virtual IEnumerable<Flashcard> Flashcards { get; set; }
        
     }
 }

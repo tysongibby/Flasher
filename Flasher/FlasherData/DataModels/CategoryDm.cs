@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    [Table("Categories")]
     public class CategoryDm
     {
-        [Key]
+        [Key]        
         public int Id { get; set; }
 
         [Required]
         public string Title { get; set; }
-        
+
+        [Required]
         [ForeignKey("Subject")]
+        [Column("SubjectId")]
         public int SubjectDmId { get; set; }
 
-        public virtual IEnumerable<FlashCardDm> FlashCardDms { get; set; }
-       
+        // Navigation property for Flashcard FK relation
+        public ICollection<FlashcardDm> FlashcardsDm { get; set; }
+        //public virtual IEnumerable<FlashcardDm> FlashcardsDm { get; set; }
+
     }
 }

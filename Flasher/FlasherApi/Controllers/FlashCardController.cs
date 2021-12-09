@@ -14,32 +14,31 @@ namespace FlasherApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class FlashCardController : ControllerBase
+    public class FlashcardController : ControllerBase
     {
-        private readonly ILogger<FlashCardController> _logger;
-        private readonly IFlashCardDmRepository _flashCardRepository;
+        private readonly ILogger<FlashcardController> _logger;
+        private readonly IFlashcardDmRepository _flashcardRepository;
 
-        public FlashCardController(ILogger<FlashCardController> logger, IFlashCardDmRepository flashCardRepository)
+        public FlashcardController(ILogger<FlashcardController> logger, IFlashcardDmRepository flashcardRepository)
         {
             _logger = logger;
-            _flashCardRepository = flashCardRepository;
+            _flashcardRepository = flashcardRepository;
         }
 
         [HttpGet]
         public ActionResult<Flashcard> Get(int id)
         {
-            FlashCardDm flashcardDm = _flashCardRepository.GetAsync(id).Result;
-            Flashcard flashCardDto = new Flashcard();            
+            FlashcardDm flashcardDm = _flashcardRepository.GetAsync(id).Result;
+            Flashcard flashcardDto = new Flashcard();            
             if (flashcardDm is not null && flashcardDm.Id != 0)
             {            
-                flashCardDto.Id = flashcardDm.Id;
-                flashCardDto.Title = flashcardDm.Title;
-                flashCardDto.Front = flashcardDm.Front;
-                flashCardDto.Back = flashcardDm.Back;
-                flashCardDto.AnsweredCorrectly = flashcardDm.AnsweredCorrectly;
-                flashCardDto.SubjectId = flashcardDm.SubjectDmId;
-                flashCardDto.CategoryId = flashcardDm.CategoryDmId;
-                return StatusCode(StatusCodes.Status200OK, flashCardDto);
+                flashcardDto.Id = flashcardDm.Id;
+                flashcardDto.Title = flashcardDm.Title;
+                flashcardDto.Front = flashcardDm.Front;
+                flashcardDto.Back = flashcardDm.Back;
+                flashcardDto.AnsweredCorrectly = flashcardDm.AnsweredCorrectly;                
+                flashcardDto.CategoryId = flashcardDm.CategoryDmId;
+                return StatusCode(StatusCodes.Status200OK, flashcardDto);
             }
             else
             {
@@ -50,28 +49,27 @@ namespace FlasherApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Flashcard>> GetAll()
         {
-            List<FlashCardDm> flashCardDms = _flashCardRepository.GetAllAsync().Result.ToList();
-            List<Flashcard> flashCardDtos = new List<Flashcard>();
-            if (flashCardDms is not null)
+            List<FlashcardDm> flashcardDms = _flashcardRepository.GetAllAsync().Result.ToList();
+            List<Flashcard> flashcardDtos = new List<Flashcard>();
+            if (flashcardDms is not null)
             {
 
 
-                foreach (FlashCardDm fc in flashCardDms)
+                foreach (FlashcardDm fc in flashcardDms)
                 {
-                    Flashcard flashCardDto = new Flashcard()
+                    Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
                         Front = fc.Front,
                         Back = fc.Back,
-                        AnsweredCorrectly = fc.AnsweredCorrectly,
-                        SubjectId = fc.SubjectDmId,
+                        AnsweredCorrectly = fc.AnsweredCorrectly,                        
                         CategoryId = fc.CategoryDmId
                     };
-                    flashCardDtos.Add(flashCardDto);
+                    flashcardDtos.Add(flashcardDto);
                 }
 
-                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
+                return StatusCode(StatusCodes.Status200OK, flashcardDtos);
             }
             else
             {
@@ -80,28 +78,27 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Flashcard>> GetAllFlashCardsForSubject(int id)
+        public ActionResult<List<Flashcard>> GetAllFlashcardsForSubject(int id)
         {
-            List<Flashcard> flashCardDtos = new List<Flashcard>();
-            List<FlashCardDm> flashCards = _flashCardRepository.GetAllFlashCardsForSubjectDm(id).ToList();            
-            if (flashCards is not null && flashCards.Count > 0)
+            List<Flashcard> flashcardDtos = new List<Flashcard>();
+            List<FlashcardDm> flashcards = _flashcardRepository.GetAllFlashcardsForSubjectDm(id).ToList();            
+            if (flashcards is not null && flashcards.Count > 0)
             {
-                foreach (FlashCardDm fc in flashCards)
+                foreach (FlashcardDm fc in flashcards)
                 {                    
-                    Flashcard flashCardDto = new Flashcard()
+                    Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
                         Front = fc.Front,
                         Back = fc.Back,
-                        AnsweredCorrectly = fc.AnsweredCorrectly,
-                        SubjectId = fc.SubjectDmId,
+                        AnsweredCorrectly = fc.AnsweredCorrectly,                        
                         CategoryId = fc.CategoryDmId
                     };
-                    flashCardDtos.Add(flashCardDto);
+                    flashcardDtos.Add(flashcardDto);
                 }
 
-                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
+                return StatusCode(StatusCodes.Status200OK, flashcardDtos);
             }
             else
             {
@@ -110,29 +107,28 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Flashcard>> GetAllFlashCardsInCategory(int categoryId)
+        public ActionResult<List<Flashcard>> GetAllFlashcardsInCategory(int categoryId)
         {
-            List<Flashcard> flashCardDtos = new List<Flashcard>();
-            List<FlashCardDm> flashCardDms = _flashCardRepository.GetAllFlashCardsForCategoryDm(categoryId).ToList();
+            List<Flashcard> flashcardDtos = new List<Flashcard>();
+            List<FlashcardDm> flashcardDms = _flashcardRepository.GetAllFlashcardsForCategoryDm(categoryId).ToList();
             
-            if (flashCardDms is not null && flashCardDms.Count > 0)
+            if (flashcardDms is not null && flashcardDms.Count > 0)
             {
-                foreach (FlashCardDm fc in flashCardDms)
+                foreach (FlashcardDm fc in flashcardDms)
                 {
-                    Flashcard flashCardDto = new Flashcard()
+                    Flashcard flashcardDto = new Flashcard()
                     {
                         Id = fc.Id,
                         Title = fc.Title,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,
-                        SubjectId = fc.SubjectDmId,
                         CategoryId = fc.CategoryDmId
                     };
-                    flashCardDtos.Add(flashCardDto);
+                    flashcardDtos.Add(flashcardDto);
                 }
 
-                return StatusCode(StatusCodes.Status200OK, flashCardDtos);
+                return StatusCode(StatusCodes.Status200OK, flashcardDtos);
             }
             else
             {
@@ -141,20 +137,19 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(Flashcard flashCardDto)
+        public ActionResult<string> Create(Flashcard flashcardDto)
         {
             try
             {
-                FlashCardDm newFlashCardDm = new FlashCardDm()
+                FlashcardDm newFlashcardDm = new FlashcardDm()
                 {
-                    Title = flashCardDto.Title,
-                    Front = flashCardDto.Front,
-                    Back = flashCardDto.Back,
+                    Title = flashcardDto.Title,
+                    Front = flashcardDto.Front,
+                    Back = flashcardDto.Back,
                     AnsweredCorrectly = false,
-                    SubjectDmId = flashCardDto.SubjectId,
-                    CategoryDmId = flashCardDto.CategoryId
+                    CategoryDmId = flashcardDto.CategoryId
                 };
-                _flashCardRepository.AddAsync(newFlashCardDm);
+                _flashcardRepository.AddAsync(newFlashcardDm);
                 return StatusCode(StatusCodes.Status201Created, "new flashcard URL placeholder");  //TODO: add url for new Flashcard to return status
             }
             catch (Exception e)
@@ -164,30 +159,29 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Update(Flashcard flashCardDto)
+        public ActionResult<string> Update(Flashcard flashcardDto)
         {
             try
             {
-                    if (_flashCardRepository.ExistsAsync((int)flashCardDto.Id).Result)
+                    if (_flashcardRepository.ExistsAsync((int)flashcardDto.Id).Result)
                     {
 
-                        FlashCardDm newFlashCardDm = new FlashCardDm()
+                        FlashcardDm newFlashcardDm = new FlashcardDm()
                         {
-                            Id = (int)flashCardDto.Id,
-                            Title = flashCardDto.Title,
-                            Front = flashCardDto.Front,
-                            Back = flashCardDto.Back,
-                            AnsweredCorrectly = flashCardDto.AnsweredCorrectly,
-                            SubjectDmId = flashCardDto.SubjectId,
-                            CategoryDmId = flashCardDto.CategoryId
+                            Id = (int)flashcardDto.Id,
+                            Title = flashcardDto.Title,
+                            Front = flashcardDto.Front,
+                            Back = flashcardDto.Back,
+                            AnsweredCorrectly = flashcardDto.AnsweredCorrectly,
+                            CategoryDmId = flashcardDto.CategoryId
                         };
-                        int pk = _flashCardRepository.Update(newFlashCardDm);
+                        int pk = _flashcardRepository.Update(newFlashcardDm);
                         return StatusCode(StatusCodes.Status200OK, ""); //TODO: replace update message with url for updated Flashcard
 
                     }
                     else
                     {
-                        return StatusCode(StatusCodes.Status204NoContent, $"Flashcard {flashCardDto.Id} could not be found.");
+                        return StatusCode(StatusCodes.Status204NoContent, $"Flashcard {flashcardDto.Id} could not be found.");
                     }
             }
             catch (Exception e)
@@ -201,10 +195,10 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                FlashCardDm flashCardDmToDelete = _flashCardRepository.Where(fc => fc.Id == id).FirstOrDefault();
-                if (flashCardDmToDelete is not null)
+                FlashcardDm flashcardDmToDelete = _flashcardRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                if (flashcardDmToDelete is not null)
                 {
-                    _flashCardRepository.Remove(flashCardDmToDelete);
+                    _flashcardRepository.Remove(flashcardDmToDelete);
                     return StatusCode(StatusCodes.Status200OK, $"Flashcard {id} was deleted.");
                 }
                 else

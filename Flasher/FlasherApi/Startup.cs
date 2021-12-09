@@ -48,7 +48,7 @@ namespace FlasherApi
             
 
             // Dependency Injection
-            services.AddScoped<IFlashCardDmRepository, FlashCardRepository>();
+            services.AddScoped<IFlashcardDmRepository, FlashcardRepository>();
             services.AddScoped<ISubjectDmRepository, SubjectRepository>();
             services.AddScoped<ICategoryDmRepository, CategoryRepository>();
 

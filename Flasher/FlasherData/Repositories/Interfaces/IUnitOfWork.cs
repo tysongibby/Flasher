@@ -9,7 +9,7 @@ namespace FlasherData.Repositories.Interfaces
     public interface IUnitOfWork : IDisposable, IAsyncDisposable
     {
         
-        IFlashCardDmRepository FlashCardDms { get; }
+        IFlashcardDmRepository FlashcardDms { get; }
         ICategoryDmRepository CategoryDms { get; }
         ISubjectDmRepository SubjectDms { get; }
 

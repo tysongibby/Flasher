@@ -9,7 +9,7 @@ namespace FlasherWeb.Pages.Models
     public class IndexPage
     {
         public Flashcard Flashcard { get; set; } = new Flashcard();
-        public List<Flashcard> FlashCards { get; set; } = new List<Flashcard>();
+        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
         public int CardIndex { get; set; } = 0;
         public bool Front { get; set; } = true;
         public string Side { get; set; } = "Front";

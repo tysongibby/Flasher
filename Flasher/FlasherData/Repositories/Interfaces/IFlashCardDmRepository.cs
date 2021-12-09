@@ -7,10 +7,10 @@ using FlasherData.DataModels;
 
 namespace FlasherData.Repositories.Interfaces
 {
-    public interface IFlashCardDmRepository : IGenericRepository<FlashCardDm>
+    public interface IFlashcardDmRepository : IGenericRepository<FlashcardDm>
     {        
-        public IEnumerable<FlashCardDm> GetAllFlashCardsForSubjectDm(int subjectId);
-        public IEnumerable<FlashCardDm> GetAllFlashCardsForCategoryDm(int categoryId);
+        public IEnumerable<FlashcardDm> GetAllFlashcardsForSubjectDm(int subjectId);
+        public IEnumerable<FlashcardDm> GetAllFlashcardsForCategoryDm(int categoryId);
         public string GetSubjectDmTitle(int subjectId);
         public string GetCategoryDmTitle(int categoryId);
     }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace FlasherWeb.Services.Interfaces
 {
-    public interface IFlashCardService
+    public interface IFlashcardService
     {
         Task<Flashcard> Get(int id);
         Task<List<Flashcard>> GetAll();
-        Task<List<Flashcard>> GetAllFlashCardsForSubject(int id);
-        Task<List<Flashcard>> GetAllFlashCardsForCategory(int id);
-        Task<string> Create(Flashcard flashCardToCreate);
-        Task<string> Update(Flashcard flashCardUpdate);
-        Task<string> Delete(Flashcard flashCardToDelete);
+        Task<List<Flashcard>> GetAllFlashcardsForSubject(int id);
+        Task<List<Flashcard>> GetAllFlashcardsForCategory(int id);
+        Task<string> Create(Flashcard flashcardToCreate);
+        Task<string> Update(Flashcard flashcardUpdate);
+        Task<string> Delete(Flashcard flashcardToDelete);
     }
 }

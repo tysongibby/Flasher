@@ -18,13 +18,13 @@ namespace FlasherServer.Pages
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
-        private List<Flashcard> NewflashCards { get; set; } = new List<Flashcard>();
+        private List<Flashcard> Newflashcards { get; set; } = new List<Flashcard>();
         private string SubjectTitle { get; set; } = string.Empty;
         private string CategoryTitle { get; set; } = string.Empty;
 
         private string frontsTextAreaText;
         private string backsTextAreaText;
-        List<string> createdFlashCardUrls = new List<string>();
+        List<string> createdFlashcardUrls = new List<string>();
         
 
         [Inject]
@@ -62,45 +62,45 @@ namespace FlasherServer.Pages
 
         public void Submit(string textForFronts, string textForBacks)
         {
-            List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
-            List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
+            List<string> newFlashcardFronts = textForFronts.Split('■').ToList();
+            List<string> newFlashcardBacks = textForBacks.Split('■').ToList();
             Regex titleRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
 
-            if (newFlashCardFronts.Count == newFlashCardBacks.Count)
+            if (newFlashcardFronts.Count == newFlashcardBacks.Count)
             {
                 int i = 0;
-                while (i <= (newFlashCardFronts.Count - 1))
+                while (i <= (newFlashcardFronts.Count - 1))
                 {
-                    string _title = titleRegEx.Match(newFlashCardFronts[i]).ToString();
+                    string _title = titleRegEx.Match(newFlashcardFronts[i]).ToString();
                     if (_title is null || _title == string.Empty)
                     {
                         _title = "Temp Title";
                     }
-                    Flashcard newFlashCard = new Flashcard()
+                    Flashcard newFlashcard = new Flashcard()
                     {
                         SubjectId = 1,
                         CategoryId = 5,
                         Title = _title,
-                        Front = newFlashCardFronts[i],
-                        Back = newFlashCardBacks[i]
+                        Front = newFlashcardFronts[i],
+                        Back = newFlashcardBacks[i]
                     };
                     //TODO: get Subject from webform
                     //TODO: get Category from webform
-                    NewflashCards.Add(newFlashCard);
+                    Newflashcards.Add(newFlashcard);
                     i++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {newFlashCardFronts.Count}, Backs = {newFlashCardBacks.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {newFlashcardFronts.Count}, Backs = {newFlashcardBacks.Count}");
             }
 
             // add new flashcards to database
-            foreach (Flashcard fc in NewflashCards)
+            foreach (Flashcard fc in Newflashcards)
             {
-                UnitOfWork.FlashCardDms.Add(Mapper.Map<FlashCardDm>(fc));
+                UnitOfWork.FlashcardDms.Add(Mapper.Map<FlashcardDm>(fc));
             }
-            ResultsTextAreaText = $"{createdFlashCardUrls.Count} flashcards have been added.";
+            ResultsTextAreaText = $"{createdFlashcardUrls.Count} flashcards have been added.";
         }
 
 

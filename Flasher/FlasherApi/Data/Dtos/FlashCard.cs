@@ -15,6 +15,6 @@ namespace FlasherApi.Data.Dtos
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;
         public int SubjectId { get; set; }
-        public int? CategoryId { get; set; }        
+        public int CategoryId { get; set; }        
     }
 }

@@ -16,7 +16,7 @@ namespace FlasherWeb.Services.Models
                 
         public int SubjectId { get; set; }
 
-        //public virtual IEnumerable<Flashcard> FlashCards { get; set; }
+        //public virtual IEnumerable<Flashcard> Flashcards { get; set; }
        
     }
 }

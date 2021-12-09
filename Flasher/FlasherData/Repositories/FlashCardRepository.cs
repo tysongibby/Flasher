@@ -11,9 +11,9 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class FlashCardRepository : GenericRepository<FlashCardDm>, IFlashCardDmRepository
+    public class FlashcardRepository : GenericRepository<FlashcardDm>, IFlashcardDmRepository
     {       
-        public FlashCardRepository(FlasherContext context) : base(context) {}
+        public FlashcardRepository(FlasherContext context) : base(context) {}
         public FlasherContext FlasherContext
         {
             get
@@ -22,16 +22,23 @@ namespace FlasherData.Repositories
             }
         }
 
-        public IEnumerable<FlashCardDm> GetAllFlashCardsForSubjectDm(int subjedtDmId)
-        {           
-            IEnumerable<FlashCardDm> _flashCards = _context.Set<FlashCardDm>().Where(fc => fc.SubjectDmId == subjedtDmId);         
-            return _flashCards;
+        public IEnumerable<FlashcardDm> GetAllFlashcardsForSubjectDm(int subjedtDmId)
+        {
+            List<FlashcardDm> flashcards = new List<FlashcardDm>();
+            using (FlasherContext context = new FlasherContext())
+            {
+                flashcards = (from category in context.CategoryDms
+                              join flashcard in context.FlashcardDms on category.Id equals flashcard.CategoryDmId
+                              where category.SubjectDmId == subjedtDmId                              
+                              select flashcard).ToList();
+            }
+            return flashcards;
         }
 
-        public IEnumerable<FlashCardDm> GetAllFlashCardsForCategoryDm(int categoryDmId)
+        public IEnumerable<FlashcardDm> GetAllFlashcardsForCategoryDm(int categoryDmId)
         {
-            IEnumerable<FlashCardDm> _flashCards = _context.Set<FlashCardDm>().Where(fc => fc.CategoryDmId == categoryDmId);
-            return _flashCards;
+            IEnumerable<FlashcardDm> _flashcards = _context.Set<FlashcardDm>().Where(fc => fc.CategoryDmId == categoryDmId);
+            return _flashcards;
         }
 
         public string GetSubjectDmTitle(int subjectDmId)

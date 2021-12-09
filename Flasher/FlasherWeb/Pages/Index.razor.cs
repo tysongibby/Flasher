@@ -16,15 +16,15 @@ namespace FlasherWeb.Pages
         [Inject]
         private ICategoryService SetService { get; set; }
         [Inject]
-        private IFlashCardService FlashCardService { get; set; }
+        private IFlashcardService FlashcardService { get; set; }
         private IndexPage IndexPage { get; set; } = new IndexPage();
 
         protected override async Task OnInitializedAsync()
         {
             IndexPage.Subjects = await SubjectService.GetAll();
             IndexPage.Categories = await SetService.GetAll();
-            IndexPage.FlashCards = await FlashCardService.GetAll();
-            IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
+            IndexPage.Flashcards = await FlashcardService.GetAll();
+            IndexPage.Flashcard = IndexPage.Flashcards[IndexPage.CardIndex];
 
             IndexPage.Body = IndexPage.Flashcard.Front;
             IndexPage.Title = IndexPage.Flashcard.Title;
@@ -36,41 +36,41 @@ namespace FlasherWeb.Pages
             IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;          
         }
 
-        private void NextFlashCard()
+        private void NextFlashcard()
         {
-            if (IndexPage.CardIndex < IndexPage.FlashCards.Count - 1)
+            if (IndexPage.CardIndex < IndexPage.Flashcards.Count - 1)
             {
-                if (IndexPage.CardIndex != IndexPage.FlashCards.Count - 1)
+                if (IndexPage.CardIndex != IndexPage.Flashcards.Count - 1)
                 {
                     IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
-                    IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];
+                    IndexPage.Flashcard = IndexPage.Flashcards[IndexPage.CardIndex];
                     IndexPage.SubjectTitle = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Title;
                     IndexPage.CategoryTitle = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Title;
                 }
-                SetFlashCardFront();
+                SetFlashcardFront();
             }
             IndexPage.Counter++;
         }
 
-        private void LastFlashCard()
+        private void LastFlashcard()
         {
             if (IndexPage.CardIndex >= 0 )
             {
                 if (IndexPage.CardIndex != 0)
                 {
                     IndexPage.CardIndex = FindPreviousIndex(IndexPage.CardIndex);
-                    IndexPage.Flashcard = IndexPage.FlashCards[IndexPage.CardIndex];                        
+                    IndexPage.Flashcard = IndexPage.Flashcards[IndexPage.CardIndex];                        
                 }
-                SetFlashCardFront();
+                SetFlashcardFront();
             }
         }
 
-        // Finds index of next Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of next Flashcard in Flashcards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindNextIndex(int currentIndex)
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
             int _lastIncorrectAnswerIndex = -100;
-            if (IndexPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            if (IndexPage.Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _lastIncorrectAnswerIndex = currentIndex; 
             }
@@ -79,7 +79,7 @@ namespace FlasherWeb.Pages
                 int x = currentIndex;
                 while (_lastIncorrectAnswerIndex == -100 && x > 0) 
                 {
-                    if (IndexPage.FlashCards[x].AnsweredCorrectly == false)
+                    if (IndexPage.Flashcards[x].AnsweredCorrectly == false)
                     {
                         _lastIncorrectAnswerIndex = currentIndex;                        
                     }
@@ -93,9 +93,9 @@ namespace FlasherWeb.Pages
             // returns the index of the next incorrect answer (AnsweredCorrectly == false)
             // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
             int i = currentIndex;
-            while ( i <= IndexPage.FlashCards.Count - 1)
+            while ( i <= IndexPage.Flashcards.Count - 1)
             {
-                if (i != currentIndex && IndexPage.FlashCards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && IndexPage.Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -108,21 +108,21 @@ namespace FlasherWeb.Pages
             
         }
 
-        // Finds index of previous Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of previous Flashcard in Flashcards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindPreviousIndex(int currentIndex)
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
             int _latestIncorrectAnswerIndex = -100;
-            if (IndexPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            if (IndexPage.Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _latestIncorrectAnswerIndex = currentIndex;
             }
             else
             {
                 int x = currentIndex;
-                while (_latestIncorrectAnswerIndex == -100 && x < IndexPage.FlashCards.Count - 1)
+                while (_latestIncorrectAnswerIndex == -100 && x < IndexPage.Flashcards.Count - 1)
                 {
-                    if (IndexPage.FlashCards[x].AnsweredCorrectly == false)
+                    if (IndexPage.Flashcards[x].AnsweredCorrectly == false)
                     {
                         _latestIncorrectAnswerIndex = currentIndex;
                     }
@@ -138,7 +138,7 @@ namespace FlasherWeb.Pages
             int i = currentIndex;
             while (i >= 0)
             {
-                if (i != currentIndex && IndexPage.FlashCards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && IndexPage.Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -150,16 +150,16 @@ namespace FlasherWeb.Pages
             return _latestIncorrectAnswerIndex;
         }
 
-        private void FlipFlashCard()
+        private void FlipFlashcard()
         {
             IndexPage.Front = !IndexPage.Front;
             if (IndexPage.Front == true)
             {
-                SetFlashCardFront();                
+                SetFlashcardFront();                
             }
             else
             {
-                SetFlashCardBack();
+                SetFlashcardBack();
             }
         }
 
@@ -167,10 +167,10 @@ namespace FlasherWeb.Pages
         {
             IndexPage.AnsweredCorrectly = !IndexPage.AnsweredCorrectly;
             IndexPage.Flashcard.AnsweredCorrectly = IndexPage.AnsweredCorrectly;
-            await FlashCardService.Update(IndexPage.Flashcard);
+            await FlashcardService.Update(IndexPage.Flashcard);
         }
 
-        private void SetFlashCardFront()
+        private void SetFlashcardFront()
         {
 
             IndexPage.Title = IndexPage.Flashcard.Title;
@@ -180,7 +180,7 @@ namespace FlasherWeb.Pages
             IndexPage.ShowButton = "Back";
         }
 
-        private void SetFlashCardBack()
+        private void SetFlashcardBack()
         {
 
             IndexPage.Title = IndexPage.Flashcard.Title;
@@ -195,9 +195,9 @@ namespace FlasherWeb.Pages
             IndexPage.SelectedCategories = IndexPage.Categories.Where(s => s.SubjectId == IndexPage.SelectedSubjectId).ToList();            
         }
 
-        private void LoadCategoryFlashCards()
+        private void LoadCategoryFlashcards()
         {
-            throw new NotImplementedException("LoadCategoryFlashCards has not yet be implmemented");
+            throw new NotImplementedException("LoadCategoryFlashcards has not yet be implmemented");
         }
 
         private void Submit()

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace FlasherServer.Pages
 {
-    public partial class CategoryPage
+    public partial class CategorySelect
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }

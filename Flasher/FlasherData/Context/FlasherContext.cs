@@ -18,7 +18,7 @@ namespace FlasherData.Context
 
         public virtual DbSet<SubjectDm> SubjectDms { get; set; }
         public virtual DbSet<CategoryDm> CategoryDms { get; set; }
-        public virtual DbSet<FlashCardDm> FlashCardDms { get; set; }
+        public virtual DbSet<FlashcardDm> FlashcardDms { get; set; }
         
 
 
@@ -26,7 +26,7 @@ namespace FlasherData.Context
         {
             modelBuilder.ApplyConfiguration<SubjectDm>(new SubjectDmConfig());
             modelBuilder.ApplyConfiguration<CategoryDm>(new CategoryDmConfig());
-            modelBuilder.ApplyConfiguration<FlashCardDm>(new FlashCardConfig());
+            modelBuilder.ApplyConfiguration<FlashcardDm>(new FlashcardDmConfig());
         }
 
         

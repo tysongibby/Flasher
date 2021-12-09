@@ -40,15 +40,15 @@ namespace FlasherServer.Pages
                 // convert data model to dto
                 ViewPage.Categories.Add(Mapper.Map<Category>(categoryDm));
             }
-            // get all FlashCards db
-            IList<FlashCardDm> flashCardDms = UnitOfWork.FlashCardDms.GetAll();
-            foreach (FlashCardDm flashCardDm in flashCardDms)
+            // get all Flashcards db
+            IList<FlashcardDm> flashcardDms = UnitOfWork.FlashcardDms.GetAll();
+            foreach (FlashcardDm flashcardDm in flashcardDms)
             {
                 // convert data model to dto
-                ViewPage.FlashCards.Add(Mapper.Map<Flashcard>(flashCardDm));
+                ViewPage.Flashcards.Add(Mapper.Map<Flashcard>(flashcardDm));
             }
             // get Flashcard to be displayed on page
-            ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
+            ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
 
             // set data to be displayed on page
             ViewPage.Body = ViewPage.Flashcard.Front;
@@ -61,41 +61,41 @@ namespace FlasherServer.Pages
             ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
         }
 
-        private void NextFlashCard()
+        private void NextFlashcard()
         {
-            if (ViewPage.CardIndex < ViewPage.FlashCards.Count - 1)
+            if (ViewPage.CardIndex < ViewPage.Flashcards.Count - 1)
             {
-                if (ViewPage.CardIndex != ViewPage.FlashCards.Count - 1)
+                if (ViewPage.CardIndex != ViewPage.Flashcards.Count - 1)
                 {
                     ViewPage.CardIndex = FindNextIndex(ViewPage.CardIndex);
-                    ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
+                    ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
                     ViewPage.SubjectTitle = ViewPage.Subjects.Where(ss => ss.Id == ViewPage.Flashcard.SubjectId).FirstOrDefault().Title;
                     ViewPage.CategoryTitle = ViewPage.Categories.Where(s => s.Id == ViewPage.Flashcard.CategoryId).FirstOrDefault().Title;
                 }
-                SetFlashCardFront();
+                SetFlashcardFront();
             }
             ViewPage.Counter++;
         }
 
-        private void LastFlashCard()
+        private void LastFlashcard()
         {
             if (ViewPage.CardIndex >= 0)
             {
                 if (ViewPage.CardIndex != 0)
                 {
                     ViewPage.CardIndex = FindPreviousIndex(ViewPage.CardIndex);
-                    ViewPage.Flashcard = ViewPage.FlashCards[ViewPage.CardIndex];
+                    ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
                 }
-                SetFlashCardFront();
+                SetFlashcardFront();
             }
         }
 
-        // Finds index of next Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of next Flashcard in Flashcards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindNextIndex(int currentIndex)
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
             int _lastIncorrectAnswerIndex = -100;
-            if (ViewPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            if (ViewPage.Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _lastIncorrectAnswerIndex = currentIndex;
             }
@@ -104,7 +104,7 @@ namespace FlasherServer.Pages
                 int x = currentIndex;
                 while (_lastIncorrectAnswerIndex == -100 && x > 0)
                 {
-                    if (ViewPage.FlashCards[x].AnsweredCorrectly == false)
+                    if (ViewPage.Flashcards[x].AnsweredCorrectly == false)
                     {
                         _lastIncorrectAnswerIndex = currentIndex;
                     }
@@ -118,9 +118,9 @@ namespace FlasherServer.Pages
             // returns the index of the next incorrect answer (AnsweredCorrectly == false)
             // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
             int i = currentIndex;
-            while (i <= ViewPage.FlashCards.Count - 1)
+            while (i <= ViewPage.Flashcards.Count - 1)
             {
-                if (i != currentIndex && ViewPage.FlashCards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && ViewPage.Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -133,21 +133,21 @@ namespace FlasherServer.Pages
 
         }
 
-        // Finds index of previous Flashcard in FlashCards list that has not been answered correctly (has AnsweredCorrectly == false)
+        // Finds index of previous Flashcard in Flashcards list that has not been answered correctly (has AnsweredCorrectly == false)
         private int FindPreviousIndex(int currentIndex)
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
             int _latestIncorrectAnswerIndex = -100;
-            if (ViewPage.FlashCards[currentIndex].AnsweredCorrectly == false)
+            if (ViewPage.Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _latestIncorrectAnswerIndex = currentIndex;
             }
             else
             {
                 int x = currentIndex;
-                while (_latestIncorrectAnswerIndex == -100 && x < ViewPage.FlashCards.Count - 1)
+                while (_latestIncorrectAnswerIndex == -100 && x < ViewPage.Flashcards.Count - 1)
                 {
-                    if (ViewPage.FlashCards[x].AnsweredCorrectly == false)
+                    if (ViewPage.Flashcards[x].AnsweredCorrectly == false)
                     {
                         _latestIncorrectAnswerIndex = currentIndex;
                     }
@@ -163,7 +163,7 @@ namespace FlasherServer.Pages
             int i = currentIndex;
             while (i >= 0)
             {
-                if (i != currentIndex && ViewPage.FlashCards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && ViewPage.Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -175,16 +175,16 @@ namespace FlasherServer.Pages
             return _latestIncorrectAnswerIndex;
         }
 
-        private void FlipFlashCard()
+        private void FlipFlashcard()
         {
             ViewPage.Front = !ViewPage.Front;
             if (ViewPage.Front == true)
             {
-                SetFlashCardFront();
+                SetFlashcardFront();
             }
             else
             {
-                SetFlashCardBack();
+                SetFlashcardBack();
             }
         }
 
@@ -192,10 +192,10 @@ namespace FlasherServer.Pages
         {
             ViewPage.AnsweredCorrectly = !ViewPage.AnsweredCorrectly;
             ViewPage.Flashcard.AnsweredCorrectly = ViewPage.AnsweredCorrectly;
-            int pk = UnitOfWork.FlashCardDms.Update(Mapper.Map<FlashCardDm>(ViewPage.Flashcard));
+            int pk = UnitOfWork.FlashcardDms.Update(Mapper.Map<FlashcardDm>(ViewPage.Flashcard));
         }
 
-        private void SetFlashCardFront()
+        private void SetFlashcardFront()
         {
 
             ViewPage.Title = ViewPage.Flashcard.Title;
@@ -205,7 +205,7 @@ namespace FlasherServer.Pages
             ViewPage.ShowButton = "Back";
         }
 
-        private void SetFlashCardBack()
+        private void SetFlashcardBack()
         {
 
             ViewPage.Title = ViewPage.Flashcard.Title;
@@ -236,9 +236,9 @@ namespace FlasherServer.Pages
             ViewPage.SelectedCategoryId = id;
         }
 
-        private void LoadCategoryFlashCards()
+        private void LoadCategoryFlashcards()
         {
-            throw new NotImplementedException("LoadCategoryFlashCards has not yet be implmemented");
+            throw new NotImplementedException("LoadCategoryFlashcards has not yet be implmemented");
         }
 
         private void HandleOnSubmit()
