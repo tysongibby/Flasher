@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // Parent of Category
     [Table("Subjects")]
     public class SubjectDm
     {

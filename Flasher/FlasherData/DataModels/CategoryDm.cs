@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // Child of Subject, Parent of Flashcard
     [Table("Categories")]
     public class CategoryDm
     {
@@ -22,8 +23,7 @@ namespace FlasherData.DataModels
         public int SubjectDmId { get; set; }
 
         // Navigation property for Flashcard FK relation
-        public ICollection<FlashcardDm> FlashcardsDm { get; set; }
-        //public virtual IEnumerable<FlashcardDm> FlashcardsDm { get; set; }
+        public ICollection<FlashcardDm> FlashcardsDm { get; set; }        
 
     }
 }

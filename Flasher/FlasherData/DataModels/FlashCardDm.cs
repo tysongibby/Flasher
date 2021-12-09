@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // Child of Category
     [Table("Flashcards")]
     public class FlashcardDm
     {
