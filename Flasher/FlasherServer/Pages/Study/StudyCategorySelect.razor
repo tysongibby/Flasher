@@ -1,4 +1,4 @@
-﻿@page "/categoryselect/{selectedsubjectid}"
+﻿@page "/studycategoryselect/{selectedsubjectid}"
 
 <EditForm Model="SelectedCategory" OnValidSubmit="HandleOnValidSubmit">
     <div class="col">
@@ -7,8 +7,8 @@
             <br />
             <h5>Flashcard application</h5>
         </div>
-        <div class="row mt-4">
-            
+        <h5>Choose subject categories you would like questions from:</h5>
+        <div class="row mt-4">            
                 @foreach (Category category in Categories)
                 {
                     <div class="form-check">
@@ -17,9 +17,8 @@
                             @category.Title
                         </label>
                     </div>                        
-                }                
-            
-        </div>
+                }                            
+        </div>        
         <div class="row mt-4">
             <div class="input-group">
                 <label for="start" class="col-2 col-form-label"></label>

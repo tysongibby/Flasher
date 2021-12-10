@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using FlasherData.DataModels;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace FlasherServer.Pages
+namespace FlasherServer.Pages.Study
 {
     public partial class Index
     {
@@ -32,7 +32,7 @@ namespace FlasherServer.Pages
 
         private void HandleOnValidSubmit()
         {
-            NavManager.NavigateTo($"/categoryselect/{SelectedSubjectId}");
+            NavManager.NavigateTo($"/studycategoryselect/{SelectedSubjectId}");
         }
     }
 }

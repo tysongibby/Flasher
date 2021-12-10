@@ -4,23 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using System.Text.RegularExpressions;
-using FlasherServer.Pages.Models;
+using FlasherServer.Pages.Import.Models;
 using FlasherServer.Data.Dtos;
 using FlasherData.Repositories.Interfaces;
 using AutoMapper;
 using FlasherData.DataModels;
 
-namespace FlasherServer.Pages
+namespace FlasherServer.Pages.Import
 {
-    public partial class Import
+    public partial class ImportSubjectSelect
     {
-        private ImportPage ImportPage { get; set; } = new ImportPage();
+        private ImportSubjectSelectPage ImportSubjectSelectPage { get; set; } = new ImportSubjectSelectPage();
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
-        private List<Flashcard> Newflashcards { get; set; } = new List<Flashcard>();
+        private IList<Flashcard> Newflashcards { get; set; } = new List<Flashcard>();
         private string SubjectTitle { get; set; } = string.Empty;
         private string CategoryTitle { get; set; } = string.Empty;
+        public int SelectedSubjectId { get; set; }
+        private IList<Subject> Subjects { get; set; } = new List<Subject>();
+        private IList<Category> Categories { get; set; } = new List<Category>();
+        private IList<int> SelectedCategoryIds { get; set; } = new List<int>();
 
         private string frontsTextAreaText;
         private string backsTextAreaText;
@@ -31,6 +35,25 @@ namespace FlasherServer.Pages
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
+
+        private void CheckboxClicked(int? categoryId, object checkedValue)
+        {
+            int _categoryId = (int)categoryId;
+            if ((bool)checkedValue)
+            {
+                if (!SelectedCategoryIds.Contains(_categoryId))
+                {
+                    SelectedCategoryIds.Add(_categoryId);
+                }
+            }
+            else
+            {
+                if (SelectedCategoryIds.Contains(_categoryId))
+                {
+                    SelectedCategoryIds.Remove(_categoryId);
+                }
+            }
+        }
 
         protected string FrontsTextAreaText
         {

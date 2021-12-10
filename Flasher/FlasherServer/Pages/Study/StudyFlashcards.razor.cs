@@ -2,16 +2,16 @@
 using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
 using FlasherServer.Data.Dtos;
-using FlasherServer.Pages.Models;
+using FlasherServer.Pages.Study.Models;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServer.Pages
+namespace FlasherServer.Pages.Study
 {
-    public partial class View
+    public partial class StudyFlashcards
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }

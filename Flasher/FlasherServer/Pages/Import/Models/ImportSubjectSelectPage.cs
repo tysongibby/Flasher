@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServer.Pages.Models
+namespace FlasherServer.Pages.Import.Models
 {
-    public class ImportPage
+    public class ImportSubjectSelectPage
     {
         string SubjectTitle { get; set; }
         string CategoryTitle { get; set; }

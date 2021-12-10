@@ -1,0 +1,51 @@
+﻿@page "/import"
+
+<EditForm Model="ImportSubjectSelectPage" OnSubmit="() => Submit(FrontsTextAreaText, BacksTextAreaText)">
+    <h3>Import Flashcards</h3>
+    @*Subject*@
+    <div class="row mt-4">
+        <h5>Choose flashcards' subject</h5>
+        <div class="input-group">
+            @*<label for="subjects" class="col-2 col-form-label">Subject</label>*@
+            <InputSelect id="subjects" class="form-control" @bind-Value="SelectedSubjectId">
+                @*<option disabled>select subject</option>*@
+                @foreach (Subject subject in Subjects)
+                {
+                    <option value="@subject.Id">@subject.Title</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    @*Categories*@
+    <div class="row mt-4">
+        <h5>Choose flashcards' subject category:</h5>
+        <div class="input-group">
+            @foreach (Category category in Categories)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />
+                    <label class="form-check-label" for="@category.Title">
+                        @category.Title
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+    @*Fronts*@
+    <h5 class="mt-4">Enter text for flashcard fronts:</h5>
+    <div class="row mt-2">
+        <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
+    </div>
+    @*Backs*@
+    <h5 class="mt-4">Enter text for flashcard backs:</h5>
+    <div class="row">
+        <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
+    </div>
+    <div class="row mt-4">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+    <div class="row mt-4">
+        <h4>Results</h4>
+        <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
+    </div>
+</EditForm>
