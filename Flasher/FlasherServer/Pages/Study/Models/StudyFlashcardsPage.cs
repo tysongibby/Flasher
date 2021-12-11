@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlasherServer.Pages.Study.Models
 {
-    public class ViewPage
+    public class StudyFlashcardsPage
     {
         public Flashcard Flashcard { get; set; } = new Flashcard();
         public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
@@ -16,15 +16,11 @@ namespace FlasherServer.Pages.Study.Models
         public string Title { get; set; } = string.Empty;
         public string Body { get; set; } = string.Empty;
         public string SubjectTitle { get; set; } = string.Empty;
-        public List<Subject> Subjects { get; set; } = new List<Subject>();
+        public Subject Subject { get; set; } = new Subject();
         public string CategoryTitle { get; set; } = string.Empty;
         public List<Category> Categories { get; set; } = new List<Category>();
         public string ShowButton { get; set; } = "Back";
         public bool AnsweredCorrectly { get; set; } = false;
-        public List<Category> SubjectSelectElements { get; set; } = new List<Category>();
-        public List<Category> SelectedCategories { get; set; } = new List<Category>();
-        public int SelectedSubjectId { get; set; } = 0;
-        public int SelectedCategoryId { get; set; } = 0;
 
         public int Counter { get; set; } = 0; //TEMP property until list object features are implemented
 

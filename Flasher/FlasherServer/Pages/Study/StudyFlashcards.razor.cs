@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using FlasherData.Context;
 using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
 using FlasherServer.Data.Dtos;
 using FlasherServer.Pages.Study.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.WebUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,74 +19,106 @@ namespace FlasherServer.Pages.Study
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
-        [Parameter]
-        public List<int> selectcategoryids { get; set; }
-        private List<int> SelectedCategoryIds { get; set; }
-        private ViewPage ViewPage { get; set; } = new ViewPage();
+        [Inject]
+        private NavigationManager NavManager { get; set; }
+        public Flashcard Flashcard { get; set; } = new Flashcard();
+        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
+        public int CardIndex { get; set; } = 0;
+        public bool Front { get; set; } = true;
+        public string Side { get; set; } = "Front";
+        public string Title { get; set; } = string.Empty;
+        public string Body { get; set; } = string.Empty;
+        public string SubjectTitle { get; set; } = string.Empty;
+        public Subject Subject { get; set; } = new Subject();
+        public string CategoryTitle { get; set; } = string.Empty;
+        public List<Category> Categories { get; set; } = new List<Category>();
+        public string ShowButton { get; set; } = "Back";
+        public bool AnsweredCorrectly { get; set; } = false;
+
+        public int Counter { get; set; } = 0; //TEMP property until list object features are implemented
+        private StudyFlashcardsPage Page { get; set; } = new StudyFlashcardsPage();
 
 
         protected override void OnInitialized()
         {
-            SelectedCategoryIds = selectcategoryids;
-            // get all Subjects from db
-            List<SubjectDm> subjectDms = UnitOfWork.SubjectDms.GetAll().ToList();
-            foreach (SubjectDm subjectDm in subjectDms)
+            // get page uri (including query string)
+            Uri uri = new Uri(NavManager.Uri);
+            // get query string from page uri
+            var SubjectAndCategories = QueryHelpers.ParseQuery(uri.Query);            
+            // get flashcard subject and categories from query string and add them to Page model         
+            foreach(KeyValuePair<string, Microsoft.Extensions.Primitives.StringValues> pair in SubjectAndCategories)
             {
-                // convert data model to dto
-                ViewPage.Subjects.Add(Mapper.Map<Subject>(subjectDm));
+                if (pair.Key == "Subject")
+                {
+                    // convert subject from string value to int
+                    int SelectedSubjectId = Int32.Parse(pair.Value);                    
+                    // get Subject Data Model and map to Subject Dto
+                    Subject = (Mapper.Map<Subject>(UnitOfWork.SubjectDms.Get(SelectedSubjectId)));
+                }
+                else
+                {
+                    // convert category from string value to int
+                    int categoryId = Int32.Parse(pair.Value);
+                    // get Category Data Model and map to Category Dto
+                    Categories.Add(Mapper.Map<Category>(UnitOfWork.CategoryDms.Get(categoryId)));
+                }                
             }
-            // get all Categories from db
-            IList<CategoryDm> categoryDms = UnitOfWork.CategoryDms.GetAll();
-            foreach (CategoryDm categoryDm in categoryDms)
+            // get flashcards for subject and categories
+            List<FlashcardDm> flashcardDms = new List<FlashcardDm>();
+            using (FlasherContext context = new FlasherContext())
             {
-                // convert data model to dto
-                ViewPage.Categories.Add(Mapper.Map<Category>(categoryDm));
+                for (int i = 0; i < Categories.Count; i++)
+                {
+                    List<FlashcardDm> _flashCards = (from categoryDm in context.CategoryDms
+                                    join flashcardDm in context.FlashcardDms on categoryDm.Id equals flashcardDm.CategoryId
+                                    where categoryDm.SubjectId == Subject.Id && categoryDm.Id == Categories[i].Id
+                                    select flashcardDm).ToList();
+                    flashcardDms.AddRange(_flashCards);
+                }
             }
-            // get all Flashcards db
-            IList<FlashcardDm> flashcardDms = UnitOfWork.FlashcardDms.GetAll();
             foreach (FlashcardDm flashcardDm in flashcardDms)
             {
-                // convert data model to dto
-                ViewPage.Flashcards.Add(Mapper.Map<Flashcard>(flashcardDm));
+                // convert flascard data model to dto
+                Flashcards.Add(Mapper.Map<Flashcard>(flashcardDm));
             }
             // get Flashcard to be displayed on page
-            ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
+            Flashcard = Flashcards[CardIndex];
 
             // set data to be displayed on page
-            ViewPage.Body = ViewPage.Flashcard.Front;
-            ViewPage.Title = ViewPage.Flashcard.Title;
-            ViewPage.SubjectTitle = ViewPage.Subjects.Where(ss => ss.Id == ViewPage.Flashcard.SubjectId).FirstOrDefault().Title;
-            if (ViewPage.Flashcard.CategoryId is not null && ViewPage.Flashcard.CategoryId != 0)
+            Body = Flashcard.Front;
+            Title = Flashcard.Title;
+            SubjectTitle = Subject.Title;
+            if (Flashcard.CategoryId is not null && Flashcard.CategoryId != 0)
             {
-                ViewPage.CategoryTitle = ViewPage.Categories.Where(s => s.Id == ViewPage.Flashcard.CategoryId).FirstOrDefault().Title;
+                CategoryTitle = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Title;
             }
-            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
+            AnsweredCorrectly = Flashcard.AnsweredCorrectly;
         }
 
         private void NextFlashcard()
         {
-            if (ViewPage.CardIndex < ViewPage.Flashcards.Count - 1)
+            if (CardIndex < Flashcards.Count - 1)
             {
-                if (ViewPage.CardIndex != ViewPage.Flashcards.Count - 1)
+                if (CardIndex != Flashcards.Count - 1)
                 {
-                    ViewPage.CardIndex = FindNextIndex(ViewPage.CardIndex);
-                    ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
-                    ViewPage.SubjectTitle = ViewPage.Subjects.Where(ss => ss.Id == ViewPage.Flashcard.SubjectId).FirstOrDefault().Title;
-                    ViewPage.CategoryTitle = ViewPage.Categories.Where(s => s.Id == ViewPage.Flashcard.CategoryId).FirstOrDefault().Title;
+                    CardIndex = FindNextIndex(CardIndex);
+                    Flashcard = Flashcards[CardIndex];
+                    SubjectTitle = Subject.Title;                    
+                    CategoryTitle = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Title;
                 }
                 SetFlashcardFront();
             }
-            ViewPage.Counter++;
+            Counter++;
         }
 
         private void LastFlashcard()
         {
-            if (ViewPage.CardIndex >= 0)
+            if (CardIndex >= 0)
             {
-                if (ViewPage.CardIndex != 0)
+                if (CardIndex != 0)
                 {
-                    ViewPage.CardIndex = FindPreviousIndex(ViewPage.CardIndex);
-                    ViewPage.Flashcard = ViewPage.Flashcards[ViewPage.CardIndex];
+                    CardIndex = FindPreviousIndex(CardIndex);
+                    Flashcard = Flashcards[CardIndex];
                 }
                 SetFlashcardFront();
             }
@@ -95,7 +129,7 @@ namespace FlasherServer.Pages.Study
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
             int _lastIncorrectAnswerIndex = -100;
-            if (ViewPage.Flashcards[currentIndex].AnsweredCorrectly == false)
+            if (Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _lastIncorrectAnswerIndex = currentIndex;
             }
@@ -104,7 +138,7 @@ namespace FlasherServer.Pages.Study
                 int x = currentIndex;
                 while (_lastIncorrectAnswerIndex == -100 && x > 0)
                 {
-                    if (ViewPage.Flashcards[x].AnsweredCorrectly == false)
+                    if (Flashcards[x].AnsweredCorrectly == false)
                     {
                         _lastIncorrectAnswerIndex = currentIndex;
                     }
@@ -118,9 +152,9 @@ namespace FlasherServer.Pages.Study
             // returns the index of the next incorrect answer (AnsweredCorrectly == false)
             // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
             int i = currentIndex;
-            while (i <= ViewPage.Flashcards.Count - 1)
+            while (i <= Flashcards.Count - 1)
             {
-                if (i != currentIndex && ViewPage.Flashcards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -138,16 +172,16 @@ namespace FlasherServer.Pages.Study
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
             int _latestIncorrectAnswerIndex = -100;
-            if (ViewPage.Flashcards[currentIndex].AnsweredCorrectly == false)
+            if (Flashcards[currentIndex].AnsweredCorrectly == false)
             {
                 _latestIncorrectAnswerIndex = currentIndex;
             }
             else
             {
                 int x = currentIndex;
-                while (_latestIncorrectAnswerIndex == -100 && x < ViewPage.Flashcards.Count - 1)
+                while (_latestIncorrectAnswerIndex == -100 && x < Flashcards.Count - 1)
                 {
-                    if (ViewPage.Flashcards[x].AnsweredCorrectly == false)
+                    if (Flashcards[x].AnsweredCorrectly == false)
                     {
                         _latestIncorrectAnswerIndex = currentIndex;
                     }
@@ -163,7 +197,7 @@ namespace FlasherServer.Pages.Study
             int i = currentIndex;
             while (i >= 0)
             {
-                if (i != currentIndex && ViewPage.Flashcards[i].AnsweredCorrectly == false)
+                if (i != currentIndex && Flashcards[i].AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -177,8 +211,8 @@ namespace FlasherServer.Pages.Study
 
         private void FlipFlashcard()
         {
-            ViewPage.Front = !ViewPage.Front;
-            if (ViewPage.Front == true)
+            Front = !Front;
+            if (Front == true)
             {
                 SetFlashcardFront();
             }
@@ -190,51 +224,51 @@ namespace FlasherServer.Pages.Study
 
         private void UpdateAnswerStatus()
         {
-            ViewPage.AnsweredCorrectly = !ViewPage.AnsweredCorrectly;
-            ViewPage.Flashcard.AnsweredCorrectly = ViewPage.AnsweredCorrectly;
-            int pk = UnitOfWork.FlashcardDms.Update(Mapper.Map<FlashcardDm>(ViewPage.Flashcard));
+            AnsweredCorrectly = !AnsweredCorrectly;
+            Flashcard.AnsweredCorrectly = AnsweredCorrectly;
+            int pk = UnitOfWork.FlashcardDms.Update(Mapper.Map<FlashcardDm>(Flashcard));
         }
 
         private void SetFlashcardFront()
         {
 
-            ViewPage.Title = ViewPage.Flashcard.Title;
-            ViewPage.Body = ViewPage.Flashcard.Front;
-            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
-            ViewPage.Side = "Front";
-            ViewPage.ShowButton = "Back";
+            Title = Flashcard.Title;
+            Body = Flashcard.Front;
+            AnsweredCorrectly = Flashcard.AnsweredCorrectly;
+            Side = "Front";
+            ShowButton = "Back";
         }
 
         private void SetFlashcardBack()
         {
 
-            ViewPage.Title = ViewPage.Flashcard.Title;
-            ViewPage.Body = ViewPage.Flashcard.Back;
-            ViewPage.AnsweredCorrectly = ViewPage.Flashcard.AnsweredCorrectly;
-            ViewPage.Side = "Back";
-            ViewPage.ShowButton = "Front";
+            Title = Flashcard.Title;
+            Body = Flashcard.Back;
+            AnsweredCorrectly = Flashcard.AnsweredCorrectly;
+            Side = "Back";
+            ShowButton = "Front";
         }
 
-        private void CategorySelectedSubject(int id)
-        {
-            throw new NotImplementedException("SetSelectedSubject has not yet be implmemented");
-        }
+        //private void CategorySelectedSubject(int id)
+        //{
+        //    throw new NotImplementedException("SetSelectedSubject has not yet be implmemented");
+        //}
 
-        private void LoadSubjectElements()
-        {
-            throw new NotImplementedException("LoadSubjectElements has not yet be implmemented");
-        }
+        //private void LoadSubjectElements()
+        //{
+        //    throw new NotImplementedException("LoadSubjectElements has not yet be implmemented");
+        //}
 
-        private void LoadSubjectCategories()
-        {
-            ViewPage.SelectedCategories = ViewPage.Categories.Where(s => s.SubjectId == ViewPage.SelectedSubjectId).ToList();
-            Console.WriteLine($"Categories for Subject with Id of {ViewPage.SelectedSubjectId} have been loaded.");
-        }
+        //private void LoadSubjectCategories()
+        //{
+        //    SelectedCategories = Categories.Where(s => s.SubjectId == Subject.Id).ToList();
+        //    Console.WriteLine($"Categories for Subject with Id of {Subject.Id} have been loaded.");
+        //}
 
-        private void OnSelectedSubjectSelect(int id)
-        {
-            ViewPage.SelectedCategoryId = id;
-        }
+        //private void OnSelectedSubjectSelect(int id)
+        //{
+        //    SelectedCategoryId = id;
+        //}
 
         private void LoadCategoryFlashcards()
         {

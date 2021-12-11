@@ -1,20 +1,20 @@
-﻿@page "/study"
+﻿@page "/studyflashcards"
 @using FlasherServer.Pages.Study.Models
 
-<EditForm Model="ViewPage" OnSubmit="HandleOnSubmit">
+<EditForm Model="Page" OnSubmit="HandleOnSubmit">
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h3>@ViewPage.Title</h3>
-                <h5>@ViewPage.SubjectTitle, @ViewPage.CategoryTitle</h5>
+                <h3>@Title</h3>
+                <h5>@SubjectTitle, @CategoryTitle</h5>
             </div>
             <div class="card-body">
-                <h5>@ViewPage.Side</h5>
-                <p>@ViewPage.Body</p>
+                <h5>@Side</h5>
+                <p>@Body</p>
             </div>
             <div class="card-footer">
                 <div class="row-cols-4">
-                    <button class="btn btn-primary col" @onclick="FlipFlashcard">Show @ViewPage.ShowButton</button>
+                    <button class="btn btn-primary col" @onclick="FlipFlashcard">Show @ShowButton</button>
                     <div class="btn-group col">
                         <button class="btn btn-outline-primary ml-4" @onclick="LastFlashcard">Last</button>
                         <button class="btn btn-outline-primary ml-4" @onclick="NextFlashcard">Next</button>
@@ -22,13 +22,13 @@
                 </div>
                 <div class="row mt-4">
                     <div class="form-check">
-                        <InputCheckbox @onclick="UpdateAnswerStatus" @bind-Value="ViewPage.AnsweredCorrectly" id="answeredCorrectly"></InputCheckbox>
+                        <InputCheckbox @onclick="UpdateAnswerStatus" @bind-Value="AnsweredCorrectly" id="answeredCorrectly"></InputCheckbox>
                         <label class="form-check-label" for="answeredCorrectly">Answered Correctly</label>
                     </div>
                 </div>
             </div>
         </div>
-        <h6>Cards viewd = @ViewPage.Counter</h6>
+        <h6>Cards viewd = @Counter</h6>
     </div>
 </EditForm>
 

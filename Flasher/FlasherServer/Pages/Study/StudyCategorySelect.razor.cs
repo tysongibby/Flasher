@@ -69,7 +69,7 @@ namespace FlasherServer.Pages.Study
             {
                 SubjectAndCategories.Add($"Category{i}", $"{i}");
             }
-            NavManager.NavigateTo(QueryHelpers.AddQueryString("/study", SubjectAndCategories));                
+            NavManager.NavigateTo(QueryHelpers.AddQueryString("/studyflashcards", SubjectAndCategories));
         }
     }
 }
