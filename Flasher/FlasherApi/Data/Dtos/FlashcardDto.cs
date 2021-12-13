@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlasherApi.Data.Dtos
 {
-    public class Flashcard
+    public class FlashcardDto
     {   
         public int? Id { get; set; }
         public string Title { get; set; }

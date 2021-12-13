@@ -15,16 +15,16 @@ namespace FlasherData.Repositories
         public UnitOfWork(FlasherContext context)
         {
             _context = context;
-            FlashcardDms = new FlashcardRepository(_context);
-            CategoryDms = new CategoryRepository(_context);
-            SubjectDms = new SubjectRepository(_context);
+            Flashcards = new FlashcardRepository(_context);
+            Categorys = new CategoryRepository(_context);
+            Subjects = new SubjectRepository(_context);
         }
 
-        public IFlashcardDmRepository FlashcardDms { get; private set; }
+        public IFlashcardRepository Flashcards { get; private set; }
 
-        public ICategoryDmRepository CategoryDms { get; private set; }
+        public ICategoryRepository Categorys { get; private set; }
 
-        public ISubjectDmRepository SubjectDms { get; private set; }
+        public ISubjectRepository Subjects { get; private set; }
 
         public void Dispose()
         {

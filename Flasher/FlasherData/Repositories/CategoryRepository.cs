@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class CategoryRepository : GenericRepository<CategoryDm>, ICategoryDmRepository
+    public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
         public CategoryRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
@@ -19,12 +19,12 @@ namespace FlasherData.Repositories
             }
         }
 
-        public async Task<SubjectDm> GetSubjectDm(int id)
+        public async Task<Subject> GetSubject(int id)
         {
-            CategoryDm categoryDm = FlasherContext.CategoryDms.FindAsync(id).Result;
-            if (categoryDm is not null)
+            Category category = FlasherContext.Categorys.FindAsync(id).Result;
+            if (category is not null)
             {
-                SubjectDm subject = await FlasherContext.SubjectDms.FindAsync(categoryDm.SubjectId);
+                Subject subject = await FlasherContext.Subjects.FindAsync(category.SubjectId);
                 return subject;
             }
             else

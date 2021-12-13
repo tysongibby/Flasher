@@ -35,10 +35,10 @@ namespace FlasherServer.Pages.Study
             SelectedSubjectId = Int32.Parse(selectedsubjectid);
 
             // get categories form subject
-            List<CategoryDm> _categoryDms = UnitOfWork.CategoryDms.Where(s => s.SubjectId == SelectedSubjectId).ToList();
-            foreach (CategoryDm _categoryDm in _categoryDms)
+            List<Category> _categorys = UnitOfWork.Categorys.Where(s => s.SubjectId == SelectedSubjectId).ToList();
+            foreach (Category _category in _categorys)
             {
-                Categories.Add(Mapper.Map<CategoryDto>(_categoryDm));
+                Categories.Add(Mapper.Map<CategoryDto>(_category));
             }
             
         }

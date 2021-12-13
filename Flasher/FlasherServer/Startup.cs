@@ -47,9 +47,9 @@ namespace FlasherServer
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
 
             // Dependency Injection
-            services.AddScoped<IFlashcardDmRepository, FlashcardRepository>();
-            services.AddScoped<ISubjectDmRepository, SubjectRepository>();
-            services.AddScoped<ICategoryDmRepository, CategoryRepository>();
+            services.AddScoped<IFlashcardRepository, FlashcardRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 

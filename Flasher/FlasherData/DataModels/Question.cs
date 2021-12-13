@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
+    // tracks each flashcard in a test and whether the flashcard has been answered correctly or not.
     // Child of Test
     [Table("Questions")]
-    public class QuestionDm
+    public class Question
     {
         [Key]
         public int Id { get; set; }
+
+        public bool AnsweredCorrectly { get; set; }
 
         [Required]
         [ForeignKey("Test")]
@@ -22,7 +25,6 @@ namespace FlasherData.DataModels
         [Required]
         [ForeignKey("Flashcard")]
         public int FlashcardId { get; set; }
-
 
     }
 }

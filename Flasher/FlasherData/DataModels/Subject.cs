@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
-    // Used to designate a particular segment of knowledge or learning
-    // Parent of Category
-    [Table("Subjects")]
-    public class SubjectDm
+    // Represents the chosen segment of study
+    // Parent of Category    
+    public class Subject
     {
         [Key]
         public int Id { get; set; }
@@ -19,10 +18,10 @@ namespace FlasherData.DataModels
         public string Name { get; set; }
         
         //Navigation property for Category FK relation
-        public ICollection<CategoryDm> Categories { get; set; }
+        public ICollection<Category> Categories { get; set; }
 
         //Navigation property for Test FK relation
-        public ICollection<TestDm> Tests { get; set; }
+        public ICollection<Test> Tests { get; set; }
 
     }
 }

@@ -16,27 +16,27 @@ namespace FlasherApi.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ILogger<CategoryController> _logger;
-        private readonly ICategoryDmRepository _categoryDmRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryController(ILogger<CategoryController> logger, ICategoryDmRepository categoryRepository)
+        public CategoryController(ILogger<CategoryController> logger, ICategoryRepository categoryRepository)
         {
             _logger = logger;
-            _categoryDmRepository = categoryRepository;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpGet]
-        public ActionResult<Category> Get(int id)
+        public ActionResult<Data.Dtos.CategoryDto> Get(int id)
         {
             try
             {
-                CategoryDm categoryDm = _categoryDmRepository.GetAsync(id).Result;
-                if (categoryDm is not null)
+                FlasherData.DataModels.Category category = _categoryRepository.GetAsync(id).Result;
+                if (category is not null)
                 {
-                    Category categoryDto = new Category()
+                    Data.Dtos.CategoryDto categoryDto = new Data.Dtos.CategoryDto()
                     {
-                        Id = categoryDm.Id,
-                        Title = categoryDm.Name,
-                        SubjectId = categoryDm.SubjectId
+                        Id = category.Id,
+                        Title = category.Name,
+                        SubjectId = category.SubjectId
                     };
                     return StatusCode(StatusCodes.Status200OK, categoryDto);
                 }
@@ -52,17 +52,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Category> GetSubject(int id)
+        public ActionResult<Data.Dtos.CategoryDto> GetSubject(int id)
         {
             try
             {
-                SubjectDm subjectDm = _categoryDmRepository.GetSubjectDm(id).Result;
-                if (subjectDm is not null)
+                FlasherData.DataModels.Subject subject = _categoryRepository.GetSubject(id).Result;
+                if (subject is not null)
                 {
-                    Subject subjectDto = new Subject()
+                    Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                     {
-                        Id = subjectDm.Id,
-                        Title = subjectDm.Name                        
+                        Id = subject.Id,
+                        Title = subject.Name                        
                     };
                     return StatusCode(StatusCodes.Status200OK, subjectDto);
                 }
@@ -78,17 +78,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Category>> GetAll()
+        public ActionResult<List<Data.Dtos.CategoryDto>> GetAll()
         {
             try
             {
-                List<Category> categoryDtos = new List<Category>();
-                List<CategoryDm> categoryDms = _categoryDmRepository.GetAllAsync().Result.ToList();
-                if (categoryDms.Count > 0)
+                List<Data.Dtos.CategoryDto> categoryDtos = new List<Data.Dtos.CategoryDto>();
+                List<FlasherData.DataModels.Category> category = _categoryRepository.GetAllAsync().Result.ToList();
+                if (category.Count > 0)
                 {
-                    foreach (CategoryDm s in categoryDms)
+                    foreach (FlasherData.DataModels.Category s in category)
                     {
-                        Category categoryDto = new Category()
+                        Data.Dtos.CategoryDto categoryDto = new Data.Dtos.CategoryDto()
                         {
                             Id = s.Id,
                             Title = s.Name,
@@ -110,17 +110,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(Category newCategoryDto)
+        public ActionResult<string> Create(Data.Dtos.CategoryDto newCategoryDto)
         {
             try
             {
-                CategoryDm newCategoryDm = new CategoryDm()
+                FlasherData.DataModels.Category newCategory = new FlasherData.DataModels.Category()
                 {
                     Name = newCategoryDto.Title,
                     SubjectId = newCategoryDto.SubjectId
                 };
-                _categoryDmRepository.AddAsync(newCategoryDm);
-                return StatusCode(StatusCodes.Status201Created); //TODO: add url for new CategoryDm to return status            
+                _categoryRepository.AddAsync(newCategory);
+                return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Category to return status            
             }
             catch (Exception e)
             {
@@ -129,22 +129,22 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<string> Update(int id, Category categoryDtoUpdate)
+        public ActionResult<string> Update(int id, Data.Dtos.CategoryDto categoryDtoUpdate)
         {
             try
             {
                 if (id == categoryDtoUpdate.Id)
                 {
-                    if (_categoryDmRepository.ExistsAsync(id).Result)
+                    if (_categoryRepository.ExistsAsync(id).Result)
                     {
-                        CategoryDm categoryDmUpdate = new CategoryDm()
+                        FlasherData.DataModels.Category categoryUpdate = new FlasherData.DataModels.Category()
                         {
                             Id = (int)categoryDtoUpdate.Id,
                             Name = categoryDtoUpdate.Title,
                             SubjectId = categoryDtoUpdate.SubjectId
                         };
-                        _categoryDmRepository.Update(categoryDmUpdate);
-                        return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated CategoryDm to return status 
+                        _categoryRepository.Update(categoryUpdate);
+                        return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Category to return status 
                     }
                     else
                     {
@@ -167,10 +167,10 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                CategoryDm categoryDmToDelete = _categoryDmRepository.Where(fc => fc.Id == id).FirstOrDefault();
-                if (categoryDmToDelete is not null)
+                FlasherData.DataModels.Category categoryToDelete = _categoryRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                if (categoryToDelete is not null)
                 {
-                    _categoryDmRepository.Remove(categoryDmToDelete);
+                    _categoryRepository.Remove(categoryToDelete);
                     return StatusCode(StatusCodes.Status200OK, $"Category {id} has been deleted.");
                 }
                 else

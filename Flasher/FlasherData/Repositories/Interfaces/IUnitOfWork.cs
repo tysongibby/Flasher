@@ -9,9 +9,9 @@ namespace FlasherData.Repositories.Interfaces
     public interface IUnitOfWork : IDisposable, IAsyncDisposable
     {
         
-        IFlashcardDmRepository FlashcardDms { get; }
-        ICategoryDmRepository CategoryDms { get; }
-        ISubjectDmRepository SubjectDms { get; }
+        IFlashcardRepository Flashcards { get; }
+        ICategoryRepository Categorys { get; }
+        ISubjectRepository Subjects { get; }
 
         int UpdateDb();
 

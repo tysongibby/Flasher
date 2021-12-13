@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
-    // Used to faciliate the study of a question or word in a question (front of card) and answer (back of card) format
-    // Child of Category
-    [Table("Flashcards")]
-    public class FlashcardDm
+    // Used to faciliate the study of a question (front of card) and answer (back of card) in a "flashcard" format
+    // Child of Category    
+    public class Flashcard
     {
         [Key]
         public int Id { get; set; }
@@ -35,7 +34,7 @@ namespace FlasherData.DataModels
         public int CategoryId { get; set; }
 
         // Navigation property for Question FK relation
-        ICollection<QuestionDm> Questions { get; set; }
+        ICollection<Question> Questions { get; set; }
 
     }
 }

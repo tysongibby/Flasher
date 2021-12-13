@@ -121,7 +121,7 @@ namespace FlasherServer.Pages.Import
             // add new flashcards to database
             foreach (FlashcardDto fc in Newflashcards)
             {
-                UnitOfWork.FlashcardDms.Add(Mapper.Map<FlashcardDm>(fc));
+                UnitOfWork.Flashcards.Add(Mapper.Map<Flashcard>(fc));
             }
             ResultsTextAreaText = $"{createdFlashcardUrls.Count} flashcards have been added.";
         }

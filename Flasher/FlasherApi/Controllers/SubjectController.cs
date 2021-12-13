@@ -16,32 +16,32 @@ namespace FlasherApi.Controllers
     public class SubjectController : ControllerBase
     {
         private readonly ILogger<SubjectController> _logger;
-        private readonly ISubjectDmRepository _subjectDmRepository;
+        private readonly ISubjectRepository _subjectRepository;
 
-        public SubjectController(ILogger<SubjectController> logger, ISubjectDmRepository subjectRepository)
+        public SubjectController(ILogger<SubjectController> logger, ISubjectRepository subjectRepository)
         {
             _logger = logger;
-            _subjectDmRepository = subjectRepository;
+            _subjectRepository = subjectRepository;
         }
 
         [HttpGet]
-        public ActionResult<Subject> Get(int id)
+        public ActionResult<Data.Dtos.SubjectDto> Get(int id)
         {
             try
             {
-                SubjectDm subjectDm = _subjectDmRepository.GetAsync(id).Result;
-                if (subjectDm is not null)
+                FlasherData.DataModels.Subject subject = _subjectRepository.GetAsync(id).Result;
+                if (subject is not null)
                 {
-                    Subject subjectDto = new Subject()
+                    Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                     {
-                        Id = subjectDm.Id,
-                        Title = subjectDm.Name
+                        Id = subject.Id,
+                        Title = subject.Name
                     };
                     return StatusCode(StatusCodes.Status201Created, subjectDto);
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status204NoContent, $"SubjectDm {id} could not be found");
+                    return StatusCode(StatusCodes.Status204NoContent, $"Subject {id} could not be found");
                 }
             }
             catch (Exception e)
@@ -51,17 +51,17 @@ namespace FlasherApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Subject>> GetAll()
+        public ActionResult<List<Data.Dtos.SubjectDto>> GetAll()
         {
             try
             {
-                List<Subject> subjectDtos = new List<Subject>();
-                List<SubjectDm> subjectDms = _subjectDmRepository.GetAllAsync().Result.ToList();
-                if (subjectDms.Count > 0)
+                List<Data.Dtos.SubjectDto> subjectDtos = new List<Data.Dtos.SubjectDto>();
+                List<FlasherData.DataModels.Subject> subjects = _subjectRepository.GetAllAsync().Result.ToList();
+                if (subjects.Count > 0)
                 {
-                    foreach (SubjectDm s in subjectDms)
+                    foreach (FlasherData.DataModels.Subject s in subjects)
                     {
-                        Subject subjectDto = new Subject()
+                        Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                         {
                             Id = s.Id,
                             Title = s.Name
@@ -82,15 +82,15 @@ namespace FlasherApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create(Subject newSubjectDto)
+        public ActionResult<string> Create(Data.Dtos.SubjectDto newSubjectDto)
         {
             try
             {
-                SubjectDm newSubjectDm = new SubjectDm()
+                FlasherData.DataModels.Subject newSubject = new FlasherData.DataModels.Subject()
                 {
                     Name = newSubjectDto.Title
                 };
-                _subjectDmRepository.AddAsync(newSubjectDm);
+                _subjectRepository.AddAsync(newSubject);
                 return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Subject to return status            
             }
             catch (Exception e)
@@ -100,20 +100,20 @@ namespace FlasherApi.Controllers
         }   
         
         [HttpPost]
-        public ActionResult<string> Update(int id, Subject subjectDtoUpdate)
+        public ActionResult<string> Update(int id, Data.Dtos.SubjectDto subjectDtoUpdate)
         {
             try
             {
                 if (id == subjectDtoUpdate.Id)
                 {
-                    if (_subjectDmRepository.ExistsAsync(id).Result)
+                    if (_subjectRepository.ExistsAsync(id).Result)
                     {
-                        SubjectDm subjectDmUpdate = new SubjectDm()
+                        FlasherData.DataModels.Subject subjectUpdate = new FlasherData.DataModels.Subject()
                         {
                             Id = (int)subjectDtoUpdate.Id,
                             Name = subjectDtoUpdate.Title
                         };
-                        _subjectDmRepository.Update(subjectDmUpdate);
+                        _subjectRepository.Update(subjectUpdate);
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Subject to return status 
                     }
                     else
@@ -137,10 +137,10 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                SubjectDm subjectDmToDelete = _subjectDmRepository.Where(fc => fc.Id == id).FirstOrDefault();
-                if (subjectDmToDelete is not null)
+                FlasherData.DataModels.Subject subjectToDelete = _subjectRepository.Where(fc => fc.Id == id).FirstOrDefault();
+                if (subjectToDelete is not null)
                 {
-                    _subjectDmRepository.Remove(subjectDmToDelete);
+                    _subjectRepository.Remove(subjectToDelete);
                     return StatusCode(StatusCodes.Status200OK, $"Subject {id} has been deleted.");
                 }
                 else

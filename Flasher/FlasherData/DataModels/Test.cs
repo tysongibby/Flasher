@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace FlasherData.DataModels
 {
-    // Group of FlashCards used for a round of testing
-    // Parent of Question
-    [Table("Tests")]
-    public class TestDm
+    // Group of FlashCards used for a round of testing for a subject
+    // Parent of Question    
+    public class Test
     {
         [Key]
         public int Id { get; set; }
@@ -20,12 +19,12 @@ namespace FlasherData.DataModels
 
         [Required]
         [ForeignKey("Subjects")]
-        public SubjectDm Subject { get; set; }
+        public Subject Subject { get; set; }
 
         // Navigation property for Question FK relation
-        public ICollection<QuestionDm> Questions { get; set; }
+        public ICollection<Question> Questions { get; set; }
 
         
-        //public ICollection<CategoryDm> Category { get; set; }
+        //public ICollection<Category> Category { get; set; }
     }
 }

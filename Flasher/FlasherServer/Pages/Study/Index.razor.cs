@@ -23,10 +23,10 @@ namespace FlasherServer.Pages.Study
 
         protected override void OnInitialized()
         {
-            IList<SubjectDm> _subjectDmModels = UnitOfWork.SubjectDms.GetAll();
-            foreach(SubjectDm _subjectDmModel in _subjectDmModels)
+            IList<Subject> _subjectModels = UnitOfWork.Subjects.GetAll();
+            foreach(Subject _subjectModel in _subjectModels)
             {
-                Subjects.Add(Mapper.Map<SubjectDto>(_subjectDmModel));
+                Subjects.Add(Mapper.Map<SubjectDto>(_subjectModel));
             }            
         }
 

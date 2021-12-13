@@ -8,7 +8,7 @@ using FlasherData.Context;
 
 namespace FlasherData.Repositories
 {
-    public class SubjectRepository : GenericRepository<SubjectDm>, ISubjectDmRepository
+    public class SubjectRepository : GenericRepository<Subject>, ISubjectRepository
     {
         public SubjectRepository(FlasherContext context) : base(context) { }
         public FlasherContext FlasherContext
@@ -19,7 +19,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        public override int Update(SubjectDm subjectUpdate)
+        public override int Update(Subject subjectUpdate)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
                 }
                 //TODO: add update entity to BaseRepository.cs if possible                
-                SubjectDm subjectToUpdate = FlasherContext.SubjectDms.Find(subjectUpdate.Id);
+                Subject subjectToUpdate = FlasherContext.Subjects.Find(subjectUpdate.Id);
                 if (subjectToUpdate != null)
                 {
                     subjectToUpdate.Name = subjectUpdate.Name;

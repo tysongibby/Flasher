@@ -84,24 +84,24 @@ namespace FlasherServer.Pages.Study
                     // convert subject from string value to int
                     int SelectedSubjectId = Int32.Parse(pair.Value);                    
                     // get Subject Data Model and map to Subject Dto
-                    Subject = (Mapper.Map<SubjectDto>(UnitOfWork.SubjectDms.Get(SelectedSubjectId)));
+                    Subject = (Mapper.Map<SubjectDto>(UnitOfWork.Subjects.Get(SelectedSubjectId)));
                 }
                 else
                 {
                     // convert category from string value to int
                     int categoryId = Int32.Parse(pair.Value);
                     // get Category Data Model and map to Category Dto
-                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.CategoryDms.Get(categoryId)));
+                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.Categorys.Get(categoryId)));
                 }                
             }
             // get all flashcards for a subject
-            List<FlashcardDm> flashcardDms = UnitOfWork.FlashcardDms.GetAllFlashcardsForSubjectDm((int)Subject.Id).ToList() ;
+            List<Flashcard> flashcards = UnitOfWork.Flashcards.GetAllFlashcardsForSubject((int)Subject.Id).ToList() ;
 
 
             // convert flashcard data model to dto
-            foreach (FlashcardDm flashcardDm in flashcardDms)
+            foreach (Flashcard flashcard in flashcards)
             {                
-                Flashcards.Add(Mapper.Map<FlashcardDto>(flashcardDm));
+                Flashcards.Add(Mapper.Map<FlashcardDto>(flashcard));
             }
             // get Flashcard to be displayed on page
             Flashcard = Flashcards[CardIndex];
@@ -252,7 +252,7 @@ namespace FlasherServer.Pages.Study
         {
             AnsweredCorrectly = !AnsweredCorrectly;
             Flashcard.AnsweredCorrectly = AnsweredCorrectly;
-            int pk = UnitOfWork.FlashcardDms.Update(Mapper.Map<FlashcardDm>(Flashcard));
+            int pk = UnitOfWork.Flashcards.Update(Mapper.Map<Flashcard>(Flashcard));
         }
 
         // sets content of page to flashcard front data

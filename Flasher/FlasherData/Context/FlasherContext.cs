@@ -16,17 +16,17 @@ namespace FlasherData.Context
         public FlasherContext(DbContextOptions<FlasherContext> options) : base(options)
         { }
 
-        public virtual DbSet<SubjectDm> SubjectDms { get; set; }
-        public virtual DbSet<CategoryDm> CategoryDms { get; set; }
-        public virtual DbSet<FlashcardDm> FlashcardDms { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Category> Categorys { get; set; }
+        public virtual DbSet<Flashcard> Flashcards { get; set; }
         
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<SubjectDm>(new SubjectDmConfig());
-            modelBuilder.ApplyConfiguration<CategoryDm>(new CategoryDmConfig());
-            modelBuilder.ApplyConfiguration<FlashcardDm>(new FlashcardDmConfig());
+            modelBuilder.ApplyConfiguration<Subject>(new SubjectConfig());
+            modelBuilder.ApplyConfiguration<Category>(new CategoryConfig());
+            modelBuilder.ApplyConfiguration<Flashcard>(new FlashcardConfig());
         }
 
         
