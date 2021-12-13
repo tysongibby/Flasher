@@ -18,12 +18,12 @@ namespace FlasherServer.Pages.Import
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }
-        private IList<Flashcard> Newflashcards { get; set; } = new List<Flashcard>();
+        private IList<FlashcardDto> Newflashcards { get; set; } = new List<FlashcardDto>();
         private string SubjectTitle { get; set; } = string.Empty;
         private string CategoryTitle { get; set; } = string.Empty;
         public int SelectedSubjectId { get; set; }
-        private IList<Subject> Subjects { get; set; } = new List<Subject>();
-        private IList<Category> Categories { get; set; } = new List<Category>();
+        private IList<SubjectDto> Subjects { get; set; } = new List<SubjectDto>();
+        private IList<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
         private IList<int> SelectedCategoryIds { get; set; } = new List<int>();
 
         private string frontsTextAreaText;
@@ -99,7 +99,7 @@ namespace FlasherServer.Pages.Import
                     {
                         _title = "Temp Title";
                     }
-                    Flashcard newFlashcard = new Flashcard()
+                    FlashcardDto newFlashcard = new FlashcardDto()
                     {
                         SubjectId = 1,
                         CategoryId = 5,
@@ -119,7 +119,7 @@ namespace FlasherServer.Pages.Import
             }
 
             // add new flashcards to database
-            foreach (Flashcard fc in Newflashcards)
+            foreach (FlashcardDto fc in Newflashcards)
             {
                 UnitOfWork.FlashcardDms.Add(Mapper.Map<FlashcardDm>(fc));
             }

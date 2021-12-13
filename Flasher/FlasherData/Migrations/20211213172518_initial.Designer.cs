@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlasherData.Migrations
 {
     [DbContext(typeof(FlasherContext))]
-    [Migration("20211209213859_Initial")]
-    partial class Initial
+    [Migration("20211213172518_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,9 @@ namespace FlasherData.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Number")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryDmId");
@@ -132,7 +135,8 @@ namespace FlasherData.Migrations
                             Back = "Back1",
                             CategoryId = 1,
                             Front = "Front1",
-                            Name = "Flashcard1"
+                            Name = "Flashcard1",
+                            Number = 0
                         },
                         new
                         {
@@ -141,7 +145,8 @@ namespace FlasherData.Migrations
                             Back = "Back2",
                             CategoryId = 1,
                             Front = "Front2",
-                            Name = "Flashcard2"
+                            Name = "Flashcard2",
+                            Number = 0
                         },
                         new
                         {
@@ -150,7 +155,8 @@ namespace FlasherData.Migrations
                             Back = "Back3",
                             CategoryId = 2,
                             Front = "Front3",
-                            Name = "Flashcard3"
+                            Name = "Flashcard3",
+                            Number = 0
                         },
                         new
                         {
@@ -159,7 +165,8 @@ namespace FlasherData.Migrations
                             Back = "Back4",
                             CategoryId = 2,
                             Front = "Front4",
-                            Name = "Flashcard4"
+                            Name = "Flashcard4",
+                            Number = 0
                         },
                         new
                         {
@@ -168,7 +175,8 @@ namespace FlasherData.Migrations
                             Back = "Back5",
                             CategoryId = 3,
                             Front = "Front5",
-                            Name = "Flashcard5"
+                            Name = "Flashcard5",
+                            Number = 0
                         },
                         new
                         {
@@ -177,7 +185,8 @@ namespace FlasherData.Migrations
                             Back = "Back6",
                             CategoryId = 3,
                             Front = "Front5",
-                            Name = "Flashcard6"
+                            Name = "Flashcard6",
+                            Number = 0
                         },
                         new
                         {
@@ -186,7 +195,8 @@ namespace FlasherData.Migrations
                             Back = "Back7",
                             CategoryId = 4,
                             Front = "Front7",
-                            Name = "Flashcard7"
+                            Name = "Flashcard7",
+                            Number = 0
                         },
                         new
                         {
@@ -195,7 +205,8 @@ namespace FlasherData.Migrations
                             Back = "Back8",
                             CategoryId = 4,
                             Front = "Front8",
-                            Name = "Flashcard8"
+                            Name = "Flashcard8",
+                            Number = 0
                         });
                 });
 

@@ -23,16 +23,16 @@ namespace FlasherServer.Pages.Study
         private NavigationManager NavManager { get; set; }
         
         // Study subject of the flashcard currently being displayed
-        public Subject Subject { get; set; } = new Subject();
+        public SubjectDto Subject { get; set; } = new SubjectDto();
 
         // Study category of the flashcard currently being displayed
-        public List<Category> Categories { get; set; } = new List<Category>();
+        public List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
 
         // Flashcard currently being displayed
-        public Flashcard Flashcard { get; set; } = new Flashcard();               
+        public FlashcardDto Flashcard { get; set; } = new FlashcardDto();               
 
         // List of flashcards for this study session
-        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
+        public List<FlashcardDto> Flashcards { get; set; } = new List<FlashcardDto>();
 
         // Index used to track which flashcard item in the Flashcards list being displayed
         public int CardIndex { get; set; } = 0;
@@ -84,34 +84,24 @@ namespace FlasherServer.Pages.Study
                     // convert subject from string value to int
                     int SelectedSubjectId = Int32.Parse(pair.Value);                    
                     // get Subject Data Model and map to Subject Dto
-                    Subject = (Mapper.Map<Subject>(UnitOfWork.SubjectDms.Get(SelectedSubjectId)));
+                    Subject = (Mapper.Map<SubjectDto>(UnitOfWork.SubjectDms.Get(SelectedSubjectId)));
                 }
                 else
                 {
                     // convert category from string value to int
                     int categoryId = Int32.Parse(pair.Value);
                     // get Category Data Model and map to Category Dto
-                    Categories.Add(Mapper.Map<Category>(UnitOfWork.CategoryDms.Get(categoryId)));
+                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.CategoryDms.Get(categoryId)));
                 }                
             }
-            // get flashcards for subject and categories
-            List<FlashcardDm> flashcardDms = new List<FlashcardDm>();
-            using (FlasherContext flasherContext = new FlasherContext())
-            {
-                for (int i = 0; i < Categories.Count; i++)
-                {
-                    List<FlashcardDm> _flashCards = (from categoryDm in flasherContext.CategoryDms
-                                    join flashcardDm in flasherContext.FlashcardDms on categoryDm.Id equals flashcardDm.CategoryId
-                                    where categoryDm.SubjectId == Subject.Id && categoryDm.Id == Categories[i].Id
-                                    select flashcardDm).ToList();
-                    flashcardDms.AddRange(_flashCards);
-                }
-            }
+            // get all flashcards for a subject
+            List<FlashcardDm> flashcardDms = UnitOfWork.FlashcardDms.GetAllFlashcardsForSubjectDm((int)Subject.Id).ToList() ;
+
 
             // convert flashcard data model to dto
             foreach (FlashcardDm flashcardDm in flashcardDms)
             {                
-                Flashcards.Add(Mapper.Map<Flashcard>(flashcardDm));
+                Flashcards.Add(Mapper.Map<FlashcardDto>(flashcardDm));
             }
             // get Flashcard to be displayed on page
             Flashcard = Flashcards[CardIndex];

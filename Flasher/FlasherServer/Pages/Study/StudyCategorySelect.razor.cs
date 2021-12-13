@@ -22,11 +22,11 @@ namespace FlasherServer.Pages.Study
         [Parameter]
         public string selectedsubjectid { get; set; }
         private int SelectedSubjectId { get; set; }
-        private Category SelectedCategory { get; set; } = new Category();
+        private CategoryDto SelectedCategory { get; set; } = new CategoryDto();
 
         private List<int> SelectedCategoryIds { get; set; } = new List<int>();
         private Dictionary<string, string> SubjectAndCategories { get; set; } = new Dictionary<string, string>();
-        private List<Category> Categories { get; set; } = new List<Category>();
+        private List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
 
         
         protected override void OnInitialized()
@@ -38,7 +38,7 @@ namespace FlasherServer.Pages.Study
             List<CategoryDm> _categoryDms = UnitOfWork.CategoryDms.Where(s => s.SubjectId == SelectedSubjectId).ToList();
             foreach (CategoryDm _categoryDm in _categoryDms)
             {
-                Categories.Add(Mapper.Map<Category>(_categoryDm));
+                Categories.Add(Mapper.Map<CategoryDto>(_categoryDm));
             }
             
         }

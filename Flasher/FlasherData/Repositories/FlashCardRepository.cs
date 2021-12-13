@@ -25,34 +25,43 @@ namespace FlasherData.Repositories
         public IEnumerable<FlashcardDm> GetAllFlashcardsForSubjectDm(int subjedtDmId)
         {
             List<FlashcardDm> flashcards = new List<FlashcardDm>();
-            using (FlasherContext context = new FlasherContext())
+            List<CategoryDm> categories = new List<CategoryDm>();
+            categories = _context.Set<CategoryDm>().Where(c => c.SubjectId == subjedtDmId).ToList();
+            foreach (CategoryDm category in categories)
             {
-                flashcards = (from category in context.CategoryDms
-                              join flashcard in context.FlashcardDms on category.Id equals flashcard.CategoryId
-                              where category.SubjectId == subjedtDmId                              
-                              select flashcard).ToList();
+                flashcards.AddRange(_context.Set<FlashcardDm>().Where(fc => fc.CategoryId == category.Id).ToList());
             }
             return flashcards;
         }
 
-        public IEnumerable<FlashcardDm> GetAllFlashcardsForCategoryDm(int categoryDmId)
+        public IEnumerable<FlashcardDm> GetAllFlashCardsForCategory(int categoryId)
+        {            
+            return _context.Set<FlashcardDm>().Where(fc => fc.CategoryId == categoryId).ToList();            
+        }
+
+        public IEnumerable<FlashcardDm> GetAllFlashCardsForCategories(IEnumerable<int> categoryIds)
         {
-            IEnumerable<FlashcardDm> _flashcards = _context.Set<FlashcardDm>().Where(fc => fc.CategoryId == categoryDmId);
-            return _flashcards;
+            List<FlashcardDm> flashcards = new List<FlashcardDm>();
+            foreach (int categoryId in categoryIds)
+            {                                        
+                flashcards.AddRange(_context.Set<FlashcardDm>().Where(fc => fc.CategoryId == categoryId).ToList());
+            }            
+            return flashcards;
+        }
+
+        public IEnumerable<FlashcardDm> GetAllFlashcardsForCategoryDm(int categoryDmId)
+        {            
+            return _context.Set<FlashcardDm>().Where(fc => fc.CategoryId == categoryDmId).ToList(); ;
         }
 
         public string GetSubjectDmTitle(int subjectDmId)
-        {
-           var title = _context.Set<SubjectDm>().Where(s => s.Id == subjectDmId).FirstOrDefault().Name;
-           return title;
+        {           
+           return _context.Set<SubjectDm>().Where(s => s.Id == subjectDmId).FirstOrDefault().Name; ;
         }
 
         public string GetCategoryDmTitle(int categoryDmId)
-        {
-            var title = _context.Set<CategoryDm>().Where(s => s.Id == categoryDmId).FirstOrDefault().Name;
-            return title;
+        {            
+            return _context.Set<CategoryDm>().Where(s => s.Id == categoryDmId).FirstOrDefault().Name;
         }
-
-
     }
 }

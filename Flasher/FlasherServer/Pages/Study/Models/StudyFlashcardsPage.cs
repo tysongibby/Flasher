@@ -8,17 +8,17 @@ namespace FlasherServer.Pages.Study.Models
 {
     public class StudyFlashcardsPage
     {
-        public Flashcard Flashcard { get; set; } = new Flashcard();
-        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
+        public FlashcardDto Flashcard { get; set; } = new FlashcardDto();
+        public List<FlashcardDto> Flashcards { get; set; } = new List<FlashcardDto>();
         public int CardIndex { get; set; } = 0;
         public bool Front { get; set; } = true;
         public string Side { get; set; } = "Front";
         public string Title { get; set; } = string.Empty;
         public string Body { get; set; } = string.Empty;
         public string SubjectTitle { get; set; } = string.Empty;
-        public Subject Subject { get; set; } = new Subject();
+        public SubjectDto Subject { get; set; } = new SubjectDto();
         public string CategoryTitle { get; set; } = string.Empty;
-        public List<Category> Categories { get; set; } = new List<Category>();
+        public List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
         public string ShowButton { get; set; } = "Back";
         public bool AnsweredCorrectly { get; set; } = false;
 

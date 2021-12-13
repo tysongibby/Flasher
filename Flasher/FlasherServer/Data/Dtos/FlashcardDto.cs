@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlasherServer.Data.Dtos
 {
-    public class Flashcard
+    public class FlashcardDto
     {   
         public int? Id { get; set; }
         public int Number { get; set; }

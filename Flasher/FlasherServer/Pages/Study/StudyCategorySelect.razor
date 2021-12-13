@@ -9,7 +9,7 @@
         </div>
         <h5>Choose subject categories you would like questions from:</h5>
         <div class="row mt-4">            
-                @foreach (Category category in Categories)
+                @foreach (CategoryDto category in Categories)
                 {
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />

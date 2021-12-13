@@ -16,8 +16,8 @@ namespace FlasherServer.Pages.Study
         private IMapper Mapper { get; set; }
         [Inject]
         NavigationManager NavManager { get; set; }
-        private IList<Subject> Subjects { get; set; } = new List<Subject>();
-        private Subject SelectedSubject { get; set; } = new Subject();
+        private IList<SubjectDto> Subjects { get; set; } = new List<SubjectDto>();
+        private SubjectDto SelectedSubject { get; set; } = new SubjectDto();
         private int SelectedSubjectId { get; set; }
        
 
@@ -26,7 +26,7 @@ namespace FlasherServer.Pages.Study
             IList<SubjectDm> _subjectDmModels = UnitOfWork.SubjectDms.GetAll();
             foreach(SubjectDm _subjectDmModel in _subjectDmModels)
             {
-                Subjects.Add(Mapper.Map<Subject>(_subjectDmModel));
+                Subjects.Add(Mapper.Map<SubjectDto>(_subjectDmModel));
             }            
         }
 

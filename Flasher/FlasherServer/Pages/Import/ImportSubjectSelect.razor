@@ -9,7 +9,7 @@
             @*<label for="subjects" class="col-2 col-form-label">Subject</label>*@
             <InputSelect id="subjects" class="form-control" @bind-Value="SelectedSubjectId">
                 @*<option disabled>select subject</option>*@
-                @foreach (Subject subject in Subjects)
+                @foreach (SubjectDto subject in Subjects)
                 {
                     <option value="@subject.Id">@subject.Title</option>
                 }
@@ -20,7 +20,7 @@
     <div class="row mt-4">
         <h5>Choose flashcards' subject category:</h5>
         <div class="input-group">
-            @foreach (Category category in Categories)
+            @foreach (CategoryDto category in Categories)
             {
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />

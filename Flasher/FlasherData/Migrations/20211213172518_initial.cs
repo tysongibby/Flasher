@@ -2,7 +2,7 @@
 
 namespace FlasherData.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,6 +66,7 @@ namespace FlasherData.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Number = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Front = table.Column<string>(type: "TEXT", nullable: false),
                     Back = table.Column<string>(type: "TEXT", nullable: false),
@@ -147,43 +148,43 @@ namespace FlasherData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 8, false, "Back8", null, 4, "Front8", "Flashcard8" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 8, false, "Back8", null, 4, "Front8", "Flashcard8", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 7, false, "Back7", null, 4, "Front7", "Flashcard7" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 7, false, "Back7", null, 4, "Front7", "Flashcard7", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 6, false, "Back6", null, 3, "Front5", "Flashcard6" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 6, false, "Back6", null, 3, "Front5", "Flashcard6", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 5, false, "Back5", null, 3, "Front5", "Flashcard5" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 5, false, "Back5", null, 3, "Front5", "Flashcard5", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 4, false, "Back4", null, 2, "Front4", "Flashcard4" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 4, false, "Back4", null, 2, "Front4", "Flashcard4", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 3, false, "Back3", null, 2, "Front3", "Flashcard3" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 3, false, "Back3", null, 2, "Front3", "Flashcard3", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 2, false, "Back2", null, 1, "Front2", "Flashcard2" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 2, false, "Back2", null, 1, "Front2", "Flashcard2", 0 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",
-                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name" },
-                values: new object[] { 1, false, "Back1", null, 1, "Front1", "Flashcard1" });
+                columns: new[] { "Id", "AnsweredCorrectly", "Back", "CategoryDmId", "CategoryId", "Front", "Name", "Number" },
+                values: new object[] { 1, false, "Back1", null, 1, "Front1", "Flashcard1", 0 });
 
             migrationBuilder.InsertData(
                 table: "Subjects",
