@@ -19,23 +19,52 @@ namespace FlasherServer.Pages.Study
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
-        [Inject]
+        [Inject]        
         private NavigationManager NavManager { get; set; }
-        public Flashcard Flashcard { get; set; } = new Flashcard();
-        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
-        public int CardIndex { get; set; } = 0;
-        public bool Front { get; set; } = true;
-        public string Side { get; set; } = "Front";
-        public string Title { get; set; } = string.Empty;
-        public string Body { get; set; } = string.Empty;
-        public string SubjectTitle { get; set; } = string.Empty;
+        
+        // Study subject of the flashcard currently being displayed
         public Subject Subject { get; set; } = new Subject();
-        public string CategoryTitle { get; set; } = string.Empty;
+
+        // Study category of the flashcard currently being displayed
         public List<Category> Categories { get; set; } = new List<Category>();
+
+        // Flashcard currently being displayed
+        public Flashcard Flashcard { get; set; } = new Flashcard();               
+
+        // List of flashcards for this study session
+        public List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
+
+        // Index used to track which flashcard item in the Flashcards list being displayed
+        public int CardIndex { get; set; } = 0;
+
+        // true if text from front of flashcard (question) is being displayed and
+        // false if it is the back (answer) of the flashcard being displayed
+        public bool IsFront { get; set; } = true;
+
+        // Stores the text to inform to the user which side of the flashcard is being shown
+        public string CardSide { get; set; } = "Front";
+
+        // Stores the display text for the Title of the current flashcard
+        public string CardTitle { get; set; } = string.Empty;
+
+        // Stores the display text for the front of back of the current flashcard
+        public string CardBody { get; set; } = string.Empty;
+
+        // Stores the display text for the Subject Title of the current flashcard
+        public string SubjectTitle { get; set; } = string.Empty;
+
+        // Stores the display text for the Category Title of the current flashcard
+        public string CategoryTitle { get; set; } = string.Empty;
+
+        // Stores the display text for the button that allows the user to "flip" the card
         public string ShowButton { get; set; } = "Back";
+
+        // Allows user to track if they answered a flashcard correctly or not,
+        // true for answered correctly and false for not answered corretly yet
         public bool AnsweredCorrectly { get; set; } = false;
 
         public int Counter { get; set; } = 0; //TEMP property until list object features are implemented
+        
         private StudyFlashcardsPage Page { get; set; } = new StudyFlashcardsPage();
 
 
@@ -43,8 +72,10 @@ namespace FlasherServer.Pages.Study
         {
             // get page uri (including query string)
             Uri uri = new Uri(NavManager.Uri);
+
             // get query string from page uri
             var SubjectAndCategories = QueryHelpers.ParseQuery(uri.Query);            
+
             // get flashcard subject and categories from query string and add them to Page model         
             foreach(KeyValuePair<string, Microsoft.Extensions.Primitives.StringValues> pair in SubjectAndCategories)
             {
@@ -65,28 +96,29 @@ namespace FlasherServer.Pages.Study
             }
             // get flashcards for subject and categories
             List<FlashcardDm> flashcardDms = new List<FlashcardDm>();
-            using (FlasherContext context = new FlasherContext())
+            using (FlasherContext flasherContext = new FlasherContext())
             {
                 for (int i = 0; i < Categories.Count; i++)
                 {
-                    List<FlashcardDm> _flashCards = (from categoryDm in context.CategoryDms
-                                    join flashcardDm in context.FlashcardDms on categoryDm.Id equals flashcardDm.CategoryId
+                    List<FlashcardDm> _flashCards = (from categoryDm in flasherContext.CategoryDms
+                                    join flashcardDm in flasherContext.FlashcardDms on categoryDm.Id equals flashcardDm.CategoryId
                                     where categoryDm.SubjectId == Subject.Id && categoryDm.Id == Categories[i].Id
                                     select flashcardDm).ToList();
                     flashcardDms.AddRange(_flashCards);
                 }
             }
+
+            // convert flashcard data model to dto
             foreach (FlashcardDm flashcardDm in flashcardDms)
-            {
-                // convert flascard data model to dto
+            {                
                 Flashcards.Add(Mapper.Map<Flashcard>(flashcardDm));
             }
             // get Flashcard to be displayed on page
             Flashcard = Flashcards[CardIndex];
 
             // set data to be displayed on page
-            Body = Flashcard.Front;
-            Title = Flashcard.Title;
+            CardBody = Flashcard.Front;
+            CardTitle = Flashcard.Title;
             SubjectTitle = Subject.Title;
             if (Flashcard.CategoryId is not null && Flashcard.CategoryId != 0)
             {
@@ -95,6 +127,7 @@ namespace FlasherServer.Pages.Study
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
         }
 
+        // set flashcard index next flashcard in sequence that has not already been answered correctly
         private void NextFlashcard()
         {
             if (CardIndex < Flashcards.Count - 1)
@@ -111,6 +144,7 @@ namespace FlasherServer.Pages.Study
             Counter++;
         }
 
+        // set flashcard index to previous flashcard in sequence that has not been answered correctly
         private void LastFlashcard()
         {
             if (CardIndex >= 0)
@@ -209,10 +243,11 @@ namespace FlasherServer.Pages.Study
             return _latestIncorrectAnswerIndex;
         }
 
+        // changes page contenct from flaschard front content to flashcard back content and vice versa
         private void FlipFlashcard()
         {
-            Front = !Front;
-            if (Front == true)
+            IsFront = !IsFront;
+            if (IsFront == true)
             {
                 SetFlashcardFront();
             }
@@ -222,6 +257,7 @@ namespace FlasherServer.Pages.Study
             }
         }
 
+        // save answer correctly status to database
         private void UpdateAnswerStatus()
         {
             AnsweredCorrectly = !AnsweredCorrectly;
@@ -229,23 +265,25 @@ namespace FlasherServer.Pages.Study
             int pk = UnitOfWork.FlashcardDms.Update(Mapper.Map<FlashcardDm>(Flashcard));
         }
 
+        // sets content of page to flashcard front data
         private void SetFlashcardFront()
         {
 
-            Title = Flashcard.Title;
-            Body = Flashcard.Front;
+            CardTitle = Flashcard.Title;
+            CardBody = Flashcard.Front;
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
-            Side = "Front";
+            CardSide = "Front";
             ShowButton = "Back";
         }
 
+        // sets content of page to flashcard back data
         private void SetFlashcardBack()
         {
 
-            Title = Flashcard.Title;
-            Body = Flashcard.Back;
+            CardTitle = Flashcard.Title;
+            CardBody = Flashcard.Back;
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
-            Side = "Back";
+            CardSide = "Back";
             ShowButton = "Front";
         }
 
@@ -270,10 +308,10 @@ namespace FlasherServer.Pages.Study
         //    SelectedCategoryId = id;
         //}
 
-        private void LoadCategoryFlashcards()
-        {
-            throw new NotImplementedException("LoadCategoryFlashcards has not yet be implmemented");
-        }
+        //private void LoadCategoryFlashcards()
+        //{
+        //    throw new NotImplementedException("LoadCategoryFlashcards has not yet be implmemented");
+        //}
 
         private void HandleOnSubmit()
         {
