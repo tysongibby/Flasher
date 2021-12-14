@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,14 @@ namespace FlasherData.Context
     public class FlasherContext : DbContext
     {
         public FlasherContext()
-        { }
-        public FlasherContext(DbContextOptions<FlasherContext> options) : base(options)
-        { }
+        {            
+        }
+        public FlasherContext(IConfiguration configuration, DbContextOptions<FlasherContext> options) : base(options)
+        {
+            Configuration = configuration;        
+        }
 
+        public IConfiguration Configuration { get; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Category> Categorys { get; set; }
         public virtual DbSet<Flashcard> Flashcards { get; set; }
@@ -29,6 +34,9 @@ namespace FlasherData.Context
             modelBuilder.ApplyConfiguration<Flashcard>(new FlashcardConfig());
         }
 
-        
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //{
+        //    options.UseSqlite(Configuration.GetConnectionString("FlasherDb"));
+        //}
     }
 }
