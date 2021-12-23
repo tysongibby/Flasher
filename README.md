@@ -12,7 +12,6 @@ This project is one of the places where I practice and implement the new coding 
 * WebAPI
 * REST
 * DTOs
-* Web Assemblies (WASM)
 * DBContext
 * Entity Framework
 * SQLite
