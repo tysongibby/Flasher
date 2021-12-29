@@ -9,6 +9,6 @@ namespace FlasherServer.Data.Dtos
     public class SubjectDto
     { 
         public int? Id { get; set; }        
-        public string Title { get; set; } 
+        public string Name { get; set; } 
     }
 }

@@ -35,7 +35,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.CategoryDto categoryDto = new Data.Dtos.CategoryDto()
                     {
                         Id = category.Id,
-                        Title = category.Name,
+                        Name = category.Name,
                         SubjectId = category.SubjectId
                     };
                     return StatusCode(StatusCodes.Status200OK, categoryDto);
@@ -62,7 +62,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                     {
                         Id = subject.Id,
-                        Title = subject.Name                        
+                        Name = subject.Name                        
                     };
                     return StatusCode(StatusCodes.Status200OK, subjectDto);
                 }
@@ -82,16 +82,16 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                List<Data.Dtos.CategoryDto> categoryDtos = new List<Data.Dtos.CategoryDto>();
-                List<FlasherData.DataModels.Category> category = _categoryRepository.GetAllAsync().Result.ToList();
+                List<CategoryDto> categoryDtos = new List<CategoryDto>();
+                List<Category> category = _categoryRepository.GetAllAsync().Result.ToList();
                 if (category.Count > 0)
                 {
-                    foreach (FlasherData.DataModels.Category s in category)
+                    foreach (Category s in category)
                     {
-                        Data.Dtos.CategoryDto categoryDto = new Data.Dtos.CategoryDto()
+                        CategoryDto categoryDto = new CategoryDto()
                         {
                             Id = s.Id,
-                            Title = s.Name,
+                            Name = s.Name,
                             SubjectId = s.SubjectId
                         };
                         categoryDtos.Add(categoryDto);
@@ -114,9 +114,9 @@ namespace FlasherApi.Controllers
         {
             try
             {
-                FlasherData.DataModels.Category newCategory = new FlasherData.DataModels.Category()
+                Category newCategory = new Category()
                 {
-                    Name = newCategoryDto.Title,
+                    Name = newCategoryDto.Name,
                     SubjectId = newCategoryDto.SubjectId
                 };
                 _categoryRepository.AddAsync(newCategory);
@@ -140,7 +140,7 @@ namespace FlasherApi.Controllers
                         FlasherData.DataModels.Category categoryUpdate = new FlasherData.DataModels.Category()
                         {
                             Id = (int)categoryDtoUpdate.Id,
-                            Name = categoryDtoUpdate.Title,
+                            Name = categoryDtoUpdate.Name,
                             SubjectId = categoryDtoUpdate.SubjectId
                         };
                         _categoryRepository.Update(categoryUpdate);

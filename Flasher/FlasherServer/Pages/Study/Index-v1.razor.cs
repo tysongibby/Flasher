@@ -30,9 +30,8 @@ namespace FlasherServer.Pages.Study
             }            
         }
 
-        private void OnValidSubmit(object value)
+        private void HandleOnValidSubmit()
         {
-            SelectedSubjectId = int.Parse(value.ToString());
             NavManager.NavigateTo($"/studycategoryselect/{SelectedSubjectId}");
         }
     }

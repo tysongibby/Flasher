@@ -62,7 +62,7 @@ namespace FlasherServer.Pages.Study
             }
         }
 
-        private void HandleOnValidSubmit()
+        private void OnValidSubmit()
         {
             SubjectAndCategories.Add("Subject", $"{SelectedSubjectId}");
             foreach (int i in SelectedCategoryIds)

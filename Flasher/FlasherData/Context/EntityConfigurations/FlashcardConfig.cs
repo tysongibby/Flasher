@@ -15,7 +15,7 @@ namespace FlasherData.Context.EntityConfigurations
         {
             //builder.HasKey(c => c.Id);
 
-            //builder.Property(c => c.Title)
+            //builder.Property(c => c.Name)
             //       .IsRequired();
 
             //builder.Property(c => c.Front)

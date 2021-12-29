@@ -11,7 +11,7 @@ namespace FlasherServer.Data.Dtos
     {   
         public int? Id { get; set; }
         public int Number { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public string Front { get; set; }
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;

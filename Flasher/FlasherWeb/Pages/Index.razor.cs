@@ -27,11 +27,11 @@ namespace FlasherWeb.Pages
             IndexPage.Flashcard = IndexPage.Flashcards[IndexPage.CardIndex];
 
             IndexPage.Body = IndexPage.Flashcard.Front;
-            IndexPage.Title = IndexPage.Flashcard.Title;
-            IndexPage.SubjectTitle = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Title;
+            IndexPage.Name = IndexPage.Flashcard.Name;
+            IndexPage.SubjectName = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Name;
             if (IndexPage.Flashcard.CategoryId is not null && IndexPage.Flashcard.CategoryId != 0)
             {
-                IndexPage.CategoryTitle = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Title;
+                IndexPage.CategoryName = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Name;
             }
             IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;          
         }
@@ -44,8 +44,8 @@ namespace FlasherWeb.Pages
                 {
                     IndexPage.CardIndex = FindNextIndex(IndexPage.CardIndex);
                     IndexPage.Flashcard = IndexPage.Flashcards[IndexPage.CardIndex];
-                    IndexPage.SubjectTitle = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Title;
-                    IndexPage.CategoryTitle = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Title;
+                    IndexPage.SubjectName = IndexPage.Subjects.Where(ss => ss.Id == IndexPage.Flashcard.SubjectId).FirstOrDefault().Name;
+                    IndexPage.CategoryName = IndexPage.Categories.Where(s => s.Id == IndexPage.Flashcard.CategoryId).FirstOrDefault().Name;
                 }
                 SetFlashcardFront();
             }
@@ -173,7 +173,7 @@ namespace FlasherWeb.Pages
         private void SetFlashcardFront()
         {
 
-            IndexPage.Title = IndexPage.Flashcard.Title;
+            IndexPage.Name = IndexPage.Flashcard.Name;
             IndexPage.Body = IndexPage.Flashcard.Front;
             IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;
             IndexPage.Side = "Front";
@@ -183,7 +183,7 @@ namespace FlasherWeb.Pages
         private void SetFlashcardBack()
         {
 
-            IndexPage.Title = IndexPage.Flashcard.Title;
+            IndexPage.Name = IndexPage.Flashcard.Name;
             IndexPage.Body = IndexPage.Flashcard.Back;
             IndexPage.AnsweredCorrectly = IndexPage.Flashcard.AnsweredCorrectly;
             IndexPage.Side = "Back";

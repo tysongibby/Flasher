@@ -33,7 +33,7 @@ namespace FlasherApi.Controllers
             if (flashcard is not null && flashcard.Id != 0)
             {            
                 flashcardDto.Id = flashcard.Id;
-                flashcardDto.Title = flashcard.Name;
+                flashcardDto.Name = flashcard.Name;
                 flashcardDto.Front = flashcard.Front;
                 flashcardDto.Back = flashcard.Back;
                 flashcardDto.AnsweredCorrectly = flashcard.AnsweredCorrectly;                
@@ -60,7 +60,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.FlashcardDto flashcardDto = new Data.Dtos.FlashcardDto()
                     {
                         Id = fc.Id,
-                        Title = fc.Name,
+                        Name = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,                        
@@ -89,7 +89,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.FlashcardDto flashcardDto = new Data.Dtos.FlashcardDto()
                     {
                         Id = fc.Id,
-                        Title = fc.Name,
+                        Name = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,                        
@@ -119,7 +119,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.FlashcardDto flashcardDto = new Data.Dtos.FlashcardDto()
                     {
                         Id = fc.Id,
-                        Title = fc.Name,
+                        Name = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
                         AnsweredCorrectly = fc.AnsweredCorrectly,
@@ -143,7 +143,7 @@ namespace FlasherApi.Controllers
             {
                 FlasherData.DataModels.Flashcard newFlashcard = new FlasherData.DataModels.Flashcard()
                 {
-                    Name = flashcardDto.Title,
+                    Name = flashcardDto.Name,
                     Front = flashcardDto.Front,
                     Back = flashcardDto.Back,
                     AnsweredCorrectly = false,
@@ -169,7 +169,7 @@ namespace FlasherApi.Controllers
                     FlasherData.DataModels.Flashcard newFlashcard = new FlasherData.DataModels.Flashcard()
                         {
                             Id = (int)flashcardDto.Id,
-                            Name = flashcardDto.Title,
+                            Name = flashcardDto.Name,
                             Front = flashcardDto.Front,
                             Back = flashcardDto.Back,
                             AnsweredCorrectly = flashcardDto.AnsweredCorrectly,

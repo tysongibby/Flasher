@@ -1,6 +1,6 @@
 ﻿@page "/import"
 
-<EditForm Model="ImportSubjectSelectPage" OnSubmit="() => Submit(FrontsTextAreaText, BacksTextAreaText)">
+<EditForm Model="Page" OnSubmit="() => OnValidSubmit()">
     <h3>Import Flashcards</h3>
     @*Subject*@
     <div class="row mt-4">
@@ -11,41 +11,14 @@
                 @*<option disabled>select subject</option>*@
                 @foreach (SubjectDto subject in Subjects)
                 {
-                    <option value="@subject.Id">@subject.Title</option>
+                    <option value="@subject.Id">@subject.Name</option>
                 }
             </InputSelect>
         </div>
     </div>
-    @*Categories*@
+    @*Submit Form*@
     <div class="row mt-4">
-        <h5>Choose flashcards' subject category:</h5>
-        <div class="input-group">
-            @foreach (CategoryDto category in Categories)
-            {
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />
-                    <label class="form-check-label" for="@category.Title">
-                        @category.Title
-                    </label>
-                </div>
-            }
-        </div>
+        <button class="btn btn-primary" type="submit">Next</button>
     </div>
-    @*Fronts*@
-    <h5 class="mt-4">Enter text for flashcard fronts:</h5>
-    <div class="row mt-2">
-        <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
-    </div>
-    @*Backs*@
-    <h5 class="mt-4">Enter text for flashcard backs:</h5>
-    <div class="row">
-        <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
-    </div>
-    <div class="row mt-4">
-        <button class="btn btn-primary">Submit</button>
-    </div>
-    <div class="row mt-4">
-        <h4>Results</h4>
-        <textarea class="visually-hidden" @bind="ResultsTextAreaText"></textarea>
-    </div>
+
 </EditForm>

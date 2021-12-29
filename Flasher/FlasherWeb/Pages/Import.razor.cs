@@ -17,8 +17,8 @@ namespace FlasherWeb.Pages
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }       
         private List<Flashcard> NewFlashcards { get; set; } = new List<Flashcard>();
-        private string SubjectTitle { get; set; } = string.Empty;
-        private string SetTitle { get; set; } = string.Empty;
+        private string SubjectName { get; set; } = string.Empty;
+        private string SetName { get; set; } = string.Empty;
         
         private string frontsTextAreaText;
         private string backsTextAreaText;
@@ -61,23 +61,23 @@ namespace FlasherWeb.Pages
         {            
             List<string> newFlashcardFronts = textForFronts.Split('■').ToList();
             List<string> newFlashcardBacks = textForBacks.Split('■').ToList();
-            Regex titleRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
+            Regex nameRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
             
             if (newFlashcardFronts.Count == newFlashcardBacks.Count)
             {                                
                 int i = 0;
                 while (i <= (newFlashcardFronts.Count - 1))
                 {                    
-                    string _title = titleRegEx.Match(newFlashcardFronts[i]).ToString();
-                    if (_title is null || _title == string.Empty)
+                    string _name = nameRegEx.Match(newFlashcardFronts[i]).ToString();
+                    if (_name is null || _name == string.Empty)
                     {
-                        _title = "Temp Title";
+                        _name = "Temp Name";
                     }
                     Flashcard newFlashcard = new Flashcard()
                     {                        
                         SubjectId = 1,
                         CategoryId = 5,
-                        Title = _title,
+                        Name = _name,
                         Front = newFlashcardFronts[i],
                         Back = newFlashcardBacks[i]
                     };

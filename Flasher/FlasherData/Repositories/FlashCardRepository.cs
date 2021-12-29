@@ -54,12 +54,12 @@ namespace FlasherData.Repositories
             return _context.Set<Flashcard>().Where(fc => fc.CategoryId == categoryId).ToList(); ;
         }
 
-        public string GetSubjectTitle(int subjectId)
+        public string GetSubjectName(int subjectId)
         {           
            return _context.Set<Subject>().Where(s => s.Id == subjectId).FirstOrDefault().Name; ;
         }
 
-        public string GetCategoryTitle(int categoryId)
+        public string GetCategoryName(int categoryId)
         {            
             return _context.Set<Category>().Where(s => s.Id == categoryId).FirstOrDefault().Name;
         }

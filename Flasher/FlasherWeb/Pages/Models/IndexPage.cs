@@ -13,11 +13,11 @@ namespace FlasherWeb.Pages.Models
         public int CardIndex { get; set; } = 0;
         public bool Front { get; set; } = true;
         public string Side { get; set; } = "Front";
-        public string Title { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public string Body { get; set; } = string.Empty;
-        public string SubjectTitle { get; set; } = string.Empty;
+        public string SubjectName { get; set; } = string.Empty;
         public List<Subject> Subjects { get; set; } = new List<Subject>();
-        public string CategoryTitle { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
         public List<Category> Categories { get; set; } = new List<Category>();
         public string ShowButton { get; set; } = "Back";
         public bool AnsweredCorrectly { get; set; } = false;       

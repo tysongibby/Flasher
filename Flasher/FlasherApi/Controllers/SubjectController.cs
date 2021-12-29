@@ -35,7 +35,7 @@ namespace FlasherApi.Controllers
                     Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                     {
                         Id = subject.Id,
-                        Title = subject.Name
+                        Name = subject.Name
                     };
                     return StatusCode(StatusCodes.Status201Created, subjectDto);
                 }
@@ -64,7 +64,7 @@ namespace FlasherApi.Controllers
                         Data.Dtos.SubjectDto subjectDto = new Data.Dtos.SubjectDto()
                         {
                             Id = s.Id,
-                            Title = s.Name
+                            Name = s.Name
                         };
                         subjectDtos.Add(subjectDto);
                     }
@@ -88,7 +88,7 @@ namespace FlasherApi.Controllers
             {
                 FlasherData.DataModels.Subject newSubject = new FlasherData.DataModels.Subject()
                 {
-                    Name = newSubjectDto.Title
+                    Name = newSubjectDto.Name
                 };
                 _subjectRepository.AddAsync(newSubject);
                 return StatusCode(StatusCodes.Status201Created); //TODO: add url for new Subject to return status            
@@ -111,7 +111,7 @@ namespace FlasherApi.Controllers
                         FlasherData.DataModels.Subject subjectUpdate = new FlasherData.DataModels.Subject()
                         {
                             Id = (int)subjectDtoUpdate.Id,
-                            Name = subjectDtoUpdate.Title
+                            Name = subjectDtoUpdate.Name
                         };
                         _subjectRepository.Update(subjectUpdate);
                         return StatusCode(StatusCodes.Status200OK); //TODO: add url for updated Subject to return status 

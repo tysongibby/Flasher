@@ -15,7 +15,7 @@ namespace FlasherServer.Data
             // Flashcard mapping
             CreateMap<Flashcard, FlashcardDto>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int?)source.Id))
-                .ForMember(destination => destination.Title, opt => opt.MapFrom(source => source.Name))
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))
                 .ForMember(destination => destination.Number, opt => opt.MapFrom(source => source.Number))
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(source => source.Front))
                 .ForMember(destination => destination.Back, opt => opt.MapFrom(source => source.Back))
@@ -23,7 +23,7 @@ namespace FlasherServer.Data
                 .ForMember(destination => destination.CategoryId, opt => opt.MapFrom(source => source.CategoryId));
             CreateMap<FlashcardDto, Flashcard>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int)source.Id))
-                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Title))
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))
                 .ForMember(destination => destination.Number, opt => opt.MapFrom(source => source.Number))
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(source => source.Front))
                 .ForMember(destination => destination.Back, opt => opt.MapFrom(source => source.Back))
@@ -33,20 +33,20 @@ namespace FlasherServer.Data
             // Category mapping
             CreateMap<Category, CategoryDto>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int?)source.Id))
-                .ForMember(destination => destination.Title, opt => opt.MapFrom(source => source.Name))
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))
                 .ForMember(destination => destination.SubjectId, opt => opt.MapFrom(source => source.SubjectId));
             CreateMap<CategoryDto, Category>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int)source.Id))
-                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Title))
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))
                 .ForMember(destination => destination.SubjectId, opt => opt.MapFrom(source => source.SubjectId));
 
             // Subject mapping
             CreateMap<Subject, SubjectDto>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int?)source.Id))
-                .ForMember(destination => destination.Title, opt => opt.MapFrom(source => source.Name));
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name));
             CreateMap<SubjectDto, Subject>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int)source.Id))
-                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Title));
+                .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace FlasherData.Repositories.Interfaces
     {        
         public IEnumerable<Flashcard> GetAllFlashcardsForSubject(int subjectId);
         public IEnumerable<Flashcard> GetAllFlashcardsForCategory(int categoryId);
-        public string GetSubjectTitle(int subjectId);
-        public string GetCategoryTitle(int categoryId);
+        public string GetSubjectName(int subjectId);
+        public string GetCategoryName(int categoryId);
     }
 }

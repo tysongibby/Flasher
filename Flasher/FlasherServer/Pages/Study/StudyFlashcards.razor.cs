@@ -44,17 +44,17 @@ namespace FlasherServer.Pages.Study
         // Stores the text to inform to the user which side of the flashcard is being shown
         public string CardSide { get; set; } = "Front";
 
-        // Stores the display text for the Title of the current flashcard
-        public string CardTitle { get; set; } = string.Empty;
+        // Stores the display text for the Name of the current flashcard
+        public string CardName { get; set; } = string.Empty;
 
         // Stores the display text for the front of back of the current flashcard
         public string CardBody { get; set; } = string.Empty;
 
-        // Stores the display text for the Subject Title of the current flashcard
-        public string SubjectTitle { get; set; } = string.Empty;
+        // Stores the display text for the Subject Name of the current flashcard
+        public string SubjectName { get; set; } = string.Empty;
 
-        // Stores the display text for the Category Title of the current flashcard
-        public string CategoryTitle { get; set; } = string.Empty;
+        // Stores the display text for the Category Name of the current flashcard
+        public string CategoryName { get; set; } = string.Empty;
 
         // Stores the display text for the button that allows the user to "flip" the card
         public string ShowButton { get; set; } = "Back";
@@ -108,11 +108,11 @@ namespace FlasherServer.Pages.Study
 
             // set data to be displayed on page
             CardBody = Flashcard.Front;
-            CardTitle = Flashcard.Title;
-            SubjectTitle = Subject.Title;
+            CardName = Flashcard.Name;
+            SubjectName = Subject.Name;
             if (Flashcard.CategoryId is not null && Flashcard.CategoryId != 0)
             {
-                CategoryTitle = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Title;
+                CategoryName = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Name;
             }
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
         }
@@ -126,8 +126,8 @@ namespace FlasherServer.Pages.Study
                 {
                     CardIndex = FindNextIndex(CardIndex);
                     Flashcard = Flashcards[CardIndex];
-                    SubjectTitle = Subject.Title;                    
-                    CategoryTitle = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Title;
+                    SubjectName = Subject.Name;
+                    CategoryName = Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Name;
                 }
                 SetFlashcardFront();
             }
@@ -259,7 +259,7 @@ namespace FlasherServer.Pages.Study
         private void SetFlashcardFront()
         {
 
-            CardTitle = Flashcard.Title;
+            CardName = Flashcard.Name;
             CardBody = Flashcard.Front;
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
             CardSide = "Front";
@@ -270,7 +270,7 @@ namespace FlasherServer.Pages.Study
         private void SetFlashcardBack()
         {
 
-            CardTitle = Flashcard.Title;
+            CardName = Flashcard.Name;
             CardBody = Flashcard.Back;
             AnsweredCorrectly = Flashcard.AnsweredCorrectly;
             CardSide = "Back";

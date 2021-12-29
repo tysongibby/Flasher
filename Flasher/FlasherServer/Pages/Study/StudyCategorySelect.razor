@@ -1,6 +1,6 @@
 ﻿@page "/studycategoryselect/{selectedsubjectid}"
 
-<EditForm Model="SelectedCategory" OnValidSubmit="HandleOnValidSubmit">
+<EditForm Model="SelectedCategory" OnValidSubmit="OnValidSubmit">
     <div class="col">
         <div class="row">
             <h3>The Flasher</h3>
@@ -13,8 +13,8 @@
                 {
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />
-                        <label class="form-check-label" for="@category.Title">
-                            @category.Title
+                        <label class="form-check-label" for="@category.Name">
+                            @category.Name
                         </label>
                     </div>                        
                 }                            

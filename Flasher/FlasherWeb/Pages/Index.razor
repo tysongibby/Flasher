@@ -1,12 +1,11 @@
 ﻿@page "/"
-@using FlasherWeb.Services.Models
 
 <EditForm Model="IndexPage" OnSubmit="Submit">
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h3>@IndexPage.Title</h3>
-                <h5>@IndexPage.SubjectTitle, @IndexPage.CategoryTitle</h5>
+                <h3>@IndexPage.Name</h3>
+                <h5>@IndexPage.SubjectName, @IndexPage.CategoryName</h5>
             </div>
             <div class="card-body">
                 <h5>@IndexPage.Side</h5>
@@ -31,7 +30,5 @@
         <h6>Cards viewd = @IndexPage.Counter</h6>
     </div>
 </EditForm>
-
-@code {}
 
 
