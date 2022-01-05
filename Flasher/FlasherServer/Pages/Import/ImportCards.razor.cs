@@ -40,7 +40,7 @@ namespace FlasherServer.Pages.Import
             SelectedCategoryId = int.Parse(selectedcategoryid);
         }
 
-        public void Submit(string textForFronts, string textForBacks)
+        public void OnValidSubmit(string textForFronts, string textForBacks)
         {
             List<string> newFlashcardFronts = textForFronts.Split('■').ToList();
             List<string> newFlashcardBacks = textForBacks.Split('■').ToList();
@@ -55,7 +55,7 @@ namespace FlasherServer.Pages.Import
                     if (_name is null || _name == string.Empty)
                     {
                         _name = "Temp Name";
-                    }
+                    }                    
                     FlashcardDto newFlashcard = new FlashcardDto()
                     {
                         SubjectId = SelectedSubjectId,
@@ -64,8 +64,6 @@ namespace FlasherServer.Pages.Import
                         Front = newFlashcardFronts[i],
                         Back = newFlashcardBacks[i]
                     };
-                    //TODO: get Subject from webform
-                    //TODO: get Category from webform
                     NewFlashcards.Add(newFlashcard);
                     i++;
                 }
@@ -76,9 +74,10 @@ namespace FlasherServer.Pages.Import
             }
 
             // add new flashcards to database
-            foreach (FlashcardDto fc in NewFlashcards)
+            foreach (FlashcardDto newfc in NewFlashcards)
             {
-                UnitOfWork.Flashcards.Add(Mapper.Map<Flashcard>(fc));
+                newfc.Id = 0;
+                UnitOfWork.Flashcards.Add(Mapper.Map<Flashcard>(newfc));
             }
             ResultsTextAreaText = $"{NewFlashcards.Count} flashcards have been added.";
         }

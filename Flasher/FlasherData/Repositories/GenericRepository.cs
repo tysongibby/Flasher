@@ -35,7 +35,7 @@ namespace FlasherData.Repositories
             }
         }
         /// <summary>
-        /// Asynchronously finds an entity of TEntity type with the given primary key value.
+        /// Finds an entity of TEntity type with the given primary key value.
         /// </summary>
         /// <param name="id"></param>
         /// <returns>The entity found or null.</returns>
@@ -423,6 +423,14 @@ namespace FlasherData.Repositories
                 .Select(x => x.Name).Single();
 
             return (int)entity.GetType().GetProperty(keyName).GetValue(entity, null);
+        }
+
+        public virtual int NextPrimaryKey()
+        {            
+            int nextPrimaryKey = 0;
+            var maxKey = _context.Model.FindEntityType(typeof(TEntity)).GetKeys().Max();
+            //nextPrimarykey = ;
+            return nextPrimaryKey;
         }
 
     }

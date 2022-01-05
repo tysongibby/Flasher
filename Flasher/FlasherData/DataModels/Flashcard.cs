@@ -16,9 +16,6 @@ namespace FlasherData.DataModels
         public int Id { get; set; }
 
         [Required]
-        public int Number { get; set; }
-
-        [Required]
         public string Name { get; set; }
 
         [Required]
@@ -30,7 +27,7 @@ namespace FlasherData.DataModels
         public bool AnsweredCorrectly { get; set; } = false;
 
         [Required]
-        [ForeignKey("Category")]        
+        [ForeignKey("Categories")]        
         public int CategoryId { get; set; }
 
         // Navigation property for Question FK relation

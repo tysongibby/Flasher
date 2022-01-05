@@ -1,6 +1,6 @@
 ﻿@page "/importcards/{selectedsubjectid}/{selectedcategoryid}"
 
-<EditForm Model="Page" OnSubmit="() => Submit(FrontsTextAreaText, BacksTextAreaText)">
+<EditForm Model="Page" OnSubmit="() => OnValidSubmit(FrontsTextAreaText, BacksTextAreaText)">
     <h3>Import Flashcards</h3>
     @*Fronts*@
     <h5 class="mt-4">Enter text for flashcard fronts:</h5>

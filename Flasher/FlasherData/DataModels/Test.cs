@@ -19,7 +19,7 @@ namespace FlasherData.DataModels
 
         [Required]
         [ForeignKey("Subjects")]
-        public Subject Subject { get; set; }
+        public int SubjectId { get; set; }
 
         // Navigation property for Question FK relation
         public ICollection<Question> Questions { get; set; }

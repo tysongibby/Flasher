@@ -16,14 +16,17 @@ namespace FlasherData.DataModels
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        public int Number { get; set; }
+
         public bool AnsweredCorrectly { get; set; }
 
         [Required]
-        [ForeignKey("Test")]
-        public int Test { get; set; }
+        [ForeignKey("Tests")]
+        public int TestId { get; set; }
 
         [Required]
-        [ForeignKey("Flashcard")]
+        [ForeignKey("Flashcards")]
         public int FlashcardId { get; set; }
 
     }

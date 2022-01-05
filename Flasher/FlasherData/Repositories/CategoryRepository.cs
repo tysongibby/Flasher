@@ -21,7 +21,7 @@ namespace FlasherData.Repositories
 
         public async Task<Subject> GetSubject(int id)
         {
-            Category category = FlasherContext.Categorys.FindAsync(id).Result;
+            Category category = FlasherContext.Categories.FindAsync(id).Result;
             if (category is not null)
             {
                 Subject subject = await FlasherContext.Subjects.FindAsync(category.SubjectId);
