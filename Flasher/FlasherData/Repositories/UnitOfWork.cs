@@ -16,15 +16,21 @@ namespace FlasherData.Repositories
         {
             _context = context;
             Flashcards = new FlashcardRepository(_context);
-            Categorys = new CategoryRepository(_context);
+            Categories = new CategoryRepository(_context);
             Subjects = new SubjectRepository(_context);
+            Tests = new TestRepository(_context);
+            Questions = new QuestionRepository(_context);
         }
 
         public IFlashcardRepository Flashcards { get; private set; }
 
-        public ICategoryRepository Categorys { get; private set; }
+        public ICategoryRepository Categories { get; private set; }
 
         public ISubjectRepository Subjects { get; private set; }
+
+        public ITestRepository Tests { get; private set; }
+
+        public IQuestionRepository Questions { get; private set; }
 
         public void Dispose()
         {

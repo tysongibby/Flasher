@@ -10,7 +10,7 @@ namespace FlasherData.Repositories.Interfaces
     {
         
         IFlashcardRepository Flashcards { get; }
-        ICategoryRepository Categorys { get; }
+        ICategoryRepository Categories { get; }
         ISubjectRepository Subjects { get; }
 
         int UpdateDb();

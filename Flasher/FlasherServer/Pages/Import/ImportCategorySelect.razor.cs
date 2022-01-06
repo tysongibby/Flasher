@@ -32,7 +32,7 @@ namespace FlasherServer.Pages.Import
             SelectedSubjectId = Int32.Parse(selectedsubjectid);
 
             // get categories form subject
-            List<Category> _categories = UnitOfWork.Categorys.Where(s => s.SubjectId == SelectedSubjectId).ToList();
+            List<Category> _categories = UnitOfWork.Categories.Where(s => s.SubjectId == SelectedSubjectId).ToList();
             foreach (Category _category in _categories)
             {
                 Categories.Add(Mapper.Map<CategoryDto>(_category));

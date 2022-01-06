@@ -91,7 +91,7 @@ namespace FlasherServer.Pages.Study
                     // convert category from string value to int
                     int categoryId = Int32.Parse(pair.Value);
                     // get Category Data Model and map to Category Dto
-                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.Categorys.Get(categoryId)));
+                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.Categories.Get(categoryId)));
                 }                
             }
             // get all flashcards for a subject

@@ -10,7 +10,9 @@ namespace FlasherData.Repositories
 {
     public class SubjectRepository : GenericRepository<Subject>, ISubjectRepository
     {
-        public SubjectRepository(FlasherContext context) : base(context) { }
+        public SubjectRepository(FlasherContext context) : base(context) 
+        {
+        }
         public FlasherContext FlasherContext
         {
             get
