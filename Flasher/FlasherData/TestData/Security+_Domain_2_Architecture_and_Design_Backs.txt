@@ -1,0 +1,1623 @@
+1. C. The diagram shows services and ports, but it does not list the
+protocol. Ben should ask if these are TCP- or UDP-based
+services, since an incorrect guess would result in a
+nonfunctional service, and opening up unnecessary protocols
+may inadvertently create exposures or risks. The subnet mask is
+shown where multiple systems in a network on the client side
+require it, the service name isn’t necessary for a firewall rule,
+and API keys should not be stored in documents like this.
+■
+2. A. The correct answer is the Open Web Application Security
+Project (OWASP). It is the de facto standard for web application
+security.
+The North American Electric Reliability Corporation (NERC) is
+concerned with electrical power plant security, Trusted Foundry
+is a term used to describe a secure supply chain for computer
+ICs, and ISA/IEC standards are for securing industrial
+automation and control systems (IACSs).
+■
+3. B. Vendor diversity gives two security benefits. The first is that
+there is no single point of failure should one vendor cease
+operations. The second benefit is that each vendor has a specific
+methodology and algorithms used for detecting malware. If you
+use the same vendor at all points where you need malware
+detection, any flaw or weakness in that vendor’s methodology
+will persist across the network. Using a single vendor means that
+any weakness in that vendor’s methodology or technology could
+impact the entire system or network. Vendor forking is not a
+term in the industry, and this is not a neutral act; vendor
+diversity improves security.
+■
+4. B. In this scenario, the best fit to Scott’s needs is a second
+network attached storage (NAS) device with a full copy of the
+primary NAS. In a failure scenario, the secondary NAS can
+simply take the place of the primary NAS while individual disks
+or even the whole NAS is replaced. Tape-based backups take
+longer to restore, regardless of whether they are full or
+incremental backups, although incremental backups can take
+more time in some cases since swapping tapes in order can add
+time to the restoration process. Finally, a cloud-based backup
+system would be useful if Scott was worried about a local
+disaster but would be slower than a local identical NAS, thus not
+meeting Scott’s primary requirement.
+■
+5. C. Restoration order can be very important in a complex
+environment due to system dependencies. Restoration order can
+also ensure that the proper security controls are in place before
+systems are online. A datacenter should be able to handle
+systems coming online without failing if its power systems are
+properly designed. A second outage due to failed systems would
+mean that Yasmine has not determined why the outage has
+occurred, making restoration potentially dangerous or
+problematic. Finally, fire suppression systems should only
+activate for an actual fire or when fire precursors like smoke are
+detected, not for increased heat load.
+■
+6. B. Air gapping refers to the server not being on a network. This
+means literally that there is “air” between the server and the
+network. This prevents malware from infecting the backup
+server. A separate VLAN or physical network segment can
+enhance security but is not as effective as air gapping. A
+honeynet is used to detect attacks against a network, but it
+doesn’t provide effective defense against malware in this
+scenario.
+■
+7. C. Windows picture passwords require you to click on specific
+locations on a picture. This is an example of a something-youcan-
+do factor. Geolocation or a network location are examples of
+somewhere you are, whereas something you exhibit is often a
+personality trait, and someone you know is exactly what it
+sounds like: someone who can identify you as an individual.
+■
+8. C. Hash functions convert variable-length inputs into fixedlength
+outputs while minimizing the changes of multiple inputs,
+resulting in the same output (collisions). They also need to be
+fast to compute. Hashes should not be reversible; they are a oneway
+function!
+■
+9. B. The most common way to ensure that third-party secure
+destruction companies perform their tasks properly is to sign a
+contract with appropriate language and make sure that they
+certify the destruction of the materials they are asked to destroy.
+Manual on-site inspection by third parties is sometimes done as
+part of certification, but federal certification is not a common
+process. Requiring pictures of every destroyed document would
+create a new copy, thus making it a flawed process.
+■
+10. A. Using both server-side execution and validation requires
+more resources but prevents client-side tampering with the
+application and data. For Olivia’s described needs, server-side
+execution and validation is the best option.
+■
+11. D. An Arduino is a microcontroller well suited for custom
+development of embedded systems. They are small, inexpensive,
+and commonly available. Unlike a Raspberry Pi, they are not a
+small computer, reducing their overall risk of compromise. A
+custom field-programmable gate array (FPGA) will typically be
+more complex and expensive than an Arduino, whereas a
+repurposed desktop PC introduces all the potential issues that a
+PC can include such as a vulnerable operating system or
+software.
+■
+12. D. Digital signatures are created using the signer’s private key,
+allowing it to be validated using their public key.
+■
+13. C. Adding one bit to a key doubles the work required. The
+original effort would have 2128 potential solutions, whereas the
+increased key length would require 2129. In real life, key lengths
+aren’t increased by 1; instead, they are typically increased by
+factors of 2, such as 128 to 265, or 1024 to 2048.
+■
+14. C. Key stretching is used to improve weak keys. One way of
+implementing it is by repeatedly using a hash function or a block
+cipher, increasing the effort that an attacker would need to exert
+to attack the resulting hashed or encrypted data. The rest of the
+options were made up.
+■
+15. A. A salt is a value added to a string before it is hashed. The salt
+is stored so that it can be added to passwords when they are
+used in the future to compare to the hash. Since each salt is
+unique, this means that an attacker would need to generate a
+unique rainbow table for every salt to be able to attack the stored
+hashes effectively. For high-value passwords, this may be
+worthwhile, but for bulk lists of passwords, it is not a reasonable
+attack method.
+■
+16. C. Ian will use Michelle’s public key to encrypt the message so
+that only she can read it using her private key. If he wanted to
+sign the message, he could use his private key, and Michelle
+could use his public key to validate his signature. Neither Ian
+nor Michelle should ever reveal their private keys.
+■
+17. A. Elliptical curve cryptography (ECC) is faster because it can
+use a smaller key length to achieve levels of security similar to a
+longer RSA key (a 228-bit elliptical curve key is roughly
+equivalent to a 2,380-bit RSA key). Using the same key to
+encrypt and decrypt would be true for a symmetric encryption
+cryptosystem; however, neither of these are symmetric. Either
+algorithm can run on older processors given the right
+cryptographic libraries or programming, although both will be
+slower. Both can be used for digital signatures.
+■
+18. A. Perfect forward secrecy (PFS) is used to change keys used to
+encrypt and decrypt data, ensuring that even if a compromise
+occurs, only a very small amount of data will be exposed.
+Symmetric encryption uses a single key. Quantum key rotation
+and Diffie-Hellman key modulation are both terms made up for
+this question.
+■
+19. A. Checking a visitor’s ID against their log book entry can
+ensure that the information they have recorded is correct and
+that the person’s ID matches who they claim to be. Biometric
+scans only work on enrolled individuals, meaning that many
+guests may not have biometric data enrolled. Two-person
+integrity control would only be useful if there was a concern that
+a guard was allowing unauthorized individuals into the facility.
+A security robot typically cannot validate a visitor’s identity from
+an ID and log entry. This may change as they become more
+advanced!
+■
+20. D. Honeypots are designed to attract a hacker by appearing to
+be security holes that are ripe and ready for exploitation. A
+honeynet is a network honeypot. This security technique is used
+to observe hackers in action while not exposing vital network
+resources. An intrusion detection system (IDS) is used to detect
+activity that could indicate an intrusion or attack. Neither active
+detection nor false subnet is a common industry term.
+■
+21. C. SCADA, or Supervisory Control and Data Acquisition
+systems, are commonly used to manage facilities like power
+plants. The rest of the options were made up.
+■
+22. D. Prime factorization algorithms and elliptic curve
+cryptography are believed to be vulnerable to future quantum
+computing–driven attacks against cryptographic systems.
+Although this is largely theoretical at the moment, quantum
+encryption may be the only reasonable response to quantum
+attacks against current cryptographic algorithms and systems.
+■
+23. C. Geoff is looking for a warm site, which has some or all of the
+infrastructure and systems he needs but does not have data. If a
+disaster occurs, Geoff can bring any equipment that he needs or
+wants to the site along with his organization’s data to resume
+operations. A hot site is a fully functional environment with all
+the hardware, software, and data needed to operate an
+organization. They are expensive to maintain and run but are
+used by organizations that cannot take the risk of downtime. A
+cold site is a location that can be brought online but does not
+have systems; cold sites typically have access to power and
+bandwidth but need to be fully equipped to operate after a
+disaster since they are just rented space. An RTO is a recovery
+time objective, and it measures how long it should take to
+resume operations; it is not a type of disaster recovery site.
+■
+24. B. If Olivia wants to ensure that third parties will be unable to
+modify the operating system for Internet of Things (IoT)
+devices, requiring signed and encrypted firmware for operating
+system updates is an effective means of stopping all but the most
+advanced threats. Setting a default password means that a
+common password will be known. Checking the MD5sum for
+new firmware versions will help administrators validate that the
+firmware is legitimate, but signed and encrypted firmware is a
+much stronger control. Finally, regular patching may help
+secure the devices but won’t prevent OS modifications.
+■
+25. B. After quantum encryption and decryption technologies
+become mainstream, it is generally believed that nonquantum
+cryptosystems will be defeated with relative ease, meaning that
+quantum cryptography will be required to be secure. Qubits are
+quantum bits, not a measure of speed; quantum encryption will
+be the relevant solution in a post-quantum encryption world;
+and even very long RSA keys are expected to be vulnerable.
+■
+26. B. Counter mode (CTR) makes a block cipher into a stream
+cipher by generating a keystream block using a nonrepeating
+sequence to fill in the blocks. This allows data to be streamed
+instead of waiting for blocks to be ready to send. It does not
+perform the reverse, turning a stream cipher into a block cipher,
+nor does it reverse the encryption process (decryption). Public
+keys cannot unlock private keys; they are both part of an
+asymmetric encryption process.
+■
+27. D. Blockchain public ledgers contain an identity for
+participants (although the identity may be semi-anonymous),
+the transaction record, and the balance or other data that the
+blockchain is used to store. Since there is no central authority,
+there is no token to identify authorities.
+■
+28. C. A test server should be identical to the production server.
+This can be used for functional testing as well as security testing,
+before deploying the application. The production server is the
+live server. A development server would be one the
+programmers use during development of a web application, and
+predeployment server is not a term typically used in the
+industry.
+■
+29. C. Staging environments, sometimes called preproduction
+environments, are typically used for final quality assurance (QA)
+and validation before code enters the production environment
+as part of a deployment pipeline. Staging environments closely
+mirror production, allowing realistic testing and validation to be
+done. Development and test environments are used to create the
+code and for testing while it is being developed.
+■
+30. C. Application programming interface (API) keys are frequently
+used to meet this need. An API key can be issued to an
+individual or organization, and then use of the API can be
+tracked to each API key. If the API key is compromised or
+abused, it can be revoked and a new API key can be issued.
+Firewall rules written to use public IP addresses can be fragile,
+since IP addresses may change or organizations may have a
+broad range of addresses that may be in use, making it hard to
+validate which systems or users are using the API. Credentials,
+including passwords, are not as frequently used as API keys.
+■
+31. D. Embedded systems like smart meters typically do not
+include a SQL server to attack, making SQL injection an unlikely
+issue. Derek should focus on securing the traffic from his meter,
+ensuring that denial-of-service (DoS) attacks are difficult to
+accomplish and that remotely disconnecting the meter using
+exposed administrative interfaces or other methods is
+prevented.
+■
+32. A. Honeypots are systems configured to appear to be
+vulnerable. Once an attacker accesses them, they capture data
+and tools while causing the attacker to think that they are
+successfully gaining control of the system. This allows defenders
+like Selah to study and analyze their techniques and tools
+without endangering their production systems. An intrusion
+detection system (IDS) or intrusion protection system (IPS) can
+detect and stop attacks, and may even capture some tools, but
+they are not designed to capture local commands and
+downloaded tools. A WAF is a web application firewall and is
+intended to stop attacks on web applications.
+■
+33. D. Honeynets are intentionally vulnerable networks set up to
+allow for capture and analysis of attacker techniques and tools.
+A black hole is a term commonly used for a system or network
+device where traffic is discarded, and black hole routing involves
+sending traffic to a null route that goes nowhere.
+■
+34. B. Maria should implement ongoing auditing of the account
+usage on the SCADA system. This will provide a warning that
+someone’s account is being used when they are not actually
+using it. Host-based antivirus is almost never a bad idea, but this
+scenario did not indicate that the compromise was due to
+malware, so antimalware may not address the threat. Since the
+engineer has access to the SCADA system, a network intrusion
+prevention system (NIPS) is unlikely to block them from
+accessing the system, and full-disk encryption (FDE) will not
+mitigate this threat because the system is live and running,
+meaning that the disk will be decrypted in use.
+■
+35. B. Both Advanced Encryption Standard (AES) and Data
+Encryption Standard (DES) are block ciphers. That means that
+they encrypt groups (blocks) of plain-text symbols together as a
+single block. If you know that either AES or DES is a block
+cipher, you can eliminate half of the options here. If you know
+that a block cipher works on groups of symbols or blocks of text,
+you can also eliminate half the options as incorrect.
+■
+36. A. A hardware security module (HSM) is the most secure way
+to store private keys for the e-commerce server. An HSM is a
+physical device that safeguards and manages digital keys. Fulldisk
+encryption (FDE) will protect the data on the e-commerce
+server, but it won’t help store the key. It is also difficult to fully
+encrypt the e-commerce server drive, since the drive will need to
+be in use for the e-commerce to function. A self-encrypting drive
+(SED) is merely automatic full-disk encryption. Softwaredefined
+networking (SDN) won’t address the issues in this
+scenario, since it configures networks via software and does not
+provide secure key storage.
+■
+37. B. Transit gateways are a transit hub used to connect VPCs
+(virtual private clouds) to on-premises networks. You can read
+more about transit gateways at
+docs.aws.amazon.com/vpc/latest/tgw/what-is-transitgateway.
+html. IBM uses the same term, but for a very specific
+internal cloud connection.
+■
+38. C. You should implement a staging server so that code can be
+deployed to an intermediate staging environment. This will
+allow testing of security features, as well as checking to see that
+the code integrates with the entire system. Using third-party
+libraries and software development kits (SDKs) can help reduce
+errors and vulnerabilities in the code. Sandboxing is used to
+isolate a particular environment, and virtualization will not
+mitigate this risk. Even if the production server is virtualized,
+the risks are the same. Finally, deployment policies are a good
+idea, but they are not the most effective way to mitigate this
+particular risk.
+■
+39. C. Ian should be concerned that attackers might be able to
+redirect short message service (SMS) messages sent to VoIP
+phones. This potential issue is one reason that some multifactor
+deployments do not allow SMS messages to be sent to VoIP
+phones in the environment, and some organizations do not
+allow SMS as an option, instead requiring hardware tokens or
+application-based multifactor authentication. Vishing is a type
+of phishing done via voice, voicemail hijacking would redirect
+voicemail to another mailbox by forwarding calls, and weak
+multifactor code injection was made up for this question.
+■
+40. A. Baseline configurations, per NIST 800-53: “Baseline
+configurations serve as a basis for future builds, releases, and/or
+changes to information systems. Baseline configurations include
+information about information system components (e.g.,
+standard software packages installed on workstations, notebook
+computers, servers, network components, or mobile devices;
+current version numbers and patch information on operating
+systems and applications; and configuration
+settings/parameters), network topology, and the logical
+placement of those components within the system architecture.
+Maintaining baseline configurations requires creating new
+baselines as organizational information systems change over
+time. Baseline configurations of information systems reflect the
+current enterprise architecture.”
+■
+41. B. HVAC systems are an important part of the availability for
+systems and infrastructure. They are also a target for attackers
+who target Internet of Things (IoT) or network-connected
+devices. They are not frequent targets for use in social
+engineering efforts, although they could be used that way. They
+are not a primary line of defense for organizations.
+■
+42. B. Symmetric encryption is typically faster than asymmetric
+encryption. This is why many protocols use asymmetric
+encryption to exchange a symmetric key, and then use that key
+for the rest of their transaction. It is not more secure, key length
+is not a meaningful difference between symmetric and
+asymmetric encryption, and key distribution for symmetric
+encryption is more challenging for larger populations using
+symmetric encryption if confidentiality needs to be maintained
+because every potential pair of communicators would need a
+different symmetric key.
+■
+43. C. Entropy is a measure of uncertainty. Having sources of
+entropy (or randomness) is a key element in a PRNG. Some
+pseudo-random number generators rely on input from
+keyboards, mice, or other human-generated inputs to have a
+source of entropy data.
+■
+44. A. With the software as a service (SaaS) model, the consumer
+has the ability to use applications provided by the cloud provider
+over the Internet. SaaS is a subscription service where software
+is licensed on a subscription basis. Platform as a service (PaaS)
+provides the framework and underlying tools to build
+applications and services. Infrastructure as a service (IaaS)
+provides the components of an entire network and systems
+infrastructure. Hybrid models use both cloud and locally hosted
+systems.
+■
+45. C. Resource policies are associated with a resource and allow
+you to determine which principals have access to that resource
+as well as what actions they can take on it. Resource policies are
+not used to set consumption limits.
+■
+46. D. Storage area network (SAN) replication copies the contents
+of one repository to another repository, such as an
+organization’s central SAN environment to a remote SAN at the
+hardware or block level.
+■
+47. C. A snapshot is an image of the virtual machine (VM) at some
+point in time. It is standard practice to periodically take a
+snapshot of a virtual system so that you can return that system
+to a last known good state. Sandboxing is the process of isolating
+a system or software. The hypervisor is the mechanism through
+which the virtual environment interacts with the hardware, and
+elasticity is the ability for the system to scale.
+■
+48. D. RAID level 5 is disk striping with distributed parity. It can
+withstand the loss of any single disk. RAID 0 is disk striping; it
+does not provide any fault tolerance. RAID 1 is mirroring. It
+does protect against the loss of a single disk but not with
+distributed parity. RAID 3 is disk striping with dedicated parity.
+This means a dedicated drive containing all the parity bits.
+■
+49. D. A Faraday cage, named after physicist Michael Faraday,
+involves placing wire mesh around an area or device to block
+electromagnetic signals. A VLAN can segment a network but
+won’t block electromagnetic interference (EMI). Softwaredefined
+networking (SDN) virtualizes a network but does not
+protect against EMI. A Trusted Platform Module (TPM) is used
+for cryptographic applications.
+■
+50. B. The correct answer is bollards. These are large objects, often
+made of concrete or similar material, designed specifically to
+prevent a vehicle getting past them. Most gates can be breached
+with a vehicle. A security guard is a good idea, but they would
+not be able to stop a vehicle from ramming the building.
+Security cameras will provide evidence of a crime that was
+committed but won’t prevent the crime.
+■
+51. A. Attaching cable locks to the computers and locking them to
+the table will make it more difficult for someone to steal a
+computer. Full-disk encryption (FDE) won’t stop someone from
+stealing the computer, nor will strong passwords. A sign-in sheet
+is a good idea and may deter some thefts, but it is not the best
+approach to stopping theft offered in this scenario.
+■
+52. B. The correct answer is to incorporate two-factor
+authentication with a mantrap. By having a smartcard at one
+door (type II authentication) and a PIN number (type I
+authentication) at the other door, Joanne will combine strong
+two-factor authentication with physical security. Smartcards by
+themselves, or paired with a fence, are still single-factor
+authentication. Video surveillance, though often a good idea,
+won’t help with two-factor authentication.
+■
+53. A. Baselining is the process of establishing a standard for
+security. A change from the original baseline configuration is
+referred to as baseline deviation. Security evaluations or audits
+check security but don’t establish security standards. Hardening
+is the process of securing a given system, but it does not
+establish security standards. Normalization is the process of
+removing redundant entries from a database.
+■
+54. A. Fake telemetry is telemetry created to make an attacker
+believe that a honeypot system is a legitimate system. Building a
+believable honeypot requires making the system as realistic as
+possible. Deepfakes are artificial intelligence (AI)-created videos
+that make it appear that individuals are saying or doing actions
+they never actually performed. The rest of the options were
+made up for this question.
+■
+55. A. RAID 1+0, or RAID 10, is a mirrored data set (RAID 1),
+which is then striped (RAID 0): a “stripe of mirrors.” RAID 6 is
+disk striping with dual parity (distributed), RAID 0 is just
+striping, and RAID 1 is just mirroring.
+■
+56. D. Normalization is the process of removing duplication or
+redundant data from a database. There are typically four levels
+of normalization ranging from 1N at the lowest (i.e., the most
+duplication) to 4N at the highest (i.e., the least duplication).
+Although database integrity is important, that is not what is
+described in the question. Furthermore, integrity checking
+usually refers to checking the integrity of files. Deprovisioning is
+a virtualization term for removing a virtual system (server,
+workstation, etc.) and reclaiming those resources, and in the
+context of identity management means removing an account or
+permissions. Baselining involves setting security standards.
+■
+57. C. Remote Authentication Dial-in User Service (RADIUS)
+provides authentication, authorization, and accounting, which
+make up the three critical elements in AAA systems. OpenID is a
+protocol for authentication but does not provide authorization
+by itself. Lightweight Directory Access Protocol (LDAP) is a
+directory service, and Security Assertion Markup Language
+(SAML) is a markup language for making security assertions.
+■
+58. D. TLS inspection (often called SSL inspection because the
+term SSL remains widely, if incorrectly, in use) involves
+intercepting encrypted traffic between the client and server. TLS
+interception devices act as an on-path attack and decrypt traffic
+to scan and analyze it, often for malware or other signs of
+attacks, and then encrypt it to send it on to its destination. As
+you might expect, TLS inspection has both legitimate and
+malicious uses.
+■
+59. D. In most cases none of these options are practical.
+Destruction of drones is an illegal destruction of private
+property. Jamming the open frequencies used for drones is not
+permissible and may result in action by the Federal Trade
+Commission (FTC), and contacting the Federal Aviation
+Administration (FAA) to request that the airspace above a
+company be declared a no-fly zone is not something the FAA
+supports in most cases. This means that Diana is likely to have
+to deal with the potential for drone-based threats in other ways.
+■
+60. B. Isaac has built and configured a system where
+nonpersistence of systems can create forensic challenges. His
+organization needs to consider how they can make copies of
+compromised or problematic ephemeral systems and store them
+in a safe location for forensic analysis. This is not a forensicresistant
+system—if he had a copy, he would have been able to
+analyze it. Live-boot media is not mentioned or used in this
+example, and terminate and stay resident (TSR) is a type of
+program run in the DOS operating system that returned control
+to the operating system but remained in memory so that it could
+be easily run again as needed.
+■
+61. D. Stored procedures are the best way to have standardized
+SQL. Rather than programmers writing their own SQL
+commands, they simply call the stored procedures that the
+database administrator creates. Formal code inspection might
+detect a lack of security practices and defenses but won’t stop
+SQL-based attacks. Policies requiring stored procedures might
+help but are a less direct path to the solution. Finally, agile
+programming is a method for developing applications rapidly
+and won’t determine how SQL commands are created.
+■
+62. C. Services integration in cloud and virtualization
+environments can be very complex and can involve data, APIs,
+and other types of application integration. Integration platforms
+allow organizations to use a standardized tool rather than
+building and maintaining their own. This allows them to focus
+on the actual integrations rather than the underlying system,
+saving time and effort. Since integration platforms also often
+have preexisting tools for common services and APIs, they can
+save significant amounts of time for organizations that adopt
+them. Of course, this also introduces another platform to assess
+and secure.
+■
+63. B. When virtualization reaches the point that IT can no longer
+effectively manage it, the condition is known as VM sprawl. VM
+overload and VM spread are made up for this question, and a
+VM zombie is a term for a virtual machine that is running and
+consuming resources but no longer has a purpose.
+■
+64. A. VM escape is a situation wherein an attacker is able to go
+through the VM to interact directly with the hypervisor and
+potentially the host operating system. The best way to prevent
+this is to limit the ability of the host and the VM to share
+resources. If possible, they should not share any resources.
+Patching might mitigate the situation, but it is not the most
+effective solution. Using firewalls and antimalware tools is a
+good security practice but would have minimal effect on
+mitigating VM escape.
+■
+65. A. Irene is looking for a software-as-a-service (SaaS) tool that
+allows her to perform the specific function that her organization
+needs to accomplish. An SaaS service does not require system
+administration or programming and typically requires minimal
+configuration to perform its normal functionality. Platform-asa-
+service (PaaS) typically requires some configuration or
+programming, and infrastructure-as-a-service (IaaS) will require
+systems administration, programming, or configuration—or all
+three! Identity-as-a-service (IDaaS) is a specific type of solution
+that was not described as part of Irene’s needs.
+■
+66. D. Serverless architectures do not require a system
+administrator because the provider manages the underlying
+function-as-a-service (FaaS) capability. It can also scale up or
+scale down as needed, allowing it to be very flexible. Serverless
+architectures are typically not ideal for complex applications and
+instead tend to work better for microservices.
+■
+67. A. The correct answer is to have a motion-activated camera
+that records everyone who enters the server room. Motion
+recognition is an important feature in this type of scenario,
+where cameras operate in a space where there is little physical
+traffic and storage would be wasted by recording empty, unused
+spaces. Smartcards, deadbolts, and logging won’t detect theft.
+■
+68. C. A Domain Name System (DNS) sinkhole is a DNS server
+used to spoof DNS servers that would normally resolve an
+unwanted to malicious hostname. Traffic can be sent to a
+legitimate system, causing warnings to appear on the user’s
+screen, or simply sent to a null route or nonexistent system. An
+intrusion detection system (IDS) cannot stop traffic, roundrobin
+DNS is a way to spread DNS traffic, and a WAF is a web
+application firewall, and nothing in this question indicates that
+there is a web-specific issue.
+■
+69. C. Hot aisle/cold aisle is a layout design for server racks and
+other computing equipment in a datacenter. The goal of a hot
+aisle/cold aisle configuration is to conserve energy and lower
+cooling costs by managing airflow. An infrared camera will
+detect heat levels on the aisles. Although the rest of the options
+are potential issues for a datacenter, an infrared camera won’t
+help with them.
+■
+70. D. A security guard is the most effective way to prevent
+unauthorized access to a building. Options A, B, and C are all
+incorrect. These are all good physical security measures, but
+they are not the most effective ways to prevent entry into a
+building.
+■
+71. B. Software-defined networking (SDN) makes the network very
+scalable. It is relatively easy to add on new resources or remove
+unneeded resources, and it helps with high availability efforts.
+SDN does not stop malware, detect intrusions, or prevent
+session hijacking.
+■
+72. A. The correct answer is to use an application container to
+isolate that application from the host operating system.
+Application containers provide a virtualized environment in
+which to run an application. Moving to software-defined
+networking (SDN) is a very involved process and does not
+provide an efficient solution. Running the application in a
+separate VLAN will not separate the application from the host
+operating system; it might not solve the problem. Since this is a
+legacy application, insisting on an updated version of the
+application isn’t feasible.
+■
+73. D. Each of the options above is a potential risk when using
+third-party libraries or SDKs. Organizations need to understand
+and assess the risks of third-party code, but it is a common
+practice to use third-party libraries. Identifying trustworthy and
+reliable sources and managing the versions and updates are
+critical to using third-party components safely.
+■
+74. B. A cloud access security broker (CASB) is used to monitor
+cloud activity and usage and to enforce security policies on users
+of cloud services.
+■
+75. A. Microservice architectures build applications as a set of
+loosely coupled services that provide specific functions using
+lightweight protocols. It doesn’t specifically define the size of the
+systems, but it is not a tightly coupled environment. Protocol
+choice is often open standards-based, but the emphasis is on
+lightweight protocols. There is not a requirement that services
+be in-house or third party exclusively.
+■
+76. C. The correct answer is to implement IaC. Infrastructure as
+code (IaC) is the process of managing and provisioning
+computer datacenters through machine-readable definition files,
+rather than physical hardware configuration or interactive
+configuration tools. Whether the datacenter(s) use physical
+machines or virtual machines, this is an effective way to manage
+the datacenters. Although datacenter managers may be needed,
+that won’t necessarily provide consistent management across
+the enterprise. Software-defined networking (SDN) will not fix
+this problem, but it would help if she needed to configure and
+manage her network based on usage and performance. Finally,
+this issue is not just about provisioning; it is about management.
+■
+77. D. OAuth is a common authorization service used for cloud
+services. It allows users to decide which websites or applications
+to entrust their information to without requiring them to give
+them the user’s password. OpenID is frequently paired with
+OAuth as the authentication layer. Kerberos is more frequently
+used for on-site authentication, and SAML is Security Assertion
+Markup Language.
+■
+78. C. In this scenario Greg should identify the use of the printers
+for further attacks against the organization as the most critical
+risk. Use as part of a distributed denial-of-service (DDoS) attack
+does not directly impact the organization in most cases,
+exhausting supplies would be an annoyance, and the risk of
+scanning documents from a remote location requires sensitive
+documents to be left in the MFPs. Greg should note that all of
+these issues could be problems and move the MFPs to a
+protected network so that third parties can’t access them.
+■
+79. D. The systems that Keith has deployed are thin clients,
+computers that do not run their applications and storage from
+their local drives and instead rely on a remote server. Cloud and
+virtualization implementations of this providing virtual desktops
+are called VDI, or Virtual Desktop Infrastructure, but do not
+necessarily require a thin client, since they can work on a fully
+capable computer (or thick client). Client-as-a-server is a madeup
+term.
+■
+80. B. This real-world example was found in 2020 when malicious
+PowerShell code was discovered that triple-encoded malicious
+tools. The initial package was downloaded as an image from
+imgur.com or similar sites and was concealed using
+steganographic techniques. The code was also encrypted using
+RSA and encoded in Base64 both prior to encryption and again
+after encryption. Although steganography is not incredibly
+common, Henry should suspect that a downloaded image may
+be more than it appears.
+■
+81. A. Storing data in plain text will not help prevent data exposure
+and, in fact, is more likely to result in data exposure. Instead,
+Molly should encourage her developers to store and transmit
+sensitive data in an encrypted form. They should also leverage
+HTTPS for all authenticated pages, and potentially all pages.
+Hashing passwords using salts is important for password
+security, and ensuring that tokens are not exposed via sites like
+GitHub or other public code repositories is important for
+application and data security.
+■
+82. C. Using secure firmware, as well as using an RTOS with time
+and space partitioning, are both common methods to help
+ensure RTOS security. Unlike traditional operating systems,
+real-time operating systems are used in applications where they
+need to deal with inputs immediately. That means that adding
+additional load like firewalls and antimalware is not a typical
+component in RTOS applications. For similar reasons, you’re
+unlikely to find a web browser on most devices running an
+RTOS.
+■
+83. B. In a code reuse attack, the attacker executes code that is
+meant for some other purposes. In many cases this can be old
+code that is no longer even used (dead code), even if that code is
+in a third-party library. A buffer overflow occurs when too much
+data is sent to a buffer. For example, say a buffer is designed to
+hold 10 bytes, and it is sent 100 bytes, causing the additional
+data to be put into unexpected memory locations. A denial-ofservice
+(DoS) attack is meant to make a service or system
+unavailable to legitimate users. Session hijacking involves taking
+over an existing authenticated session.
+■
+84. C. Zigbee is specifically designed for this type of usage.
+Narrowband radios are not typically in use for this type of
+purpose, and baseband radio requires very large antennas to use
+the low-frequency spectrum. Cellular options require a carrier
+and are not well suited to direct peer-to-peer configurations.
+■
+85. B. Homomorphic encryption can perform computations on the
+ciphertext without access to the private key that the ciphertext
+was encrypted with. When the computations are completed, the
+results are the same as if those computations had been
+performed against the original plain text. Identity-preserving
+and replicable encryption were made up for this question.
+■
+86. A. Fingerprint reader systems are the most widely accepted
+biometric systems in common use for entry access and other
+purposes today. Facial recognition systems are increasingly in
+use and are also likely to be more accepted by user populations
+based on their broad deployment in phones, but they are not
+listed as an option. Both retina and iris scans are less likely to be
+accepted, whereas voice systems are both relatively uncommon
+and more disruptive for frequent usage.
+■
+87. C. Tape backups are the most common solution for cold
+backups off-site. Cloud backups to a cold repository are
+increasingly popular options and may be faster for some
+retrieval scenarios, but they are not listed as options. Storage
+area network (SAN) and network-attached storage (NAS)
+devices are not commonly used for cold backup and are instead
+used for online or nearline options. Disk backup could be used
+but remains less common than tape for a true cold backup
+scenario.
+■
+88. B. Off-site storage has to balance availability and the ability to
+be used in the event that a disaster or other event occurs. In this
+case, Allan should look at a facility far enough away that a single
+disaster cannot take both sites offline.
+■
+89. D. Embedded systems can bring a broad range of security
+implications, many of which are driven by the limited
+capabilities of the processors and hardware they are frequently
+built with. Low-power consumption designs may lack
+computational power and thus have challenges implementing
+strong cryptography, network connectivity, and other similar
+problems. Patching embedded systems can be challenging both
+because of where they are deployed and because of a lack of
+connectivity for them—in fact, in many environments, you may
+not want the devices to be connected to your network. Since
+many don’t have a screen, keyboard, or a network connection,
+authentication is also a problem. Few embedded devices,
+however, need bulk storage, making the lack of bulk storage a
+problem that typically isn’t a major concern.
+■
+90. B. System on a chip (SoC) devices are complete self-contained
+systems on a single chip. Therefore, having their own unique
+cryptographic keys is the best way to implement authentication
+and security. Option A is incorrect. A system on a chip is selfcontained,
+so a Trusted Platform Module (TPM) would not be an
+appropriate solution. Option C is incorrect. A self-encrypting
+drive (SED) is not relevant to system on a chip, since that system
+does not have a “drive.” Option D is incorrect. Many SoC
+technologies don’t use a BIOS.
+■
+91. A. Such systems need to have all communications encrypted.
+As of the current date, breaches of portable network devices
+have all involved unencrypted communications. Option B is
+incorrect. Full-disk encryption (FDE) may or may not even be
+appropriate for such devices. Many don’t have a disk to encrypt.
+Option C is incorrect. It may not be possible to install
+antimalware on many such devices. Option D is incorrect. Fuzz
+testing is used for applications.
+■
+92. D. The more vehicles utilize computers and have network
+communication capabilities, the more they will be vulnerable to
+cyberattacks. Options A, B, and C are all incorrect, as all of these
+are concerns rather than just one.
+■
+93. A. An advantage of compiling software is that you can perform
+static code analysis. That means Amanda can review the source
+code for flaws and could even remediate flaws if they were
+found. Both binaries and compiled code can be tested in a live
+environment (dynamic analysis), and checksums for both can be
+validated.
+■
+94. A. RFCs, or requests for comment, are how Internet protocols
+are defined and documented. Wikipedia is not the definitive
+resource, and the Internet Archive actively archives the Internet
+but does not define protocols.
+■
+95. C. Standard naming conventions typically do not help to
+conceal systems from attackers. Attackers can still scan for
+systems and may even be able to use the naming convention to
+identify the purpose of a system if the naming convention
+includes a purpose or technology in the name. Naming
+conventions do make standardization easier and can help
+administrators quickly identify what a machine does, while
+making it simpler to include systems in scripts. A machine that
+doesn’t match is likely to be a rogue or misconfigured.
+■
+96. B. This is an example of a continuous integration/continuous
+delivery (CI/CD) pipeline. There is no mention of monitoring
+systems, and although code analysis is happening here in
+testing, it is dynamic testing, not source code analysis. There is
+no mention of malware in the pipeline.
+■
+97. D. Although gait analysis is not commonly used for
+identification and authorization purposes, it is used in situations
+where crowd footage is available to identify individuals. Vein,
+voiceprint, and fingerprint analysis are not useful in most
+scenarios involving heavily used and crowded spaces.
+■
+98. C. A community cloud presents a compromise solution.
+Community clouds are semi-private. They are not accessible to
+the general public but only to a small community of specific
+entities. There are risks with public clouds, as there are with any
+environment. Private clouds can be quite expensive to build out,
+particularly for smaller organizations that cannot afford staffing
+or hardware. Finally, recommending against a cloud solution
+does not match the company’s stated goal.
+■
+99. D. Using infrastructure as a service (IaaS) makes the most
+sense here; it meets the cloud requirement described and would
+allow additional systems to be quickly created or removed as
+needed. Platform as a service (PaaS) does not provide direct
+access to Linux systems to build out applications and related
+configuration. Setting up dual boot and building machines are
+not cloud solutions as described. When you answer questions
+like this, make sure you read and meet all the requirements in
+the question.
+■
+100. A. One of the dangers of automation and scripting is that the
+scripts will do exactly what they are written to do. That means
+that a script like those that Corrine has been asked to write that
+doesn’t have rules that prevent it from blocking critical systems
+could block those systems. There is no indication in the question
+of any issues with private IP addresses, and filtering them would
+require more work. Attackers could potentially use the scripts if
+they discovered them, but if they’re able to access security
+scripts there is likely a deeper problem. Finally, auditors
+typically do not review scripts and instead ask about the
+existence of controls.
+■
+101. D. Differential backups back up all of the changes since the last
+full backup. An incremental backup backs up all changes since
+the last incremental backup. A snapshot captures machine state
+and the full drive at a bitwise level, and full backups are a
+complete copy of a system but typically do not include the
+memory state.
+■
+102. C. The correct answer is a public cloud. Public clouds are
+usually less expensive. The cloud provider has a number of
+customers and costs are dispersed. Even individuals can afford
+to use cloud storage with services like iCloud and Amazon
+Cloud. A community cloud is usually private for a small group of
+partners. Each of the partners must share a greater part of the
+expense than they would with a public cloud, but they retain
+more control over the cloud than they would with a public cloud.
+Private clouds are often the most expensive for smaller
+organizations. The company must completely develop and
+maintain the cloud resources and cannot leverage shared
+resources. A hybrid deployment model is a good compromise for
+many situations, but it will typically be more expensive than a
+public cloud for a small organization.
+■
+103. C. The crossover error rate (CER) is the point where the FAR
+(false acceptance rate) and the FRR (false rejection rate) cross
+over. CER provides a means of comparing biometric systems
+based on their efficiency, with a lower CER being more
+desirable.
+■
+104. B. Elasticity is a cloud computing concept that matches
+resources to demand to ensure that an infrastructure closely
+matches the needs of the environment. Scalability is the ability
+to grow or shrink as needed but does not directly include the
+concept of matching to workload. Normalization is a code
+development concept used to ensure that data is in a consistent
+form.
+■
+105. A. An uninterruptable power supply (UPS) should be
+Nathaniel’s first priority. Ensuring that power is not disrupted
+during an outage and can be maintained for a short period until
+alternate power like a generator can come online is critical, and
+a UPS can provide that capability. A generator alone will take
+longer to come online, resulting in an outage. Dual power
+supplies can help to build resilience by allowing multiple power
+sources and avoiding issues if a power supply does fail, but that
+is not the focus of the question. A managed power distribution
+unit (PDU) provides remote management and power monitoring
+but will not prevent power loss in an outage.
+■
+106. B. Virtual machine (VM) sprawl refers to a situation in which
+the network has more virtual machines than the IT staff can
+effectively manage. The remaining options do not match the
+term VM sprawl.
+■
+107. C. Stored procedures are commonly used in many database
+management systems to contain SQL statements. The database
+administrator (DBA), or someone designated by the DBA,
+creates the various SQL statements that are needed in that
+business, and then programmers can simply call the stored
+procedures. Stored procedures are not related to dynamic linked
+libraries (DLLs). Stored procedures can be called by other stored
+procedures that are also on the server. Finally, stored
+procedures are not related to middleware.
+■
+108. D. Bollards are large barriers that are often made of strong
+substances like concrete. They are effective in preventing a
+vehicle from being driven into a building. None of the other
+answers match the purpose of a bollard.
+■
+109. D. Selah should be concerned about cloning the badges because
+magnetic stripe badges are relatively simple to clone in most
+cases. Tailgating is common, particularly if there are large
+numbers of employees, since employees are unlikely to allow
+doors to close and then reopen them for every person who enters
+during shift changes. Since magnetic stripe readers do not
+require any additional information, use by unauthorized
+individuals is easy if a badge is lost or stolen.
+■
+110. A. Virtual machine (VM) escape attacks rely on a flaw in the
+hypervisor that could allow an attacker to attack the hypervisor
+itself. Typical system administration best practices can help,
+including regular patching of the hypervisor, but in the event of
+a successful escape attack, limiting damage by keeping VMs of
+the same sensitivity level isolated to the same host can prevent
+broader impact. Antivirus is always a good idea and may even
+stop some malware-based VM escape attacks, but isolating the
+VM is more effective. Full-disk encryption (FDE) will have no
+effect since the disk must be unencrypted during operation. A
+Trusted Platform Module (TPM) is used for storing
+cryptographic keys.
+■
+111. C. Managed security service providers (MSSPs) are an outside
+company that handles security tasks. Some or even all security
+tasks can be outsourced, including intrusion detection and
+prevention (IDS/IPS) management, security information and
+event management (SIEM) integration, and other security
+controls. Software-defined networking (SDN) would make
+managing security somewhat easier but would itself be difficult
+to implement. Automating as much security activity as is
+practical would help alleviate the problem but would not be as
+effective as security as a service. Finally, only implementing a
+few security controls would likely leave control gaps.
+■
+112. B. Cryptographic hashes are used for integrity checking of files,
+network packets, and a variety of other applications. Storing a
+cryptographic hash of the application and comparing the
+application on the network to that hash will confirm (or refute)
+whether the application has been altered in any way. Network
+intrusion detection or network intrusion prevention systems
+(NIPSs/NIDSs) are useful, but they won’t prevent an application
+from being altered. Sandboxing is used to isolate an application,
+but it won’t detect whether it has been tampered with.
+■
+113. C. Separating the SCADA (Supervisory Control and Data
+Acquisition) system from the main network makes it less likely
+that the SCADA system can be affected from the main network.
+This includes malware as well as human action. Softwaredefined
+networking (SDN) would make isolating the SCADA
+system easier but would not actually isolate it. Patch
+management is always important, but in this case, it would not
+have prevented the issue. Encrypted data transmissions, such as
+TLS, would have no effect on this situation.
+■
+114. B. Gordon should implement a version numbering scheme and
+ensure that the proper current version of software components
+is included in new releases and deployments. Developers could
+still manually reintroduce old code, but version numbering
+helps to ensure that you have a current version in use. Neither
+continuous deployment nor continuous integration will prevent
+old code from being inserted, and release management may rely
+on version numbering but won’t prevent it by itself.
+■
+115. D. Transport Layer Security (TLS) provides a reliable method
+of encrypting web traffic. It supports mutual authentication and
+is considered secure. Although Secure Sockets Layer (SSL) can
+encrypt web traffic, TLS was created in 1999 as its successor.
+Although many network administrators still use the term SSL, in
+most cases today what you are using is actually TLS, not the
+outdated SSL. PPTP and IPSec are protocols for establishing a
+VPN, not for encrypting web traffic.
+■
+116. A. Smartcards can support modern cryptographic algorithms,
+meaning that weak security due to a smartcard’s limitations on
+encryption is not a common issue. Smartcard readers and
+maintenance do add additional expense, and user experiences
+are limited by the need to have the card in hand and insert it or
+present it to a reader either during authentication or for entire
+sessions. Smartcards typically have a PIN or password, meaning
+that they are used for multifactor, not single-factor,
+authentication.
+■
+117. D. Setting off an alarm so that staff become used to it being a
+false positive is a technique that penetration testers may use if
+they can gain access to a facility. Once staff are used to alarms
+going off and ignore it, the penetration testers can enter areas
+that are alarmed without a response occurring. Setting off the
+alarm as part of a test isn’t typical for penetration testers, and
+disabling the alarm and waiting for the lack of an alarm to be
+reported is also more likely to be part of an internal test, not a
+penetration test. Asking staff members to open the door is not a
+means of making alarms less effective, and staff members who
+know the door is alarmed are unlikely to do so.
+■
+118. C. The term “XaaS” refers to anything as a service, a broad
+reference to the huge number of options that exist for services
+via third-party providers. The rest of the options for this
+question were made up for the question.
+■
+119. D. Signage plays multiple roles in secure environments,
+including discouraging unwanted or unauthorized access,
+providing safety warnings, and helping with evacuation routes
+and other navigation information as part of a physical safety
+effort.
+■
+120. B. Nora has established a cold site. A cold site is a location that
+can be brought online but does not have systems; cold sites
+typically have access to power and bandwidth, but they need to
+be fully equipped to operate after a disaster since they are just
+rented space. Warm sites have some or all of the infrastructure
+and systems Nora needs but does not have data. A hot site is a
+fully functional environment with all of the hardware, software,
+and data needed to operate an organization. They are expensive
+to maintain and run but are used by organizations that cannot
+take the risk of downtime. A MOU is a memorandum of
+understanding and is not a type of disaster recovery site.
+■
+121. A. Windows calls the point that it saves to return to a known
+good configuration a system restore point. Matt should set one
+prior to installing new software or patching if he is worried
+about what might occur. The rest of the options are not
+Windows terms.
+■
+122. A. TOTP, or time-based one-time password, algorithms rely on
+the time being accurate between both of the authentication
+hosts. That means that if a system or device is not properly
+synced to an authoritative and correct time server, or if its local
+system time has drifted, the authentication may fail. Although
+TOTP systems have some flexibility, a clock that is sufficiently
+incorrect will cause an issue. HMAC-based one-time password
+(HOTP) and short message service (SMS)-based multifactor
+systems do not suffer from this issue, and MMAC was made up
+for this question.
+■
+123. C. Object detection capabilities can detect specific types or
+classes of objects and can be used to determine if the object is
+moved. In this case, Nina could enable object detection to notify
+her when packages are delivered, and she may be able to
+specifically select an object to monitor for additional security.
+Infrared capabilities are useful in low-light situations, motion
+detection helps to preserve storage space by only recording
+when motion occurs, and facial recognition could help identify
+specific individuals but won’t help with packages.
+■
+124. C. Although user health data is a concern for the wearer of the
+device, unless the device is required by the organization, the
+user’s health data is typically not an organizational security
+concern. GPS location data, data exposure from data that is
+copied to or accessible from the device, and the potential for
+devices to act as unsecured wireless gateways to the
+organization’s network are all common security concerns for
+wearables. Lack of patching, lack of device encryption, and the
+inability to enforce compliance or security policies are also
+common concerns for wearables.
+■
+125. D. A Faraday cage is a metal wire mesh designed to block
+electromagnetic interference (EMI). None of the other answers
+describe what a Faraday cage is used for or capable of.
+■
+126. B. Smartcards paired with electronic locks can be used to allow
+entrance into a building. The smartcard system can also store
+information about the user, and thus the system can log who
+enters the building. A security guard with a sign-in sheet would
+function, but there are many ways to subvert a sign-in sheet, and
+a guard can be distracted or become inattentive. This makes
+smartcard access a better solution. Guards are also more
+expensive over time. A camera would record who enters but
+would not control access. A nonemployee could enter the
+building. An uncontrolled/supervised sign-in sheet would not be
+secure.
+■
+127. D. Although electronic locks offer a number of advantages,
+including the ability to provide different codes or access to
+different users and the ability to deprovision access, they also
+require power, whether in the form of a battery or constantly
+provided power from a power source. That means that power
+loss can cause issues, either due to the lock remaining locked or
+defaulting to an open state.
+■
+128. A. Managing her organization’s IP address schema and usage
+will allow Kara to identify unknown and potentially rogue
+devices. IP addresses are not used to secure encryption keys, and
+managing a schema will not help prevent denial-of-service
+attacks. Keeping track of what IP addresses are in use can help
+avoid IP address exhaustion, but this does not provide a direct
+security advantage.
+■
+129. C. Of the locks listed here, deadbolts are the most secure. The
+locking bolt goes into the door frame, making it more secure.
+Whether a lock uses a key or combination does not change how
+secure it is. Key-in-knob is a very common, and generally
+provides less resistance to bypass than a deadbolt-based
+solution. Finally, padlocks can be cut off with common bolt
+cutters.
+■
+130. B. NIC teaming can provide greater throughput by sending
+traffic through multiple network interface cards (NICs) while
+also ensuring that loss of a card will not cause an outage, thus
+providing fault tolerance.
+■
+131. A. False acceptance rate (FAR) is the rate at which the system
+incorrectly allows in someone it should not. This is clearly a
+significant concern. Any error is a concern, but the false
+rejection rate is less troublesome than the false acceptance rate.
+The cross-over error rate (CER) is when the FAR and the false
+rejection rate (FRR) become equal. This indicates a consistent
+operation of the biometric system. The equal error rate is
+another name for cross-over error rate.
+■
+132. C. Data sovereignty refers to the concept that data that is
+collected and stored in a country is subject to that country’s
+laws. This can be a complex issue with multinational cloud
+services and providers that may store data in multiple countries
+as part of their normal architecture. It may also create
+compliance and other challenges based on differences in
+national laws regarding data, data privacy, and similar issues.
+■
+133. A. Low-power devices typically have limited processor speed,
+memory, and storage, meaning that encryption can be a
+challenge. Fortunately, solutions exist that implement lowpower
+cryptographic processing capabilities, and continued
+advances in processor design continue to make lower-power
+processors faster and more efficient. Legal limitations do not
+typically take into account whether a device is a low-power
+device, and public key encryption can be implemented on a wide
+range of CPUs and embedded systems, so factoring prime
+numbers is unlikely to be an issue.
+■
+134. A. A secure cabinet or safe is tamper-proof and provides a good
+place to store anything you are trying to physically protect.
+Encrypting thumb drives would require you to store the key
+used to encrypt the thumb drive, thus continuing the problem. It
+is actually a good practice to store BitLocker keys on removable
+media, provided that media is safeguarded. In most cases, desk
+drawers are not secure and can easily be broken into, even if
+they are locked.
+■
+135. D. RAID 6, disk striping with dual parity, uses a minimum of
+four disks with distributed parity bits. RAID 6 can handle up to
+two disks failing. RAID 3 is byte-level striping with dedicated
+parity and cannot tolerate more than a single drive failing. RAID
+0 is disk striping, which cannot handle disk failure, and RAID 5,
+disk striping with distributed parity, can handle only one disk
+failing.
+■
+136. C. The ability to record is not included in many traditional
+closed-circuit television (CCTV) monitoring systems and is a key
+element of investigations of theft and other issues. Motion
+activation and facial recognition are typically associated with
+computer-based camera systems but do not directly address the
+concern Maria is working to handle. Infrared cameras would be
+more useful in spaces where lights were not always in use, such
+as outdoors or in facilities that are not occupied at night.
+■
+137. C. Static codes are typically recorded in a secure location, but if
+they are not properly secured, or are otherwise exposed, they
+can be stolen. Brute-force attempts should be detected and
+prevented by back-off algorithms and other techniques that
+prevent attacks against multifactor authentication systems.
+Collisions exist with hashing algorithms, not with static
+multifactor codes, and clock mismatch issues occur for timebased
+one-time password (TOTP) codes.
+■
+138. B. A symmetric cryptosystem will typically perform faster and
+with less processor overhead and thus lower latency than
+asymmetric cryptosystems. Hashing is not encryption, and onetime
+pads are not implemented in modern cryptosystems,
+although they may have uses in future quantum cryptographic
+solutions.
+■
+139. A. Industrial camouflage efforts minimize how noticeable a
+facility is, helping it to remain unnoticed by casual observers.
+Although industrial camouflage can be useful, it is rarely
+effective against determined adversaries. A demilitarized zone
+(DMZ) in information security terms is a network segment that
+is intentionally exposed to the public with appropriate security
+protecting, while stronger security is applied to nonpublic
+resources. Disruptive coloration is a camouflage technique but
+not one used in information security. Industrial obfuscation was
+made up for this question.
+■
+140. A. Asymmetric cryptography has a relatively high
+computational overhead, making symmetric key encryption
+faster. That means that once you can exchange an ephemeral
+symmetric key, or a series of keys, you can encrypt and send
+data more quickly and efficiently using symmetric encryption.
+There is no key length limitation, and reasonable lifespans are
+met with either technology. Key reuse is not an issue with a
+public key encryption scheme.
+■
+141. D. Failure to release memory you have allocated can lead to a
+memory leak. Therefore, if you are using a programming
+language like C++ that allows you to allocate memory, make
+certain you deallocate that memory as soon as you are finished
+using it. Allocating only the variable size needed and declaring
+variables where needed are good programming practices.
+However, failure to follow them just leads to wasteful use of
+memory; it does not lead to a security problem like a memory
+leak. Although this is a good idea to prevent buffer overflows, it
+is not a memory management issue.
+■
+142. B. Using a longer key is the best way to make it less likely that
+an encrypted file will be cracked. This does not prevent issues
+with the algorithm itself, but if a vulnerability is not found in an
+algorithm, adding key length will help ensure that even
+significant increases in computational power will not result in
+the encryption being cracked in a reasonable period of time.
+Quantum computing has the potential to change this, but
+practical quantum encryption cracking tools are not known to be
+available yet. There is no such thing as an anti-quantum cipher,
+and a rotating symmetric key might be used to ensure that a key
+could not be cracked but does not provide longevity. Instead, it
+is used to allow ephemeral communications to be less likely to
+be cracked on an ongoing basis.
+■
+143. C. The best answer from this list is DLP, or data loss prevention
+technology. DLP is designed to protect data from being exposed
+or leaking from a network using a variety of techniques and
+technology. Stateful firewalls are used to control which traffic is
+sent to or from a system, but will not detect sensitive data. OEM
+is an original equipment manufacturer, and security information
+and event management (SIEM) can help track events and
+incidents but will not directly protect data itself.
+■
+144. C. Encryption keys used for quantum key distribution are sent
+in the form of qubits. The polarization state of the qubits reflects
+the bit values of the key. Once sent, the receiver can validate the
+state of some of those qubits to ensure both sender and receiver
+have the same key. Bytes and bits are used in traditional data
+exchanges, and nuquants were made up for this question.
+■
+145. B. Two-person control schemes require two individuals to be
+involved to perform an action. This means that Alicia can
+implement a two-person control scheme knowing that both
+individuals would have to be involved to subvert the control
+process. Biometrics will merely validate that a person is who
+they say they are, robotic sentries do not add any particular
+value to this scenario, and a demilitarized zone (DMZ) is used to
+keep front-facing systems in a zone that can be controlled and
+secured.
+■
+146. A. Social login is an example of a federated approach to using
+identities. The combination of identity providers and service
+providers, along with authorization management, is a key part of
+federation. AAA is authentication, authorization, and accounting
+and is typically associated with protocols like RADIUS. Privilege
+creep occurs as staff members change jobs and their privileges
+are not adjusted to only match their current role. IAM is a
+broader set of identity and access management practices.
+Although IAM may be involved in federated identity, this
+question does not directly describe IAM.
+■
+147. A. USB data blockers are used to ensure that cables can only be
+used for charging, and not for data transfer. None of the other
+answers to this question are used for this purpose, and in fact all
+were made up—USB is a serial bus, circuit breakers are used for
+power, and HMAC-based one-time password (HOTP) is a type
+of multifactor token algorithm.
+■
+148. B. In the platform-as-a-service (PaaS) model, the consumer has
+access to the infrastructure to create applications and host them.
+Software-as-a-service (SaaS) supplies a particular application;
+infrastructure-as-a-service (IaaS) does not directly provide the
+ability to create applications, although this distinction is quickly
+blurring; and IDaaS is identity-as-a-service.
+■
+149. B. Avoiding reuse of the key components of an encryption
+process means that even if a malicious actor managed to break
+the encryption for a message or exchange, the next new
+initialization vector (IV) and key would require an entirely new
+brute-force attack. Using a new IV and key does not make bruteforce
+attacks impossible, nor does it make brute force easier. A
+single successful attack would expose a single message, or
+however much data was encrypted using that IV and key.
+■
+150. C. The Linux kernel uses user-driven events like keystrokes,
+mouse movement, and similar events to generate randomness
+(entropy). The time of day is not random, user logins are
+typically not frequent enough or random enough to be a useful
+source of entropy, and network packet timing is not used for
+this. If you encounter a question like this and don’t know where
+to start, consider what you know about entropy—it is
+randomness, so you would be looking for the input that would
+have the most randomness to it. Thus, you could rule out the
+time of day, and likely user logins. After that, you might consider
+what could be controlled by an external party: network packets
+being sent to the system, and rule that out as a potential attack
+vector. That leaves keyboard input and mouse movement.
+■
+151. C. Elliptic curve encryption schemes allow the use of a shorter
+key for the same strength that an RSA key would require,
+reducing the computational overhead required to encrypt and
+decrypt data. That doesn’t mean you should use a short key;
+instead, you must select a key length that matches your
+requirements for resistance to brute force and other attacks.
+Hashing is nonreversible and is not a form of encryption.
+■
+152. C. Lighting serves a deterrent control, making potential
+malicious actors feel like they may be observed without dark
+areas or shadows to hide in. It does not detect actions, it does
+not compensate for the lack of another control, and although
+some lights may turn on for motion, the primary purpose is to
+deter malicious or unwanted actions.
+■
+153. C. Edge computing places both data storage and computational
+power closer to where it is needed to save on bandwidth and to
+improve the response of associated applications and services.
+Hybrid computing combines local and cloud computing. Local
+cloud builds cloud infrastructure on local systems. Mist
+computing was made up for this question but may sound similar
+to fog computing, a term that has a similar meaning to edge
+computing, which uses local computation and storage that is
+then Internet connected.
+■
+154. D. Ben has deployed a tokenization scheme. Encryption would
+require the data to be decrypted to be used, and this is not
+mentioned. Hashing could be used to conceal values but does
+not preserve the ability to work with the data. Masking modifies
+content to conceal personally identifiable information or other
+sensitive information.
+■
+155. D. Fencing is both a useful deterrent because it discourages
+malicious actors from accessing the grounds that Dana wants to
+protect. It is also an example of a physical control. A visitor log
+is an administrative control and will not deter malicious actors.
+Motion detectors and cameras are examples of detective
+controls.
+■
+156. A. Adding a digital signature can ensure that both the message
+has not been changed, and thus its integrity is intact, and that it
+supports nonrepudiation by proving that the message is from
+the sender who claims to have sent it.
+■
+157. B. Attestation processes request responsible managers or
+others to validate that user entitlements or privileges are correct
+and match those that the user should have. Attestation is not an
+employment verification process, although managers may
+discover that users who have left the organization still have
+rights as part of an attestation process. It does not require proof
+of identity or validation of security controls.
+■
+158. B. A generator is the most appropriate answer to a multihour
+outage. Although a hot site would allow her organization to stay
+online, the cost of a hot site is much higher than that of a
+generator. A PDU, or power distribution unit, is used to manage
+and distribute power, not to handle power outages. Finally, UPS
+systems are not typically designed to handle long outages.
+Instead, they condition power and ensure that systems remain
+online long enough for a generator to take over providing power.
+■
+159. A. A MAC supports authentication and integrity and is used to
+confirm that messages came from the sender who is claimed to
+have sent it and also ensure that recipients can validate the
+integrity of the message. It does not help with confidentiality.
+■
+160. C. Inert gas systems are used to reduce the oxygen in a room
+without the hazard to staff that carbon dioxide systems use.
+Both dry-pipe and pre-charge systems use water, which can
+harm delicate electronics.
+■
+161. C. Proximity card readers usually work using RFID (radio
+frequency ID) technology. This allows cards to be used in
+proximity but without requiring a direct reader like a magnetic
+stripe. Neither biometrics or infrared are used for proximity
+card readers.
+■
+162. A. Digital signatures that use a sender’s private key provide
+nonrepudiation by allowing a sender to prove that they sent a
+message. Unless the sender’s private key has been compromised,
+signing a message with their private key and allowing the
+recipient to validate the signature using their public key ensures
+that the sender sent the message in question. Longer keys don’t
+prove who a sender is, hashes are not reversible, and the public
+key in use is the sender’s, not the recipient’s.
+■
+163. B. Natural disasters, as well as man-made disasters, are
+primary considerations for geographic security considerations.
+Placing backup sites outside of the likely path or range of a
+single disaster helps ensure continuity of operations for
+organizations. MTR is the maximum time to restore, sprawl
+avoidance is usually considered for virtual machines, and service
+integration is a consideration for service architectures, not
+geographical placement.
+■
+164. B. Although actual threats from drones and unmanned aerial
+vehicles (UAVs) are relatively rare for most organizations,
+placing sensitive areas further inside a building will deter most
+current generations of drones from entering or recording them.
+Security doors and other common obstacles will prevent most
+UAV or drone penetration that typical organizations will face.
+Fences are easily bypassed by flying drones, biometric sensors
+won’t stop a drone from hovering outside of a window, and
+Faraday cages might stop a drone from receiving commands if
+you could get the drone inside first!
+■
+165. D. The key trade-off when considering resource constraints for
+encryption is that stronger encryption with longer keys requires
+more computational time and resources. This means that it will
+be slower and will consume more of the capacity of a system. A
+balance between security and computational overhead needs to
+be struck that matches the confidentiality needs of the data that
+is being handled or sent. Stronger encryption is usually slower,
+running out of entropy in the scenario described is not a typical
+concern, and stronger encryption taking up significant amounts
+of drive space is also not a real issue in this scenario.
+■
+166. C. Encrypting the message will ensure that it remains
+confidential as long as only the recipient is able to decrypt it.
+Hashing the message will result in the message not being
+recoverable, whereas digitally signing it can provide
+nonrepudiation. Finally, quantum encryption algorithms and
+the systems required to use them are not available today,
+meaning Amanda won’t be able to use them—yet!
+■
+167. C. In most cases, the major cloud service providers have more
+security staff and a greater budget for security operations. This
+means they can invest more in security controls, staffing,
+monitoring, and other activities. Using a cloud service provider
+can help improve the overall security posture of an organization
+that might not have the ability to have full-time or dedicated
+security staff or expertise. At the same time, local staff will
+understand the business better and will usually have a faster
+response time to critical business needs.
+■
+168. D. Network load balancers distribute traffic among systems,
+allowing systems to be added or removed, and making patching
+and upgrades easier by draining connections from systems and
+removing them from the pool when work needs to be done on
+them. They can also help monitor systems for performance,
+report on issues, and ensure that loads match the capabilities of
+the systems that they are in front of. Firewalls are used for
+security, switches are a network device used to transfer traffic to
+the correct system, and a horizontal scaler was made up for this
+question.
+■
+169. D. Protected cable distribution uses such controls as electrical,
+electromagnetic, and even acoustic or air pressure sensors to
+ensure that cables and distribution infrastructure are not
+accessed, allowing sensitive information to be transmitted in
+unencrypted form. The U.S. government identifies three
+options: hardened carrier, alarmed carrier, and continuously
+viewed protected distribution systems. Shielded cables are used
+to prevent EMI.
+■
+170. B. Maureen is using the concept of audio steganography by
+hiding data inside an audio file in a way that conceals it from
+detection. The other options are made up for this question.
+■
+171. B. Since Nicole is specifically worried about SMS pushes to cell
+phones, the most likely attack model is SIM (subscriber identity
+module) cloning, allowing attackers to obtain the authentication
+codes sent to legitimate users. Attacks on a Voice over Internet
+Protocol (VoIP) system would typically help intercept SMS if it
+was sent to VoIP phones, not cell phones (although forwarding
+is possible, but not mentioned here). Brute-force attacks are
+unlikely to succeed against SMS phone factors, and rainbow
+tables are used to crack hashed passwords.
+■
+172. C. Encryption is often used to protect data at rest. When data
+needs to be accessed, it can be decrypted. Hashing is not
+reversible, meaning that it is not used for data storage when the
+original form is needed for processing. Comparing hashed
+passwords works because the password is presented again,
+rather than the password needing to be retrieved from storage.
+TLS is used to protect data in motion, and tokenization is a data
+security technique that replaces sensitive data elements with
+nonsensitive elements that can still be processed in useful ways.
+■
+173. B. Nathaniel has created an air gap, a physical separation that
+will require manual transport of files, patches, and other data
+between the two environments. This helps to ensure that
+attackers cannot access critical systems and that insiders cannot
+export data from the environment easily. A demilitarized zone
+(DMZ) is a separate network segment or zone that is exposed to
+the outside world or other lower trust area. A vault is a secured
+space or room, but vaulting is not a term used on the Security+
+exam, and a hot aisle is the aisle where servers exhaust warm
+air.
+■
+174. A. Masking modifies content to conceal personally identifiable
+information (PII) or other sensitive information. Tokenization
+replaces sensitive information with a nonsensitive alternative
+that allows the data to still be processed in useful ways.
+Encryption would require the data to be decrypted to be used,
+and this is not mentioned. Hashing could be used to conceal
+values but does not preserve the ability to work with the data.
+■
+175. C. On-premises cloud computing is often called private cloud.
+Not all private clouds have to be on-site, because private clouds
+could be deployed to a remote location like a third-party hosting
+facility. Infrastructure as a service and platform as a service
+refer to third-party hosting services, and hybrid cloud combines
+both on-premises and cloud computing models.
+■
+176. C. The most likely threat to physical tokens is theft or loss
+resulting in access to the token. Cloning tokens might be
+possible if the token’s seed were known, but they are designed to
+prevent this from being reverse-engineered, meaning a
+significant breach of the vendor or similar issue would be
+required to cause an exposure. Brute force is not a realistic
+threat against most token implementations, nor is algorithm
+failure.
+■
+177. D. Control diversity means utilizing different controls to
+mitigate the same threat. For malware, the use of technical
+controls, such as antimalware, is critical. But it is also important
+to have administrative controls, such as good policies, and to
+ensure that employees are properly trained. Thus, for this
+question a combination of policies, training, and tools is the best
+answer.
+■
+178. A. Although it may seem like Charles has presented two factors,
+in fact he has only presented two types of things he knows along
+with his identity. To truly implement a multifactor environment,
+he should use more than one of something you have, something
+you know, and something you are.
+■
+179. C. Salt reuse is a critical mistake, because it would allow a
+rainbow table to be generated using that salt. Although standard
+rainbow tables would not work, a reused salt would only require
+the creation of a single new rainbow table. Alphanumeric salts
+are not a problem, long salts are not a problem, and this salt is a
+reasonable length at 16 characters using hexadecimal.
+■
+180. B. Alaina’s need for a local, secure storage area is an ideal
+situation for the use of a vault or safe where the keys can be
+stored on a device like a thumb drive. Simply placing them on a
+drive leaves them vulnerable to theft, and an air-gapped system
+would also be potentially exposed to theft or local breaches.
+■
+181. B. It is critical to authenticate API users and then to authorize
+them to take actions. If you authorized first and then
+authenticated, users could take action before you knew who they
+were! Encrypting throughout the use of the API keeps data and
+queries secure, validating input and filtering out dangerous
+strings is important to prevent injection and other attacks, and
+auditing and logging allows you to troubleshoot and respond to
+issues and attacks.
+■
+182. C. Frank has used a degausser to erase the data on the tapes.
+Degaussing only works on magnetic media like tapes and will
+not work on optical or flash media. Burning media or materials
+is exactly what it sounds like—putting them into a fire!
+Shredding and pulping are mechanical means of destruction.
+■
+183. A. 5G requires higher antenna density for full bandwidth
+communication than previous technologies, meaning that
+Angela’s organization will have to carefully consider antenna
+placement, particularly inside buildings where structural
+elements can create challenges with signal propagation. 5G is
+usable indoors, is commercially available, and can coexist with
+traditional Wi-Fi, so Angela should not include those in her list
+of concerns.
+■
+184. A. Chris is concerned about privilege creep, the slow
+accumulation of privileges over time as staff members change
+roles and their privileges are not removed or updated. Privilege
+management processes would help to prevent this, thus keeping
+data more secure. Of the other options, only privilege escalation
+is a common term, and it means gaining additional privileges,
+typically as part of an attack from an account with fewer
+privileges to a more privileged account like an administrator or
+root account.
+■
+185. C. Honeyfiles are files that are intended to help detect
+attackers. They are placed in a location where accessing them
+can be detected but are not set up to allow users to access them.
+That means that attackers who access the seemingly desirable
+file can be easily detected and appropriate alerts can be sent.
+■
+186. C. Although there is no specific recommended distance,
+recommendations typically range from 60 to 120 miles away to
+ensure that a single disaster is unlikely to disable both locations.
+■
+187. B. Fog computing is a term coined by Cisco to describe cloud
+computing at the edge of an enterprise network. The more
+common term for this is edge computing, but you may
+encounter both terms. Fog implementations handle significant
+amounts of computation, communication, and storage activities
+locally, while also connecting to cloud services to perform some
+of the work.
+■
+188. A. Bcrypt, scrypt, and PBKDF2 are all examples of key
+stretching algorithms. MD5 and SHA1 are both hashing
+algorithms, and ncrypt was made up for this question.
+■
+189. C. The only directory service listed is Lightweight Directory
+Access Protocol (LDAP). SAML is Security Assertion Markup
+Language, OAuth is an authorization delegation protocol, and
+802.1x is a network authentication protocol.

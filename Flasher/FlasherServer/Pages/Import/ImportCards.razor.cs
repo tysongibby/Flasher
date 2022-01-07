@@ -23,8 +23,10 @@ namespace FlasherServer.Pages.Import
         private IList<FlashcardDto> NewFlashcards { get; set; } = new List<FlashcardDto>();
         private string ResultsTextAreaText { get; set; } = string.Empty;
         
+        //[Inject]
+        //private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
-        private IUnitOfWork UnitOfWork { get; set; }
+        IFlashcardRepository FlashcardRepository { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
         [Parameter]
@@ -77,7 +79,7 @@ namespace FlasherServer.Pages.Import
             foreach (FlashcardDto newfc in NewFlashcards)
             {
                 newfc.Id = 0;
-                UnitOfWork.Flashcards.Add(Mapper.Map<Flashcard>(newfc));
+                FlashcardRepository.Add(Mapper.Map<Flashcard>(newfc));
             }
             ResultsTextAreaText = $"{NewFlashcards.Count} flashcards have been added.";
         }

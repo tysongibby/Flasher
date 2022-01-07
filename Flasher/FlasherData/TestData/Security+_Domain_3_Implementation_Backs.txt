@@ -1,0 +1,1991 @@
+1. A. Dual control, which requires two individuals to perform a
+function; split knowledge, which splits the passphrase or key
+between two or more people; and separation of duties, which
+ensures that a single individual does not control or oversee the
+entire process all help prevent insider threats when managing a
+PKI. Requiring a new passphrase when a certificate is used is
+not a reasonable solution and would require reissuing the
+certificate.
+■
+2. B. A site survey is the process of identifying where access points
+should be located for best coverage and identifying existing
+sources of RF interference, including preexisting wireless
+networks and other devices that may use the same radio
+frequency spectrum. By conducting a site survey, Naomi can
+guide the placement of her access points as well as create a
+channel design that will work best for her organization.
+■
+3. B. The option that best meets the needs described above is
+PEAP, the Protected Extensible Authentication Protocol. PEAP
+relies on server-side certificates and relies on tunneling to
+ensure communications security. EAP-MD5 is not
+recommended for wireless networks and does not support
+mutual authentication of the wireless client and network. LEAP,
+the Lightweight Extensible Authentication Protocol, uses WEP
+keys for its encryption and is not recommended due to security
+issues. Finally, EAP-TLS, or EAP Transport Layer Security,
+requires certificates on both the client and server, consuming
+more management overhead.
+■
+4. C. East-west traffic is traffic sent laterally inside a network.
+Some networks focus security tools at the edges or places where
+networks interconnect, leaving internal, or east-west, traffic
+open. In zero-trust environments, internal traffic is not
+presumed to be trustworthy, reducing the risks of this type of
+lateral communication. Side-stepping, slider traffic, and peer
+interconnect were all made up for this question, although peer
+interconnect may sound similar to peer-to-peer traffic, which
+may be lateral in many networks.
+■
+5. C. Although preventing Multipurpose Internet Mail Extensions
+(MIME) sniffing may sound humorous, MIME sniffing can be
+used in cross-site scripting attacks, and the X-Content-Type-
+Options header helps prevent MIME sniffing. HTTP securityoriented
+headers can also set X-Frame options, turn on crosssite
+scripting protection, set content security policies, and
+require transport security. There isn’t a “Disable SQL injection”
+header, however!
+■
+6. C. Mobile device management (MDM) suites often provide the
+ability to manage content on devices as well as applications.
+Using content management tools can allow Charlene to
+provision files, documents, and media to the devices that staff
+members in her organization are issued. Application
+management would be useful for apps. Remote wipe can remove
+data and applications from the device if it is lost or stolen, or an
+employee leaves the organization. Push notifications are useful
+when information needs to be provided to the device user.
+■
+7. C. In this scenario, Denny specifically needs to ensure that he
+stops the most malware. In situations like this, vendor diversity
+is the best way to detect more malware, and installing a different
+vendor’s antivirus (AV) package on servers like email servers
+and then installing a managed package for PCs will result in the
+most detections in almost all cases. Installing more than one AV
+package on the same system is rarely recommended, since this
+often causes performance issues and conflicts between the
+packages—in fact, at times AV packages have been known to
+detect other AV packages because of the deep hooks they place
+into the operating system to detect malicious activity!
+■
+8. B. Amanda has encountered a captive portal. Captive portals
+redirect all traffic to the portal page, either to allow the portal to
+collect information or to display the page itself. Once users have
+completed the requirements that the portal puts in place, they
+are permitted to browse the Internet. This may be accomplished
+by assigning a new IP address or by allowing the connected IP
+address to have access to the Internet using a firewall rule or
+other similar method. Preshared keys are used in wireless
+networks for authentication. Port security is used for wired
+networks, and WPA stands for Wi-Fi Protected Access, as in
+WPA, WPA-2, and WPA-3.
+■
+9. B. Domain Name System Security Extensions, or DNSSEC,
+provides the ability to validate DNS data and denial of existence,
+and provides data integrity for DNS. It does not provide
+confidentiality or availability controls. If Charles needs to
+provide those, he will have to implement additional controls.
+■
+10. B. Google is acting as an identity provider, or IdP. An IdP
+creates and manages identities for federations. An RP is a
+relying party, which relies on an identity provider. An SP is a
+service provider, and an RA is a registration authority involved
+in the process for providing cryptographic certificates.
+■
+11. C. SSH, or Secure Shell, is a secure protocol used to connect to
+command-line shells. SSH can also be used to tunnel other
+protocols, making it a useful and frequently used tool for system
+administrators, security professionals, and attackers. Using
+HTTPS or Transport Layer Security (TLS) for a secure command
+line is rare, and Telnet is an insecure protocol.
+■
+12. B. Of the options provided, only FIDO U2F, an open standard
+provided by the Fast IDentity Online Alliance, is a standard for
+security keys. Other standards that you may encounter include
+OTP (One Time Password), SmartCard, OATH-HOTP, and
+OpenPGP. Of note, OATH, the Initiative for Open Authentiation
+provides standards both HMAC-based one time password
+(HOTP) and TOTP, or time-based one time passwords. SAML
+(Security Assertion Markup Language) and OpenID are both
+used in authentication processes but not for security keys. ARF
+was made up for this question.
+■
+13. C. Nadia should use Secure/Multipurpose Internet Mail
+Extensions (S/MIME), which supports asymmetric encryption
+and should then use Danielle’s public key to encrypt the email so
+that only Danielle can decrypt the messages and read them.
+Secure POP3 would protect messages while they’re being
+downloaded but would not protect the content of the messages
+between servers.
+■
+14. B. SRTP is a secure version of the Real-Time Transport
+Protocol and is used primarily for Voice over IP (VoIP) and
+multimedia streaming or broadcast. SRTP, as currently
+implemented, does not fully protect packets, leaving RTP
+headers exposed, potentially exposing information that might
+provide attackers with information about the data being
+transferred.
+■
+15. C. Olivia should make her organization aware that a failure in
+one of the active nodes would result in less maximum
+throughput and a potential for service degradation. Since
+services are rarely run at maximum capacity, and many can have
+maintenance windows scheduled, this does not mean that the
+load balancers cannot be patched. There is nothing in this
+design that makes the load balancers more vulnerable to denial
+of service than they would be under any other design.
+■
+16. A. File Transfer Protocol Secure (FTPS) typically uses port 990
+for implicit FTPS and port 21, the normal FTP command port, is
+used for explicit FTPS. Port 22 is used for SSH, 433 was used for
+the Network News Transfer Protocol (NNTP), 1433 is used for
+Microsoft SQL, and port 20 is used for FTP.
+■
+17. A. Certificate stapling allows the server that is presenting a
+certificate to provide a more efficient way to check the
+revocation status of the certificate via the Online Certificate
+Status Protocol (OCSP) by including the OCSP response with the
+handshake for the certificate. This provides both greater security
+because clients know that the certificate is valid, and greater
+efficiency because they don’t have to perform a separate
+retrieval to check the certificate’s status. The rest of the options
+were made up and are not certificate stapling.
+■
+18. B. A registration authority, or RA, receives requests for new
+certificates as well as renewal requests for existing certificates.
+They can also receive revocation requests and similar tasks. An
+intermedia CA is trusted by the root CA to issue certificates. A
+CRL is a certificate revocation list.
+■
+19. C. Least connection-based load balancing takes load into
+consideration and sends the next request to the server with the
+least number of active sessions. Round robin simply distributes
+requests to each server in order, whereas weighted time uses
+health checks to determine which server responds the most
+quickly on an ongoing basis and then sends the traffic to that
+server. Finally, source IP hashing uses the source and
+destination IP addresses to generate a hash key and then uses
+that key to track sessions, allowing interrupted sessions to be
+reallocated to the same server and thus allowing the sessions to
+continue.
+■
+20. A. IPSec’s Authentication Header (AH) protocol does not
+provide data confidentiality because it secures only the header,
+not the payload. That means that AH can provide integrity and
+replay protection but leaves the rest of the data at risk. Matt
+should note this and express concerns about why the VPN is not
+using Encapsulating Security Protocol (ESP).
+■
+21. C. Michelle knows that POP3 runs on port 110 by default, and
+that TLS (via STARTTLS as an extension) allows POP3 clients to
+request a secure connection without needing to use the alternate
+port 995 used in some configurations. Port 25 is the default port
+for Simple Mail Transfer Protocol (SMTP), and IKE is used for
+IPSec.
+■
+22. A. A cloud access security broker (CASB) is a software tool or
+service that sits between an organization’s on-premises network
+and a cloud provider’s infrastructure. A CASB acts as a
+gatekeeper, allowing the organization to extend the reach of
+their security policies into the cloud.
+■
+23. A. Angela’s company has deployed a version of Session
+Initiation Protocol (SIP) that doesn’t use Transport Layer
+Security (TLS) to maintain confidentiality. She should switch to
+a SIP Secure (SIPS) implementation to protect the
+confidentiality of phone conversations. Vishing, or voice
+phishing; war dialing, which attempts to map all numbers for a
+phone service, typically to find modems; and denial of service
+are all less likely on a VoIP network, although they could occur.
+■
+24. B. The fastest way for Alaina to implement secure transport for
+her Network Time Protocol (NTP) traffic will typically be to
+simply tunnel the traffic via Secure Shell (SSH) from the NTP
+server to her Linux systems. An IPSec virtual private network
+(VPN) between devices will typically take more work to set up
+and maintain, although this could be scripted, and a Transport
+Layer Security (TLS) VPN would require additional work since it
+is intended for web traffic. RDP is the Remote Desktop Protocol
+and is primarily used for Windows systems and would not be a
+good choice. In most environments, however, NTP traffic does
+not receive any special security, and NTP sources are trusted to
+perform without exceptional security measures.
+■
+25. D. The safest and most secure answer is that Ramon should
+simply implement TLS for the entire site. Although TLS does
+introduce some overhead, modern systems can handle large
+numbers of simultaneous TLS connections, making a secure
+website an easy answer in almost all cases.
+■
+26. D. Although IP addresses for public servers and clients are not
+typically considered sensitive, the usernames, passwords, and
+files that the contractors use would be. Katie should consider
+helping her organization transition to a secure FTP or other
+service to protect her organization’s customers and the
+organization itself.
+■
+27. D. Dynamic Host Configuration Protocol (DHCP) sniffing or
+snooping can be enabled to prevent rogue DHCP servers as well
+as malicious or malformed DHCP traffic. It also allows the
+capture and collection of DHCP binding information to let
+network administrators know who is assigned what IP address.
+■
+28. B. Aaron can use a wildcard certificate to cover all the hosts
+inside of a set of subdomains. Wildcards only cover a single level
+of subdomain, however, so if he purchased *. example.com, he
+could not use *. blog.example.com. A self-signed certificate will
+cause errors for visitors and should not be used for production
+purposes. Self-signed certificates will create errors in most
+browsers and so are not used in production environments.
+Extended validation (EV) certificates will not provide this
+functionality, and Secure Sockets Layer (SSL) is no longer in use
+with the switch to TLS for security reasons.
+■
+29. D. Root Guard can be set on a per-port basis to protect ports
+that will never be set up to be the root bridge for a VLAN. Since
+this shouldn’t change regularly, it is safe to set for most ports in
+a network. Spanning tree is used to prevent loops, so disabling
+STP would actually make this problem more likely. Bridge IDs
+cannot be negative, and BridgeProtect was made up for this
+question.
+■
+30. C. A Personal Information Exchange (PFX) formatted file is a
+binary format used to store server certificates, as well as
+intermediary certificates, and it can also contain the server’s
+private key. Privacy Enhanced Mail (PEM) files can contain
+multiple PEM certificates and a private key, but most systems
+store certificates and the key separately. Distinguished Encoding
+Rules (DER) format files are frequently used with Java
+platforms and can store all types of certificates and private keys.
+P7B, or PKCS#7, formatted files can contain only certificates
+and certificate chains, not private keys. For the exam, you
+should also know that a CER is a file extension for an SSL
+certificate file format used by web servers to help verify the
+identity and security of the site in question. SSL certificates are
+provided by a third-party security certificate authority such as
+VeriSign, GlobalSign, or Thawte.
+A P12 file contains a digital certificate that uses PKCS#12 (Public
+Key Cryptography Standard #12) encryption. The P12 file
+contains both the private and the public key, as well as
+information about the owner (name, email address, etc.), all
+being certified by a third party. With such a certificate, a user
+can identify themselves and authenticate themselves to any
+organization trusting the third party.
+■
+31. D. A firewall has two types of rules. One type is to allow specific
+traffic on a given port. The other type of rule is to deny traffic.
+What is shown here is a typical firewall rule. Options A, B, and C
+are incorrect. The rule shown is clearly a firewall rule.
+■
+32. C. Many subscription services allow for data retrieval via
+HTTPS. Ted can subscribe to one or more threat feeds or
+reputation services, and then feed that information to an
+intrusion detection system (IDS), intrusion prevention system
+(IPS), next -generation firewall, or similar network security tool.
+Security Assertion Markup Language (SAML) is used to make
+assertions about identities and authorization, a VDI is a virtual
+desktop environment, and FDE is full-disk encryption.
+■
+33. B. Secure cookies are HTTP cookies that have the secure flag
+set, thus requiring them to only be sent via a secure channel like
+HTTPS. They are not stored in encrypted form or hashed, and
+cookie keys were made up for this question.
+■
+34. D. Unlike IPSec’s tunnel mode, IPSec transport mode allows
+different policies per port. The IP addresses in the outer header
+for transport mode packets are used to determine the policy
+applied to the packet. IPSec doesn’t have a PSK mode, but WPA-
+2 does. IKE is used to set up security associations in IPSec but
+doesn’t allow this type of mode setting.
+■
+35. A. WPS personal identification numbers (PINs) were revealed
+to be a problem in 2011, when a practical brute-force attack
+against WPS PIN setup modes was demonstrated. WPS suffers
+from a variety of other security issues and is not used for
+enterprise security. WPS remains in use in home environments
+for ease of setup.
+■
+36. C. The Online Certificate Status Protocol, or OCSP, is used to
+determine the status of a certificate. RTCP, CRBL, and PKCRL
+were all made up for this question.
+■
+37. C. Certificate revocation lists (CRLs) are designed specifically
+for revoking certificates. Since public keys are distributed via
+certificates, this is the most effective way to deauthorize a public
+key. Option A is incorrect. Simply notifying users that a
+key/certificate is no longer valid is not effective. Option B is
+incorrect. Deleting a certificate is not always possible and
+ignores the possibility of a duplicate of that certificate existing.
+Option D is incorrect. The registration authority (RA) is used in
+creating new certificates, not in revoking them.
+■
+38. C. Global Positioning System (GPS) data and data about local
+Wi-Fi networks are the two most commonly used protocols to
+help geofencing applications determine where they are. When a
+known Wi-Fi signal is gained or lost, the geofencing application
+knows it is within range of that network. GPS data is even more
+useful because it can work in most locations and provide
+accurate location data. Although Bluetooth is sometimes used
+for geofencing, its limited range means that it is a third choice.
+Cellular information would require accurate tower-based
+triangulation, which means it is not typically used for geofencing
+applications, and of course USB is a wired protocol.
+■
+39. A. The demilitarized zone (DMZ) is a zone between an outer
+firewall and an inner firewall. It is specifically designed as a
+place to locate public-facing servers. The outer firewall is more
+permissive, thus allowing public access to the servers in the
+DMZ. However, the inner firewall is more secure, thus
+preventing outside access to the corporate network.
+■
+40. C. The first step in security is hardening the operating system,
+and one of the most elementary aspects of that is turning off
+unneeded services. This is true regardless of the operating
+system. Although installing antimalware, implementing usage
+policies, and setting password reuse policies are all good
+practices, turning off unnecessary services is typically the first
+step in securing a system.
+■
+41. C. Knowledge-based authentication requires information that
+only the user is likely to know. Examples include things like
+previous tax payments, bill amounts, and similar information.
+Requesting a Social Security number is less secure and would
+only work for users in the United States. Federated identity via
+Google accounts does not meet this need because Google
+accounts do not have a user validation requirement. Finally,
+validation emails only prove that the user has access to an
+account that they provide, not that they are a specific individual.
+■
+42. A. A Transport Layer Security (TLS) VPN is frequently chosen
+when ease of use is important, and web applications are the
+primary usage mode. IPSec VPNs are used for site-to-site VPNs
+and for purposes where other protocols may be needed, because
+they make the endpoint system appear to be on the remote
+network.
+■
+43. A. Full-disk encryption (FDE) fully encrypts the hard drive on a
+computer. This is an effective method for ensuring the security
+of data on a computer. Trusted Platform Modules (TPMs) are
+store keys and are used for boot integrity and other
+cryptographic needs and won’t directly protect the data.
+Software-defined networking (SDN) is virtualized networking,
+and demilitarized zones (DMZs) are used to segment a network
+and won’t affect this problem.
+■
+44. A. A DMZ (demilitarized zone) provides limited access to
+public-facing servers for outside users, but blocks outside users
+from accessing systems inside the LAN. It is a common practice
+to place web servers in the DMZ. A virtual LAN, or VLAN, is
+most often used to segment the internal network, routers direct
+traffic based on IP address, and a guest network allows internal
+users who are not employees to get access to the Internet.
+■
+45. D. Identity attributes are characteristics of an identity,
+including details like the individual’s birth date, age, job title,
+address, or a multitude of other details about the identity. They
+are used to differentiate the identity from others and may also
+be used by the identity management system or connected
+systems in coordination with the identity itself. Roles describe
+the job or position an individual has in an organization, and
+factors are something you know, something you have, or
+something you are. Identifiers are not a common security or
+authentication term, although identity is.
+■
+46. D. The CN, or common name, for a certificate for a system is
+typically the fully qualified domain name (FQDN) for the server.
+If Megan was requesting a certificate for herself, instead of for a
+server, she would use her full name.
+■
+47. B. Physically portioning your network is the physical equivalent
+of a virtual LAN, or VLAN. A VLAN is designed to emulate
+physical partitioning. Perimeter security does not segment the
+network. Security zones are useful but don’t, by themselves,
+segment a network. Often a network is segmented, using
+physical partitions or VLAN, to create security zones. A firewall
+is meant to block certain traffic, not to segment the network,
+although a firewall can be part of a segmentation or security
+zone implementation.
+■
+48. D. Nelson is using a whitelisting (or allowed list) tool. Tools
+like this allow only specific applications to be installed and run
+on a system and often use hashes of known good applications to
+ensure that the applications are those that are permitted. A
+blacklisting (or blocked list) tool prevents specific applications
+or files from being used, stored, or downloaded to a system.
+Although antivirus and antimalware tools may have similar
+features, the most accurate answer here is whitelisting.
+■
+49. B. A stateful inspection firewall examines the content and
+context of each packet it encounters. This means that a stateful
+packet inspection (SPI) firewall understands the preceding
+packets that came from the same IP address, and thus the
+context of the communications. This makes certain attacks, like
+a SYN flood, almost impossible. Packet filtering firewalls
+examine each packet but not the context. Application-layer
+firewalls can use SPI or simple packet filtering, but their primary
+role is to examine application-specific issues. A common
+example is a web application firewall. A gateway firewall is
+simply a firewall at the network gateway. This does not tell us
+whether it is packet filtering or SPI.
+■
+50. A. Wireless network heatmaps are used to show how strong
+wireless network signals are throughout a building or location.
+Scott can use a heatmap like this to see where the wireless signal
+drops off or where interference may occur. A network diagram
+would show the logical layout of a network. A demilitarized zone
+(DMZ) is a network security zone that is exposed to a higher risk
+region, and a zone map is not a common security term.
+■
+51. B. A demilitarized zone (DMZ) is a separate subnet coming off
+the separate router interface. Public traffic may be allowed to
+pass from the external public interface to the DMZ, but it won’t
+be allowed to pass to the interface that connects to the internal
+private network. A guest network provides visitors with Internet
+access. An intranet consists of internal web resources.
+Frequently companies put up web pages that are accessible only
+from within the network for items like human resources
+notifications, vacation requests, and so forth. A virtual LAN, or
+VLAN, is used to segment your internal network.
+■
+52. C. The application includes input validation techniques that are
+used to ensure that unexpected or malicious input does not
+cause problems with the application. Input validation
+techniques will strip out control characters, validate data, and
+perform a variety of other actions to clean input before it is
+processed by the application or stored for future use. This
+validation may help prevent buffer overflows, but other
+techniques described here are not used for buffer overflow
+prevention. String injection is actually something this helps to
+prevent, and schema validation looks at data to ensure that
+requests match a schema, but again this is a narrower
+description than the broad range of input validation occurring in
+the description.
+■
+53. C. WPA3 supports SAE, or simultaneous authentication of
+equals, providing a more secure way to authenticate that limits
+the potential for brute-force attacks and allows individuals to
+use different passwords. WPA is not as secure as WPA2, and
+WEP is the oldest, and least secure, wireless security protocol.
+■
+54. A. In order to stop attack traffic, an IPS needs to be deployed
+inline. Deployments that use a network tap receive a copy of the
+data without being in the flow of traffic, which makes them ideal
+for detection but removes the ability to stop traffic. Deploying as
+an intrusion detection system (IDS) instead of an IPS means
+that the system will only detect, not stop, attacks.
+■
+55. B. The correct answer is to use a sandboxed environment to
+test the malware and determine its complete functionality. A
+sandboxed system could be an isolated virtual machine (VM) or
+an actual physical machine that is entirely isolated from the
+network. Leaving the malware on a production system is never
+the correct approach. You should test or analyze the malware to
+determine exactly what malware it is, allowing you to respond to
+the threat properly. A honeypot is used for luring and trapping
+attackers, not for testing malware.
+■
+56. B. Hardening is the process of improving the security of an
+operating system or application. One of the primary methods of
+hardening a trusted OS is to eliminate unneeded protocols. This
+is also known as creating a secure baseline that allows the OS to
+run safely and securely. FDE is full-disk encryption, a SED is a
+self-encrypting drive, and baselining is the process of
+establishing security standards.
+■
+57. C. Although trust in the site is likely to be reduced because
+users will receive warnings, the actual underlying encryption
+capabilities will not change. Users will not be redirected to the
+certificate authority’s site, and if they click past the warnings,
+users will be able to continue normally and with an encrypted
+connection.
+■
+58. D. Isaac knows that trusting client systems to be secure is not a
+good idea, and thus ensuring that validation occurs on a trusted
+client is not an appropriate recommendation. Ensuring that
+validation occurs on a trusted server, that client data is
+validated, and that data types and ranges are reasonable are all
+good best practices for him to recommend.
+■
+59. C. Trusted Platform Modules (TPMs) provide a random
+number generator, the ability to generate cryptographic keys,
+support for remote attestation as part of the boot process, as
+well as binding and sealing capabilities. They do not act as
+cryptographic processors to speed up Secure Sockets Layer
+(SSL) or Transport Layer Security (TLS) traffic.
+■
+60. B. Hashing is commonly used in databases to increase the
+speed of indexing and retrieval since it is typically faster to
+search for a hashed key rather than the original value stored in a
+database. Hashing is not a form of encryption, meaning that it is
+not used to encrypt stored data. Hashing is not used to obfuscate
+data or to substitute for sensitive data.
+■
+61. C. The correct answer is to only allow signed components to be
+loaded in the browser. Code signing verifies the originator of the
+component (such as an ActiveX component) and thus makes
+malware far less likely. Although host-based antimalware is a
+good idea, it is not the best remedy for this specific threat.
+Blacklists cannot cover all sites that are infected—just the sites
+you know about. And given that users on Hans’s network visit a
+lot of websites, blacklisting is likely to be ineffective. Finally, if
+you block all active content, many websites will be completely
+unusable.
+■
+62. B. Zarmeena has implemented a preshared key, or PSK,
+authentication method. This means that if she needs to change
+the key because a staff member leaves, she will need to have
+every device update their passphrase. For larger deployments,
+enterprise authentication can connect to an authentication and
+authorization service, allowing each user to authenticate as
+themselves. This also provides network administrators with a
+way to identify individual devices by their authenticated user.
+Open networks do not require authentication, although a captive
+portal can be used to require network users to provide
+information before they are connected to the Internet.
+■
+63. A. EAP-FAST is specifically designed for organizations that
+want to quickly complete reconnections and does not require
+certificates to be installed at the endpoint device. EAP Tunneled
+Transport Layer Security (EAP-TTLS) requires client-side
+certificates; EAP-TLS requires mutual authentication, which can
+be slower; and Protected Extensible Authentication Protocol
+(PEAP) is similar to EAP-TTLS.
+■
+64. A. The correct answer is to implement a virtual desktop
+infrastructure (VDI). If all the desktops are virtualized, then
+from a single central location you can manage patches,
+configuration, and software installation. This single
+implementation will solve all the issues mentioned in the
+question. Restrictive policies are a good idea but are often
+difficult to enforce. Imaging workstations will affect only their
+original configuration; it won’t keep them patched or prevent
+rogue software from being installed. Finally, strong patch
+management will address only one of the three concerns.
+■
+65. B. Deploying to multiple locations is part of a high availability
+strategy that ensures that losing a datacenter or datacenters in a
+single region, or loss of network connectivity to that region, will
+not take an infrastructure down. This does not provide greater
+resistance to insider attacks, lower costs, or vendor diversity.
+■
+66. B. A TLS-based VPN (often called an SSL-based VPN, despite
+SSL being outmoded) provides the easiest way for users to use
+VPN since it does not require a client. SSL VPNs also work only
+for specific applications rather than making a system appear as
+though it is fully on a remote network. HTML5 is not a VPN
+technology, but some VPN portals may be built using HTML5.
+Security Assertion Markup Language (SAML) is not a VPN
+technology. IPSec VPNs require a client or configuration and are
+thus harder for end users to use in most cases.
+■
+67. C. These particular web application attacks are best mitigated
+with proper input validation. Any user input should be checked
+for indicators of cross-site scripting (XSS) or SQL injection.
+Error handling is always important, but it won’t mitigate these
+particular issues. Stored procedures can be a good way of
+ensuring SQL commands are standardized, but that won’t
+prevent these attacks. Code signing is used for code that is
+downloaded from a web application to the client computer; it is
+used to protect the client, not the web application.
+■
+68. C. Isaac can configure a geofence that defines his corporate
+buildings and campus. He can then set up a geofence policy that
+will only allow devices to work while they are inside that
+geofenced area. Patch management, IP filtering, and network
+restrictions are not suitable solutions for this.
+■
+69. B. Fuzzing is a technique whereby the tester intentionally
+enters incorrect values into input fields to see how the
+application will handle it. Static code analysis tools simply scan
+the code for known issues, baselining is the process of
+establishing security standards, and version control simply
+tracks changes in the code—it does not test the code.
+■
+70. B. Although hardware security modules (HSMs) provide many
+cryptographic functions, they are not used for boot attestation. A
+TPM, or Trusted Platform Module, is used for secure boot
+attestation.
+■
+71. A. Cynthia should deploy Radio Frequency Identifier (RFID)
+cards, which can be read using contactless readers. RFID
+technology is common and relatively inexpensive, but without
+additional authentication, possession of a card is the only means
+of determining if someone is authorized to access a building or
+room. Wi-Fi is not used for contactless cards because of its
+power consumption and overhead. Magstripes require a reader
+rather than being contactless, and HOTP is a form of one-time
+password system.
+■
+72. B. Rate limiting and back-off algorithms both limit how quickly
+queries can be performed. Requiring authentication would
+restrict who could access the directory. Requiring LDAPS
+(Lightweight Directory Access Protocol over SSL) does not
+prevent enumeration, but it does provide security for the
+queried information as it transits networks.
+■
+73. D. A SAN, or Subject Alternate Name, certificate allows
+multiple hostnames to be protected by the same certificate. It is
+not a type of certificate for SAN storage systems. A SAN
+certificate could be self-signed, but that does not make it a SAN
+certificate, and of course the security organization SANS is not a
+certificate authority.
+■
+74. A. The correct answer is to assign digital certificates to the
+authorized users and to use these to authenticate them when
+logging in. This is an effective way to ensure that only authorized
+users can access the application. Although the remaining
+options are all good security measures, they are not the best way
+to authenticate the client and prevent unauthorized access to the
+application.
+■
+75. D. The correct answer is to first test patches. It is always
+possible that a patch might cause issues for one or more current
+applications. This is particularly a concern with applications that
+have a lot of interaction with the host operating system. An
+operating system patch can prevent the application from
+executing properly. But as soon as the patches are tested, a
+phased rollout to the company should begin. Automatic
+patching is not recommended in corporate environments
+because a patch could possibly interfere with one or more
+applications—thus, a managed patch deployment process is
+implemented that requires more administrative time but avoids
+outages due to patches with issues in an organization’s specific
+environment. Having individual users patch their own machines
+is a bad idea and will lead to inconsistent patching and the
+application of untested patches. Delegating patch management
+to managers instead of IT staff can lead to problems, too, due to
+varying skillsets and practices.
+■
+76. B. Although wireless analyzers provide in-depth information
+about Service Set Identifiers (SSIDs), signal strength, and
+protocol versions, the Remote Authentication Dial-In User
+Service (RADIUS) or Kerberos version number for the backend
+authentication servers is not something that they will typically
+be able to provide.
+■
+77. B. The correct answer is to turn off any remote access to such
+devices that is not absolutely needed. Many peripheral devices
+come with SSH (Secure Shell), Telnet, or similar services. If you
+are not using them, turn them off. Many peripherals don’t have
+disks to encrypt, making full-disk encryption (FDE) a less useful
+choice. Fuzz testing is used to test code, not devices, and
+peripherals are unlikely to support digital certificates in most
+cases.
+■
+78. C. Manual code review is a type of static code review where
+reviewers read through source code to attempt to find flaws in
+the code. Dynamic code review requires running the code, Fagan
+testing is a formal code review process that works through
+multiple phases of the development process, and fuzzing is a
+form of dynamic inspection that sends unexpected values to a
+running program.
+■
+79. C. Samantha should place her public SSH key in the .ssh
+directory in her home directory on the remote server. Private
+keys should never be outside of your control, and unlike many
+Linux configurations, SSH keys are not kept in the /etc/
+directory.
+■
+80. C. The correct answer is to use static code analysis. Memory
+leaks are usually caused by failure to deallocate memory that has
+been allocated. A static code analyzer can check to see if all
+memory allocation commands ( malloc , alloc , etc.) have a
+matching deallocation command. Fuzzing involves entering data
+that is outside expected values to see how the application
+handles it. Stress testing involves testing how a system handles
+extreme workloads. Normalization is a technique for
+deduplicating a database.
+■
+81. D. Load balancers provide a virtual IP, or VIP. Traffic sent to
+the VIP is directed to servers in the pool based on the loadbalancing
+scheme that that pool is using—often a round-robin
+scheme, but other versions that include priority order and
+capacity tracking or ratings are also common. The load
+balancer’s IP address is normally used to administer the system,
+and individual IP addresses for the clustered hosts are shielded
+by the load balancer to prevent traffic from consistently going to
+those hosts, thus creating a failure or load point.
+■
+82. D. In a well-implemented password hashing scheme, unique
+random bits called salts are added to each password before they
+are hashed. This makes generating a rainbow table or otherwise
+brute-forcing hashes for all of the passwords stored in a
+database extremely time-consuming. The remaining options
+were made up and are not actual security terms.
+■
+83. A. The correct answer is to use Secure Shell (SSH). This
+protocol is encrypted. SSH also authenticates the user with
+public key cryptography. Telnet is insecure and does not encrypt
+data. RSH, or Remote Shell, sends at least some data
+unencrypted and is also insecure. SNMP, or Simple Network
+Management Protocol, is used to manage a network and is not
+used for remote communications.
+■
+84. A. Resource-based policies are attached to resources and
+determine who has access to a resource, such as a group of
+sysadmins or developers, and what actions they can perform on
+the resource. Cloud services have different terms for monitoring
+their resource usage; these terms may vary from service to
+service.
+■
+85. A. Networked sensor appliances are deployed in many
+datacenters to gather information about temperature and
+humidity as part of the environmental monitoring system. Fire
+detection and suppression systems are not typically mounted in
+racks, and power quality and reliability is measured by PDUs
+(power distribution units), UPS (uninterruptable power
+supplies), and other power infrastructure.
+■
+86. C. Secure IMAP’s default port is TCP 993. Laurel can easily
+guess that the system offers a TLS-protected version of IMAP for
+clients to use to retrieve email messages. The default port for
+secure POP is 995, and for secure SMTP the default port is 587.
+S/MIME does not have a specific port, as it is used to encrypt
+the content of email messages.
+■
+87. C. Ad hoc wireless networks operate in a point-to-point
+topology. Infrastructure mode access points work in a point-tomultipoint
+topology. Star and bus models are used in wired
+networks.
+■
+88. C. Only using code that is digitally signed verifies the creator of
+the software. For example, if a printer/multifunction device
+(MFD) driver is digitally signed, this gives you confidence that it
+really is a printer driver from the vendor it purports to be from,
+and not malware masquerading as a printer driver. Signed
+software gives you a high degree of confidence that it is not
+malware but does not provide a guarantee. For example, the
+infamous Flame virus was signed with a compromised Microsoft
+digital certificate. Digital signing of software has no effect on
+patch management. Finally, digitally signed software will not
+execute faster or slower than unsigned software.
+■
+89. D. The Security+ exam refers to password managers as
+password vaults. Samantha should recommend a password vault
+that will allow her users to generate, store, and use many
+passwords securely. None of the other options are good advice
+for password use and storage.
+■
+90. A. Port security filters by MAC address, allowing whitelisted
+MAC addresses to connect to the port and blocking blacklisted
+MAC addresses. Port security can be static, using a
+predetermined list or dynamically allowing a specific number of
+addresses to connect, or it can be run in a combination mode of
+both static and dynamic modes.
+■
+91. C. Authentication headers (AHs) provide complete packet
+integrity, authenticating the packet and the header.
+Authentication headers do not provide any encryption at all, and
+authentication headers authenticate the entire packet, not just
+the header.
+■
+92. B. A split horizon DNS implementation deploys distinct DNS
+servers for two or more environments, ensuring that those
+environments receive DNS information appropriate to the DNS
+view that their clients should receive. Domain Name System
+Security Extensions (DNSSEC) is a DNS security set of
+specifications to help protect DNS data. DMZ DNS and DNS
+proxying are not design patterns or common terms used in the
+security or networking field.
+■
+93. A. Network taps copy all traffic to another destination, allowing
+traffic visibility without a device inline. They are completely
+passive methods of getting network traffic to a central location.
+Port mirroring would get all the traffic to the network-based
+intrusion prevention system (NIPS) but is not completely
+passive. It requires the use of resources on switches to route a
+copy of the traffic. Incorrect switch configurations can cause
+looping. Configuring loop detection can prevent looped ports.
+Putting a network IPS on every segment can be very expensive
+and require extensive configuration work. Option D is incorrect.
+This is not the assignment. Setting up a NIPS on each segment
+would also dramatically increase administrative efforts.
+■
+94. C. Federating RADIUS allows organizations to permit users
+from other partner organizations to authenticate against their
+home systems, and then be allowed on to the local organization’s
+network. An example of this is the eduroam federation used by
+higher education institutions to permit students, faculty, and
+staff to use college networks anywhere they go where eduroam is
+in place. Preshared keys are determined by the location
+organization and would not permit enterprise credentials from
+other organizations to be used. OpenID is used for web
+authentication, and 802.11q is a trunking protocol.
+■
+95. C. Context-aware authentication can take into account
+information like geolocation to ensure that the devices can only
+be logged into when they are inside of the facility’s boundaries.
+That means the devices will only be useful on-site and can help
+protect the data and applications on the devices. Neither PINs
+nor biometrics can do this, and content-aware authentication
+was made up for this question.
+■
+96. B. A TPM, or Trusted Platform Module, is a secure
+cryptoprocessor used to provide a hardware root of trust for
+systems. They enable secure boot and boot attestation
+capabilities, and include a random number generator, the ability
+to generate cryptographic keys for specific uses, and the ability
+to bind and seal data used for processes the TPM supports.
+■
+97. B. Internet key exchange (IKE) is used to set up security
+associations (SAs) on each end of the tunnel. The security
+associations have all the settings (i.e., cryptographic algorithms,
+hashes) for the tunnel. IKE is not directly involved in encrypting
+or authenticating. IKE itself does not establish the tunnel—it
+establishes the SAs.
+■
+98. A. A root certificate is the base certificate that signs an entire
+certificate chain. A common security practice to protect these
+incredibly important certificates is to keep the root certificate
+and CA offline to prevent the potential of compromise or
+exposure. Machine/computer, user, and email certificates are
+deployed and used throughout organizations and, since they are
+used on a frequent basis, aren’t likely be to kept offline.
+■
+99. A. The NIPS is not seeing the traffic on that network segment.
+By implementing port mirroring, the traffic from that segment
+can be copied to the segment where the NIPS is installed.
+Installing a network IPS on the segment would require
+additional resources. This would work but is not the most
+efficient approach. Nothing in this scenario suggests that the
+NIPS is inadequate. It just is not seeing all the traffic. Finally,
+isolating the segment to its own VLAN would isolate that
+network segment but would still not allow the NIPS to analyze
+the traffic from that segment.
+■
+100. B. Tokenization is used to protect data by substituting tokens
+for sensitive data without changing the length or data type. This
+allows databases to handle the data in the same way as it was
+prior to tokenization, ensuring that existing software will not
+run into problems due to the data being changed. Encryption
+provides similar protection but will normally change either the
+data length, the data type, or both. Hashing is one-way, which
+means it is not a good fit for many scenarios where tokenization
+or encryption will protect data. Rotation is not a security method
+used for this type of work.
+■
+101. A. Elenora could deploy a log aggregator at each location to
+collect and aggregate the logs. Log collection and aggregation
+systems can then filter unneeded log entries, compress the logs,
+and forward desired logs to a central security system like a
+security information and event management (SIEM) or other log
+analysis collection and analysis tool. A honeypot acts like a
+desirable target, luring attackers in to capture data about their
+attacks. A bastion host is designed to resist attacks and normally
+provides a single service to the network on which it resides.
+■
+102. D. Fuzzing is an automated, dynamic software testing
+technique that sends unexpected and often invalid data to a
+program to test how it responds. The software is monitored to
+see how it responds to the input, providing additional assurance
+that the program has proper error handling and input validation
+built in. Timeboxing is an agile project management technique;
+buffer overflows may occur as part of fuzzing, but are not the
+only technique used or described here; and input validation can
+help stop fuzzing from causing problems for an application by
+preventing out-of-bounds or unwanted data from being
+accepted.
+■
+103. B. Dynamic Host Configuration Protocol (DHCP) snooping can
+be set up on switches to monitor for and stop rogue DHCP traffic
+from unknown servers. Disabling DHCP snooping would remove
+this feature. Intrusion detection systems (IDSs) cannot stop
+traffic, and blocking DHCP traffic would prevent systems from
+acquiring dynamic IP addresses.
+■
+104. B. Endpoint detection and response (EDR) focuses on
+identifying anomalies and issues, but it is not designed to be a
+malware analysis tool. Instead, the ability to search and explore
+data, identify suspicious activities, and coordinate responses is
+what makes up an EDR tool.
+■
+105. A. A web proxy can be used to block certain websites. It is
+common practice for network administrators to block either
+individual sites or general classes of sites (like job-hunting
+sites). Network address translation (NAT) is used to translate
+the private IP addresses of internal computers to public IP
+addresses. A packet filter firewall can block traffic on a given
+port or IP address or using a particular protocol, but generally
+they are not able to block specific websites. Network-based
+intrusion prevention systems (NIPSs) identify and block attacks;
+they cannot prevent users from visiting specific websites.
+■
+106. C. Secrets management services provide the ability to store
+sensitive data like application programming interface (API)
+keys, passwords, and certificates. They also provide the ability to
+manage, retrieve, and audit those secrets. A public key
+infrastructure (PKI) would focus on certificates and encryption
+keys, without passwords or API keys. A Trusted Platform
+Module (TPM) is associated with hardware, and a hush service
+was made up for this question.
+■
+107. A. SAML, the Security Assertion Markup Language, is used by
+many identity providers to exchange authorization and
+authentication data with service providers. Kerberos and LDAP
+(Lightweight Directory Access Protocol) are used inside many
+organizations, but Fred will find more success with SAML for
+popular web services. New Technology LAN Manager (NTLM)
+remains in use for Windows systems, but Kerberos is more
+commonly used for modern Windows domains and would not be
+used in the scenario described here.
+■
+108. D. Load balancing the cluster will prevent any single server
+from being overloaded. And if a given server is offline, other
+servers can take on its workload. Option A is incorrect. A VPN
+concentrator, as the name suggests, is used to initiate virtual
+private networks (VPNs). Option B is incorrect. Aggregate
+switching can shunt more bandwidth to the servers but won’t
+mitigate the threat of one or more servers being offline. Option
+C is incorrect. SSL accelerators are a method of offloading
+processor-intensive public-key encryption for Transport Layer
+Security (TLS) and Secure Sockets Layer (SSL) to a hardware
+accelerator.
+■
+109. C. The three channels that do not overlap are 1, 6, and 11. The
+rest of the channels will overlap. In an ideal installation, these
+three channels can be used to maximize throughput and
+minimize interference.
+■
+110. B. The correct answer is to encrypt all the web traffic to this
+application using Transport Layer Security (TLS). This is one of
+the most fundamental security steps to take with any website. A
+web application firewall (WAF) is probably a good idea, but it is
+not the most important thing for Ryan to implement. While a
+network-based intrusion prevention system (IPS) or intrusion
+detection system (IDS) may be a good idea, those should be
+considered after TLS is configured.
+■
+111. B. Infrared (IR) is the only line-of-sight method on the list.
+Although Near-Field Communication (NFC) and Bluetooth have
+a relatively short range, they can still operate through materials
+placed between them and the receiver, and Wi-Fi can do so at an
+even longer range.
+■
+112. A. The correct answer is that Kerberos uses various tickets,
+each with a time limit. The service tickets are typically only good
+for 5 minutes or less. This means that if the Network Time
+Protocol (NTP) is failing, valid tickets may appear to be expired.
+RADIUS, CHAP, and LDAP will not have any significant effect
+due to NTP failure.
+■
+113. C. The correct answer is that Challenge Handshake
+Authentication Protocol (CHAP) periodically has the client
+reauthenticate. This is transparent to the user but is done
+specifically to prevent session hijacking. Password
+Authentication Protocol (PAP) is actually quite old and does not
+reauthenticate. In fact, it even sends the password in cleartext,
+so it should not be used any longer. SPAP (Shiva Password
+Authentication Protocol) adds password encryption to PAP but
+does not reauthenticate. OAuth is used in web authentication
+and does not reauthenticate.
+■
+114. B. A software firewall is best suited to deployments to
+individual machines, particularly when endpoint systems are
+being protected. Hardware firewalls are typically deployed to
+protect network segments or groups of systems, and result in
+additional expense and management. Virtual and cloud firewalls
+are most often deployed in datacenters where virtual or cloud
+environments are in use, although a virtual firewall could be run
+on an endpoint.
+■
+115. D. A service account is the most appropriate in this scenario.
+Service accounts are given the least privileges the service needs
+and are used by the service, without the need for a human user.
+Although you could assign a user account, it is not as good a
+solution as using a service account. A guest account would never
+be a good idea for a service. Guest accounts are typically too
+limited. It’s common practice to disable default accounts such as
+the Guest account. An admin account would give too many
+privileges to the service and violate the principle of least
+privileges.
+■
+116. A. Of these versions of Extensible Authentication Protocol
+(EAP), only Lightweight Extensible Authentication Protocol
+(LEAP) does not support TLS. EAP Tunneled Transport Layer
+Security (EAP-TTLS) actually extends TLS, but supports the
+underlying protocol. Protected Extensible Authentication
+Protocol (PEAP) encapsulates EAP within an encrypted TLS
+tunnel.
+■
+117. C. Jailbreaking allows users to add software to an iPhone that
+isn’t normally allowed, including third-party applications,
+changing system settings, themes, or default applications. Thirdparty
+application stores aren’t available by default, and sideloading
+can be accomplished in iOS but doesn’t do what Manny
+wants it to, and of course installing Android won’t let Manny
+change iOS settings. If Manny does jailbreak his phone, his
+organization may notice if they’re using a mobile device
+management (MDM) or unified endpoint management (UEM)
+application to track the status of the device.
+■
+118. C. Many smartcards implement Radio Frequency Identification
+(RFID) to allow them to be used for entry access and other
+purposes. Wi-Fi, Infrared, and Bluetooth generally require
+powered circuits to interact with systems, making them a poor
+fit for a smartcard that does not typically have a battery or other
+power source.
+■
+119. A. Mandatory access control (MAC) is the correct solution. It
+will not allow lower privileged users to even see the data at a
+higher privilege level. Discretionary access control (DAC) has
+each data owner configure his or her own security. Role-based
+access control (RBAC) could be configured to meet the needs,
+but it’s not the best solution for these requirements. Security
+Assertion Markup Language (SAML) is not an access control
+model.
+■
+120. B. An agent-based, preadmission system will provide greater
+insight into the configuration of the system using the agent, and
+using a preadmission model will allow the system configuration
+to be tested before the system is allowed to connect to the
+network. Agentless NAC uses scanning and/or network
+inventory techniques and will typically not have as deep a level
+of insight into the configuration and software versions running
+on a system. Postadmission systems make enforcement
+decisions based on what users do after they gain admission to a
+network, rather than prior to gaining admission, allowing you to
+quickly rule out two of these options.
+■
+121. C. Claire’s best option is to deploy a detection and fix via her
+web application firewall (WAF) that will detect the SQL injection
+attempt and prevent it. An intrusion detection system (IDS) only
+detects attacks and cannot stop them. Manually updating the
+application code after reverse-engineering it will take time, and
+she may not even have the source code or the ability to modify it.
+Finally, vendor patches for zero days typically take some time to
+come out even in the best of circumstances, meaning that Claire
+could be waiting on a patch for quite a while if that is the option
+she chooses.
+■
+122. C. CYOD, or choose your own device, allows users to choose a
+device that is corporate owned and paid for. Choices may be
+limited to set of devices, or users may be allowed to choose
+essentially any device depending on the organization’s
+deployment decisions. BYOD allows users to bring their own
+device, whereas COPE, or corporate-owned, personally enabled,
+provides devices to users that they can then use for personal use.
+VDI uses a virtual desktop infrastructure as an access layer for
+any security model where specialized needs or security
+requirements may require access to remote desktop or
+application services.
+■
+123. B. The key element here is that the certificate authorities (CA)
+are operating in a mesh, meaning no CA is the root CA and that
+each must trust the others. To accomplish this, Derek first needs
+to issue certificates from D to each of the other Cas and then
+have the others issue D a certificate. Private keys should never
+be exchanged, and of course if he only has the other systems
+issue D certificates, they won’t recognize his server.
+■
+124. C. If Claire is using Simple Network Management Protocol
+(SNMP) to manage and monitor her network devices, she should
+make sure she is using SNMPv3 and that it is properly
+configured. SNMPv3 can provide information about the status
+and configuration of her network devices. Remote
+Authentication Dial-In User Service (RADIUS) might be used to
+authenticate to the network, but Transport Layer Security (TLS)
+and SSH File Transfer Protocol (SFTP) are not specifically used
+for the purposes described.
+■
+125. D. Fuzzers send unexpected and out of range data to
+applications to see how they will respond. In this case, Ben is
+using a fuzzer. Web proxies are often used to do application
+testing because they allow data to be changed between the
+browser and the application. SQL injection may be done via a
+web proxy, but a dedicated SQL injection proxy is not a type of
+tool by itself. Finally, a static code review tool is used to review
+source code and may be as simple as a Notepad application or as
+complex as a fully integrated development environment (IDE).
+■
+126. B. Containerization will allow Eric’s company’s tools and data
+to be run inside of an application-based container, isolating the
+data and programs from the self-controlled bring your own
+device (BYOD) devices. Storage segmentation can be helpful, but
+the operating system itself as well as the applications would
+remain a concern. Eric should recommend full-device
+encryption (FDE) as a security best practice, but encrypting the
+container and the data it contains can provide a reasonable
+security layer even if the device itself is not fully encrypted.
+Remote wipe is helpful if devices are lost or stolen, but the end
+user may not be okay with having the entire device wiped, and
+there are ways to work around remote wipes, including blocking
+cellular and Wi-Fi signals.
+■
+127. B. Kerberos does not send the users password across the
+network. When the user’s name is sent to the authentication
+service, the service retrieves the hash of the user’s password
+from the database, and then uses that as a key to encrypt data to
+be sent back to the user. The user’s machine takes the password
+that the user entered, hashes it, and then uses that as a key to
+decrypt what was sent back by the server. Challenge Handshake
+Authentication Protocol (CHAP) sends the user’s password in an
+encrypted form. RBAC is an access control model, not an
+authentication protocol. Type II authentication is something you
+have, such as a key or card.
+■
+128. A. EV, or extended validation, certificates prove that the X.509
+certificate has been issued to the correct legal entity. In addition,
+only specific certificate authorities (Cas) can issue EV
+certificates. Domain-validated certificates require proof that you
+have control of the domain, such as setting the DNS TXT record
+or responding to an email sent to a contact in the domain’s
+Whois record. An organizational validation certificate requires
+either domain validation and additional proof that the
+organization is a legal entity. OCSP certificates were made up for
+this question.
+■
+129. D. Wi-Fi 5 networks can provide theoretical throughput up to
+3.5 Gbps megabits per second, although newer standards like
+Wi-Fi 6 continue to push this higher. The next fastest wireless
+standard listed is LTE cellular with theoretical throughputs
+around 50 megabits per second. When bandwidth is important,
+Wi-Fi will tend to win, although 5G cellular networks under
+ideal conditions may rival Wi-Fi.
+■
+130. C. The cost of applications and the quality of the security
+implementation can vary based on the vendor and product, but
+cloud-native security solutions will generally have better and
+deeper integration into the cloud platform than third-party
+solutions will. Vendor diversity in designs may still drive other
+choices, but those are conscious design decisions.
+■
+131. D. Jump boxes are a common solution for providing access to a
+network with a different security profile. In this case, Ed can
+deploy a jump box in the demilitarized zone (DMZ) to allow
+users within his administrative zone to perform tasks without
+directly connecting to the world-exposed DMZ. This helps keep
+administrative systems secure and allows him to focus on the
+security of the jump box, while also making it easier to monitor
+and maintain. An intrusion prevention system (IPS) is used to
+monitor and block unwanted traffic, but isn’t used for remote
+access. A NAT gateway performs network address translation
+and is placed between networks but is not typically used to
+provide secure connections between networks. Instead, it serves
+to reduce the number of public IP addresses used and to provide
+some limited security for systems behind it. Routers are used to
+connect to networks but are not used to provide secure access as
+described in the question.
+■
+132. C. OAuth (Open Authorization) is an open standard for tokenbased
+authentication and authorization on the Internet and
+allows an end user’s account information to be used by thirdparty
+services, without exposing the user’s password. Kerberos is
+a network authentication protocol and not used for crossdomain/
+service authentication. Security Assertion Markup
+Language (SAML) is an XML-based, open-standard data format
+for exchanging authentication and authorization data between
+parties. OpenID is an authentication service often provided by a
+third party, and it can be used to sign into any website that
+accepts OpenID. It would be possible for this to work, but only
+with websites that support OpenID, so it is not as good a
+solution as OAuth.
+■
+133. A. Session persistence makes sure that all of a client’s traffic for
+a transaction or session goes to the same server or service. The
+remaining options do not properly describe how session
+persistence works.
+■
+134. B. Data loss prevention (DLP) tools allow sensitive data to be
+tagged and monitored so that if a user attempts to send it, they
+will be notified, administrators will be informed, and if
+necessary, the data can be protected using encryption or other
+protection methods before it is sent. Full-disk encryption (FDE)
+would protect data at rest, and S/MIME and POP3S would
+protect mail being retrieved from a server but would not prevent
+the SSNs from being sent.
+■
+135. B. While infrastructure as a service (IaaS) vendors often
+provide strong support for high availability, including
+replication to multiple geographic zones or regions, as well as
+highly reliable and secure storage, they do not allow direct
+access to the underlying hardware in most instances. If Jennifer
+requires direct access to hardware, she will need to deploy to a
+datacenter where she can retain access to the physical servers.
+■
+136. B. Out-of-band (OOB) management uses separate management
+interfaces, as shown in the figure, or a different connectivity
+method than the normal connection to provide a secure means
+of managing systems. A DMZ, or demilitarized zone, is a security
+zone that is typically exposed to the world and is thus less
+trusted and more exposed. In-band management uses common
+protocols like Secure Shell (SSH) or HTTPS to manage devices
+via their normal interfaces or network connections. Transport
+Layer Security (TLS) is a security protocol, not a management
+interface.
+■
+137. A. Key escrow provides encryption keys to a third party so that
+they can be released to an appropriate party if certain conditions
+are met. Although this means that the keys are out of the control
+of the owning or responsible party, in many cases the need to
+have a recoverable or accessible way to get to the keys overrides
+the requirement to keep the keys in a single individual or
+organization’s hands. The remaining options were made up, but
+you may encounter the term “key recovery,” which is a process
+where law enforcement or other parties may recover keys when
+needed using a process that provides them with an access key or
+decryption key that may not be the same key as the key used by
+the original encryption user.
+■
+138. D. Boot attestation requires systems to track and measure the
+boot process and to then attest to a system that the process was
+secure. Secure boot, which is a related concept, allows only
+trusted software to be run using previously hashed values to
+ensure the process is secure. BOOTP and BIOS are not involved
+in this process, instead, Unified Extensible Firmware Interface
+(UEFI) firmware supports both secure boot and boot attestation.
+■
+139. A. The correct answer is that OpenID is an authentication
+service often done by a third party, and it can be used to sign
+into any website that accepts OpenID. Kerberos is a network
+authentication protocol for use within a domain. New
+Technology LAN Manager (NTLM) is an older Windows
+authentication protocol. Shibboleth is a single sign-on system,
+but it works with federated systems.
+■
+140. C. Disabling remote registry access for systems that do not
+require it can prevent remote registry modification and reads.
+This is a recommended best practice whenever possible, but
+some systems may require remote registry access for
+management or other reasons. The Windows registry is not
+independently patched, the registry needs to be readable and
+writable to have a functional Windows system, and there is no
+mode that encrypts user keys.
+■
+141. D. Maximizing coverage overlap would cause greater
+contention between access points. Instead, installations should
+minimize overlap without leaving dead spots in important areas.
+Performing a site survey, controlling power levels and adjusting
+them to minimize contention, and designing around the
+construction materials of a building are all important parts of
+designing the physical layout and placement of WAPs.
+Fortunately, modern enterprise wireless networks have
+advanced intelligent features that help do many of these things
+somewhat automatically.
+■
+142. B. Disabling the account is the best option to meet Mark’s
+needs. Disabling an account will leave it in a different state than
+an active account or one with a changed password, which should
+be noted by support staff if Gabby called and asked to change
+her password. That means that there is less risk of a disgruntled
+employee or an attacker successfully gaining access to the
+account. At the same time, disabling is less destructive than
+deleting the account, making it faster to restore and preserving
+her files and other materials. Most organizations will choose to
+have a time limit for how long an account can be in a disabled
+state without review or moving to another account state to help
+ensure that disabled accounts do not build up over time.
+■
+143. A. Attribute-based access control (ABAC) looks at a group of
+attributes, in addition to the login username and password, to
+make decisions about whether or not to grant access. One of the
+attributes examined is the location of the person. Since the users
+in this company travel frequently, they will often be at new
+locations, and that might cause ABAC to reject their logins.
+Wrong passwords can certainly prevent login, but are not
+specific to ABAC. ABAC does not prevent remote access, and a
+firewall can be configured to allow, or prohibit, any traffic you
+wish.
+■
+144. B. Single Sign-On (SSO) is designed specifically to address this
+risk and would be the most helpful. Users have only a single
+logon to remember; thus, they have no need to write down the
+password. OAuth (Open Authorization) is an open standard for
+token-based authentication and authorization on the Internet. It
+does not eliminate the use or need for multiple passwords.
+Multifactor authentication helps prevent risks due to lost
+passwords, but does not remove the need for multiple passwords
+by itself. Security Assertion Markup Language (SAML) and
+Lightweight Directory Access Protocol (LDAP) do not stop users
+from needing to remember multiple passwords.
+■
+145. D. Rule-based access control applies a set of rules to an access
+request. Based on the application of the rules, the user may be
+given access to a specific resource that they were not explicitly
+granted permission to. MAC, DAC, and role-based access control
+wouldn’t give a user access unless that user has already been
+explicitly given that access.
+■
+146. B. Segmentation needs between multiple cloud virtual
+datacenters, the cost of operating the firewall service, and the
+visibility into traffic provided by the cloud service provider are
+all design elements Ed will need to consider. He won’t, however,
+need to worry about hardware access for updates. Instead, he is
+likely to either use a virtual cloud appliance or built-in firewall
+functionality provided by the cloud infrastructure service
+provider.
+■
+147. B. Tokens are physical devices that often contain cryptographic
+data for authentication. They can store digital certificates for use
+with authentication. OAuth (Open Authorization) is an open
+standard for token-based authentication and authorization on
+the Internet. The user still must remember a password. OpenID
+is a third-party authentication service, and just as with OAuth,
+the user also still must remember a password. Role-based access
+control and rule-based access control (which both use the
+acronym RBAC) are access control models.
+■
+148. A. Internal services like this are part of an intranet, a network,
+or website only accessible to individuals and systems inside of a
+company. Extranets are private networks that allow access to
+partners or customers, but not to the general public. A
+demilitarized zone (DMZ) is a network segment exposed to the
+Internet or another untrusted network. A TTL is a network term
+that means time to live, and it determines how many hops a
+packet can make before it is no longer able to be sent to another
+hop.
+■
+149. B. This question describes a stateless firewall, which looks at
+every packet to make decisions about what will be allowed
+through it. Stateful firewalls pay attention the conversations and
+allow packets in a conversation between devices to pass through
+once it has verified the initial exchange. Next-generation
+firewalls (NGFWs) build in a wide variety of security services.
+Application-layer firewalls understand applications that run
+through them and provide deeper packet analysis capabilities to
+block unwanted application layer traffic.
+■
+150. C. Hardware security modules are available as smartcards,
+microSD cards, and USB thumb drives in addition to their
+frequent deployment as appliances in enterprise use. Nancy
+could purchase a certified and tested MicroSD card–based HSM
+that would protect her keys in a secure way. An applicationbased
+public key infrastructure (PKI) would not provide the
+same level of security on most mobile devices without specially
+designed hardware, which is not mentioned in this problem.
+OPAL is a hardware-based encryption standard and does not
+provide key management, and an offline certificate authority
+(CA) would not help in this circumstance.
+■
+151. D. Both the Windows and Linux filesystems work based on a
+discretionary access control scheme where file and directory
+owners can determine who can access, change, or otherwise
+work with files under their control. Role-based access controls
+systems determine rights based on roles that are assigned to
+users. Rule-based access control systems use a series of rules to
+determine which actions can occur, and mandatory access
+control systems enforce control at the operating system level.
+■
+152. A. Restricting each faculty account so that it is only usable
+when that particular faculty member is typically on campus will
+prevent someone from logging in with that account after hours,
+even if they have the password. Usage auditing may detect
+misuse of accounts but will not prevent it. Longer passwords are
+effective security, but a longer password can still be stolen.
+Credential management is always a good idea, but it won’t
+address this specific issue.
+■
+153. D. Although next-generation firewalls provide may defensive
+capabilities, SQL injection is an attack instead of a defense. In
+addition to geolocation, intrusion detection system (IDS) and
+intrusion prevention system (IPS), and sandboxing capabilities,
+many next-generation firewalls include web application
+firewalls, load balancing, IP reputation and URL filtering, and
+antimalware and antivirus features.
+■
+154. C. Enabling storm control on a switch will limit the amount of
+total bandwidth that broadcast packets can use, preventing
+broadcast storms from taking down the network. Blocking
+Address Resolution Protocol (ARP) would prevent systems from
+finding each other, and blocking all broadcast packets would
+also block many important network features.
+■
+155. B. Demilitarized zones (DMZs) remain a useful concept when
+designing cloud environments, although the technical
+implementation may vary, since cloud providers may have
+secure web services, load-balancing capabilities or other features
+that make DMZs look different. Proxy servers are useful for
+controlling, filtering, and relaying traffic, but they do not
+provide the full segmentation that Isaac is looking for. A VPC is
+a virtual datacenter and will typically contain his infrastructure
+but does not specifically address these needs.
+■
+156. A. A permissions audit will find what permissions each user has
+and compare that to their job requirements. Permission audits
+should be conducted periodically. Job rotation, though
+beneficial for other security reasons, will actually exacerbate this
+problem. It is impractical to forbid anyone from ever changing
+job roles, and separation of duties would have no impact on this
+issue.
+■
+157. B. Susan’s best option is to deploy full-disk encryption (FDE),
+which will ensure that the entire drive is encrypted, rather than
+just specific folders or files. Degaussing magnetic drives will
+wipe them, rather than protecting data.
+■
+158. C. Password complexity requires that passwords have a
+mixture of uppercase letters, lowercase letters, numbers, and
+special characters. This would be the best approach to correct
+the problem described in the question. Longer passwords are a
+good security measure but will not correct the issue presented
+here. Changing passwords won’t make those passwords any
+stronger, and Single Sign-On (SSO) will have no effect on the
+strength of passwords.
+■
+159. D. WPA3’s Personal mode replaces the preshared key mode
+found in WPA2 with simultaneous authentication of equals. This
+makes weak passphrase or password attacks harder to conduct
+and allows for greater security when devices are conducting
+their initial key exchange. WEP, WPA, and WPA2 do not
+implement SAE.
+■
+160. C. Megan has created a guest account. Guest accounts typically
+have very limited privileges and may be set up with limited login
+hours, an expiration date, or other controls to help keep them
+more secure. User accounts are the most common type of
+account and are issued to individuals to allow them to log into
+and use systems and services. Shared accounts are used by more
+than one person, making it difficult to determine who used the
+account. A service account is typically associated with a program
+or service running on a system that requires rights to files or
+other resources.
+■
+161. B. API keys allow individual customers to authenticate to the
+API service, which means that if there is a problem Henry can
+disable the problematic API keys rather than all users. Enabling
+logging using a service like Amazon’s API Gateway allows
+scalability, logging, and monitoring, as well as tools like web
+application firewalls. An API proxy and API-centric intrusion
+prevention system (IPS) were made up for this question.
+■
+162. C. UTM, or unified threat management, devices commonly
+serve as firewalls, intrusion detection system (IDS)/intrusion
+prevention system (IPS), antivirus, web proxies, web application
+and deep packet inspection, secure email gateways, data loss
+prevention (DLP), security information and event management
+(SIEM), and even virtual private networking (VPN) devices.
+They aren’t mobile device management (MDM) or universal
+endpoint management devices, however, since their primary
+focus is on network security, not systems or device management.
+■
+163. B. Mandatory access control (MAC) is based on documented
+security levels associated with the information being accessed.
+Role-based access control (RBAC) is based on the role the user is
+placed in. Discretionary access control (DAC) lets the data
+owner set access control. BAC is not an access control model.
+■
+164. A. This image shows a forward proxy, which can be used to
+apply policies to user requests sent to web servers and other
+services. Reverse proxies act as gateways between users and
+application servers, allowing content caching and traffic
+manipulation. They are often used by content delivery networks
+to help with traffic management.
+■
+165. B. This type of potential security issue is typically recorded as
+an impossible travel time/risky login issue. Gurvinder would not
+expect the user to have traveled between two locations in an
+hour—in fact, it is impossible to do so. That means he needs to
+contact the user to find out if they may have done something like
+use a VPN, or if their account may be compromised. It is
+possible this could be an issue with the geo-IP system that
+Gurvinder’s company uses, but he needs to treat it like a security
+risk until he determines otherwise, and a compromise is more
+likely in most cases. A misconfigured IP address would not cause
+this issue.
+■
+166. A. Discretionary access control (DAC) allows data owners to
+assign permissions. Role-based access control (RBAC) assigns
+access based on the role the user is in. Mandatory access control
+(MAC) is stricter and enforces control at the OS level. Attributecased
+access control (ABAC) considers various attributes such as
+location, time, and computer in addition to username and
+password.
+■
+167. A. OS hardening is the process of securing an operating system
+by patching, updating, and configuring the operating system to
+be secure. Configuration management is the ongoing process of
+managing configurations for systems, rather than this initial
+security step. Both security uplift and endpoint lockdown were
+made up for this question.
+■
+168. D. Secure Lightweight Directory Access Protocol (LDAPS) uses
+port 636 by default. DNS uses port 53, LDAP uses 389, and
+secure HTTP uses port 443.
+■
+169. C. The best answer for the needs Chris has identified is a
+hardware security module, or HSM. HSMs can act as a
+cryptographic key manager, including creating, storing, and
+securely handling encryption keys and certificates. They can also
+act as cryptographic accelerators, helping offload encryption
+functions like Transport Layer Security (TLS) encryption. A
+TPM (Trusted Platform Module) is a device used to store keys
+for a system but does not offload cryptoprocessing, and it is used
+for keys on a specific system rather than broader uses. CPUs and
+GPUs may have cryptographic acceleration functions, but they
+do not securely store or manage certificates and other
+encryption artifacts.
+■
+170. D. A host-based intrusion prevention system (HIPS) can
+monitor network traffic to identify attacks, suspicious behavior,
+and known bad patterns using signatures. A firewall stops traffic
+based on rules; antimalware tools are specifically designed to
+stop malware, not attacks and suspicious network behavior; and
+a host-based intrusion detection system (HIDS) can only detect,
+not stop, these behaviors.
+■
+171. B. Role-based access control (RBAC) grants permissions based
+on the user’s position within the organization. Mandatory access
+control (MAC) uses security classifications to grant permissions.
+Discretionary access control (DAC) allows data owners to set
+permissions. Attribute-based access control (ABAC) considers
+various attributes such as location, time, and computer, in
+addition to username and password.
+■
+172. B. Measured boot provides a form of boot attestation that
+records information about each component loaded during the
+boot process. This information can then be reported to a server
+for validation. Trusted boot validates each component against a
+known signature. Measured boot does not care about the time to
+boot up, nor does it update the system’s Unified Extensible
+Firmware Interface (UEFI).
+■
+173. D. The key distribution center (KDC) issues tickets. The tickets
+are generated by the ticket-granting service, which is usually
+part of the KDC. The authentication service simply authenticates
+the user, X.509 certificates and certificate authorities are not
+part of Kerberos, and the ticket-granting service does generate
+the ticket but the KDC issues it.
+■
+174. C. Although patching devices is important, the most effective
+way to protect devices from being attacked via administrative
+account brute forcing is to place the devices on a separate
+management virtual LAN (VLAN) and then control access to
+that VLAN. This will prevent most attackers from being able to
+connect to the device’s administrative interfaces. Disabling
+administrative access may not be possible, and even if it was, it
+would create significant problems when the devices needed to
+have changes made on them.
+■
+175. A. While mobile device management (MDM) and unified
+endpoint management (UEM) tools provide many capabilities,
+carrier unlock status normally needs to be checked with the
+carrier if you want to validate corporate-owned phones without
+manually checking each device.
+■
+176. A. Zero-trust environments typically have a more complex
+network due to increased segmentation to isolate systems and
+devices that have different security contexts. Zero-trust
+networks also require strong identity and access management,
+and they use application-aware firewalls extensively to preserve
+least privilege. Of course, logging and analysis of security events
+is necessary to ensure that issues are identified and responded
+to.
+■
+177. A. Digital certificates use the X.509 standard (or the PGP
+standard) and allow the user to digitally sign authentication
+requests. OAuth allows an end user’s account information to be
+used by third-party services, without exposing the user’s
+password. It does not use digital certificates or support digital
+signing. Kerberos does not use digital certificates, nor does it
+support digitally signing. Smartcards can contain digital
+certificates but don’t necessarily have to have them.
+■
+178. C. SAML (Security Assertion Markup Language) is an
+Extensible Markup Language (XML) framework for creating and
+exchanging security information between partners online. The
+integrity of users is the weakness in the SAML identity chain. To
+mitigate this risk, SAML systems need to use timed sessions,
+HTTPS, and SSL/TLS. LDAP (Lightweight Directory Access
+Protocol) is a protocol that enables a user to locate individuals
+and other resources such as files and devices in a network.
+Terminal Access Controller Access Control System Plus
+(TACACS+) is a protocol that is used to control access into
+networks. TACACS+ provides authentication and authorization
+in addition to an accounting of access requests against a central
+database. Transitive trust is a two-way relationship that is
+automatically created between a parent and a child domain in a
+Microsoft Active Directory (AD) forest. It shares resources with
+its parent domain by default and enables an authenticated user
+to access resources in both the child and parent domains.
+■
+179. C. UEM, or unified endpoint management, manages desktop,
+laptops, mobile devices, printers, and other types of devices.
+Mobile device management (MDM) tools focus on mobile
+devices.
+■
+180. B. Host-based firewalls are the first step in most designs when
+protecting against network-borne threats. They can prevent
+unwanted traffic from entering or leaving the host, leaving less
+traffic for a host-based intrusion prevention system (HIPS) or
+other tools to analyze. Full-disk encryption (FDE) will not stop
+network-borne threats, and antivirus focuses on prevention of
+malware, not network threats like denial of service or
+exploitation of vulnerable services.
+■
+181. A. Security groups are a virtual firewall for instances, allowing
+rules to be applied to traffic between instances. Dynamic
+resource allocation is a concept that allows resources to be
+applied as they are needed, including scaling up and down
+infrastructure and systems on the fly. Virtual private cloud
+(VPC) endpoints are a way to connect to services inside of a
+cloud provider without an Internet gateway. Finally, instance
+awareness is a concept that means that tools know about the
+differences between instances, rather than treating each
+instance in a scaling group as the same. This can be important
+during incident response processes and security monitoring for
+scaled groups, where resources may all appear identical without
+instance awareness.
+■
+182. D. Although built-in update tools will handle the operating
+system, additional software installed on systems needs to be
+patched separately. Third-party software and firmware,
+including the Unified Extensible Firmware Interface (UEFI) or
+BIOS of the systems that are deployed in Derek’s organization,
+will need regular updates. Many organizations adopt patch
+management platforms or system management platforms with
+patching capabilities to ensure that this occurs on a broader
+basis than just OS patches.
+■
+183. A. IDSs, or intrusion detection systems, can only detect
+unwanted and malicious traffic based on the detection rules and
+signatures that they have. They cannot stop traffic or modify it.
+An IPS, or intrusion prevention system, that is placed inline with
+network traffic can take action on that traffic. Thus, IDSs are
+often used when it is not acceptable to block network traffic, or
+when a tap or other network device is used to clone traffic for
+inspection.
+■
+184. C. Although insider threats are a concern, they’re not any
+different for containers than any other system. Ensuring
+container host security, securing the management stack, and
+making sure that network traffic to and from containers is
+secure are all common container security concerns.
+■
+185. C. Network address translation (NAT) gateways allow internal
+IP addresses to be hidden from the outside, preventing direct
+connections to systems behind them. This effectively firewalls
+inbound traffic unless the gateway is set to pass traffic to an
+internal host when a specific IP, port, and protocol is used. They
+are not a firewall in the traditional sense, however, and do not
+specifically statefully block traffic by port and protocol, nor do
+they detect malicious traffic. Finally, NAT gateways are not used
+to send non-IP traffic out to IP networks.
+■
+186. C. Conditional access assesses specific conditions to make a
+determination about whether to allow an account to access a
+resource. The system may choose to allow access, to block
+access, or to apply additional controls based on the conditions
+that are present and the information that is available about the
+login.
+■
+187. B. If the system maintains a password history, that would
+prevent any user from reusing an old password. Password
+complexity and length are common security settings but would
+not prevent the behavior described. Multifactor authentication
+helps prevent brute-force attacks and reduces the potential
+impact of stolen passwords but would not help with this
+scenario.
+■
+188. D. Bridge Protocol Data Unit, or BDPU, guard protects network
+infrastructure by preventing unknown devices from
+participating in spanning tree. That prevents a new switch
+added by a user from claiming to be the root bridge (in this case,
+Switch C), which would normally cause a topology change and
+for traffic to be sent to Switch X, an undesirable result. 802.11n
+is a wireless protocol, and the remaining options were made up
+for this question.
+■
+189. A. The net user command allows this control to be put in place.
+Although you may not be familiar with the many net user
+commands, you can take out unrealistic commands or
+commands with flaws in them. For example, here you could
+likely guess that -working-hours isn’t a defined term. In the same
+way, login isn’t a Windows command, but net commands are
+commonly used to control Windows systems.
+■
+190. A. Auditing and reviewing how users actually utilize their
+account permissions would be the best way to determine if there
+is any inappropriate use. A classic example would be a bank loan
+officer. By the nature of their job, they have access to loan
+documents. But they should not be accessing loan documents for
+loans they are not servicing. The issue in this case is not
+permissions, because the users require permission to access the
+data. The issue is how the users are using their permissions.
+Usage auditing and permissions auditing are both part of
+account maintenance, but auditing and review is a better
+answer. Finally, this is not a policy issue.
+■
+191. B. A scenario such as guest Wi-Fi access does not provide the
+logins with any access to corporate resources. The people
+logging in merely get to access the Internet. This poses very
+limited security risk to the corporate network and thus is often
+done with a common or shared account. Tech support personnel
+generally have significant access to corporate network resources.
+Although this is a relatively low access scenario, it is still
+important to know which specific student is logging on and
+accessing what resources. Any level of access to corporate
+resources should have its own individual login account.
+■
+192. B. Certificate chains list certificates and certificate authority
+(CA) certificates, allowing those who receive the certificate to
+validate that the certificates can be trusted. An invalid, or
+broken, chain means that the user or system that is checking the
+certificate chaining should not trust the system and certificate.
+■
+193. D. 802.1X is the IEEE standard for port-based network access
+control. This protocol is frequently used to authenticate devices.
+Challenge Handshake Authentication Protocol (CHAP) is an
+authentication protocol but not the best choice for device
+authentication. Kerberos is an authentication protocol but not
+the best choice for device authentication. 802.11i is the Wi-Fi
+security standard and is fully implemented in WPA2 and WPA3.
+It is not a device authentication procedure.
+■
+194. A. WPA2 uses the AES-based CCMP, or Counter Mode Block
+Chaining Message Authentication (CBC-MAC) Protocol to
+encapsulate traffic, providing confidentiality. WPA3 also uses
+CCMP as the minimum acceptable encryption in WPA3-
+Personal mode. WEP, infrared, and Bluetooth do not use CCMP.
+■
+195. A. Simple Network Management Protocol (SNMP) would give
+an attacker a great deal of information about your network.
+SNMP should not be exposed to unprotected networks, SNMPv3
+should be implemented, and SNMP security best practices
+should be followed. Both POP3 and IMAP are email access
+protocols, and Dynamic Host Configuration Protocol (DHCP) is
+used to hand out dynamic IP addresses.
+■
+196. C. Accounts should lock out after a small number of login
+attempts. Three is a common number of attempts before the
+account is locked out. This prevents someone from just
+attempting random guesses. Password aging will force users to
+change their passwords but won’t affect password guessing.
+Longer passwords would be harder to guess, but this option is
+not as effective as account lockout policies. Account usage
+auditing won’t have any effect on this issue.
+■
+197. A. Security Assertion Markup Language (SAML) is an XMLbased,
+open standard format for exchanging authentication and
+authorization data between parties. OAuth allows an end user’s
+account information to be used by third-party services, without
+exposing the user’s password. RADIUS is a remote access
+protocol. New Technology LAN Manager (NTLM) is not XMLbased.
+■
+198. A. Challenge Handshake Authentication Protocol (CHAP) was
+designed specifically for this purpose. It periodically
+reauthenticates, thus preventing session hijacking. Neither
+Password Authentication Protocol (PAP) nor TACACS+ prevents
+session hijacking, and RADIUS is a protocol for remote access,
+not authentication.
+■
+199. C. IPSec virtual private networks (VPNs) can make a remote
+location appear as though it is connected to your local network.
+Since Greg needs to rely on a streaming security camera, an
+always-on IPSec VPN is the best solution listed. TLS (SSL) VPNs
+are primarily used for specific applications, typically focusing on
+web applications.
+■
+200. B. The Opal storage specification defines how to protect
+confidentiality for stored user data and how storage devices
+from storage device manufacturers can work together. OPAL
+does not specify details or processes for licenses, accounts, and
+libraries, or degaussers.
+■
+201. B. UEFI Secure Boot checks every binary that is loaded during
+boot to make sure that its hash is valid, by checking against
+either a locally trusted certificate or a checksum on an allow list.
+It does not protect against worms that might attack those
+binaries, nor does it directly check the system BIOS version.
+■
+202. C. OpenID Connect works with the OAuth 2.0 protocol and
+supports multiple clients, including web-based and mobile
+clients. OpenID Connect also supports REST. Shibboleth is a
+middleware solution for authentication and identity
+management that uses SAML (Security Assertion Markup
+Language) and works over the Internet. RADIUS is a remote
+access protocol. OAuth allows an end user’s account information
+to be used by third-party services, without exposing the user’s
+password.
+■
+203. D. Anomaly-based detection systems build a behavioral
+baseline for networks and then assess differences from those
+baselines. They may use heuristic capabilities on top of those,
+but the question specifically asks about baselined operations
+pointing to an anomaly-based system. Heuristic-based
+detections look for behaviors that are typically malicious, and
+signature-based or hash-based detections look for known
+malicious tools or files.
+■
+204. B. A Trusted Platform Module, or TPM, is used as the
+foundation for a hardware root of trust for modern PCs. The
+TPM may provide a cryptographic key; a PUF, or physically
+unclonable function; or a serial number that is unique to the
+device. The CPU and hard drive are not used for this function,
+and HSMs, or hardware security modules, are used for public
+key infrastructure (PKI) and cryptographic purposes but not as a
+hardware root of trust for PCs.
+■
+205. C. Next-generation firewalls typically build in advanced
+capabilities like URL filtering, blacklisting, and other
+application-layer capabilities beyond simple packet filtering or
+stateful packet inspection.
+■
+206. D. Mobile application management (MAM) tools are
+specifically designed for this purpose, and they allow
+applications to be delivered to, removed from, and managed on
+mobile devices. MOM is the Microsoft Operations Manager, a
+systems management tool that Microsoft has replaced with
+Operations Manager in current use. MLM often means
+multilevel marketing, or pyramid schemes—not a security term.
+MIM is not a security term.
+■
+207. A. Cloud applications have many of the same concerns as onpremises
+applications, but compromise of the system running
+the application due to local access is a far less likely scenario.
+Cloud application vendors are more likely to operate in secure
+datacenters with limited or no access to the servers except for
+authorized personnel, greatly reducing the likelihood of this type
+of security issue.
+■
+208. D. The most critical part of a certificate authority (CA) is its
+root certificate, and ensuring that the root certificate is never
+exposed is critical to the ongoing operating of that CA. Thus,
+root CAs are often maintained as offline CAs, making it far
+harder for an attacker to compromise the system and gain access
+to the root certificate. In practice, compromised CAs may lose
+the trust of organizations around the world and be unable to
+continue to do business.
+■
+209. C. Split-tunnel VPNs send only traffic destined for the remote
+network over the VPN, with all other traffic split away to use the
+VPN system or a user’s primary network connection. This
+reduces overall traffic sent through the VPN but means that
+traffic cannot be monitored and secured via the VPN. Half-pipe
+is not a security term, and split horizon is most often used to
+describe DNS where an internal and external DNS view may be
+different.
+■
+210. A. Loop protection looks for exactly this type of issue. Loop
+protection sends packets that include a PDU, or protocol data
+unit. These are detected by other network devices and allow the
+network devices to shut down ports from which they receive
+those packets. The remaining options were made up for this
+question.
+■
+211. C. Over-the-air (OTA) updates are used by cellular carriers as
+well as phone manufacturers to provide firmware updates and
+updated phone configuration data. Mobile device management
+(MDM) tools can be used to monitor for the current firmware
+version and phone settings and will allow Charles to determine if
+the phones that his staff use are updated to ensure security. A
+network access control (NAC) agent might capture some of this
+data but only for network-connected phones, which will not
+cover off-site phones, those with Wi-Fi turned off, or remote
+devices. OTA is not specifically a way to update encryption keys,
+although firmware or settings might include them. OTA is not
+sent by the phones themselves.
+■
+212. C. Open source firewalls typically do not have the same level of
+vendor support and maintenance that commercial firewalls do.
+That means you don’t have a vendor to turn to if something goes
+wrong, and you will be reliant on a support community for
+patches and updates. Open source firewalls are typically less
+expensive, their open source nature means that the code can be
+validated by anybody who cares to examine it, and it can be
+acquired as quickly as it can be downloaded.
+■
+213. C. WPA3 personal replaced PSK, or preshared keys, with SAE,
+or simultaneous authentication of equals. SAE helps to prevent
+brute-force attacks against keys by making attackers interact
+with the network before each authentication attempt. This slows
+down brute-force attacks. WPA3 also includes a 192-bit
+encryption mode. It does not replace 64-bit encryption with 128-
+bit encryption, add per-channel security, or add distributed
+denial-of-service (DDoS) monitoring and prevention.
+■
+214. B. Security Enhanced Linux (SELinux) allows mandatory
+access control for Linux-based systems, and SEAndroid is an
+Android implementation of SELinux. That means that Isaac can
+use SEAndroid to accomplish his goals. Android does use a
+registry, but there is no MAC mode. MACDroid was made up for
+this question, and single-user mode does not make Android a
+MAC-based system.
+■
+215. B. The system described is a privileged access management
+(PAM) system. PAM systems are used to manage and control
+privileged accounts securely. MAC is an access control scheme
+that enforces access at the OS level. FDE is full-disk encryption,
+and TLS is Transport Layer Security.
+■
+216. A. Using a mobile device management (MDM) tool that allows
+control of the devices would allow Alaina to lock out the
+cameras, preventing staff members from using the Android
+tablets to take pictures. She would still need to ensure that her
+staff did not bring their own camera equipped devices into the
+facility. DLP is data loss prevention, OPAL is an encryption
+standard for drives, and MMC has a number of meanings,
+including multimedia cards and Microsoft Management Console
+snap-ins for Windows systems, none of which would provide the
+control she needs.
+■
+217. C. A universal endpoint management (UEM) tool can manage
+desktops, laptops, mobile devices, printers, and other devices.
+UEM tools often use applications deployed to mobile devices to
+configure and manage them, and Olivia’s best option from this
+list is a UEM tool. A CASB is a cloud access security broker and
+is not used to manage mobile devices, and the other options
+require massive amounts of manual work and are unlikely to
+succeed—or users will simply change settings when it is
+convenient to them.
+■
+218. C. Next-generation (NG) secure web gateways (SWG) add
+additional features beyond those found in cloud access security
+brokers and next generation firewalls. While features can vary,
+they may include web filtering, TLS decryption to allow traffic
+analysis and advanced threat protection, cloud access security
+broker (CASB) features, data loss prevention (DLP), and other
+advanced capabilities. This type of solution is a relatively new
+one, and the market is changing quickly.
+■
+219. C. Access policies are built using information and attributes
+about access requests. If the policy requirements are met, the
+actions like allowing or denying access, or requiring additional
+authentication steps can be performed. Geolocation and timebased
+logins focus on a single information component, and
+account auditing is used to review permissions for accounts, not
+to perform this type of validation or policy-based control.
+■
+220. B. Numeric representations of file permissions are commonly
+used instead of using rwx notation with chmod . A 7 sets full
+permissions, and the first number sets the user’s rights,
+meaning that here the user will be granted full access to the file.
+■
+221. B. Certificate pinning associates a known certificate with a host
+and then compares that known certificate with the certificate
+that is presented. This can help prevent man-in-the-middle
+attacks but can fail if the certificate is updated and the pinned
+certificate isn’t. A CRL, or certificate revocation list, would show
+whether the certificate has been revoked, but it would not show
+if it was changed. Patrick will not have access to the remote
+server’s private key unless he happens to be the administrator.
+■
+222. C. Privacy Enhanced Mail (PEM) is the most common format
+issued by certificate authorities. Distinguished Encoding Rules
+(DER) format is a binary form of the ASCII text PEM format.
+PKCS#7 or P7B format is Base64 ASCII, and PKCS#12, or PFX,
+format is binary format used to store server certificates,
+intermediate certificates, and private keys in a single file.
+■
+223. C. Michelle’s only option is to remove the certificate from the
+list of trusted certificates on every machine that trusted it. This
+can be time-consuming and error prone, and it’s one reason selfsigned
+certificates are avoided in production at many
+organizations.
+■
+224. D. Changing the IP addresses associated with a domain to an
+arbitrary value could cause routing or other problems. That
+means that changing the IP address would not be a chosen
+method of validating a domain. The remaining options are
+legitimate and normal means of validation for certificates.
+■
+225. A. SNMPv3 adds the ability to authenticate users and groups
+and then encrypt messages, providing message integrity and
+confidentiality. It does not have SQL injection prevention built
+in, but it also isn’t a protocol where SQL injection will typically
+be a concern.
+■
+226. A. This diagram shows a reverse proxy. A reverse proxy takes
+connections from the outside world and sends them to an
+internal server. A forward proxy takes internal connections and
+sends them to external servers. Round-robin and nextgeneration
+proxies are not types of proxies, although roundrobin
+is a form of load balancing.

@@ -9,6 +9,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="TestData\CompTIA Security+ Study Guide Exam SY0-601 by Mike Chapple, David Seidl.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain1_ThreatsAttacksAndVulnerabilities.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain2_ArchitectureAndDesign.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain3_Implementation.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain4_OperationsAndIncidentResponse.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain5_GovernanceRiskAndCompliance.pdf" />
+    <None Remove="TestData\Seidl D. CompTIA Security+ SY0-601 Practice Tests Exam 2ed 2021.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>

@@ -17,7 +17,7 @@ namespace FlasherData.Context.EntityConfigurations
             builder.HasData(
                     new List<Subject>
                     {
-                        new Subject{ Id = 1, Name = "Subject_1"},
+                        new Subject{ Id = 1, Name = "CompTIA Security+ SY0-601 Practice Questions"},
                         new Subject{ Id = 2, Name = "Subject_2"},
                         new Subject{ Id = 3, Name = "Subject_3"},
                         new Subject{ Id = 4, Name = "Subject_4"}//,
