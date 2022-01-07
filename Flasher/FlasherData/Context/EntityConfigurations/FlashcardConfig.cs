@@ -30,116 +30,116 @@ namespace FlasherData.Context.EntityConfigurations
             List<Flashcard> newFlashcards = new List<Flashcard>();
             int idCounter = 1;
 
-            // read domain 1 data from files
-            List<Flashcard> domainFlashcards = new List<Flashcard>();
-            string domain1frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_1_Threats_Attacks_and_Vulnerabilities_Fronts.txt");
-            string domain1backsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_1_Threats_Attacks_and_Vulnerabilities_Backs.txt");            
-            // parse domain 1 data from files to lists
-            List<string> domain1Fronts = domain1frontsData.Split('■').ToList();            
-            List<string> domain1Backs = domain1backsData.Split('■').ToList();
-            // create flashcards from domain 1 data            
-            if (domain1Fronts.Count == domain1Backs.Count)
+            // read category 1 data from files
+            List<Flashcard> categoryFlashcards = new List<Flashcard>();
+            string category1frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_1_Threats_Attacks_and_Vulnerabilities_Fronts.txt");
+            string category1backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_1_Threats_Attacks_and_Vulnerabilities_Backs.txt");            
+            // parse category 1 data from files to lists
+            List<string> category1Fronts = category1frontsData.Split('■').ToList();            
+            List<string> category1Backs = category1backsData.Split('■').ToList();
+            // create flashcards from category 1 data            
+            if (category1Fronts.Count == category1Backs.Count)
             {
-                for (int i = 0; i < domain1Fronts.Count; i++)
+                for (int i = 0; i < category1Fronts.Count; i++)
                 {
-                    domainFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = domain1Fronts[i], Back = domain1Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category1Fronts[i], Back = category1Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
                     idCounter++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {domain1Fronts.Count}, Backs = {domain1Backs.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {category1Fronts.Count}, Backs = {category1Backs.Count}");
             }
-            newFlashcards.AddRange(domainFlashcards);
-            domainFlashcards.Clear();
+            newFlashcards.AddRange(categoryFlashcards);
+            categoryFlashcards.Clear();
 
-            // read domain 2 data from files
-            string domain2frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_2_Architecture_and_Design_Fronts.txt");
-            string domain2backsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_2_Architecture_and_Design_Backs.txt");
-            // parse domain 2 data from files to lists
-            List<string> domain2Fronts = domain2frontsData.Split('■').ToList();
-            List<string> domain2Backs = domain2backsData.Split('■').ToList();
-            // create flashcards from domain 2 data            
-            if (domain2Fronts.Count == domain2Backs.Count)
+            // read category 2 data from files
+            string category2frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_2_Architecture_and_Design_Fronts.txt");
+            string category2backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_2_Architecture_and_Design_Backs.txt");
+            // parse category 2 data from files to lists
+            List<string> category2Fronts = category2frontsData.Split('■').ToList();
+            List<string> category2Backs = category2backsData.Split('■').ToList();
+            // create flashcards from category 2 data            
+            if (category2Fronts.Count == category2Backs.Count)
             {
-                for (int i = 0; i < domain2Fronts.Count; i++)
+                for (int i = 0; i < category2Fronts.Count; i++)
                 {
-                    domainFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = domain2Fronts[i], Back = domain2Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category2Fronts[i], Back = category2Backs[i], AnsweredCorrectly = false, CategoryId = 2 });
                     idCounter++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {domain2Fronts.Count}, Backs = {domain2Backs.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {category2Fronts.Count}, Backs = {category2Backs.Count}");
             }
-            newFlashcards.AddRange(domainFlashcards);
-            domainFlashcards.Clear();
+            newFlashcards.AddRange(categoryFlashcards);
+            categoryFlashcards.Clear();
 
-            // read domain 3 data from files
-            string domain3frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_3_Implementation_Fronts.txt");
-            string domain3backsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_3_Implementation_Backs.txt");
-            // parse domain 3 data from files to lists
-            List<string> domain3Fronts = domain3frontsData.Split('■').ToList();
-            List<string> domain3Backs = domain3backsData.Split('■').ToList();
-            // create flashcards from domain 3 data            
-            if (domain3Fronts.Count == domain3Backs.Count)
+            // read category 3 data from files
+            string category3frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_3_Implementation_Fronts.txt");
+            string category3backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_3_Implementation_Backs.txt");
+            // parse category 3 data from files to lists
+            List<string> category3Fronts = category3frontsData.Split('■').ToList();
+            List<string> category3Backs = category3backsData.Split('■').ToList();
+            // create flashcards from category 3 data            
+            if (category3Fronts.Count == category3Backs.Count)
             {
-                for (int i = 0; i < domain3Fronts.Count; i++)
+                for (int i = 0; i < category3Fronts.Count; i++)
                 {
-                    domainFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = domain3Fronts[i], Back = domain3Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category3Fronts[i], Back = category3Backs[i], AnsweredCorrectly = false, CategoryId = 3 });
                     idCounter++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {domain3Fronts.Count}, Backs = {domain3Backs.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {category3Fronts.Count}, Backs = {category3Backs.Count}");
             }
-            newFlashcards.AddRange(domainFlashcards);
-            domainFlashcards.Clear();
+            newFlashcards.AddRange(categoryFlashcards);
+            categoryFlashcards.Clear();
 
-            // read domain 4 data from files
-            string domain4frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_4_Operations_and_Incident_Response_Fronts.txt");
-            string domain4backsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_4_Operations_and_Incident_Response_Backs.txt");
-            // parse domain 4 data from files to lists
-            List<string> domain4Fronts = domain4frontsData.Split('■').ToList();
-            List<string> domain4Backs = domain4backsData.Split('■').ToList();
-            // create flashcards from domain 4 data            
-            if (domain4Fronts.Count == domain4Backs.Count)
+            // read category 4 data from files
+            string category4frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_4_Operations_and_Incident_Response_Fronts.txt");
+            string category4backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_4_Operations_and_Incident_Response_Backs.txt");
+            // parse category 4 data from files to lists
+            List<string> category4Fronts = category4frontsData.Split('■').ToList();
+            List<string> category4Backs = category4backsData.Split('■').ToList();
+            // create flashcards from category 4 data            
+            if (category4Fronts.Count == category4Backs.Count)
             {
-                for (int i = 0; i < domain4Fronts.Count; i++)
+                for (int i = 0; i < category4Fronts.Count; i++)
                 {
-                    domainFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = domain4Fronts[i], Back = domain4Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category4Fronts[i], Back = category4Backs[i], AnsweredCorrectly = false, CategoryId = 4 });
                     idCounter++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {domain4Fronts.Count}, Backs = {domain4Backs.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {category4Fronts.Count}, Backs = {category4Backs.Count}");
             }
-            newFlashcards.AddRange(domainFlashcards);
-            domainFlashcards.Clear();
+            newFlashcards.AddRange(categoryFlashcards);
+            categoryFlashcards.Clear();
 
-            // read domain 5 data from files
-            string domain5frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_5_Governance_Risk_and_Compliance_Fronts.txt");
-            string domain5backsData = File.ReadAllText("../FlasherData/TestData/Security+_Domain_5_Governance_Risk_and_Compliance_Backs.txt");
-            // parse domain 5 data from files to lists
-            List<string> domain5Fronts = domain5frontsData.Split('■').ToList();
-            List<string> domain5Backs = domain5backsData.Split('■').ToList();
-            // create flashcards from domain 5 data            
-            if (domain5Fronts.Count == domain5Backs.Count)
+            // read category 5 data from files
+            string category5frontsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_5_Governance_Risk_and_Compliance_Fronts.txt");
+            string category5backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_5_Governance_Risk_and_Compliance_Backs.txt");
+            // parse category 5 data from files to lists
+            List<string> category5Fronts = category5frontsData.Split('■').ToList();
+            List<string> category5Backs = category5backsData.Split('■').ToList();
+            // create flashcards from category 5 data            
+            if (category5Fronts.Count == category5Backs.Count)
             {
-                for (int i = 0; i < domain5Fronts.Count; i++)
+                for (int i = 0; i < category5Fronts.Count; i++)
                 {
-                    domainFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = domain5Fronts[i], Back = domain5Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category5Fronts[i], Back = category5Backs[i], AnsweredCorrectly = false, CategoryId = 5 });
                     idCounter++;
                 }
             }
             else
             {
-                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {domain5Fronts.Count}, Backs = {domain5Backs.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {category5Fronts.Count}, Backs = {category5Backs.Count}");
             }
-            newFlashcards.AddRange(domainFlashcards);
-            domainFlashcards.Clear();
+            newFlashcards.AddRange(categoryFlashcards);
+            categoryFlashcards.Clear();
 
             // add flaschard to db
             builder.HasData(newFlashcards);
