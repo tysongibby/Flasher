@@ -36,12 +36,9 @@ namespace FlasherServer
             services.AddServerSideBlazor();
 
             // AutoMapper
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new AutoMapperProfile());
-            });
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
+            // https://medium.com/dotnet-hub/use-automapper-in-asp-net-or-asp-net-core-automapper-getting-started-introduction-dotnet-9cdda3db1feb
+            services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
+            
 
             // SQLite database connection
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
