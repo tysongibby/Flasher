@@ -308,8 +308,7 @@ namespace FlasherData.Repositories
             }
 
             try
-            {
-                _context.Update(entity);
+            {                
                 _context.SaveChanges();
                 return GetPrimaryKey(entity);
             }
@@ -398,8 +397,7 @@ namespace FlasherData.Repositories
             }
 
             try
-            {
-                _context.Update(entity);                
+            {                               
                 int entitiesChanged = await _context.SaveChangesAsync();
                 return entitiesChanged;
             }

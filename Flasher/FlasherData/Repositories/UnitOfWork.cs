@@ -43,8 +43,7 @@ namespace FlasherData.Repositories
         }
 
         public int UpdateDb()
-        {
-            _context.Update(_context);
+        {            
             return _context.SaveChanges();
         }
 
