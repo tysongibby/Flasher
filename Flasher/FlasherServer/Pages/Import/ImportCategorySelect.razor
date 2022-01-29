@@ -1,0 +1,31 @@
+﻿@page "/importcategoryselect/{selectedsubjectid}"
+
+<EditForm Model="Page" OnSubmit="() => OnValidSubmit()">
+    @*Categories*@
+    <div class="row mt-4">
+        <h5>Choose flashcards' subject category:</h5>
+        <div class="input-group">
+            <InputSelect id="subjects" class="form-control" @bind-Value="SelectedCategoryId">
+                @foreach (CategoryDto _category in Categories)
+                {
+                    <option value="@_category.Id">@_category.Name</option>
+                }
+            </InputSelect>
+        </div>
+        @*<div class="input-group">
+            @foreach (CategoryDto category in Categories)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="@category.Id" value="false" @onchange="(args => { CheckboxClicked(category.Id, args.Value); })" />
+                    <label class="form-check-label" for="@category.Name">
+                        @category.Name
+                    </label>
+                </div>
+            }
+        </div>*@
+    </div>
+    @*Submit Form*@
+    <div class="row mt-4">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</EditForm>

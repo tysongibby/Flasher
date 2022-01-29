@@ -1,0 +1,24 @@
+﻿@page "/import"
+
+<EditForm Model="Page" OnSubmit="() => OnValidSubmit()">
+    <h3>Import Flashcards</h3>
+    @*Subject*@
+    <div class="row mt-4">
+        <h5>Choose flashcards' subject</h5>
+        <div class="input-group">
+            @*<label for="subjects" class="col-2 col-form-label">Subject</label>*@
+            <InputSelect id="subjects" class="form-control" @bind-Value="SelectedSubjectId">
+                @*<option disabled>select subject</option>*@
+                @foreach (SubjectDto subject in Subjects)
+                {
+                    <option value="@subject.Id">@subject.Name</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    @*Submit Form*@
+    <div class="row mt-4">
+        <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+
+</EditForm>

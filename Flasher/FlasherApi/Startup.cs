@@ -12,10 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FlasherApi.Data;
-using FlasherApi.Data.Repositories;
-using FlasherApi.Data.Repositories.Interfaces;
+using FlasherData.Repositories;
+using FlasherData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using FlasherApi.Data.Dtos;
+using FlasherData.Context;
 
 namespace FlasherApi
 {
@@ -36,20 +37,20 @@ namespace FlasherApi
 
             services.AddControllers();
 
-            // Swagger service
+            // Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FlasherApi", Version = "v1" });
             });
 
-            // SQLite service
+            // SQLite database connection
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
             
 
             // Dependency Injection
-            services.AddScoped<IFlashCardRepository, FlashCardRepository>();
-            services.AddScoped<ISupersetRepository, SupersetRepository>();
-            services.AddScoped<ISetRepository, SetRepository>();
+            services.AddScoped<IFlashcardRepository, FlashcardRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Cross Origin RequestS (CORS) policies
             //services.AddCors(options =>

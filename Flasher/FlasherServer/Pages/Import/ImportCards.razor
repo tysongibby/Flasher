@@ -1,0 +1,19 @@
+﻿@page "/importcards/{selectedsubjectid}/{selectedcategoryid}"
+
+<EditForm Model="Page" OnSubmit="() => OnValidSubmit(FrontsTextAreaText, BacksTextAreaText)">
+    <h3>Import Flashcards</h3>
+    @*Fronts*@
+    <h5 class="mt-4">Enter text for flashcard fronts:</h5>
+    <div class="row mt-2">
+        <textarea rows="@FrontsTextAreaRows" cols="50" @bind="FrontsTextAreaText" />
+    </div>
+    @*Backs*@
+    <h5 class="mt-4">Enter text for flashcard backs:</h5>
+    <div class="row">
+        <textarea rows="@BacksTextAreaRows" cols="50" @bind="BacksTextAreaText" />
+    </div>
+    @*Submit Form*@
+    <div class="row mt-4">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</EditForm>

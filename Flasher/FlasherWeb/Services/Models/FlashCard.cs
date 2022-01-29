@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace FlasherWeb.Services.Models
 {
-    public class FlashCard
+    public class Flashcard
     {
         public int? Id { get; set; }
-        public string Title { get; set; } = "Title Placeholder";
+        public string Name { get; set; } = "Name Placeholder";
         public string Front { get; set; }
         public string Back { get; set; }
         public bool AnsweredCorrectly { get; set; } = false;
-        public int SuperSetId { get; set; }
-        public int? SetId { get; set; }
+        public int SubjectId { get; set; }
+        public int? CategoryId { get; set; }
     }
 }

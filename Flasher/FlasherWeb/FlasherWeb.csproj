@@ -5,15 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Humanizer.Core" Version="2.11.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.11" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.11" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    <None Remove="TestData\CompTIA Security+ Study Guide Exam SY0-601 by Mike Chapple, David Seidl.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain1_ThreatsAttacksAndVulnerabilities.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain2_ArchitectureAndDesign.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain3_Implementation.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain4_OperationsAndIncidentResponse.pdf" />
+    <None Remove="TestData\Security+_PracticeTest_Domain5_GovernanceRiskAndCompliance.pdf" />
+    <None Remove="TestData\Seidl D. CompTIA Security+ SY0-601 Practice Tests Exam 2ed 2021.pdf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Graphics\" />
+    <PackageReference Include="Humanizer.Core" Version="2.11.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.13" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

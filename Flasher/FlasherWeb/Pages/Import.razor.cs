@@ -16,17 +16,17 @@ namespace FlasherWeb.Pages
         private string ResultsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
         private int BacksTextAreaRows { get; set; }       
-        private List<FlashCard> NewflashCards { get; set; } = new List<FlashCard>();
-        private string SuperSetTitle { get; set; } = string.Empty;
-        private string SetTitle { get; set; } = string.Empty;
+        private List<Flashcard> NewFlashcards { get; set; } = new List<Flashcard>();
+        private string SubjectName { get; set; } = string.Empty;
+        private string SetName { get; set; } = string.Empty;
         
         private string frontsTextAreaText;
         private string backsTextAreaText;
-        List<string> createdFlashCardUrls = new List<string>();
+        List<string> createdFlashcardUrls = new List<string>();
 
 
         [Inject]
-        private IFlashCardService FlashCardService { get; set; }
+        private IFlashcardService FlashcardService { get; set; }
         
 
         protected string FrontsTextAreaText
@@ -59,53 +59,53 @@ namespace FlasherWeb.Pages
 
         public void Submit(string textForFronts, string textForBacks)
         {            
-            List<string> newFlashCardFronts = textForFronts.Split('■').ToList();
-            List<string> newFlashCardBacks = textForBacks.Split('■').ToList();
-            Regex titleRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
+            List<string> newFlashcardFronts = textForFronts.Split('■').ToList();
+            List<string> newFlashcardBacks = textForBacks.Split('■').ToList();
+            Regex nameRegEx = new Regex(@"(\d|\d{2}|\d{3}).\s");
             
-            if (newFlashCardFronts.Count == newFlashCardBacks.Count)
+            if (newFlashcardFronts.Count == newFlashcardBacks.Count)
             {                                
                 int i = 0;
-                while (i <= (newFlashCardFronts.Count - 1))
+                while (i <= (newFlashcardFronts.Count - 1))
                 {                    
-                    string _title = titleRegEx.Match(newFlashCardFronts[i]).ToString();
-                    if (_title is null || _title == string.Empty)
+                    string _name = nameRegEx.Match(newFlashcardFronts[i]).ToString();
+                    if (_name is null || _name == string.Empty)
                     {
-                        _title = "Temp Title";
+                        _name = "Temp Name";
                     }
-                    FlashCard newFlashCard = new FlashCard()
+                    Flashcard newFlashcard = new Flashcard()
                     {                        
-                        SuperSetId = 1,
-                        SetId = 5,
-                        Title = _title,
-                        Front = newFlashCardFronts[i],
-                        Back = newFlashCardBacks[i]
+                        SubjectId = 1,
+                        CategoryId = 5,
+                        Name = _name,
+                        Front = newFlashcardFronts[i],
+                        Back = newFlashcardBacks[i]
                     };
-                    //TODO: get Superset from webform
-                    //TODO: get set from webform
-                    NewflashCards.Add(newFlashCard);
+                    //TODO: get Subject from webform
+                    //TODO: get Category from webform
+                    NewFlashcards.Add(newFlashcard);
                     i++;
                 }
             }
             else 
             {
-                throw new Exception($"Flash card fronts and flash card backs must be equal in number:\nFronts = {newFlashCardFronts.Count}, Backs = {newFlashCardBacks.Count}");
+                throw new Exception($"Flashcard fronts and flashcard backs must be equal in number:\nFronts = {newFlashcardFronts.Count}, Backs = {newFlashcardBacks.Count}");
             }
 
-            // add new flash cards to database
-            foreach (FlashCard fc in NewflashCards)
+            // add new flashcards to database
+            foreach (Flashcard fc in NewFlashcards)
             {                
-                CreateFlashCardAsync(fc);                
+                CreateFlashcardAsync(fc);                
             }
-            ResultsTextAreaText = $"{createdFlashCardUrls.Count} flash cards have been added.";            
+            ResultsTextAreaText = $"{createdFlashcardUrls.Count} flashcards have been added.";            
         }
 
-        private async void CreateFlashCardAsync(FlashCard fc)
+        private async void CreateFlashcardAsync(Flashcard fc)
         {
             if (fc is not null)
             {
-                string response = await FlashCardService.Create(fc);
-                createdFlashCardUrls.Add(response);
+                string response = await FlashcardService.Create(fc);
+                createdFlashcardUrls.Add(response);
             }
         }
 

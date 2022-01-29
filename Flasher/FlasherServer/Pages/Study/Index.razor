@@ -1,0 +1,29 @@
+﻿@page "/"
+
+    <div class="col">
+        <div class="row">
+            <h3>The Flasher</h3>
+            <br />
+            <h5>Flashcard application</h5>
+        </div>
+        <div class="row mt-4">
+            <div class="input-group">
+                <label for="subjects" class="col-2 col-form-label">Subject</label>
+                <select id="subjects" class="form-control" value="@SelectedSubjectId" @onchange="@(e => OnValidSubmit(e.Value))">
+                    @*<option disabled>select subject</option>*@
+                    @foreach (SubjectDto subject in Subjects)
+                    {
+                        <option value="@subject.Id">@subject.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        @*<div class="row mt-4">
+            <div class="input-group">
+                <label for="start" class="col-2 col-form-label"></label>
+                <button id="start" type="submit"  class="btn btn-primary col-2">Next</button>
+            </div>
+        </div>*@
+    </div>
+
+

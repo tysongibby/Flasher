@@ -8,8 +8,8 @@ namespace FlasherWeb.Pages.Models
 {
     public class ImportPage
     {
-        string SupersetTitle { get; set; }
-        string SetTitle { get; set; }
+        string SubjectName { get; set; }
+        string CategoryName { get; set; }
         string Fronts { get; set; }
         string Backs { get; set; }
     }
