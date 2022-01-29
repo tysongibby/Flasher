@@ -208,6 +208,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
                 }
                 var result = _context.Set<TEntity>().Add(entity);
+                _context.SaveChanges();
                 int pk = GetPrimaryKey(entity);
                 return pk;
             }
@@ -230,6 +231,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
                 }                                
                 var result = await _context.Set<TEntity>().AddAsync(entity);
+                await _context.SaveChangesAsync();
                 int pk = GetPrimaryKey(entity);
                 return pk;
             }
@@ -255,6 +257,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
                 }
                 _context.Set<TEntity>().AddRange(entities);
+                _context.SaveChanges();
                 foreach (TEntity e in entities)
                 {
                     pks.Add(GetPrimaryKey(e));
@@ -282,6 +285,7 @@ namespace FlasherData.Repositories
                     throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
                 }
                 await _context.Set<TEntity>().AddRangeAsync(entities);
+                await _context.SaveChangesAsync();
                 foreach (TEntity e in entities)
                 {
                     pks.Add(GetPrimaryKey(e));
