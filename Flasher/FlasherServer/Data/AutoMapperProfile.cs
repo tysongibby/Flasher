@@ -18,14 +18,12 @@ namespace FlasherServer.Data
                 .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))                
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(source => source.Front))
                 .ForMember(destination => destination.Back, opt => opt.MapFrom(source => source.Back))
-                .ForMember(destination => destination.AnsweredCorrectly, opt => opt.MapFrom(source => source.AnsweredCorrectly))
                 .ForMember(destination => destination.CategoryId, opt => opt.MapFrom(source => source.CategoryId));
             CreateMap<FlashcardDto, Flashcard>()
                 .ForMember(destination => destination.Id, opt => opt.MapFrom(source => (int)source.Id))
                 .ForMember(destination => destination.Name, opt => opt.MapFrom(source => source.Name))                
                 .ForMember(destination => destination.Front, opt => opt.MapFrom(source => source.Front))
                 .ForMember(destination => destination.Back, opt => opt.MapFrom(source => source.Back))
-                .ForMember(destination => destination.AnsweredCorrectly, opt => opt.MapFrom(source => source.AnsweredCorrectly))
                 .ForMember(destination => destination.CategoryId, opt => opt.MapFrom(source => source.CategoryId));
 
             // Category mapping

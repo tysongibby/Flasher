@@ -35,8 +35,7 @@ namespace FlasherApi.Controllers
                 flashcardDto.Id = flashcard.Id;
                 flashcardDto.Name = flashcard.Name;
                 flashcardDto.Front = flashcard.Front;
-                flashcardDto.Back = flashcard.Back;
-                flashcardDto.AnsweredCorrectly = flashcard.AnsweredCorrectly;                
+                flashcardDto.Back = flashcard.Back;                               
                 flashcardDto.CategoryId = flashcard.CategoryId;
                 return StatusCode(StatusCodes.Status200OK, flashcardDto);
             }
@@ -62,8 +61,7 @@ namespace FlasherApi.Controllers
                         Id = fc.Id,
                         Name = fc.Name,
                         Front = fc.Front,
-                        Back = fc.Back,
-                        AnsweredCorrectly = fc.AnsweredCorrectly,                        
+                        Back = fc.Back,                  
                         CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
@@ -91,8 +89,7 @@ namespace FlasherApi.Controllers
                         Id = fc.Id,
                         Name = fc.Name,
                         Front = fc.Front,
-                        Back = fc.Back,
-                        AnsweredCorrectly = fc.AnsweredCorrectly,                        
+                        Back = fc.Back,                    
                         CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
@@ -122,7 +119,6 @@ namespace FlasherApi.Controllers
                         Name = fc.Name,
                         Front = fc.Front,
                         Back = fc.Back,
-                        AnsweredCorrectly = fc.AnsweredCorrectly,
                         CategoryId = fc.CategoryId
                     };
                     flashcardDtos.Add(flashcardDto);
@@ -146,7 +142,6 @@ namespace FlasherApi.Controllers
                     Name = flashcardDto.Name,
                     Front = flashcardDto.Front,
                     Back = flashcardDto.Back,
-                    AnsweredCorrectly = false,
                     CategoryId = flashcardDto.CategoryId
                 };
                 _flashcardRepository.AddAsync(newFlashcard);
@@ -172,7 +167,6 @@ namespace FlasherApi.Controllers
                             Name = flashcardDto.Name,
                             Front = flashcardDto.Front,
                             Back = flashcardDto.Back,
-                            AnsweredCorrectly = flashcardDto.AnsweredCorrectly,
                             CategoryId = flashcardDto.CategoryId
                         };
                         int pk = _flashcardRepository.Update(newFlashcard);

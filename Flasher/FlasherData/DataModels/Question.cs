@@ -19,7 +19,7 @@ namespace FlasherData.DataModels
         [Required]
         public int Number { get; set; }
 
-        public bool AnsweredCorrectly { get; set; }
+        public bool AnsweredCorrectly { get; set; } = false;
 
         [Required]
         [ForeignKey("Tests")]

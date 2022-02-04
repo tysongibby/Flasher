@@ -23,9 +23,7 @@ namespace FlasherData.DataModels
 
         [Required]
         public string Back { get; set; }      
-
-        public bool AnsweredCorrectly { get; set; } = false;
-
+     
         [Required]
         [ForeignKey("Categories")]        
         public int CategoryId { get; set; }

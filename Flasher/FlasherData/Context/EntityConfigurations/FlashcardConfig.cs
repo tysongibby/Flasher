@@ -42,7 +42,7 @@ namespace FlasherData.Context.EntityConfigurations
             {
                 for (int i = 0; i < category1Fronts.Count; i++)
                 {
-                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category1Fronts[i], Back = category1Backs[i], AnsweredCorrectly = false, CategoryId = 1 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category1Fronts[i], Back = category1Backs[i], CategoryId = 1 });
                     idCounter++;
                 }
             }
@@ -64,7 +64,7 @@ namespace FlasherData.Context.EntityConfigurations
             {
                 for (int i = 0; i < category2Fronts.Count; i++)
                 {
-                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category2Fronts[i], Back = category2Backs[i], AnsweredCorrectly = false, CategoryId = 2 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category2Fronts[i], Back = category2Backs[i], CategoryId = 2 });
                     idCounter++;
                 }
             }
@@ -86,7 +86,7 @@ namespace FlasherData.Context.EntityConfigurations
             {
                 for (int i = 0; i < category3Fronts.Count; i++)
                 {
-                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category3Fronts[i], Back = category3Backs[i], AnsweredCorrectly = false, CategoryId = 3 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category3Fronts[i], Back = category3Backs[i], CategoryId = 3 });
                     idCounter++;
                 }
             }
@@ -108,7 +108,7 @@ namespace FlasherData.Context.EntityConfigurations
             {
                 for (int i = 0; i < category4Fronts.Count; i++)
                 {
-                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category4Fronts[i], Back = category4Backs[i], AnsweredCorrectly = false, CategoryId = 4 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category4Fronts[i], Back = category4Backs[i], CategoryId = 4 });
                     idCounter++;
                 }
             }
@@ -130,7 +130,7 @@ namespace FlasherData.Context.EntityConfigurations
             {
                 for (int i = 0; i < category5Fronts.Count; i++)
                 {
-                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category5Fronts[i], Back = category5Backs[i], AnsweredCorrectly = false, CategoryId = 5 });
+                    categoryFlashcards.Add(new Flashcard { Id = idCounter, Name = "", Front = category5Fronts[i], Back = category5Backs[i], CategoryId = 5 });
                     idCounter++;
                 }
             }
