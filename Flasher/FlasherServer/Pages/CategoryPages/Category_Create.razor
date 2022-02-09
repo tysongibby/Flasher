@@ -1,0 +1,16 @@
+﻿@page "/category/create/{subjectId:int}"
+
+<EditForm Model="NewCategory" OnValidSubmit="OnValidSumbit">
+    <div class="row">
+        <div class="col-2">
+            <label for="newCategory" class="form-label">New category:</label>
+        </div>
+        <div class="col-10">
+            <InputText id="newCategory" @bind-Value="NewCategory.Name"></InputText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <button class="col-4 btn btn-primary mt-2" type="submit">Submit</button>
+    </div>
+</EditForm>

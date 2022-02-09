@@ -34,6 +34,12 @@ namespace FlasherServer.Pages.Study
         {
             SelectedSubjectId = int.Parse(value.ToString());
             NavManager.NavigateTo($"/studycategoryselect/{SelectedSubjectId}");
+
+        }
+
+        private void OnClick()
+        {
+            NavManager.NavigateTo($"/subject/create");
         }
     }
 }

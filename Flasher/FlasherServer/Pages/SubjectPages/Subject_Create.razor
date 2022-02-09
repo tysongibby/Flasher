@@ -1,0 +1,16 @@
+﻿@page "/subject/create"
+
+<EditForm Model="NewSubject" OnValidSubmit="OnValidSumbit">
+    <div class="row">
+        <div class="col-2">
+            <label for="newSubject" class="form-label">New subject:</label>
+        </div>
+        <div class="col-10">
+            <InputText id="newSubject" @bind-Value="NewSubject.Name"></InputText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <button class="col-4 btn btn-primary mt-2" type="submit">Submit</button>
+    </div>
+</EditForm>

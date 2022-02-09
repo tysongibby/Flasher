@@ -8,11 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using FlasherData.DataModels;
 
-namespace FlasherServer.Pages.SubjectPage
+namespace FlasherServer.Pages.SubjectPages
 {
-    public partial class CreateSubject
+    public partial class Subject_Create
     {
         SubjectDto NewSubject = new SubjectDto();
+        [Inject]
+        NavigationManager NavManager { get; set; }
         [Inject]
         IUnitOfWork UnitOfWork { get; set; }
         [Inject]
@@ -21,8 +23,9 @@ namespace FlasherServer.Pages.SubjectPage
         {
             NewSubject.Id = 0;
             Subject _newSubject = Mapper.Map<Subject>(NewSubject);
-            UnitOfWork.Subjects.Add(_newSubject);
-            //UnitOfWork.Subjects.Add(Mapper.Map<Subject>(NewSubject));
+            int newSubjectId = UnitOfWork.Subjects.Add(_newSubject);
+
+            NavManager.NavigateTo($"/category/create/{newSubjectId}");
         }
     }
 }

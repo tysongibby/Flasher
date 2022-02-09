@@ -10,14 +10,19 @@
         </div>
         <div class="row mt-4">
             <div class="input-group">
-                <label for="subjects" class="col-2 col-form-label">Subject</label>
-                <select id="subjects" class="form-control" value="@SelectedSubjectId" @onchange="@(e => OnValidSubmit(e.Value))">
-                    @*<option disabled>select subject</option>*@
+                <label for="subjects" class="col-3 col-form-label">Choose a subject</label>
+                <select id="subjects" class="form-control" value="@SelectedSubjectId" @onchange="@(e => OnValidSubmit(e.Value))">                 
                     @foreach (SubjectDto subject in Subjects)
                     {
                         <option value="@subject.Id">@subject.Name</option>
                     }
                 </select>
+            </div>            
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">or</div>
+            <div class="col-4">
+                <button class="btn btn-primary" @onclick="OnClick">Create new subject</button>
             </div>
         </div>
         @*<div class="row mt-4">

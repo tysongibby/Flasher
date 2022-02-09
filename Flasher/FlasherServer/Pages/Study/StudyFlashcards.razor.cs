@@ -94,7 +94,7 @@ namespace FlasherServer.Pages.Study
                     Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.Categories.Get(categoryId)));
                 }                
             }
-            // get all flashcards for a subject
+            // get all flashcards for the chosen subject
             List<Flashcard> flashcards = UnitOfWork.Flashcards.GetAllFlashcardsForSubject((int)Subject.Id).ToList() ;
 
 
