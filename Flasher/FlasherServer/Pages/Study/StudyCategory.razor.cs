@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace FlasherServer.Pages.Study
 {
-    public partial class StudyCategorySelect
+    public partial class StudyCategory
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }
@@ -19,9 +19,8 @@ namespace FlasherServer.Pages.Study
         private IMapper Mapper { get; set; }
         [Inject]
         private NavigationManager NavManager { get; set; }
-        [Parameter]
-        public string selectedsubjectid { get; set; }
-        private int SelectedSubjectId { get; set; }
+        [Parameter]        
+        public int SelectedSubjectId { get; set; }
         private CategoryDto SelectedCategory { get; set; } = new CategoryDto();
 
         private List<int> SelectedCategoryIds { get; set; } = new List<int>();
@@ -30,10 +29,7 @@ namespace FlasherServer.Pages.Study
 
         
         protected override void OnInitialized()
-        {
-            // get url parameters
-            SelectedSubjectId = Int32.Parse(selectedsubjectid);
-
+        {            
             // get categories form subject
             List<Category> _categories = UnitOfWork.Categories.Where(s => s.SubjectId == SelectedSubjectId).ToList();
             foreach (Category _category in _categories)

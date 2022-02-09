@@ -26,4 +26,8 @@
     <ProjectReference Include="..\FlasherData\FlasherData.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Continue\" />
+  </ItemGroup>
+
 </Project>

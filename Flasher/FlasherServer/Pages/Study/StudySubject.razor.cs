@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace FlasherServer.Pages.Study
 {
-    public partial class Index
+    public partial class StudySubject
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }
