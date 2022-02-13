@@ -3,7 +3,7 @@ using FlasherData.Context;
 using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
 using FlasherServer.Data.Dtos;
-using FlasherServer.Pages.Study.Models;
+using FlasherServer.Pages.Test.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.WebUtilities;
 using System;
@@ -11,9 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServer.Pages.Study
+namespace FlasherServer.Pages.Test
 {
-    public partial class StudyFlashcards
+    public partial class TestFlashcards
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }

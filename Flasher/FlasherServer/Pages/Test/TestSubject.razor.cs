@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using FlasherData.DataModels;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace FlasherServer.Pages.Study
+namespace FlasherServer.Pages.Test
 {
-    public partial class StudySubject
+    public partial class TestSubject
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }
@@ -33,7 +33,7 @@ namespace FlasherServer.Pages.Study
         private void OnValidSubmit(object value)
         {
             SelectedSubjectId = int.Parse(value.ToString());
-            NavManager.NavigateTo($"/studycategoryselect/{SelectedSubjectId}");
+            NavManager.NavigateTo($"/testcategory/{SelectedSubjectId}");
 
         }
 

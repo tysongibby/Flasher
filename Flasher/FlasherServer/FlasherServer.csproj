@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Study\Index-v1.razor.cs" />
+    <Compile Remove="Pages\Test\Index-v1.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Study\Index-v1.razor" />
+    <Content Remove="Pages\Test\Index-v1.razor" />
   </ItemGroup>
 
   <ItemGroup>

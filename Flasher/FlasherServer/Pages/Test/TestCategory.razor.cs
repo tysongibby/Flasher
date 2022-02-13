@@ -9,9 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace FlasherServer.Pages.Study
+namespace FlasherServer.Pages.Test
 {
-    public partial class StudyCategory
+    public partial class TestCategory
     {
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }
@@ -65,7 +65,7 @@ namespace FlasherServer.Pages.Study
             {
                 SubjectAndCategories.Add($"Category{i}", $"{i}");
             }
-            NavManager.NavigateTo(QueryHelpers.AddQueryString("/studyflashcards", SubjectAndCategories));
+            NavManager.NavigateTo(QueryHelpers.AddQueryString("/testflashcards", SubjectAndCategories));
         }
     }
 }

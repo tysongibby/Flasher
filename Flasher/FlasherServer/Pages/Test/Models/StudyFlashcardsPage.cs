@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServer.Pages.Study.Models
+namespace FlasherServer.Pages.Test.Models
 {
     public class StudyFlashcardsPage
     {
