@@ -1,0 +1,32 @@
+﻿@* referring page: "Index" *@
+@* nav URL: "/continuetest"*@
+@page "/continuetest"
+
+
+<EditForm Model="Page" OnValidSubmit="OnValidSubmit">
+    <div class="col">
+        <div class="row">
+            <h3>The Flasher</h3>
+            <br />
+            <h5>Flashcard application</h5>
+            <h6>Tests</h6>
+        </div>
+        <h5>Choose test to continue:</h5>
+        <div class="row mt-4">
+            @foreach (TestDto testDto in TestDtos)
+            {
+            <InputRadioGroup @bind-Value="SelectedTest" Name="Test">
+                <div class="row">
+                    <InputRadio Value="testDto.Name" class="form-check-input" Name="Test" type="radio" id="@testDto.Id" />@testDto.Name
+                </div>
+            </InputRadioGroup>
+            }
+        </div>
+        <div class="row mt-4">
+            <div class="input-group">               
+                <button id="start" type="submit" class="btn btn-primary col-3 ps-2">Continue test</button>
+            </div>
+        </div>
+
+    </div>
+</EditForm>

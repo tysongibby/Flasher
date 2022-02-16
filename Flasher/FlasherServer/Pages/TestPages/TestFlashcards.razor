@@ -1,6 +1,6 @@
-﻿@* referring page: "TestCategory" *@
-@* nav URL: "/testflashcards?querystring")*@
-@page "/testflashcards"
+﻿@* referring page: "ContinueTest" *@
+@* nav URL: "/testflashcards/{Test.Id}")*@
+@page "/testflashcards/{testid:int}"
 @using FlasherServer.Pages.TestPages.Models
 
 <EditForm Model="Page" OnSubmit="HandleOnSubmit">

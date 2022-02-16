@@ -22,6 +22,8 @@ namespace FlasherData.DataModels
         [ForeignKey("Subjects")]
         public int SubjectId { get; set; }
 
+        public bool Archived { get; set; }
+
         // Navigation property for Question FK relation
         public ICollection<Question> Questions { get; set; }
                 

@@ -46,7 +46,8 @@ namespace FlasherData.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    SubjectId = table.Column<int>(type: "INTEGER", nullable: false)
+                    SubjectId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Archived = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,13 +141,13 @@ namespace FlasherData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Tests",
-                columns: new[] { "Id", "Name", "SubjectId" },
-                values: new object[] { 1, "Security+ SY0-601 Test 1", 1 });
+                columns: new[] { "Id", "Archived", "Name", "SubjectId" },
+                values: new object[] { 1, false, "Security+ SY0-601 Test 1", 1 });
 
             migrationBuilder.InsertData(
                 table: "Tests",
-                columns: new[] { "Id", "Name", "SubjectId" },
-                values: new object[] { 2, "Test_2", 2 });
+                columns: new[] { "Id", "Archived", "Name", "SubjectId" },
+                values: new object[] { 2, false, "Test_2", 2 });
 
             migrationBuilder.InsertData(
                 table: "Flashcards",

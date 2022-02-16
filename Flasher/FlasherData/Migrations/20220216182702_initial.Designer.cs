@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlasherData.Migrations
 {
     [DbContext(typeof(FlasherContext))]
-    [Migration("20220216071811_initial")]
+    [Migration("20220216182702_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -7372,6 +7372,9 @@ namespace FlasherData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Archived")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -7389,12 +7392,14 @@ namespace FlasherData.Migrations
                         new
                         {
                             Id = 1,
+                            Archived = false,
                             Name = "Security+ SY0-601 Test 1",
                             SubjectId = 1
                         },
                         new
                         {
                             Id = 2,
+                            Archived = false,
                             Name = "Test_2",
                             SubjectId = 2
                         });
