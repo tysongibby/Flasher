@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlasherServer.Pages.Test.Models
+namespace FlasherServer.Pages.TestPages.Models
 {
-    public class StudyFlashcardsPage
+    public class TestFlashcardsPage
     {
         public FlashcardDto Flashcard { get; set; } = new FlashcardDto();
         public List<FlashcardDto> Flashcards { get; set; } = new List<FlashcardDto>();

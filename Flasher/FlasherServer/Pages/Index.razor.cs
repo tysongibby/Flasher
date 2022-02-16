@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using FlasherData.Repositories.Interfaces;
+using FlasherData.DataModels;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,8 @@ namespace FlasherServer.Pages
 
         public void NewTest()
         {
-            NavManager.NavigateTo($"/studysubject");
+       
+            NavManager.NavigateTo($"/testsubject");
         }
     }
 }

@@ -15,6 +15,18 @@ namespace FlasherServer.Pages.Import
 {
     public partial class ImportCards
     {
+        //[Inject]
+        //private IUnitOfWork UnitOfWork { get; set; }
+        [Inject]
+        IFlashcardRepository FlashcardRepository { get; set; }
+        [Inject]
+        private IMapper Mapper { get; set; }
+      
+        [Parameter]
+        public int SelectedSubjectId { get; set; }
+        [Parameter]
+        public int SelectedCategoryId { get; set; }
+
         private ImportCardsPage Page { get; set; } = new ImportCardsPage();
         private string FrontsTextAreaText { get; set; } = string.Empty;
         private int FrontsTextAreaRows { get; set; }
@@ -22,25 +34,11 @@ namespace FlasherServer.Pages.Import
         private int BacksTextAreaRows { get; set; }
         private IList<FlashcardDto> NewFlashcards { get; set; } = new List<FlashcardDto>();
         private string ResultsTextAreaText { get; set; } = string.Empty;
-        
-        //[Inject]
-        //private IUnitOfWork UnitOfWork { get; set; }
-        [Inject]
-        IFlashcardRepository FlashcardRepository { get; set; }
-        [Inject]
-        private IMapper Mapper { get; set; }
-        [Parameter]
-        public string selectedsubjectid { get; set; }
-        [Parameter]
-        public string selectedcategoryid { get; set; }
-        private int SelectedSubjectId { get; set; }
-        private int SelectedCategoryId { get; set; }
 
-        protected override void OnInitialized()
-        {
-            SelectedSubjectId = int.Parse(selectedsubjectid);
-            SelectedCategoryId = int.Parse(selectedcategoryid);
-        }
+        //protected override void OnInitialized()
+        //{
+
+        //}
 
         public void OnValidSubmit(string textForFronts, string textForBacks)
         {
@@ -59,8 +57,7 @@ namespace FlasherServer.Pages.Import
                         _name = "Temp Name";
                     }                    
                     FlashcardDto newFlashcard = new FlashcardDto()
-                    {
-                        SubjectId = SelectedSubjectId,
+                    { 
                         CategoryId = SelectedCategoryId,
                         Name = _name,
                         Front = newFlashcardFronts[i],

@@ -15,6 +15,7 @@ namespace FlasherData.DataModels
         [Key]
         public int Id { get; set; }
         
+        [Required]
         public string Name { get; set; }
 
         [Required]
@@ -23,8 +24,6 @@ namespace FlasherData.DataModels
 
         // Navigation property for Question FK relation
         public ICollection<Question> Questions { get; set; }
-
-        
-        //public ICollection<Category> Category { get; set; }
+                
     }
 }

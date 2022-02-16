@@ -64,24 +64,6 @@ namespace FlasherData.Migrations
                             Id = 5,
                             Name = "Governance, Risk, and Compliance",
                             SubjectId = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Category_6",
-                            SubjectId = 2
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Category_7",
-                            SubjectId = 2
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Category_8",
-                            SubjectId = 2
                         });
                 });
 
@@ -103,7 +85,6 @@ namespace FlasherData.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -7370,7 +7351,7 @@ namespace FlasherData.Migrations
                             AnsweredCorrectly = false,
                             FlashcardId = 2,
                             Number = 2,
-                            TestId = 2
+                            TestId = 1
                         },
                         new
                         {
@@ -7378,7 +7359,7 @@ namespace FlasherData.Migrations
                             AnsweredCorrectly = false,
                             FlashcardId = 3,
                             Number = 3,
-                            TestId = 3
+                            TestId = 1
                         },
                         new
                         {
@@ -7386,7 +7367,39 @@ namespace FlasherData.Migrations
                             AnsweredCorrectly = false,
                             FlashcardId = 4,
                             Number = 4,
-                            TestId = 4
+                            TestId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AnsweredCorrectly = false,
+                            FlashcardId = 5,
+                            Number = 1,
+                            TestId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AnsweredCorrectly = false,
+                            FlashcardId = 6,
+                            Number = 2,
+                            TestId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AnsweredCorrectly = false,
+                            FlashcardId = 7,
+                            Number = 3,
+                            TestId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AnsweredCorrectly = false,
+                            FlashcardId = 8,
+                            Number = 4,
+                            TestId = 2
                         });
                 });
 
@@ -7414,16 +7427,6 @@ namespace FlasherData.Migrations
                         {
                             Id = 2,
                             Name = "Subject_2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Subject_3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Subject_4"
                         });
                 });
 
@@ -7434,6 +7437,7 @@ namespace FlasherData.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("SubjectId")
@@ -7457,18 +7461,6 @@ namespace FlasherData.Migrations
                             Id = 2,
                             Name = "Test_2",
                             SubjectId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Test_3",
-                            SubjectId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Test_4",
-                            SubjectId = 4
                         });
                 });
 

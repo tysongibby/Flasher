@@ -17,10 +17,10 @@ namespace FlasherData.Context.EntityConfigurations
             builder.HasData(
                     new List<Test>
                     {
-                        new Test{ Id = 1, Name = "Test_1", SubjectId = 1},
-                        new Test{ Id = 2, Name = "Test_2", SubjectId = 2},
-                        new Test{ Id = 3, Name = "Test_3", SubjectId = 3},
-                        new Test{ Id = 4, Name = "Test_4", SubjectId = 4}//,
+                        new Test{ Id = 1, Name = "Security+ SY0-601 Test 1", SubjectId = 1},
+                        new Test{ Id = 2, Name = "Test_2", SubjectId = 2}//,
+                        //new Test{ Id = 3, Name = "Test_3", SubjectId = 3},
+                        //new Test{ Id = 4, Name = "Test_4", SubjectId = 4},
                         //new Test{ Id = 5, Name = "Test_5", SubjectId = 5},
                         //new Test{ Id = 6, Name = "Test_6", SubjectId = 6},
                         //new Test{ Id = 7, Name = "Test_7", SubjectId = 7},

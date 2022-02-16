@@ -13,6 +13,9 @@ namespace FlasherData.Repositories.Interfaces
         ICategoryRepository Categories { get; }
         ISubjectRepository Subjects { get; }
 
+        ITestRepository Tests { get; }
+        IQuestionRepository Questions { get; }
+
         int UpdateDb();
 
         Task<int> UpdateDbAsync();

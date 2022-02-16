@@ -1,6 +1,17 @@
-﻿@page "/category/create/{subjectId:int}"
+﻿@* referring page: Subject_Create *@
+@* nav URL: "/category/create/{newSubjectId}"*@
+
+@*referrer page: TestCategory*@
+@*nav URL: "/category/create/{TestId}"*@
+@page "/category/create/{testid:int}"
 
 <EditForm Model="NewCategory" OnValidSubmit="OnValidSumbit">
+    <div class="row">
+        <h3>The Flasher</h3>
+        <br />
+        <h5>Flashcard application</h5>
+        <h6>Create Category</h6>
+    </div>
     <div class="row">
         <div class="col-2">
             <label for="newCategory" class="form-label">New category:</label>

@@ -1,0 +1,31 @@
+﻿@* referring page: "TestCategory" *@
+@* nav URL: "/testquestion/{TestId}?querystring"*@
+@page "/testquestion/{testid:int}"
+
+<EditForm Model="Page" OnValidSubmit="OnValidSubmit">
+    <div class="col">
+        <div class="row">
+            <h3>The Flasher</h3>
+            <br />
+            <h5>Flashcard application</h5>
+            <h6>Test Flashcards</h6>
+        </div>
+        <h5>Add new flashcard(s) to a category or start the test:</h5>
+        <div class="row mt-4">
+            @foreach (CategoryDto category in CategoryDtos)
+            {
+                <div class="row">
+                    <label class="form-label" for="@category.Name">@category.Name</label>
+                    <a id="@category.Name" class="btn btn-outline-primary col-3 pe-2" @onclick="(e => { AddQuestions(category.Id); }  )">Add question(s)</a>
+                </div>
+            }
+        </div>
+        <div class="row mt-4">
+            <div class="input-group">
+                <button id="start" type="submit" class="btn btn-primary col-3">Start test</button>
+            </div>
+        </div>
+
+    </div>
+</EditForm>
+

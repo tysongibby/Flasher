@@ -24,8 +24,9 @@ namespace FlasherData.Context
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Flashcard> Flashcards { get; set; }
-        public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
+        
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

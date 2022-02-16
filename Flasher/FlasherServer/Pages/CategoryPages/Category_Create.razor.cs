@@ -21,16 +21,30 @@ namespace FlasherServer.Pages.CategoryPages
         IMapper Mapper { get; set; }
 
         [Parameter]
-        public int SubjectId { get; set; }
+        public int TestId { get; set; }
+        
+        private Test Test { get; set; }
+
+        protected override void OnInitialized()
+        {
+            // initialize page data
+
+            // get test
+            Test = UnitOfWork.Tests.Get(TestId);
+ 
+
+        }
 
         private void OnValidSumbit()
         {
+            // create new category
             NewCategory.Id = 0;
-            NewCategory.SubjectId = SubjectId;
+            NewCategory.SubjectId = Test.SubjectId;
             Category _newCategory = Mapper.Map<Category>(NewCategory);
             int newCategoryId = UnitOfWork.Categories.Add(_newCategory);
-
-            NavManager.NavigateTo($"/studyquestions/{SubjectId}/{newCategoryId}");
+            
+            // navigate to next page
+            NavManager.NavigateTo($"/TestCategory/{TestId}");
         }
     }
 }

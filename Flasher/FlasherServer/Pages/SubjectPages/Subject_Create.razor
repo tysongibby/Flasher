@@ -1,6 +1,15 @@
 ﻿@page "/subject/create"
+@*referring page: TestSubject*@
+@*nav URL: "/subject/create/{NewTestName}"*@
+@page "/subject/create/{newtestname}"
 
 <EditForm Model="NewSubject" OnValidSubmit="OnValidSumbit">
+    <div class="row">
+        <h3>The Flasher</h3>
+        <br />
+        <h5>Flashcard application</h5>
+        <h6>Create Subject</h6>
+    </div>
     <div class="row">
         <div class="col-2">
             <label for="newSubject" class="form-label">New subject:</label>

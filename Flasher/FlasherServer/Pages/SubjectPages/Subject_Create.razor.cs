@@ -12,20 +12,34 @@ namespace FlasherServer.Pages.SubjectPages
 {
     public partial class Subject_Create
     {
-        SubjectDto NewSubject = new SubjectDto();
+        private SubjectDto NewSubject = new SubjectDto();
         [Inject]
-        NavigationManager NavManager { get; set; }
+        private NavigationManager NavManager { get; set; }
         [Inject]
-        IUnitOfWork UnitOfWork { get; set; }
+        private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
-        IMapper Mapper { get; set; }
+        private IMapper Mapper { get; set; }
+        [Parameter]
+        public string NewTestName { get; set; }
+
+        private Test NewTest { get; set; } = new Test();
+        private int NewTestId { get; set; }
+
+
         private void OnValidSumbit()
         {
+            // create new subject
             NewSubject.Id = 0;
             Subject _newSubject = Mapper.Map<Subject>(NewSubject);
             int newSubjectId = UnitOfWork.Subjects.Add(_newSubject);
+            NewTest.SubjectId = newSubjectId;
 
-            NavManager.NavigateTo($"/category/create/{newSubjectId}");
+            // create new test
+            NewTest.Name = NewTestName;
+            NewTestId = UnitOfWork.Tests.Add(NewTest);
+
+            // navigate to next page
+            NavManager.NavigateTo($"/testcategory/{NewTestId}");
         }
     }
 }

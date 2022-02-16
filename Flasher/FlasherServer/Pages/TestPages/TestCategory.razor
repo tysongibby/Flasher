@@ -1,6 +1,8 @@
-﻿@* referring page: "StudySubject" *@
-@* nav URL: "/testcategory/{SelectedSubjectId}")*@)
-@page "/testcategory/{selectedsubjectid:int}"
+﻿@* referring page: "TestSubject" *@
+@* referring page: "Category_Create"*@
+@* nav URL: "/testcategory/{NewTestId}"*@
+@page "/testcategory/{testid:int}"
+
 
 <EditForm Model="SelectedCategory" OnValidSubmit="OnValidSubmit">
     <div class="col">
@@ -8,6 +10,7 @@
             <h3>The Flasher</h3>
             <br />
             <h5>Flashcard application</h5>
+            <h6>Test Category</h6>
         </div>
         <h5>Choose subject categories you would like questions from:</h5>
         <div class="row mt-4">
@@ -23,8 +26,8 @@
         </div>
         <div class="row mt-4">
             <div class="input-group">
-                <label for="start" class="col-2 col-form-label"></label>
-                <button id="start" type="submit" class="btn btn-primary col-2">Start</button>
+                <a id="NewCategory" class="btn btn-outline-primary col-3" @onclick="AddCategory">Add a category</a>
+                <button id="start" type="submit" class="btn btn-primary col-3 ps-2">Next</button>
             </div>
         </div>
 

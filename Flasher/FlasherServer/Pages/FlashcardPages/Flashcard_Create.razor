@@ -1,0 +1,33 @@
+﻿@*referring page: TestQuestion*@
+@*nav URL: "/flashcard/create/{TestId}/{categoryId}?querystring"*@
+@page "/flashcard/create/{testid:int}/{categoryid:int}"
+
+
+<EditForm Model="FlashcardDto" OnValidSubmit="CreateFlashcard">
+    <div class="row">
+        <h3>The Flasher</h3>
+        <br />
+        <h5>Flashcard application</h5>
+        <h6>Create Flashcard</h6>
+
+        @*<label for="Test" class="form-label">Test</label><input id="Test" class="form-text" placeholder="@Test.Name" disabled />*@
+        <label for="Subject" class="col-form-label">Subject</label><input id="Subject" class="form-text" placeholder="@Subject.Name" disabled />
+        <label for="Category" class="col-form-label">Category</label><input id="Category" class="form-text" placeholder="@Category.Name" disabled />
+        <div class="input-group mb-2">
+            <label for="FrontText" class="mt-4">Enter text for flashcard front:</label>
+            <div id="FrontText" class="row">
+                <textarea rows="@FrontTextAreaRows" cols="50" class="form-text" @bind="FlashcardDto.Front" />
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="BackText" class="mt-2">Enter text for flashcard back:</label>
+            <div id="BackText" class="row mb-2">
+                <textarea rows="@BackTextAreaRows" cols="50" class="form-text" @bind="FlashcardDto.Back" />
+            </div>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary">Create Flashcard</button>
+        </div>
+       
+    </div>
+</EditForm>
