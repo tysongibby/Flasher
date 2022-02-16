@@ -14,28 +14,9 @@ using System.Threading.Tasks;
 namespace FlasherData.Context.EntityConfigurations
 {
     class QuestionConfig : IEntityTypeConfiguration<Question>
-    {
-        readonly FlasherContext flasherContext = new FlasherContext();
+    {     
         public void Configure(EntityTypeBuilder<Question> builder)
         {
-            UnitOfWork unitOfWork = new UnitOfWork(flasherContext);
-            List<Flashcard> flashcards = unitOfWork.Flashcards.GetAllFlashcardsForSubject(1).ToList();
-            List<Question> questions = new List<Question>();
-            int questionCount = 1;
-            foreach (Flashcard flashcard in flashcards)
-            {
-                Question question = new Question
-                {
-                    Id = 0,
-                    FlashcardId = flashcard.Id,
-                    Number = questionCount,
-                    AnsweredCorrectly = false,
-                    TestId = 1
-                };
-            }
-
-            builder.HasData(questions);
-
             //builder.HasData(
             //        new List<Question>
             //        {

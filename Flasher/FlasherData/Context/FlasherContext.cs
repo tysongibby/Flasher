@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using FlasherData.DataModels;
 using FlasherData.Context.EntityConfigurations;
+using FlasherData.Repositories;
 
 namespace FlasherData.Context
 {
     public class FlasherContext : DbContext
     {
         public FlasherContext()
-        {            
+        {
         }
         public FlasherContext(IConfiguration configuration, DbContextOptions<FlasherContext> options) : base(options)
         {

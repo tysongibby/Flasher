@@ -1,4 +1,6 @@
 ﻿using FlasherData.Context;
+using FlasherData.Repositories;
+using FlasherData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +20,10 @@ namespace FlasherData
         public void ConfigureServices(IServiceCollection services)
         {            
             // SQLite database connection
-            services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));            
+            services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
+
+            // Dependency Injection
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

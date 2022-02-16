@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Startup.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="TestData\CompTIA Security+ Study Guide Exam SY0-601 by Mike Chapple, David Seidl.pdf" />
     <None Remove="TestData\Security+_PracticeTest_Domain1_ThreatsAttacksAndVulnerabilities.pdf" />
     <None Remove="TestData\Security+_PracticeTest_Domain2_ArchitectureAndDesign.pdf" />

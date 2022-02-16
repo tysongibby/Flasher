@@ -7335,72 +7335,6 @@ namespace FlasherData.Migrations
                     b.HasIndex("TestId");
 
                     b.ToTable("Questions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 1,
-                            Number = 1,
-                            TestId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 2,
-                            Number = 2,
-                            TestId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 3,
-                            Number = 3,
-                            TestId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 4,
-                            Number = 4,
-                            TestId = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 5,
-                            Number = 1,
-                            TestId = 2
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 6,
-                            Number = 2,
-                            TestId = 2
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 7,
-                            Number = 3,
-                            TestId = 2
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AnsweredCorrectly = false,
-                            FlashcardId = 8,
-                            Number = 4,
-                            TestId = 2
-                        });
                 });
 
             modelBuilder.Entity("FlasherData.DataModels.Subject", b =>
@@ -7453,7 +7387,7 @@ namespace FlasherData.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Test_1",
+                            Name = "Security+ SY0-601 Test 1",
                             SubjectId = 1
                         },
                         new
