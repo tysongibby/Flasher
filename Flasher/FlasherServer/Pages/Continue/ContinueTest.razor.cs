@@ -16,9 +16,11 @@ namespace FlasherServer.Pages.Continue
         private IMapper Mapper { get; set; }
         [Inject]
         private IUnitOfWork UnitOfWork { get; set; }
+        [Inject]
+        private NavigationManager NavManager { get; set; }
 
         private ContinueTestPage Page { get; set; } = new ContinueTestPage();
-        private string SelectedTest { get; set; }
+        private string SelectedTestId { get; set; }
         private List<TestDto> TestDtos { get; set; } = new List<TestDto>();
 
         protected override void OnInitialized()
@@ -33,7 +35,7 @@ namespace FlasherServer.Pages.Continue
 
         private void OnValidSubmit()
         {
-
+            NavManager.NavigateTo($"/testflashcards/{SelectedTestId}");
         }
     }
 }

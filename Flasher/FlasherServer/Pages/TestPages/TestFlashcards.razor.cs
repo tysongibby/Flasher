@@ -6,6 +6,7 @@ using FlasherServer.Data.Dtos;
 using FlasherServer.Pages.TestPages.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
@@ -20,23 +21,32 @@ namespace FlasherServer.Pages.TestPages
         private IUnitOfWork UnitOfWork { get; set; }
         [Inject]
         private IMapper Mapper { get; set; }
-        [Inject]        
+        [Inject]
         private NavigationManager NavManager { get; set; }
 
+
+        [Parameter]
+        public int TestId { get; set; }        
+
         private Test Test { get; set; }
-        private QuestionDto QuestionDto { get; set; }
+        private List<Category> Categories { get; set; } = new List<Category>();
+        List<Flashcard> Flashcards { get; set; } = new List<Flashcard>();
+        private List<Question> Questions { get; set; } = new List<Question>();
+        private Question Question { get; set; }
 
         // Study subject of the flashcard currently being displayed
-        private SubjectDto Subject { get; set; } = new SubjectDto();
+        private Subject Subject { get; set; } = new Subject();
 
         // Study category of the flashcard currently being displayed
-        private List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
+        private List<CategoryDto> CategoryDtos { get; set; } = new List<CategoryDto>();
 
         // Flashcard currently being displayed
         private FlashcardDto FlashcardDto { get; set; } = new FlashcardDto();
 
+        List<FlashcardDto> FlashcardDtos { get; set; } = new List<FlashcardDto>();
+
         // List of flashcards for this study session
-        private List<QuestionDto> Questions { get; set; } = new List<QuestionDto>();
+        private List<QuestionDto> QuestionDtos { get; set; } = new List<QuestionDto>();
 
         // Index used to track which flashcard item in the Flashcards list being displayed
         private int CardIndex { get; set; } = 0;
@@ -74,63 +84,55 @@ namespace FlasherServer.Pages.TestPages
 
         protected override void OnInitialized()
         {
-            // get page uri (including query string)
-            Uri uri = new Uri(NavManager.Uri);
-            // get query string from page uri
-            var SubjectAndCategories = QueryHelpers.ParseQuery(uri.Query);            
+            
+            // get test
+            Test = UnitOfWork.Tests.Get(TestId);
+            
+            // get test questions
+            Questions = UnitOfWork.Questions.GetAll().Where(q => q.TestId == Test.Id).ToList();
 
-            // get flashcard subject and categories from query string and add them to Page model         
-            foreach(KeyValuePair<string, StringValues> pair in SubjectAndCategories)
-            {
-                if (pair.Key == "Subject")
-                {
-                    // convert subject from string value to int
-                    int SelectedSubjectId = Int32.Parse(pair.Value);                    
-                    // get Subject Data Model and map to Subject Dto
-                    Subject = (Mapper.Map<SubjectDto>(UnitOfWork.Subjects.Get(SelectedSubjectId)));
-                }
-                else
-                {
-                    // convert category from string value to int
-                    int categoryId = Int32.Parse(pair.Value);
-                    // get Category Data Model and map to Category Dto
-                    Categories.Add(Mapper.Map<CategoryDto>(UnitOfWork.Categories.Get(categoryId)));
-                }                
-            }
-            // get all flashcards for the chosen subject
-            List<Flashcard> flashcards = UnitOfWork.Flashcards.GetAllFlashcardsForSubject((int)Subject.Id).ToList() ;
+            // get subject
+            Subject = UnitOfWork.Subjects.Get(Test.SubjectId);
 
+            // get test categories
+            Categories = UnitOfWork.Categories.GetAll().Where(c => c.SubjectId == Test.SubjectId).ToList();
 
+            // get test flashcards
+            Flashcards = UnitOfWork.Flashcards.GetAll().Where(f => Categories.Contains(UnitOfWork.Categories.Get(f.CategoryId))).ToList();     
+            
             // convert flashcard data model to dto
-            foreach (Flashcard flashcard in flashcards)
+            foreach (Flashcard flashcard in Flashcards)
             {                
-                Questions.Add(Mapper.Map<QuestionDto>(flashcard));
+                FlashcardDtos.Add(Mapper.Map<FlashcardDto>(flashcard));
             }
             // get Flashcard to be displayed on page
-            //FlashcardDto = Mapper<FlashcardDto>(UnitOfWork.Flashcards.Get(Questions[CardIndex].FlashcardId));
+            FlashcardDto = Mapper.Map<FlashcardDto>(Flashcards[CardIndex]);
 
             // set data to be displayed on page
             CardBody = FlashcardDto.Front;
             CardName = FlashcardDto.Name;
             SubjectName = Subject.Name;
+            Question = FlashcardDto.Questions.Where(q => q.TestId == TestId).FirstOrDefault();
             if (FlashcardDto.CategoryId is not null && FlashcardDto.CategoryId != 0)
             {
-                CategoryName = Categories.Where(s => s.Id == FlashcardDto.CategoryId).FirstOrDefault().Name;
-            }
-            //AnsweredCorrectly = Question.AnsweredCorrectly;
+                CategoryName = UnitOfWork.Categories.Where(s => s.Id == FlashcardDto.CategoryId).FirstOrDefault().Name;
+            }            
         }
 
         // set flashcard index next flashcard in sequence that has not already been answered correctly
         private void NextFlashcard()
         {
-            if (CardIndex < Questions.Count - 1)
+            if (CardIndex < FlashcardDtos.Count - 1)
             {
-                if (CardIndex != Questions.Count - 1)
+                if (CardIndex != FlashcardDtos.Count - 1)
                 {
                     CardIndex = FindNextIndex(CardIndex);
-                    //FlashcardDto = Questions[CardIndex];
+                    FlashcardDto = FlashcardDtos[CardIndex];
                     SubjectName = Subject.Name;
                     CategoryName = Categories.Where(s => s.Id == FlashcardDto.CategoryId).FirstOrDefault().Name;
+                    Question = FlashcardDtos[CardIndex].Questions.Where(q => q.TestId == TestId).FirstOrDefault();
+                    // TODO: make sure a test can only have only one of each flashcard i.e. a flashcard can be related
+                    // via FK to multiple questions but each one of those questions must be from a different Test
                 }
                 SetFlashcardFront();
             }
@@ -144,8 +146,7 @@ namespace FlasherServer.Pages.TestPages
             {
                 if (CardIndex != 0)
                 {
-                    CardIndex = FindPreviousIndex(CardIndex);
-                    //FlashcardDto = Questions[CardIndex];
+                    CardIndex = FindPreviousIndex(CardIndex);                    
                 }
                 SetFlashcardFront();
             }
@@ -156,7 +157,7 @@ namespace FlasherServer.Pages.TestPages
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
             int _lastIncorrectAnswerIndex = -100;
-            if (Questions[currentIndex].AnsweredCorrectly == false)
+            if (Question.AnsweredCorrectly == false)
             {
                 _lastIncorrectAnswerIndex = currentIndex;
             }
@@ -165,7 +166,7 @@ namespace FlasherServer.Pages.TestPages
                 int x = currentIndex;
                 while (_lastIncorrectAnswerIndex == -100 && x > 0)
                 {
-                    if (Questions[x].AnsweredCorrectly == false)
+                    if (Question.AnsweredCorrectly == false)
                     {
                         _lastIncorrectAnswerIndex = currentIndex;
                     }
@@ -179,9 +180,10 @@ namespace FlasherServer.Pages.TestPages
             // returns the index of the next incorrect answer (AnsweredCorrectly == false)
             // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
             int i = currentIndex;
-            while (i <= Questions.Count - 1)
+            while (i <= FlashcardDtos.Count - 1)
             {
-                if (i != currentIndex && Questions[i].AnsweredCorrectly == false)
+                Question _question = FlashcardDtos[i].Questions.Where(q => q.TestId == TestId).FirstOrDefault();
+                if (i != currentIndex &&  _question.AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -199,16 +201,16 @@ namespace FlasherServer.Pages.TestPages
         {
             // finds the index of the latest incorrect answer (AnsweredCorrectly == false)
             int _latestIncorrectAnswerIndex = -100;
-            if (Questions[currentIndex].AnsweredCorrectly == false)
+            if (Question.AnsweredCorrectly == false)
             {
                 _latestIncorrectAnswerIndex = currentIndex;
             }
             else
             {
                 int x = currentIndex;
-                while (_latestIncorrectAnswerIndex == -100 && x < Questions.Count - 1)
+                while (_latestIncorrectAnswerIndex == -100 && x < FlashcardDtos.Count - 1)
                 {
-                    if (Questions[x].AnsweredCorrectly == false)
+                    if (Question.AnsweredCorrectly == false)
                     {
                         _latestIncorrectAnswerIndex = currentIndex;
                     }
@@ -224,7 +226,7 @@ namespace FlasherServer.Pages.TestPages
             int i = currentIndex;
             while (i >= 0)
             {
-                if (i != currentIndex && Questions[i].AnsweredCorrectly == false)
+                if (i != currentIndex && Question.AnsweredCorrectly == false)
                 {
                     return i;
                 }
@@ -253,8 +255,7 @@ namespace FlasherServer.Pages.TestPages
         // save answer correctly status to database
         private void UpdateAnswerStatus()
         {
-            AnsweredCorrectly = !AnsweredCorrectly;
-            //FlashcardDto.AnsweredCorrectly = AnsweredCorrectly;
+            AnsweredCorrectly = !AnsweredCorrectly;            
             int pk = UnitOfWork.Flashcards.Update(Mapper.Map<Flashcard>(FlashcardDto));
         }
 
@@ -263,8 +264,7 @@ namespace FlasherServer.Pages.TestPages
         {
 
             CardName = FlashcardDto.Name;
-            CardBody = FlashcardDto.Front;
-            //AnsweredCorrectly = FlashcardDto.AnsweredCorrectly;
+            CardBody = FlashcardDto.Front;            
             CardSide = "Front";
             ShowButton = "Back";
         }
@@ -274,8 +274,7 @@ namespace FlasherServer.Pages.TestPages
         {
 
             CardName = FlashcardDto.Name;
-            CardBody = FlashcardDto.Back;
-            //AnsweredCorrectly = FlashcardDto.AnsweredCorrectly;
+            CardBody = FlashcardDto.Back;            
             CardSide = "Back";
             ShowButton = "Front";
         }

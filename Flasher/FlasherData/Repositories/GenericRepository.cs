@@ -411,8 +411,7 @@ namespace FlasherData.Repositories
             }
         }
 
-        //TODO: add an async counterpart for GetPrimaryKey?
-        //TODO: test GetPrimaryKey, does it work?
+        //TODO: add an async counterpart for GetPrimaryKey?       
         /// <summary>
         /// Finds the primary key of the given entity
         /// </summary>

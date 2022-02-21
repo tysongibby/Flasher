@@ -13,6 +13,7 @@ namespace FlasherServer.Data.Dtos
         public string Name { get; set; }
         public string Front { get; set; }
         public string Back { get; set; }       
-        public int? CategoryId { get; set; }        
+        public int? CategoryId { get; set; }
+        public List<Question> Questions { get; set; }
     }
 }

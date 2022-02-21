@@ -15,9 +15,9 @@
         <div class="row mt-4">
             @foreach (TestDto testDto in TestDtos)
             {
-            <InputRadioGroup @bind-Value="SelectedTest" Name="Test">
+            <InputRadioGroup @bind-Value="SelectedTestId" Name="Test">
                 <div class="row">
-                    <InputRadio Value="testDto.Name" class="form-check-input" Name="Test" type="radio" id="@testDto.Id" />@testDto.Name
+                    <InputRadio Value="testDto.Id" class="form-check-input" Name="Test" type="radio" id="@testDto.Id" />@testDto.Name
                 </div>
             </InputRadioGroup>
             }

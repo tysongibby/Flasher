@@ -1,5 +1,5 @@
 ﻿@* referring page: "ContinueTest" *@
-@* nav URL: "/testflashcards/{Test.Id}")*@
+@* navigation URL: "/testflashcards/{SelectedTestId}");)*@
 @page "/testflashcards/{testid:int}"
 @using FlasherServer.Pages.TestPages.Models
 
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <h6>Cards viewd = @Counter</h6>
+        <h6>Cards viewed = @Counter</h6>
     </div>
 </EditForm>
 
