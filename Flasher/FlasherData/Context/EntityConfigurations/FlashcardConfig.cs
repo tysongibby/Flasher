@@ -124,6 +124,10 @@ namespace FlasherData.Context.EntityConfigurations
             string category5backsData = File.ReadAllText("../FlasherData/TestData/Security+_Category_5_Governance_Risk_and_Compliance_Backs.txt");
             // parse category 5 data from files to lists
             List<string> category5Fronts = category5frontsData.Split('■').ToList();
+            //for (int i = 0; i < category5Fronts.Count ; i++)
+            //{
+            //    category5Fronts[i] = category5Fronts[i].Substring('.');
+            //}
             List<string> category5Backs = category5backsData.Split('■').ToList();
             // create flashcards from category 5 data            
             if (category5Fronts.Count == category5Backs.Count)

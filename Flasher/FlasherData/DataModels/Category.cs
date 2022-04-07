@@ -23,7 +23,7 @@ namespace FlasherData.DataModels
         public int SubjectId { get; set; }
 
         // Navigation property for Flashcard FK relation
-        public ICollection<Flashcard> Flashcards { get; set; }        
+        public virtual ICollection<Flashcard> Flashcards { get; set; }        
 
     }
 }

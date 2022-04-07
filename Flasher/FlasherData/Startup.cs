@@ -18,8 +18,8 @@ namespace FlasherData
 
 
         public void ConfigureServices(IServiceCollection services)
-        {            
-            // SQLite database connection
+        {
+            // SQLite connection and database context
             services.AddDbContext<FlasherContext>(options => options.UseSqlite(Configuration.GetConnectionString("FlasherDb")));
 
             // Dependency Injection

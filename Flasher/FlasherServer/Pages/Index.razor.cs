@@ -20,20 +20,22 @@ namespace FlasherServer.Pages
             List<Question> questions = UnitOfWork.Questions.GetAll().Where(q => q.TestId == 1).ToList();
             if (questions == null || questions.Count < 1)
             {
-                List<Flashcard> flashcards = UnitOfWork.Flashcards.GetAllFlashcardsForSubject(1).ToList();
+                List<Flashcard> flashcards = UnitOfWork.Flashcards.GetAllFlashcardsForSubject(1).OrderBy(f => f.Id).ToList();                
                 questions = new List<Question>() { };
-                int questionCount = 1;
+                int questionIndex = 1;
                 foreach (Flashcard flashcard in flashcards)
                 {
                     Question question = new Question
                     {
                         Id = 0,
-                        FlashcardId = flashcard.Id,
-                        Number = questionCount,
+                        Number = questionIndex,
                         AnsweredCorrectly = false,
-                        TestId = 1
+                        TestId = 1,
+                        FlashcardId = flashcard.Id
                     };
                     questions.Add(question);
+                    Console.WriteLine($"Id: {question.Id}, Q#: {question.Number}, FcId: {question.FlashcardId}");
+                    questionIndex++;
                 }
                 UnitOfWork.Questions.AddRange(questions);
             }

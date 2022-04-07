@@ -97,6 +97,12 @@ namespace FlasherData.Migrations
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Questions_Flashcards_FlashcardId",
+                        column: x => x.FlashcardId,
+                        principalTable: "Flashcards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Questions_Tests_TestId",
                         column: x => x.TestId,
                         principalTable: "Tests",
@@ -142,7 +148,7 @@ namespace FlasherData.Migrations
             migrationBuilder.InsertData(
                 table: "Tests",
                 columns: new[] { "Id", "Archived", "Name", "SubjectId" },
-                values: new object[] { 1, false, "Security+ SY0-601 Test 1", 1 });
+                values: new object[] { 1, false, "Security+ SY0-601: Practice Test 1", 1 });
 
             migrationBuilder.InsertData(
                 table: "Tests",
@@ -4670,6 +4676,11 @@ namespace FlasherData.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Questions_FlashcardId",
+                table: "Questions",
+                column: "FlashcardId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Questions_TestId",
                 table: "Questions",
                 column: "TestId");
@@ -4683,16 +4694,16 @@ namespace FlasherData.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Flashcards");
-
-            migrationBuilder.DropTable(
                 name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Flashcards");
 
             migrationBuilder.DropTable(
                 name: "Tests");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Subjects");

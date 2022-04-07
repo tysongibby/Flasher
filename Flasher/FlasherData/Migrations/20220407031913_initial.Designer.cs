@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlasherData.Migrations
 {
     [DbContext(typeof(FlasherContext))]
-    [Migration("20220216182702_initial")]
+    [Migration("20220407031913_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -7334,6 +7334,8 @@ namespace FlasherData.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FlashcardId");
+
                     b.HasIndex("TestId");
 
                     b.ToTable("Questions");
@@ -7393,7 +7395,7 @@ namespace FlasherData.Migrations
                         {
                             Id = 1,
                             Archived = false,
-                            Name = "Security+ SY0-601 Test 1",
+                            Name = "Security+ SY0-601: Practice Test 1",
                             SubjectId = 1
                         },
                         new
@@ -7425,6 +7427,12 @@ namespace FlasherData.Migrations
 
             modelBuilder.Entity("FlasherData.DataModels.Question", b =>
                 {
+                    b.HasOne("FlasherData.DataModels.Flashcard", null)
+                        .WithMany("Questions")
+                        .HasForeignKey("FlashcardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("FlasherData.DataModels.Test", null)
                         .WithMany("Questions")
                         .HasForeignKey("TestId")
@@ -7444,6 +7452,11 @@ namespace FlasherData.Migrations
             modelBuilder.Entity("FlasherData.DataModels.Category", b =>
                 {
                     b.Navigation("Flashcards");
+                });
+
+            modelBuilder.Entity("FlasherData.DataModels.Flashcard", b =>
+                {
+                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("FlasherData.DataModels.Subject", b =>

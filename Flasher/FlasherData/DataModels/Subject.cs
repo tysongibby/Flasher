@@ -21,7 +21,7 @@ namespace FlasherData.DataModels
         public ICollection<Category> Categories { get; set; }
 
         //Navigation property for Test FK relation
-        public ICollection<Test> Tests { get; set; }
+        public virtual ICollection<Test> Tests { get; set; }
 
     }
 }

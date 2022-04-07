@@ -2,7 +2,6 @@
 using FlasherData.Context;
 using FlasherData.DataModels;
 using FlasherData.Repositories.Interfaces;
-using FlasherServer.Data.Dtos;
 using FlasherServer.Pages.TestPages.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.WebUtilities;
@@ -35,43 +34,17 @@ namespace FlasherServer.Pages.TestPages
         private Question Question { get; set; }
 
         // Study subject of the flashcard currently being displayed
-        private Subject Subject { get; set; } = new Subject();
-
-        // Study category of the flashcard currently being displayed
-        private List<CategoryDto> CategoryDtos { get; set; } = new List<CategoryDto>();
+        private Subject Subject { get; set; } = new Subject();       
 
         // Flashcard currently being displayed
-        private FlashcardDto FlashcardDto { get; set; } = new FlashcardDto();
-
-        List<FlashcardDto> FlashcardDtos { get; set; } = new List<FlashcardDto>();
-
-        // List of flashcards for this study session
-        private List<QuestionDto> QuestionDtos { get; set; } = new List<QuestionDto>();
-
+        private Flashcard Flashcard { get; set; } = new Flashcard();
+        
         // Index used to track which flashcard item in the Flashcards list being displayed
-        private int CardIndex { get; set; } = 0;
+        private int QuestionIndex { get; set; } = 0;
 
         // true if text from front of flashcard (question) is being displayed and
         // false if it is the back (answer) of the flashcard being displayed
         private bool IsFront { get; set; } = true;
-
-        // Stores the text to inform to the user which side of the flashcard is being shown
-        private string CardSide { get; set; } = "Front";
-
-        // Stores the display text for the Name of the current flashcard
-        private string CardName { get; set; } = string.Empty;
-
-        // Stores the display text for the front of back of the current flashcard
-        private string CardBody { get; set; } = string.Empty;
-
-        // Stores the display text for the Subject Name of the current flashcard
-        private string SubjectName { get; set; } = string.Empty;
-
-        // Stores the display text for the Category Name of the current flashcard
-        private string CategoryName { get; set; } = string.Empty;
-
-        // Stores the display text for the button that allows the user to "flip" the card
-        private string ShowButton { get; set; } = "Back";
 
         // Allows user to track if they answered a flashcard correctly or not,
         // true for answered correctly and false for not answered corretly yet
@@ -79,12 +52,14 @@ namespace FlasherServer.Pages.TestPages
 
         private int Counter { get; set; } = 0; //TEMP property until list object features are implemented
         
-        private TestFlashcardsPage Page { get; set; } = new TestFlashcardsPage();
+        private TestFlashcardsPage PageUi { get; set; } = new TestFlashcardsPage();
 
 
         protected override void OnInitialized()
         {
-            
+            PageUi.ShowButton = "Back";
+            PageUi.CardSide = "Front";
+
             // get test
             Test = UnitOfWork.Tests.Get(TestId);
             
@@ -100,60 +75,67 @@ namespace FlasherServer.Pages.TestPages
             // get test flashcards
             Flashcards = UnitOfWork.Flashcards.GetAll().Where(f => Categories.Contains(UnitOfWork.Categories.Get(f.CategoryId))).ToList();     
             
-            // convert flashcard data model to dto
-            foreach (Flashcard flashcard in Flashcards)
-            {                
-                FlashcardDtos.Add(Mapper.Map<FlashcardDto>(flashcard));
-            }
-            // get Flashcard to be displayed on page
-            FlashcardDto = Mapper.Map<FlashcardDto>(Flashcards[CardIndex]);
-
             // set data to be displayed on page
-            CardBody = FlashcardDto.Front;
-            CardName = FlashcardDto.Name;
-            SubjectName = Subject.Name;
-            Question = FlashcardDto.Questions.Where(q => q.TestId == TestId).FirstOrDefault();
-            if (FlashcardDto.CategoryId is not null && FlashcardDto.CategoryId != 0)
+            Question = GetQuestion(true);
+            Flashcard = Flashcards.Find(f => f.Id == Question.FlashcardId);
+            PageUi.QuestionNumber = Question.Number;
+            PageUi.CardBody = Flashcard.Front;
+            PageUi.CardName = Flashcard.Name;
+            PageUi.SubjectName = Subject.Name;
+            //Question = Flashcard.Questions.Where(q => q.TestId == TestId).FirstOrDefault();
+            if (Flashcard.CategoryId != 0)
             {
-                CategoryName = UnitOfWork.Categories.Where(s => s.Id == FlashcardDto.CategoryId).FirstOrDefault().Name;
+                PageUi.CategoryName = UnitOfWork.Categories.Where(s => s.Id == Flashcard.CategoryId).FirstOrDefault().Name;
             }            
         }
 
-        // set flashcard index next flashcard in sequence that has not already been answered correctly
-        private void NextFlashcard()
+        // set flashcard information and increment question to next quetions in sequence that has not already been answered correctly
+        private void GetNextQuestion()
         {
-            if (CardIndex < FlashcardDtos.Count - 1)
-            {
-                if (CardIndex != FlashcardDtos.Count - 1)
-                {
-                    CardIndex = FindNextIndex(CardIndex);
-                    FlashcardDto = FlashcardDtos[CardIndex];
-                    SubjectName = Subject.Name;
-                    CategoryName = Categories.Where(s => s.Id == FlashcardDto.CategoryId).FirstOrDefault().Name;
-                    Question = FlashcardDtos[CardIndex].Questions.Where(q => q.TestId == TestId).FirstOrDefault();
-                    // TODO: make sure a test can only have only one of each flashcard i.e. a flashcard can be related
-                    // via FK to multiple questions but each one of those questions must be from a different Test
-                }
-                SetFlashcardFront();
-            }
-            Counter++;
+            Question = GetQuestion(true);            
         }
 
         // set flashcard index to previous flashcard in sequence that has not been answered correctly
-        private void LastFlashcard()
+        private void GetLastQuestion()
         {
-            if (CardIndex >= 0)
+            Question = GetQuestion(false);
+        }
+
+        /// <summary>
+        /// Returns a question in the test question sequence: use true if next question is required or false if previous question is required
+        /// </summary>
+        /// <param name="next">true if next question is required or false if previous question is required</param>
+        /// <returns>Question</returns>
+        private Question GetQuestion(bool next)
+        {
+            Question question = new Question();
+            if (Questions != null && Questions.Count > 0)
             {
-                if (CardIndex != 0)
+                if (next)
                 {
-                    CardIndex = FindPreviousIndex(CardIndex);                    
+                    if (QuestionIndex < Questions.Count)
+                    {
+                        QuestionIndex++;
+                    }
+                    question = Questions[QuestionIndex];
+                    return question;
                 }
-                SetFlashcardFront();
+                else if (!next)
+                {
+                    if (QuestionIndex > 0)
+                    {
+                        QuestionIndex--;
+                    }                    
+                    question = Questions[QuestionIndex];
+                    return question;
+                }
+
             }
+            return question;
         }
 
         // Finds index of next Flashcard in Flashcards list that has not been answered correctly (has AnsweredCorrectly == false)
-        private int FindNextIndex(int currentIndex)
+        private int GetNextUnansweredQuestionIndex( int currentIndex)
         {
             // finds the index of the last incorrect answer (AnsweredCorrectly == false)
             int _lastIncorrectAnswerIndex = -100;
@@ -180,9 +162,9 @@ namespace FlasherServer.Pages.TestPages
             // returns the index of the next incorrect answer (AnsweredCorrectly == false)
             // if remaining answers are all correct (AnsweredCorrectly == true), _lastIncorrectAnswerIndex is returned
             int i = currentIndex;
-            while (i <= FlashcardDtos.Count - 1)
+            while (i <= Questions.Count - 1)
             {
-                Question _question = FlashcardDtos[i].Questions.Where(q => q.TestId == TestId).FirstOrDefault();
+                Question _question = Flashcards[i].Questions.Where(q => q.TestId == TestId).FirstOrDefault();
                 if (i != currentIndex &&  _question.AnsweredCorrectly == false)
                 {
                     return i;
@@ -208,7 +190,7 @@ namespace FlasherServer.Pages.TestPages
             else
             {
                 int x = currentIndex;
-                while (_latestIncorrectAnswerIndex == -100 && x < FlashcardDtos.Count - 1)
+                while (_latestIncorrectAnswerIndex == -100 && x < Flashcards.Count - 1)
                 {
                     if (Question.AnsweredCorrectly == false)
                     {
@@ -241,77 +223,46 @@ namespace FlasherServer.Pages.TestPages
         // changes page contenct from flaschard front content to flashcard back content and vice versa
         private void FlipFlashcard()
         {
+            ToggleIsFront();
+            SetPageUi();
+        }
+
+        private void ToggleIsFront()
+        {
             IsFront = !IsFront;
-            if (IsFront == true)
+        }
+
+        // if IsFront is true, sets content of page to flashcard front data
+        // if IsFront is false, sets content of pate to flashcard back data
+        private void SetPageUi()
+        {
+            PageUi.CardName = Flashcard.Name;
+            if (IsFront) 
             {
-                SetFlashcardFront();
+                PageUi.CardBody = Flashcard.Front;
+                PageUi.CardSide = "Front";
+                PageUi.ShowButton = "Back";
             }
-            else
+            else if (!IsFront)
             {
-                SetFlashcardBack();
+                PageUi.CardBody = Flashcard.Back;
+                PageUi.CardSide = "Back";
+                PageUi.ShowButton = "Front";
             }
         }
 
         // save answer correctly status to database
         private void UpdateAnswerStatus()
         {
-            AnsweredCorrectly = !AnsweredCorrectly;            
-            int pk = UnitOfWork.Flashcards.Update(Mapper.Map<Flashcard>(FlashcardDto));
+            AnsweredCorrectly = !AnsweredCorrectly;
+            int pk = UnitOfWork.Flashcards.Update(Flashcard);
         }
-
-        // sets content of page to flashcard front data
-        private void SetFlashcardFront()
-        {
-
-            CardName = FlashcardDto.Name;
-            CardBody = FlashcardDto.Front;            
-            CardSide = "Front";
-            ShowButton = "Back";
-        }
-
-        // sets content of page to flashcard back data
-        private void SetFlashcardBack()
-        {
-
-            CardName = FlashcardDto.Name;
-            CardBody = FlashcardDto.Back;            
-            CardSide = "Back";
-            ShowButton = "Front";
-        }
-
-        //private void CategorySelectedSubject(int id)
-        //{
-        //    throw new NotImplementedException("SetSelectedSubject has not yet be implmemented");
-        //}
-
-        //private void LoadSubjectElements()
-        //{
-        //    throw new NotImplementedException("LoadSubjectElements has not yet be implmemented");
-        //}
-
-        //private void LoadSubjectCategories()
-        //{
-        //    SelectedCategories = Categories.Where(s => s.SubjectId == Subject.Id).ToList();
-        //    Console.WriteLine($"Categories for Subject with Id of {Subject.Id} have been loaded.");
-        //}
-
-        //private void OnSelectedSubjectSelect(int id)
-        //{
-        //    SelectedCategoryId = id;
-        //}
-
-        //private void LoadCategoryFlashcards()
-        //{
-        //    throw new NotImplementedException("LoadCategoryFlashcards has not yet be implmemented");
-        //}
 
         private void HandleOnSubmit()
         {
             //TODO: create submit action if needed.
             //throw new NotImplementedException("Submit has not yet be implmemented");
         }
-
-
 
     }
 }

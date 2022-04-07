@@ -28,7 +28,7 @@ namespace FlasherData.DataModels
         public int CategoryId { get; set; }
 
         // Navigation property for Question FK relation
-        public ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
 
     }
 }

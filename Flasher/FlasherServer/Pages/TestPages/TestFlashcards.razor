@@ -3,23 +3,24 @@
 @page "/testflashcards/{testid:int}"
 @using FlasherServer.Pages.TestPages.Models
 
-<EditForm Model="Page" OnSubmit="HandleOnSubmit">
+<EditForm Model="PageUi" OnSubmit="HandleOnSubmit">
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h3>@CardName</h3>
-                <h5>@SubjectName, @CategoryName</h5>
+                <h3>@PageUi.CardName</h3>
+                <h5>@PageUi.SubjectName, @PageUi.CategoryName</h5>
             </div>
             <div class="card-body">
-                <h5>@CardSide</h5>
-                <p>@CardBody</p>
+                <h5>@PageUi.CardSide</h5>
+                <h6>Question @PageUi.QuestionNumber</h6>
+                <p>@PageUi.CardBody</p>
             </div>
             <div class="card-footer">
                 <div class="row-cols-4">
-                    <button class="btn btn-primary col" @onclick="FlipFlashcard">Show @ShowButton</button>
+                    <button class="btn btn-primary col" @onclick="FlipFlashcard">Show @PageUi.ShowButton</button>
                     <div class="btn-group col">
-                        <button class="btn btn-outline-primary ml-4" @onclick="LastFlashcard">Last</button>
-                        <button class="btn btn-outline-primary ml-4" @onclick="NextFlashcard">Next</button>
+                        <button class="btn btn-outline-primary ml-4" @onclick="GetLastQuestion">Last</button>
+                        <button class="btn btn-outline-primary ml-4" @onclick="GetNextQuestion">Next</button>
                     </div>
                 </div>
                 <div class="row mt-4">
