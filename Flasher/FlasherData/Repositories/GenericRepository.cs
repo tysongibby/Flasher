@@ -214,7 +214,7 @@ namespace FlasherData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception($"{nameof(TEntity)} could not be added: {e.Message}");
+                throw new Exception($"{nameof(TEntity)} could not be added: {e.Message}", e);
             }
         }
         /// <summary>
@@ -237,7 +237,7 @@ namespace FlasherData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception($"{nameof(TEntity)} could not be added: {e.Message}");
+                throw new Exception($"{nameof(TEntity)} could not be added: {e.Message}", e);
             }
         }
 
@@ -266,7 +266,7 @@ namespace FlasherData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception($"{nameof(IEnumerable<TEntity>)} could not be added: {e.Message}");
+                throw new Exception($"{nameof(IEnumerable<TEntity>)} could not be added: {e.Message}", e);
             }
         }
         /// <summary>
@@ -294,7 +294,7 @@ namespace FlasherData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception($"{nameof(IEnumerable<TEntity>)} could not be added: {e.Message}");
+                throw new Exception($"{nameof(IEnumerable<TEntity>)} could not be added: {e.Message}", e);
             }
         }
 
@@ -304,22 +304,28 @@ namespace FlasherData.Repositories
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>An integer that is the primary key for the updated entity.</returns>
-        public virtual int Update(TEntity entity)
+        public T Update<T>(T updatedEntity, int key) where T : class
         {
-            if (entity == null)
+            if (updatedEntity == null)
             {
                 throw new ArgumentNullException($"{nameof(TEntity)} entity must not be null");
             }
-
             try
-            {                
-                _context.SaveChanges();
-                return GetPrimaryKey(entity);
+            {
+                T existingEntity = _context.Set<T>().Find(key);
+
+                if (existingEntity != null)
+                {
+                    _context.Entry(existingEntity).CurrentValues.SetValues(updatedEntity);
+                    _context.SaveChanges();
+                }
+                return existingEntity;
             }
             catch (Exception e)
             {
-                throw new Exception($"{nameof(TEntity)} could not be updated: {e.Message}");
+                throw new Exception($"{nameof(TEntity)} could not be updated: {e.Message}", e);
             }
+ 
         }
 
         //TODO: add an async counterpart for Remove? 

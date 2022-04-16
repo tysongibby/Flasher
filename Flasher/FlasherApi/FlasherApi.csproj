@@ -1,46 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\EntityConfigurations\**" />
-    <Compile Remove="Data\Models\**" />
-    <Compile Remove="Data\Repositories\**" />
-    <Compile Remove="Documentation\**" />
-    <Content Remove="Data\EntityConfigurations\**" />
-    <Content Remove="Data\Models\**" />
-    <Content Remove="Data\Repositories\**" />
-    <Content Remove="Documentation\**" />
-    <EmbeddedResource Remove="Data\EntityConfigurations\**" />
-    <EmbeddedResource Remove="Data\Models\**" />
-    <EmbeddedResource Remove="Data\Repositories\**" />
-    <EmbeddedResource Remove="Documentation\**" />
-    <None Remove="Data\EntityConfigurations\**" />
-    <None Remove="Data\Models\**" />
-    <None Remove="Data\Repositories\**" />
-    <None Remove="Documentation\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Data\FlasherContext.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Data\Flasher - answered.db" />
-    <None Remove="Data\Flasher - empty.db" />
-    <None Remove="Data\Flasher.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.13" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
   <ItemGroup>

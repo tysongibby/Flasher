@@ -21,29 +21,29 @@ namespace FlasherData.Repositories
             }
         }
 
-        public override int Update(Subject subjectUpdate)
-        {
-            try
-            {
-                if (subjectUpdate == null)
-                {
-                    throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-                }
-                //TODO: add update entity to BaseRepository.cs if possible                
-                Subject subjectToUpdate = FlasherContext.Subjects.Find(subjectUpdate.Id);
-                if (subjectToUpdate != null)
-                {
-                    subjectToUpdate.Name = subjectUpdate.Name;
-                    FlasherContext.SaveChangesAsync();
-                }
-                return subjectToUpdate.Id;
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"Flashcard could not be updated: {e.Message}");
-            }
+        //public override int Update(Subject subjectUpdate)
+        //{
+        //    try
+        //    {
+        //        if (subjectUpdate == null)
+        //        {
+        //            throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
+        //        }
+        //        //TODO: add update entity to BaseRepository.cs if possible                
+        //        Subject subjectToUpdate = FlasherContext.Subjects.Find(subjectUpdate.Id);
+        //        if (subjectToUpdate != null)
+        //        {
+        //            subjectToUpdate.Name = subjectUpdate.Name;
+        //            FlasherContext.SaveChangesAsync();
+        //        }
+        //        return subjectToUpdate.Id;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new Exception($"Flashcard could not be updated: {e.Message}");
+        //    }
 
 
-        }
+        //}
     }
 }

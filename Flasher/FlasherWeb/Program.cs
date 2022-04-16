@@ -1,31 +1,20 @@
-using System;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
+using Microsoft.AspNetCore.Components.Web;
 using FlasherWeb.Services;
 using FlasherWeb.Services.Interfaces;
+using FlasherWeb;
+using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http;
+using System;
 
-namespace FlasherWeb
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
-           
-            builder.Services.AddScoped(api => new HttpClient { BaseAddress = new Uri(builder.Configuration["api_base_url"]) });
-            builder.Services.AddHttpClient<IFlashcardService, FlashcardService>(fcs => fcs.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
-            builder.Services.AddHttpClient<ISubjectService, SubjectService>(sss => sss.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
-            builder.Services.AddHttpClient<ICategoryService, CategoryService>(ss => ss.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            await builder.Build().RunAsync();
-        }
-    }
-}
+builder.Services.AddScoped(api => new HttpClient { BaseAddress = new Uri(builder.Configuration["api_base_url"]) });
+builder.Services.AddHttpClient<IFlashcardService, FlashcardService>(fcs => fcs.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
+builder.Services.AddHttpClient<ISubjectService, SubjectService>(sss => sss.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
+builder.Services.AddHttpClient<ICategoryService, CategoryService>(ss => ss.BaseAddress = new Uri(builder.Configuration["api_base_url"]));
+
+await builder.Build().RunAsync();
+

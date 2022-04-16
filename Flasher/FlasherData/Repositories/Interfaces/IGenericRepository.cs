@@ -26,7 +26,7 @@ namespace FlasherData.Repositories.Interfaces
         IList<int> AddRange(IEnumerable<TEntity> entities);
         Task<IList<int>> AddRangeAsync(IEnumerable<TEntity> entities);
 
-        int Update(TEntity entity);
+        int Update(TEntity updatedEntity, int key);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
 
