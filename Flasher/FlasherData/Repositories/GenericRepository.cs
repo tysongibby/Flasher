@@ -440,5 +440,9 @@ namespace FlasherData.Repositories
             return nextPrimaryKey;
         }
 
+        public int Update(TEntity updatedEntity, int key)
+        {
+            throw new NotImplementedException("GenericRepository.Update is not yet implemented.");
+        }
     }
 }
