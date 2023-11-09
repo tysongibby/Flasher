@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherApi", "Flasher\FlasherApi\FlasherApi.csproj", "{58D20FC8-6315-48B3-88C8-802EDF849485}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherData", "Flasher\FlasherData\FlasherData.csproj", "{3B4A16FB-3008-4999-862C-15E90C0D6853}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlasherServer", "Flasher\FlasherServer\FlasherServer.csproj", "{E8AFF198-20FD-4DF3-B4E9-3359207C028B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlasherWasm", "Flasher\FlasherWasm\FlasherWasm.csproj", "{ECB69AD3-439A-40DE-8C7A-10523493F9E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{E8AFF198-20FD-4DF3-B4E9-3359207C028B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8AFF198-20FD-4DF3-B4E9-3359207C028B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8AFF198-20FD-4DF3-B4E9-3359207C028B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB69AD3-439A-40DE-8C7A-10523493F9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB69AD3-439A-40DE-8C7A-10523493F9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB69AD3-439A-40DE-8C7A-10523493F9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB69AD3-439A-40DE-8C7A-10523493F9E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
